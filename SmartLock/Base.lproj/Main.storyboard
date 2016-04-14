@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="mnc-SJ-EvV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="up8-U4-flP" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-PE-VEf">
@@ -111,7 +111,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BE8-C7-dWy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oc1-7z-p2K">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-7D-I0P">
@@ -278,12 +278,15 @@
                                 <items>
                                     <navigationItem title="用户信息" id="Omm-Ny-bFI"/>
                                 </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="28" width="333" height="44"/>
+                                </variation>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F6L-0v-8nq">
                                 <rect key="frame" x="0.0" y="72" width="334" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="72" width="334" height="479"/>
+                                    <rect key="frame" x="0.0" y="72" width="333" height="479"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="S7y-Ee-aKJ" id="hPz-kN-Izw"/>
