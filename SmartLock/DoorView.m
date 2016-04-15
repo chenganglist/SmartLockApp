@@ -14,7 +14,7 @@
 #define height [UIScreen mainScreen].bounds.size.height
 
 @interface DoorView (){
-    //    UITableView *tableView;
+    //UITableView *tableView;
     NSMutableArray *peripherals;
     NSMutableArray *peripheralsAD;
     BabyBluetooth *baby;
@@ -36,12 +36,24 @@
     
     //初始化BabyBluetooth 蓝牙库
     baby = [BabyBluetooth shareBabyBluetooth];
+    
     //设置蓝牙委托
     [self babyDelegate];
+    
+    
+    //启动一个定时任务
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerTask) userInfo:nil repeats:YES];
 
 }
 
-
+-(void)timerTask{
+    //用于定时更新界面的显示，定时5s清空数据，剔除不存在的设备
+    NSLog(@"timerTask reloadData");
+    [peripherals removeAllObjects];
+    [peripheralsAD removeAllObjects];
+    [self.tableView  reloadData];
+    
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"viewDidAppear");
@@ -57,10 +69,11 @@
 
 
 #pragma mark -蓝牙配置和操作
-//蓝牙网关初始化和委托方法设置
+//蓝牙网关初始化和委托方法设置，通过Block方法进行操作后续处理
 -(void)babyDelegate{
     
     __weak typeof(self) weakSelf = self;
+    
     [baby setBlockOnCentralManagerDidUpdateState:^(CBCentralManager *central) {
         if (central.state == CBCentralManagerStatePoweredOn) {
             NSLog(@"设备打开成功，开始扫描设备");
@@ -68,11 +81,14 @@
     }];
     
     
+    
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         NSLog(@"搜索到了设备:%@",peripheral.name);
         [weakSelf insertTableView:peripheral advertisementData:advertisementData];
     }];
+    
+    
     
     //设置发现设备的Services的委托
     [baby setBlockOnDiscoverServices:^(CBPeripheral *peripheral, NSError *error) {
@@ -87,6 +103,8 @@
             }
         }
     }];
+    
+    
     //设置发现设service的Characteristics的委托
     [baby setBlockOnDiscoverCharacteristics:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
         NSLog(@"===service name:%@",service.UUID);
@@ -94,10 +112,14 @@
             NSLog(@"charateristic name is :%@",c.UUID);
         }
     }];
+    
+    
     //设置读取characteristics的委托
     [baby setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
         NSLog(@"characteristic name:%@ value is:%@",characteristics.UUID,characteristics.value);
     }];
+    
+    
     //设置发现characteristics的descriptors的委托
     [baby setBlockOnDiscoverDescriptorsForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"===characteristic name:%@",characteristic.service.UUID);
@@ -105,6 +127,7 @@
             NSLog(@"CBDescriptor name is :%@",d.UUID);
         }
     }];
+    
     //设置读取Descriptor的委托
     [baby setBlockOnReadValueForDescriptors:^(CBPeripheral *peripheral, CBDescriptor *descriptor, NSError *error) {
         NSLog(@"Descriptor name:%@ value is:%@",descriptor.characteristic.UUID, descriptor.value);
@@ -113,14 +136,13 @@
     
     //设置查找设备的过滤器
     [baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
-        
         //最常用的场景是查找某一个前缀开头的设备
         //        if ([peripheralName hasPrefix:@"Pxxxx"] ) {
         //            return YES;
         //        }
         //        return NO;
-        
         //设置查找规则是名称大于0 ， the search rule is peripheral.name length > 0
+        
         if (peripheralName.length >0) {
             return YES;
         }
@@ -132,13 +154,13 @@
         NSLog(@"setBlockOnCancelAllPeripheralsConnectionBlock");
     }];
     
+    
     [baby setBlockOnCancelScanBlock:^(CBCentralManager *centralManager) {
         NSLog(@"setBlockOnCancelScanBlock");
     }];
     
     
     /*设置babyOptions
-     
      参数分别使用在下面这几个地方，若不使用参数则传nil
      - [centralManager scanForPeripheralsWithServices:scanForPeripheralsWithServices options:scanForPeripheralsWithOptions];
      - [centralManager connectPeripheral:peripheral options:connectPeripheralWithOptions];
@@ -151,12 +173,16 @@
     
     //示例:
     //扫描选项->CBCentralManagerScanOptionAllowDuplicatesKey:忽略同一个Peripheral端的多个发现事件被聚合成一个发现事件
+    
     NSDictionary *scanForPeripheralsWithOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@YES};
+    
+    
     //连接设备->
     [baby setBabyOptionsWithScanForPeripheralsWithOptions:scanForPeripheralsWithOptions connectPeripheralWithOptions:nil scanForPeripheralsWithServices:nil discoverWithServices:nil discoverWithCharacteristics:nil];
     
-    
 }
+
+
 
 #pragma mark -UIViewController 方法
 //插入table数据
@@ -171,8 +197,9 @@
     }
 }
 
-#pragma mark -table委托 table delegate
 
+
+#pragma mark -table委托 table delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return peripherals.count;
 }
@@ -215,6 +242,9 @@
     return cell;
 }
 
+
+
+//页面跳转
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //停止扫描
     [baby cancelScan];

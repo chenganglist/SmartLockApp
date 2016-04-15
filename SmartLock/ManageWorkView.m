@@ -93,6 +93,7 @@ static NSDictionary * applyInfo;
     return cell;
 }
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *rowString = [self.typelist objectAtIndex:[indexPath row]];
