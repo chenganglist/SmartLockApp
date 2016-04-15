@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-PE-VEf">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="53" y="139" width="51" height="21"/>
@@ -39,7 +39,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-8q-m3B">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="59" y="192" width="34" height="21"/>
@@ -161,7 +161,7 @@
         <!--开门管理-->
         <scene sceneID="s0m-Qs-tIe">
             <objects>
-                <viewController id="W14-Vi-dfi" sceneMemberID="viewController">
+                <viewController id="W14-Vi-dfi" customClass="DoorView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C7L-ls-Jiw"/>
                         <viewControllerLayoutGuide type="bottom" id="brW-eH-KTW"/>
@@ -308,7 +308,7 @@
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">
             <objects>
-                <tabBarController id="hf6-1L-iJS" userLabel="主页" sceneMemberID="viewController">
+                <tabBarController id="hf6-1L-iJS" userLabel="主页" customClass="MainTabView" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="irX-kj-2ts">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
