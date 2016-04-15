@@ -38,15 +38,10 @@
     baby = [BabyBluetooth shareBabyBluetooth];
     //设置蓝牙委托
     [self babyDelegate];
-    
-    //启动一个定时任务
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerTask) userInfo:nil repeats:YES];
+
 }
 
--(void)timerTask{
-    //    NSLog(@"timerTask");
-    
-}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"viewDidAppear");
@@ -54,15 +49,14 @@
     [baby cancelAllPeripheralsConnection];
     //设置委托后直接可以使用，无需等待CBCentralManagerStatePoweredOn状态。
     baby.scanForPeripherals().begin();
-    //baby.scanForPeripherals().begin().stop(10);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     NSLog(@"viewWillDisappear");
 }
 
-#pragma mark -蓝牙配置和操作
 
+#pragma mark -蓝牙配置和操作
 //蓝牙网关初始化和委托方法设置
 -(void)babyDelegate{
     
@@ -72,6 +66,7 @@
             NSLog(@"设备打开成功，开始扫描设备");
         }
     }];
+    
     
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
