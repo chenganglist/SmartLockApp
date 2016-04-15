@@ -61,6 +61,7 @@
     self.tableView.delegate = self;
 }
 
+
 -(void)babyDelegate{
 
     __weak typeof(self)weakSelf = self;
@@ -99,9 +100,9 @@
         NSLog(@"uid:%@,isNotifying:%@",characteristic.UUID,characteristic.isNotifying?@"on":@"off");
     }];
     
-    
-    
 }
+
+
 
 //插入描述
 -(void)insertDescriptor:(CBDescriptor *)descriptor{
@@ -111,6 +112,8 @@
     [indexPahts addObject:indexPaht];
     [self.tableView insertRowsAtIndexPaths:indexPahts withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
+
 //插入读取的值
 -(void)insertReadValues:(CBCharacteristic *)characteristics{
     [self->readValueArray addObject:[NSString stringWithFormat:@"%@",characteristics.value]];
@@ -122,6 +125,7 @@
     [self.tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
+
 //写一个值
 -(void)writeValue{
 //    int i = 1;
@@ -129,6 +133,8 @@
     NSData *data = [NSData dataWithBytes:&b length:sizeof(b)];
     [self.currPeripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
 }
+
+
 //订阅一个值
 -(void)setNotifiy:(id)sender{
     

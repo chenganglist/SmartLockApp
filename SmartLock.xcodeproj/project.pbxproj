@@ -134,7 +134,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
-				696F17491CC086D900BF93BF /* CharacteristicViewController.h CharacteristicViewController */,
+				696F17491CC086D900BF93BF /* DataCommunication */,
 				696F17411CC0862A00BF93BF /* PeripheralInfo */,
 				696F173D1CC084CB00BF93BF /* PeripheralViewContriller */,
 				694277F21CBA404D00F5887E /* LoginView */,
@@ -257,13 +257,13 @@
 			name = PeripheralInfo;
 			sourceTree = "<group>";
 		};
-		696F17491CC086D900BF93BF /* CharacteristicViewController.h CharacteristicViewController */ = {
+		696F17491CC086D900BF93BF /* DataCommunication */ = {
 			isa = PBXGroup;
 			children = (
 				696F174A1CC086F400BF93BF /* CharacteristicViewController.h */,
 				696F174B1CC086F400BF93BF /* CharacteristicViewController.m */,
 			);
-			name = "CharacteristicViewController.h CharacteristicViewController";
+			name = DataCommunication;
 			sourceTree = "<group>";
 		};
 		69DF97951CBF9B3000CB1155 /* ApplyWorkView */ = {

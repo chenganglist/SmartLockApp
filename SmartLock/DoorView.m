@@ -1,7 +1,6 @@
 //
 //  ViewController.m
 //  BabyBluetoothAppDemo
-//
 //  Created by 刘彦玮 on 15/8/1.
 //  Copyright (c) 2015年 刘彦玮. All rights reserved.
 //
@@ -40,7 +39,6 @@
     //设置蓝牙委托
     [self babyDelegate];
     
-    
     //启动一个定时任务
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerTask) userInfo:nil repeats:YES];
 
@@ -48,7 +46,7 @@
 
 -(void)timerTask{
     //用于定时更新界面的显示，定时5s清空数据，剔除不存在的设备
-    NSLog(@"timerTask reloadData");
+    //NSLog(@"timerTask reloadData");
     [peripherals removeAllObjects];
     [peripheralsAD removeAllObjects];
     [self.tableView  reloadData];

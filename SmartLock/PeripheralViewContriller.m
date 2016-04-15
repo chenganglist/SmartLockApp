@@ -23,13 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //初始化
+    //初始化－－－开始连接蓝牙
     self.services = [[NSMutableArray alloc]init];
     [self babyDelegate];
     
     //开始扫描设备
     [self performSelector:@selector(loadData) withObject:nil afterDelay:2];
     NSLog(@"准备连接设备");
+    
+    
     //导航右侧菜单
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [navRightBtn setFrame:CGRectMake(0, 0, 30, 30)];
@@ -89,7 +91,6 @@
             ///插入section到tableview
             [weakSelf insertSectionToTableView:s];
         }
-        
         [rhythm beats];
     }];
     
@@ -98,12 +99,13 @@
         NSLog(@"===service name:%@",service.UUID);
         //插入row到tableview
         [weakSelf insertRowToTableView:service];
-        
     }];
+    
     //设置读取characteristics的委托
     [baby setBlockOnReadValueForCharacteristicAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
         NSLog(@"characteristic name:%@ value is:%@",characteristics.UUID,characteristics.value);
     }];
+    
     //设置发现characteristics的descriptors的委托
     [baby setBlockOnDiscoverDescriptorsForCharacteristicAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"===characteristic name:%@",characteristic.service.UUID);
@@ -111,6 +113,7 @@
             NSLog(@"CBDescriptor name is :%@",d.UUID);
         }
     }];
+    
     //设置读取Descriptor的委托
     [baby setBlockOnReadValueForDescriptorsAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBDescriptor *descriptor, NSError *error) {
         NSLog(@"Descriptor name:%@ value is:%@",descriptor.characteristic.UUID, descriptor.value);
@@ -153,10 +156,12 @@
     [baby setBabyOptionsAtChannel:channelOnPeropheralView scanForPeripheralsWithOptions:scanForPeripheralsWithOptions connectPeripheralWithOptions:connectOptions scanForPeripheralsWithServices:nil discoverWithServices:nil discoverWithCharacteristics:nil];
     
 }
+
+
 -(void)loadData{
     NSLog(@"开始连接设备");
     baby.having(self.currPeripheral).and.channel(channelOnPeropheralView).then.connectToPeripherals().discoverServices().discoverCharacteristics().readValueForCharacteristic().discoverDescriptorsForCharacteristic().readValueForDescriptors().begin();
-    //    baby.connectToPeripheral(self.currPeripheral).begin();
+    //baby.connectToPeripheral(self.currPeripheral).begin();
 }
 
 
@@ -169,6 +174,7 @@
     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:self.services.count-1];
     [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
 
 -(void)insertRowToTableView:(CBService *)service{
     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
@@ -235,12 +241,14 @@
     return title;
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50.0f;
 }
 
 
+//跳转到数据收发页面
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CharacteristicViewController *vc = [[CharacteristicViewController alloc]init];
