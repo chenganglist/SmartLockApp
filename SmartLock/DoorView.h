@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "BabyBluetooth.h"
+#import "PeripheralViewContriller.h"
+
 
 @interface DoorView : UIViewController
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end

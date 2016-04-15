@@ -102,6 +102,68 @@
             </objects>
             <point key="canvasLocation" x="-2920.5" y="-1363"/>
         </scene>
+        <!--开门管理-->
+        <scene sceneID="NOz-hN-wnd">
+            <objects>
+                <navigationController id="fRi-oR-oIl" userLabel="开门管理" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="开门管理" id="Jz5-rF-eoG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LpN-pc-Cd7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5fk-bK-Q9O" kind="relationship" relationship="rootViewController" id="836-Ku-rmB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJy-Z7-Qca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1924.5" y="-473"/>
+        </scene>
+        <!--开门管理-->
+        <scene sceneID="ylj-mX-Vuy">
+            <objects>
+                <viewController id="5fk-bK-Q9O" customClass="DoorView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="78O-Rh-6Gy"/>
+                        <viewControllerLayoutGuide type="bottom" id="OPG-dp-8bs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ch4-c0-fm6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zC8-fa-wnE">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="487"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="5fk-bK-Q9O" id="wkW-vO-GSF"/>
+                                    <outlet property="delegate" destination="5fk-bK-Q9O" id="bHs-nV-bG6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zC8-fa-wnE"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="zC8-fa-wnE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="开门管理" id="sWv-XY-fxi"/>
+                    <connections>
+                        <outlet property="tableView" destination="zC8-fa-wnE" id="JgW-uR-8My"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoY-WY-DgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1924.5" y="297"/>
+        </scene>
         <!--任务申请-->
         <scene sceneID="pOi-6X-0Q4">
             <objects>
@@ -157,46 +219,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-715.5" y="-418"/>
-        </scene>
-        <!--开门管理-->
-        <scene sceneID="s0m-Qs-tIe">
-            <objects>
-                <viewController id="W14-Vi-dfi" customClass="DoorView" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C7L-ls-Jiw"/>
-                        <viewControllerLayoutGuide type="bottom" id="brW-eH-KTW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s2i-p4-Rd0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omE-LO-UOg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="开门管理" id="2vt-9c-jxc"/>
-                                </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="28" width="322" height="44"/>
-                                </variation>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96968954801559448" green="0.99087697267532349" blue="0.99113732576370239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="omE-LO-UOg"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="omE-LO-UOg"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="开门管理" id="5UR-KV-e6E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ICB-QW-fJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1924.5" y="-412"/>
         </scene>
         <!--任务管理-->
         <scene sceneID="FiP-o5-G3m">
@@ -317,8 +339,8 @@
                     <connections>
                         <segue destination="CHG-h4-G46" kind="relationship" relationship="viewControllers" id="ZkO-wg-U64"/>
                         <segue destination="clf-oM-eqY" kind="relationship" relationship="viewControllers" id="NKl-UK-GhB"/>
-                        <segue destination="W14-Vi-dfi" kind="relationship" relationship="viewControllers" id="Joa-VB-GqH"/>
-                        <segue destination="S7y-Ee-aKJ" kind="relationship" relationship="viewControllers" id="J8d-9D-gzh"/>
+                        <segue destination="fRi-oR-oIl" kind="relationship" relationship="viewControllers" id="Nx0-j7-Z9G"/>
+                        <segue destination="S7y-Ee-aKJ" kind="relationship" relationship="viewControllers" id="APg-hX-YZq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ax-cg-8V6" userLabel="First Responder" sceneMemberID="firstResponder"/>
