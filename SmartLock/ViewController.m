@@ -20,7 +20,17 @@ static NSDictionary * successInfo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    tap1.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap1];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewTapped:(UITapGestureRecognizer*)tap1
+{
+    
+    [self.view endEditing:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,13 +42,7 @@ static NSDictionary * successInfo;
     return successInfo;
 }
 
-//点击背景隐藏输入框
--(IBAction)backgroundTap:(id)sender
-{
-    [pwdTextField resignFirstResponder];
-    [uidTextField resignFirstResponder];
-    
-}
+
 
 -(IBAction)uidDidEndOnExit:(id)sender{
     [pwdTextField  becomeFirstResponder];

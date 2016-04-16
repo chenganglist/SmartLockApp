@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2920.5" y="-1363"/>
+            <point key="canvasLocation" x="-3040.5" y="-1351"/>
         </scene>
         <!--开门管理-->
         <scene sceneID="NOz-hN-wnd">

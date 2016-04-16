@@ -22,7 +22,6 @@
 
 
 -(IBAction)loginButtonPressed:(id)sender;
--(IBAction)backgroundTap:(id)sender;
 -(IBAction)uidDidEndOnExit:(id)sender;
 +(NSDictionary*)getSuccessInfo;
 
