@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
+#import "Post.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<PostDelegate>
 {
     UIButton *loginButton;
     UITextField *pwdTextField;
@@ -22,8 +23,7 @@
 
 
 -(IBAction)loginButtonPressed:(id)sender;
--(IBAction)uidDidEndOnExit:(id)sender;
-+(NSDictionary*)getSuccessInfo;
+
 
 @end
 

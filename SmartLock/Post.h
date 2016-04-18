@@ -11,7 +11,10 @@
 
 
 @protocol PostDelegate
+@optional
 -(void)updateUI:(NSDictionary*)data;
+@required
+-(void)alertUI:(NSError*)error;
 @end
 
 
@@ -19,10 +22,16 @@
 {
     id delegate;
     NSDictionary* data;
+    NSError *error;
 }
+
+@property(strong, nonatomic) NSDictionary *data;
+@property(strong, nonatomic) NSError *error;
+
 
 
 -(void)setDelegate:(id)newDelegate;
--(void)PostAPI;
+-(void)postUrl:(NSString*)urlString  withParams:(NSDictionary*)parameters;
+
 
 @end
