@@ -15,7 +15,6 @@
 		694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 694277FF1CBA404D00F5887E /* SmartLock.xcdatamodeld */; };
 		694278031CBA404D00F5887E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694278021CBA404D00F5887E /* Assets.xcassets */; };
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
-		696F17381CC07CDA00BF93BF /* DoorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F17371CC07CDA00BF93BF /* DoorView.m */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		69A688E21CBFE5450017ECA7 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688DF1CBFE5450017ECA7 /* ApplyWorkView.m */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
@@ -69,8 +68,6 @@
 		694278071CBA404D00F5887E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SmartLock/Info.plist; sourceTree = "<group>"; };
 		6942780C1CBA404D00F5887E /* SmartLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		694278171CBA404D00F5887E /* SmartLockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		696F17361CC07CDA00BF93BF /* DoorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoorView.h; path = SmartLock/DoorView.h; sourceTree = "<group>"; };
-		696F17371CC07CDA00BF93BF /* DoorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorView.m; path = SmartLock/DoorView.m; sourceTree = "<group>"; };
 		696F173A1CC07E1E00BF93BF /* MainTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabView.h; path = SmartLock/MainTabView.h; sourceTree = "<group>"; };
 		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
 		69A688DE1CBFE5450017ECA7 /* ApplyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyWorkView.h; path = SmartLock/ApplyWorkView.h; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 				694277F21CBA404D00F5887E /* LoginView */,
 				696F17391CC07DCD00BF93BF /* MainTabView */,
 				69589D751CBFC93F00928F23 /* UserInfoView */,
-				696F17351CC07C7B00BF93BF /* DoorView */,
 				69589D761CBFC9CE00928F23 /* ManageWorkView */,
 				69DF97951CBF9B3000CB1155 /* ApplyWorkView */,
 				694277F31CBA404D00F5887E /* Main */,
@@ -207,15 +203,6 @@
 				694278021CBA404D00F5887E /* Assets.xcassets */,
 			);
 			name = Configuration;
-			sourceTree = "<group>";
-		};
-		696F17351CC07C7B00BF93BF /* DoorView */ = {
-			isa = PBXGroup;
-			children = (
-				696F17361CC07CDA00BF93BF /* DoorView.h */,
-				696F17371CC07CDA00BF93BF /* DoorView.m */,
-			);
-			name = DoorView;
 			sourceTree = "<group>";
 		};
 		696F17391CC07DCD00BF93BF /* MainTabView */ = {
@@ -455,7 +442,6 @@
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
-				696F17381CC07CDA00BF93BF /* DoorView.m in Sources */,
 				694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */,
 				69A688E21CBFE5450017ECA7 /* ApplyWorkView.m in Sources */,
 				694277F51CBA404D00F5887E /* main.m in Sources */,
