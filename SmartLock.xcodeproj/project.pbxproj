@@ -17,10 +17,6 @@
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
 		696F17381CC07CDA00BF93BF /* DoorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F17371CC07CDA00BF93BF /* DoorView.m */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
-		696F17401CC0854B00BF93BF /* PeripheralViewContriller.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173F1CC0854B00BF93BF /* PeripheralViewContriller.m */; };
-		696F17481CC0866300BF93BF /* PeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F17471CC0866300BF93BF /* PeripheralInfo.m */; };
-		698133151CC1CFD800193C69 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698133131CC1CFD800193C69 /* CharacteristicViewController.m */; };
-		698133161CC1CFD800193C69 /* CharacteristicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698133141CC1CFD800193C69 /* CharacteristicViewController.xib */; };
 		69A688E21CBFE5450017ECA7 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688DF1CBFE5450017ECA7 /* ApplyWorkView.m */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
@@ -77,13 +73,6 @@
 		696F17371CC07CDA00BF93BF /* DoorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorView.m; path = SmartLock/DoorView.m; sourceTree = "<group>"; };
 		696F173A1CC07E1E00BF93BF /* MainTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabView.h; path = SmartLock/MainTabView.h; sourceTree = "<group>"; };
 		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
-		696F173E1CC0854B00BF93BF /* PeripheralViewContriller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralViewContriller.h; path = SmartLock/PeripheralViewContriller.h; sourceTree = "<group>"; };
-		696F173F1CC0854B00BF93BF /* PeripheralViewContriller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralViewContriller.m; path = SmartLock/PeripheralViewContriller.m; sourceTree = "<group>"; };
-		696F17461CC0866300BF93BF /* PeripheralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralInfo.h; path = SmartLock/PeripheralInfo.h; sourceTree = "<group>"; };
-		696F17471CC0866300BF93BF /* PeripheralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralInfo.m; path = SmartLock/PeripheralInfo.m; sourceTree = "<group>"; };
-		698133121CC1CFD800193C69 /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacteristicViewController.h; path = SmartLock/CharacteristicViewController.h; sourceTree = "<group>"; };
-		698133131CC1CFD800193C69 /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacteristicViewController.m; path = SmartLock/CharacteristicViewController.m; sourceTree = "<group>"; };
-		698133141CC1CFD800193C69 /* CharacteristicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CharacteristicViewController.xib; path = SmartLock/CharacteristicViewController.xib; sourceTree = "<group>"; };
 		69A688DE1CBFE5450017ECA7 /* ApplyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyWorkView.h; path = SmartLock/ApplyWorkView.h; sourceTree = "<group>"; };
 		69A688DF1CBFE5450017ECA7 /* ApplyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyWorkView.m; path = SmartLock/ApplyWorkView.m; sourceTree = "<group>"; };
 		69A688E01CBFE5450017ECA7 /* ManageWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageWorkView.h; path = SmartLock/ManageWorkView.h; sourceTree = "<group>"; };
@@ -136,9 +125,6 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
-				6981330A1CC1CAD100193C69 /* Characteristic */,
-				696F17411CC0862A00BF93BF /* PeripheralInfo */,
-				696F173D1CC084CB00BF93BF /* PeripheralViewContriller */,
 				694277F21CBA404D00F5887E /* LoginView */,
 				696F17391CC07DCD00BF93BF /* MainTabView */,
 				69589D751CBFC93F00928F23 /* UserInfoView */,
@@ -239,34 +225,6 @@
 				696F173B1CC07E1E00BF93BF /* MainTabView.m */,
 			);
 			name = MainTabView;
-			sourceTree = "<group>";
-		};
-		696F173D1CC084CB00BF93BF /* PeripheralViewContriller */ = {
-			isa = PBXGroup;
-			children = (
-				696F173E1CC0854B00BF93BF /* PeripheralViewContriller.h */,
-				696F173F1CC0854B00BF93BF /* PeripheralViewContriller.m */,
-			);
-			name = PeripheralViewContriller;
-			sourceTree = "<group>";
-		};
-		696F17411CC0862A00BF93BF /* PeripheralInfo */ = {
-			isa = PBXGroup;
-			children = (
-				696F17461CC0866300BF93BF /* PeripheralInfo.h */,
-				696F17471CC0866300BF93BF /* PeripheralInfo.m */,
-			);
-			name = PeripheralInfo;
-			sourceTree = "<group>";
-		};
-		6981330A1CC1CAD100193C69 /* Characteristic */ = {
-			isa = PBXGroup;
-			children = (
-				698133121CC1CFD800193C69 /* CharacteristicViewController.h */,
-				698133131CC1CFD800193C69 /* CharacteristicViewController.m */,
-				698133141CC1CFD800193C69 /* CharacteristicViewController.xib */,
-			);
-			name = Characteristic;
 			sourceTree = "<group>";
 		};
 		69DF97951CBF9B3000CB1155 /* ApplyWorkView */ = {
@@ -417,7 +375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				698133161CC1CFD800193C69 /* CharacteristicViewController.xib in Resources */,
 				694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */,
 				694278031CBA404D00F5887E /* Assets.xcassets in Resources */,
 				694277FE1CBA404D00F5887E /* Main.storyboard in Resources */,
@@ -493,15 +450,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				696F17401CC0854B00BF93BF /* PeripheralViewContriller.m in Sources */,
 				694277FB1CBA404D00F5887E /* ViewController.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
 				696F17381CC07CDA00BF93BF /* DoorView.m in Sources */,
-				696F17481CC0866300BF93BF /* PeripheralInfo.m in Sources */,
-				698133151CC1CFD800193C69 /* CharacteristicViewController.m in Sources */,
 				694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */,
 				69A688E21CBFE5450017ECA7 /* ApplyWorkView.m in Sources */,
 				694277F51CBA404D00F5887E /* main.m in Sources */,
