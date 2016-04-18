@@ -11,10 +11,11 @@
 
 
 @protocol PostDelegate
-@optional
--(void)updateUI:(NSDictionary*)data;
 @required
+-(void)updateUI:(NSDictionary*)data;
 -(void)alertUI:(NSError*)error;
+
+@optional
 @end
 
 

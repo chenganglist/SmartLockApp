@@ -51,8 +51,6 @@
     [post setDelegate:self];
     [post postUrl:urlString withParams:parameters];
     
-    [self performSegueWithIdentifier:@"approve" sender:sender];
-
 }
 
 -(void)alertUI:(NSError *)error
@@ -74,6 +72,37 @@
 -(void)updateUI:(NSDictionary*)data
 {
     NSLog(@"UpdateUI %@",data);
+    NSDictionary* success = data[@"success"];
+    
+    if(success!=nil)
+    {
+        NSDictionary* userInfo = success[@"userInfo"];
+        NSString* userType = userInfo[@"userType"];
+        if( [userType isEqualToString:@"1"] )
+        {
+           [self performSegueWithIdentifier:@"approve" sender:nil];
+            NSLog(@"管理员登录");
+        }else{
+           [self performSegueWithIdentifier:@"approve" sender:nil];
+            NSLog(@"工程师登录");
+        }
+        
+    }else{
+        //初始化提示框；
+        NSData *datas =    [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                        message:data2String preferredStyle: UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //点击按钮的响应事件；
+        }]];
+        
+        //弹出提示框；
+        [self presentViewController:alert animated:true completion:nil];
+    }
+    
 }
 
 

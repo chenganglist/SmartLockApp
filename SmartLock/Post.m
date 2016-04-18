@@ -31,17 +31,16 @@
         NSData *originalData = [result   dataUsingEncoding:NSUTF8StringEncoding];
 
         NSError *errorInfo;
-        //解析出数据放到字典中
-        data = [NSJSONSerialization JSONObjectWithData:originalData
-                options:NSJSONReadingMutableLeaves error:&errorInfo];
-
         if( errorInfo )
         {
-            NSLog(@"解析失败: %@",errorInfo);
-            error = errorInfo;
+            NSLog(@"解析失败,数据格式错误: %@",errorInfo);
+            self.error = errorInfo;
             [delegate alertUI:errorInfo];
         }else
         {
+            //解析出数据放到字典中
+            self.data = [NSJSONSerialization JSONObjectWithData:originalData
+                        options:NSJSONReadingMutableLeaves error:&errorInfo];
             NSLog(@"原始的字典数据: %@",data);
             [delegate updateUI:data];
         }
