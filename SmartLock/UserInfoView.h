@@ -7,16 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface UserInfoView : UIViewController
+#import "Post.h"
+@interface UserInfoView : UIViewController<PostDelegate>
 {
     UITableView *personalTableView;
-    NSArray *datalist;
-    NSArray *typelist;
+    NSMutableArray *datalist;
+    NSMutableArray *typelist;
+    NSMutableArray *keylist;
+    NSIndexPath *curIndexPath;
+    NSString* changedValue;
 }
 
-@property (strong, nonatomic) NSArray *datalist;
-@property (strong, nonatomic) NSArray *typelist;
+@property (strong, nonatomic) NSMutableArray *keylist;
+@property (strong, nonatomic) NSString* changedValue;
+@property (strong, nonatomic) NSIndexPath *curIndexPath;
+@property (strong, nonatomic) NSMutableArray *datalist;
+@property (strong, nonatomic) NSMutableArray *typelist;
 @property(strong, nonatomic) IBOutlet UITableView *personalTableView;
+
++(void)setUserInfo:(NSDictionary*)Info;
++(void)setRegionInfo:(NSDictionary*)Info;
++(void)setPermissionInfo:(NSDictionary*)Info;
++(void)setTokenInfo:(NSDictionary*)Info;
 
 @end

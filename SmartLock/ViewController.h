@@ -15,7 +15,9 @@
     UIButton *loginButton;
     UITextField *pwdTextField;
     UITextField *uidTextField;
+
 }
+
 
 @property(nonatomic,retain) IBOutlet UIButton *loginButton;
 @property(strong, nonatomic) IBOutlet UITextField *uidTextField;

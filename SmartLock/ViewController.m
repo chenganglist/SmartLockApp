@@ -7,16 +7,17 @@
 //
 
 #import "ViewController.h"
-
+#import "UserInfoView.h"
 
 @interface ViewController ()
 
 @end
 
+
 @implementation ViewController
-@synthesize uidTextField = _uidTextField;
-@synthesize pwdTextField = _pwdTextField;
-@synthesize loginButton = _loginButton;
+@synthesize uidTextField;
+@synthesize pwdTextField;
+@synthesize loginButton;
 
 
 - (void)viewDidLoad {
@@ -26,8 +27,8 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do something after loading the view
-    
-    
+    self.uidTextField.text = @"14780413613";
+    self.pwdTextField.text = @"123456";
 }
 
 -(void)viewTapped:(UITapGestureRecognizer*)tap
@@ -61,7 +62,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
            message:info preferredStyle: UIAlertControllerStyleAlert];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"返回登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //点击按钮的响应事件；
     }]];
     
@@ -76,20 +77,26 @@
     
     if(success!=nil)
     {
-        NSDictionary* userInfo = success[@"userInfo"];
-        NSString* userType = userInfo[@"userType"];
-        if( [userType isEqualToString:@"1"] )
+        NSDictionary* muserInfo = success[@"userInfo"];
+        NSString* userType = muserInfo[@"userType"];
+        
+        [UserInfoView setUserInfo:muserInfo];
+        [UserInfoView setRegionInfo:success[@"regionInfo"] ];
+        [UserInfoView setPermissionInfo:success[@"permissions"] ];
+        [UserInfoView setTokenInfo:success[@"tokenInfo"] ];
+        
+        if( [[userType substringFromIndex:2 ] isEqualToString:@"3"] )
         {
-           [self performSegueWithIdentifier:@"approve" sender:nil];
-            NSLog(@"管理员登录");
-        }else{
-           [self performSegueWithIdentifier:@"approve" sender:nil];
+           [self performSegueWithIdentifier:@"mainpage" sender:nil];
             NSLog(@"工程师登录");
+        }else{
+           [self performSegueWithIdentifier:@"mainpage" sender:nil];
+            NSLog(@"管理员登录");
         }
         
     }else{
         //初始化提示框；
-        NSData *datas =    [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
         NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
 
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"

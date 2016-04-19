@@ -3,6 +3,7 @@
     <dependencies>
         <deployment version="2352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -97,14 +98,14 @@
                         <outlet property="loginButton" destination="el5-Nt-H3I" id="83C-FP-aiW"/>
                         <outlet property="pwdTextField" destination="Q9Q-1f-J2u" id="0iT-Za-EM9"/>
                         <outlet property="uidTextField" destination="y1z-ri-Qfh" id="rIi-GG-HwB"/>
-                        <segue destination="hf6-1L-iJS" kind="show" identifier="approve" id="kM5-zD-6fZ"/>
+                        <segue destination="hf6-1L-iJS" kind="show" identifier="mainpage" id="kM5-zD-6fZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3040.5" y="-1351"/>
         </scene>
-        <!--任务申请-->
+        <!--门禁系统-->
         <scene sceneID="pOi-6X-0Q4">
             <objects>
                 <viewController id="clf-oM-eqY" customClass="ApplyWorkView" sceneMemberID="viewController">
@@ -119,10 +120,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFN-dM-5m1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="任务申请" id="dOe-sl-1ek">
-                                        <barButtonItem key="leftBarButtonItem" title="重置任务" id="EG5-Zd-5G8"/>
-                                        <barButtonItem key="rightBarButtonItem" title="申请任务" id="UxU-Vn-8Rs"/>
-                                    </navigationItem>
+                                    <navigationItem title="门禁系统" id="dOe-sl-1ek"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-7D-I0P">
@@ -152,6 +150,7 @@
                                 <exclude reference="EZx-7D-I0P"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6OE-Sg-vot"/>
                                 <exclude reference="87v-DE-sle"/>
                                 <exclude reference="K6a-tW-GQc"/>
                                 <exclude reference="TiM-D2-Yaa"/>
@@ -160,7 +159,6 @@
                                 <exclude reference="HA0-Pa-gKY"/>
                                 <exclude reference="lCn-6B-ftR"/>
                                 <exclude reference="n6J-dx-K5R"/>
-                                <exclude reference="6OE-Sg-vot"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -169,6 +167,7 @@
                                 <include reference="EZx-7D-I0P"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="6OE-Sg-vot"/>
                                 <include reference="87v-DE-sle"/>
                                 <include reference="K6a-tW-GQc"/>
                                 <include reference="TiM-D2-Yaa"/>
@@ -177,11 +176,10 @@
                                 <include reference="HA0-Pa-gKY"/>
                                 <include reference="lCn-6B-ftR"/>
                                 <include reference="n6J-dx-K5R"/>
-                                <include reference="6OE-Sg-vot"/>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="任务申请" id="YhF-v4-JNd"/>
+                    <tabBarItem key="tabBarItem" title="门禁系统" id="YhF-v4-JNd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,7 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7I-ow-Yd6">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7I-ow-Yd6">
                                 <rect key="frame" x="0.0" y="28" width="333" height="44"/>
                                 <items>
                                     <navigationItem id="yVA-cn-Bf9">
@@ -226,7 +224,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-eW-QMA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-eW-QMA">
                                 <rect key="frame" x="0.0" y="72" width="333" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -293,13 +291,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-Ww-uCg">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-Ww-uCg">
                                 <rect key="frame" x="0.0" y="28" width="334" height="44"/>
                                 <items>
                                     <navigationItem title="用户信息" id="Omm-Ny-bFI"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F6L-0v-8nq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F6L-0v-8nq">
                                 <rect key="frame" x="0.0" y="72" width="334" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
