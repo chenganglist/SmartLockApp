@@ -131,6 +131,7 @@ static NSDictionary* tokenInfo;
     NSString *dataString = [self.datalist objectAtIndex:[indexPath row]];
     NSString* keyString = [self.keylist objectAtIndex:[indexPath row]];
     
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:rowString message:nil preferredStyle:UIAlertControllerStyleAlert];
 
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
@@ -139,6 +140,17 @@ static NSDictionary* tokenInfo;
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        if( [keyString isEqualToString:@"userType"] )
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                message:@"该项不可更改" preferredStyle: UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }]];
+            
+            //弹出提示框；
+            [self presentViewController:alert animated:true completion:nil];
+            return;
+        }
         Post* post = [[Post alloc] init];
         NSDictionary *parameters =
             @{@"operatorName":userInfo[@"username"],
