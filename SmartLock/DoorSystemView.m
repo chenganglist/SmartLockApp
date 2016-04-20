@@ -19,14 +19,24 @@
     //开始检测蓝牙
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     //设置蓝牙检测时间
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
 }
 
 -(void) scanTimer:(NSTimer *)timer
 {
-    NSLog(@"5s时间已到，停止扫描蓝牙");
-    [self.tableView reloadData];
+    NSLog(@"10s时间已到，停止扫描蓝牙");
+    //[self.tableView.delegate self];
+    //[self.tableView reloadData];
     [centralManager stopScan];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+       message:@"扫描已完成" preferredStyle: UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+
 }
 
 //第一步：检测蓝牙是否打开，如果打开，则开始扫描外设
@@ -65,11 +75,8 @@
     NSLog(@"－－－－－－－－－－－－－－－－－");
     NSLog(@"－－－－－－－－－－－－－－－－－");
     
-    if(![peripherals containsObject:peripheral]) {
-        [peripherals addObject:peripheral];
-    }
-    
-    
+    [self insertTableView:peripheral];
+
 }
 
 
@@ -99,6 +106,15 @@
         NSLog(@"－－－－－－－－－－－－－－－－－");
         
         [connectPeripheral discoverCharacteristics:nil forService:service];
+        
+        //找到cell并修改detaisText
+        for (int i=0;i<peripherals.count;i++) {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            if ([cell.textLabel.text isEqualToString:peripheral.name]) {
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu个service",(unsigned long)peripheral.services.count];
+            }
+        }
+
     }
 }
 
@@ -148,6 +164,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //初始化蓝牙中心模式设备管理器
+    peripherals = [NSMutableArray arrayWithCapacity:10];
 
 }
 
@@ -162,32 +179,50 @@
 
 #pragma mark -table委托 table delegate
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//插入table数据
+-(void)insertTableView:(CBPeripheral *)peripheral{
+    if(![peripherals containsObject:peripheral]) {
+        NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:peripherals.count inSection:0];
+        [indexPaths addObject:indexPath];
+        [peripherals addObject:peripheral];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
     return peripherals.count;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"];
+    static NSString *TableSampleIdentifier = @"CellIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             TableSampleIdentifier];
     CBPeripheral *peripheral = [peripherals objectAtIndex:indexPath.row];
-
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleValue1
+                reuseIdentifier:TableSampleIdentifier];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = peripheral.name;
+    cell.detailTextLabel.text = @"蓝牙名称";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //peripheral的显示名称
-    cell.textLabel.text = @"蓝牙名称";
-    cell.detailTextLabel.text = peripheral.name;
-    
     return cell;
 }
 
+
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //停止扫描
+    NSLog(@"跳转页面，停止扫描");
     [centralManager stopScan];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

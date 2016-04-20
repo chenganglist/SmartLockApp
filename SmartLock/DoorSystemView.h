@@ -17,7 +17,7 @@
     NSMutableArray *peripherals;
 }
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 
 -(IBAction)searchButtonPressed:(id)sender;
