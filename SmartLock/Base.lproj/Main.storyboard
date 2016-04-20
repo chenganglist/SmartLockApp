@@ -159,16 +159,16 @@
                                 <exclude reference="Q9Q-1f-J2u"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="TQO-R8-vDe"/>
-                                <exclude reference="tyI-1K-xjT"/>
-                                <exclude reference="d9W-y1-61M"/>
-                                <exclude reference="oHI-WH-iu3"/>
-                                <exclude reference="GjZ-mF-TyQ"/>
-                                <exclude reference="TqH-6X-nFl"/>
                                 <exclude reference="DQ0-Po-TzZ"/>
                                 <exclude reference="e2J-3k-KlY"/>
+                                <exclude reference="d9W-y1-61M"/>
+                                <exclude reference="oHI-WH-iu3"/>
                                 <exclude reference="Gpn-Zj-3Y2"/>
                                 <exclude reference="pMV-m5-L9d"/>
+                                <exclude reference="GjZ-mF-TyQ"/>
+                                <exclude reference="TqH-6X-nFl"/>
+                                <exclude reference="TQO-R8-vDe"/>
+                                <exclude reference="tyI-1K-xjT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -180,16 +180,16 @@
                                 <include reference="Q9Q-1f-J2u"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="TQO-R8-vDe"/>
-                                <include reference="tyI-1K-xjT"/>
-                                <include reference="d9W-y1-61M"/>
-                                <include reference="oHI-WH-iu3"/>
-                                <include reference="GjZ-mF-TyQ"/>
-                                <include reference="TqH-6X-nFl"/>
                                 <include reference="DQ0-Po-TzZ"/>
                                 <include reference="e2J-3k-KlY"/>
+                                <include reference="d9W-y1-61M"/>
+                                <include reference="oHI-WH-iu3"/>
                                 <include reference="Gpn-Zj-3Y2"/>
                                 <include reference="pMV-m5-L9d"/>
+                                <include reference="GjZ-mF-TyQ"/>
+                                <include reference="TqH-6X-nFl"/>
+                                <include reference="TQO-R8-vDe"/>
+                                <include reference="tyI-1K-xjT"/>
                             </mask>
                         </variation>
                         <connections>
@@ -295,7 +295,6 @@
                     <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
                     <connections>
                         <outlet property="tableView" destination="EZx-7D-I0P" id="UCt-7f-5q8"/>
-                        <segue destination="lR0-cf-e3j" kind="show" identifier="BLECommunication" id="DtG-Ck-v5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,20 +304,21 @@
         <!--蓝牙通信-->
         <scene sceneID="rGs-gb-yCi">
             <objects>
-                <viewController title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BLECommunication" title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gt3-jg-J71"/>
                         <viewControllerLayoutGuide type="bottom" id="IlN-6b-f9a"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yC8-4E-bhq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-xr-4v2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-xr-4v2">
                                 <rect key="frame" x="20" y="452" width="320" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蓝牙接收的数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLk-DT-zez">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蓝牙接收的数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLk-DT-zez">
                                 <rect key="frame" x="121" y="34" width="85" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="pCc-8B-3CH"/>
@@ -337,7 +337,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-lL-fx0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-lL-fx0">
                                 <rect key="frame" x="55" y="508" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="VLg-QV-lcM"/>
@@ -357,7 +357,7 @@
                                     <action selector="sendButtonPressed:" destination="DJB-GD-56l" eventType="touchUpInside" id="5WM-zH-Kwz"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-BL-9F1">
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-BL-9F1">
                                 <rect key="frame" x="20" y="79" width="320" height="343"/>
                                 <color key="backgroundColor" red="0.97287720440000003" green="0.99106484650000004" blue="0.99126416439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -387,18 +387,18 @@
                                 <exclude reference="CW7-BL-9F1"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="3dw-2N-ffl"/>
+                                <exclude reference="8Eh-Xt-Jjc"/>
+                                <exclude reference="IIw-6b-f9V"/>
+                                <exclude reference="bgo-C0-lSo"/>
+                                <exclude reference="cxZ-Qq-epr"/>
+                                <exclude reference="f7x-iz-KhX"/>
                                 <exclude reference="Ufc-Dn-2rT"/>
                                 <exclude reference="esZ-gt-sAW"/>
                                 <exclude reference="iA0-Wo-bZD"/>
                                 <exclude reference="xq4-p2-JPa"/>
                                 <exclude reference="6v1-3B-jtZ"/>
                                 <exclude reference="kkA-sk-GGD"/>
-                                <exclude reference="bgo-C0-lSo"/>
-                                <exclude reference="cxZ-Qq-epr"/>
-                                <exclude reference="f7x-iz-KhX"/>
-                                <exclude reference="8Eh-Xt-Jjc"/>
-                                <exclude reference="IIw-6b-f9V"/>
-                                <exclude reference="3dw-2N-ffl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -409,18 +409,18 @@
                                 <include reference="CW7-BL-9F1"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="3dw-2N-ffl"/>
+                                <include reference="8Eh-Xt-Jjc"/>
+                                <include reference="IIw-6b-f9V"/>
+                                <include reference="bgo-C0-lSo"/>
+                                <include reference="cxZ-Qq-epr"/>
+                                <include reference="f7x-iz-KhX"/>
                                 <include reference="Ufc-Dn-2rT"/>
                                 <include reference="esZ-gt-sAW"/>
                                 <include reference="iA0-Wo-bZD"/>
                                 <include reference="xq4-p2-JPa"/>
                                 <include reference="6v1-3B-jtZ"/>
                                 <include reference="kkA-sk-GGD"/>
-                                <include reference="bgo-C0-lSo"/>
-                                <include reference="cxZ-Qq-epr"/>
-                                <include reference="f7x-iz-KhX"/>
-                                <include reference="8Eh-Xt-Jjc"/>
-                                <include reference="IIw-6b-f9V"/>
-                                <include reference="3dw-2N-ffl"/>
                             </mask>
                         </variation>
                     </view>

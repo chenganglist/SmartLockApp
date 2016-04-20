@@ -12,9 +12,7 @@
 {
     
     CBCentralManager * centralManager;
-    CBPeripheral * connectPeripheral;
-    CBCharacteristic * writeCharacteristic;
-    NSMutableArray *peripherals;
+    NSMutableArray *peripheralsName;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

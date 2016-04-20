@@ -14,14 +14,18 @@
     CBCentralManager * centralManager;
     CBPeripheral * connectPeripheral;
     CBCharacteristic * writeCharacteristic;
+    
+    NSString* bluetoothName;
     UIButton *sendButton;
     UITextField *sendTextFiled;
     UITextView *tvRecv;
 }
 
+@property (nonatomic, strong) NSString* bluetoothName;
 @property (nonatomic, strong) CBCentralManager * centralManager;
 @property (nonatomic, strong) CBPeripheral * connectPeripheral;
 @property (nonatomic, strong) CBCharacteristic * writeCharacteristic;
+
 
 @property(strong,nonatomic) IBOutlet UIButton *sendButton;
 @property(strong, nonatomic) IBOutlet UITextField *sendTextFiled;

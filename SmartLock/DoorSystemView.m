@@ -20,14 +20,14 @@
     //开始检测蓝牙
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     //设置蓝牙检测时间
-    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
 }
 
 -(void) scanTimer:(NSTimer *)timer
 {
-    NSLog(@"10s时间已到，停止扫描蓝牙");
+    NSLog(@"5s时间已到，停止扫描蓝牙");
     //[self.tableView.delegate self];
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
     [centralManager stopScan];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
@@ -67,97 +67,9 @@
     
     NSLog(@"Device name is: %@",peripheral.name);
     
-    connectPeripheral = peripheral;
-    connectPeripheral.delegate = self;
-    
-    [central connectPeripheral:connectPeripheral options:nil];
-    NSLog(@"step2.1 蓝牙中心 %@",central);
-    NSLog(@"step2.1 连接到的蓝牙: %@", peripheral);
-    NSLog(@"－－－－－－－－－－－－－－－－－");
-    NSLog(@"－－－－－－－－－－－－－－－－－");
-    
     [self insertTableView:peripheral];
 
 }
-
-
-//第三步：发现connectPeripheral中的services
--(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
-    //查找外设中编号为A001的service
-    //NSArray *arr = [[NSArray alloc] initWithObjects:[CBUUID UUIDWithString:@"A001"], nil];
-    //查找外设中的所有service
-    NSArray *arr = [[NSArray alloc] init];
-    
-    [peripheral discoverServices:arr];
-    NSLog(@"step3 蓝牙中心 %@",central);
-    NSLog(@"step3 连接到的蓝牙: %@", peripheral);
-    NSLog(@"－－－－－－－－－－－－－－－－－");
-    NSLog(@"－－－－－－－－－－－－－－－－－");
-    
-}
-
-
-//第四步：列出所有的service，并列出各自包含的characteristic
--(void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error{
-    for(CBService* service in peripheral.services)
-    {
-        NSLog(@"step4 连接到的蓝牙: %@", peripheral);
-        NSLog(@"step4 当前蓝牙的services: %@",service);
-        NSLog(@"－－－－－－－－－－－－－－－－－");
-        NSLog(@"－－－－－－－－－－－－－－－－－");
-        
-        [connectPeripheral discoverCharacteristics:nil forService:service];
-        
-        //找到cell并修改detaisText
-        for (int i=0;i<peripherals.count;i++) {
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            if ([cell.textLabel.text isEqualToString:peripheral.name]) {
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu个service",(unsigned long)peripheral.services.count];
-            }
-        }
-
-    }
-}
-
-
-
-//第五步：列出所有的characteristic
--(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
-    for( CBCharacteristic* characteristic in service.characteristics){
-        
-        //如果收到peripheral发送的数据，将触发第六步
-        NSLog(@"step5 连接到的蓝牙: %@", peripheral);
-        NSLog(@"step5 当前蓝牙的services: %@",service);
-        NSLog(@"step5 当前服务的characteristics: %@",characteristic);
-        NSLog(@"－－－－－－－－－－－－－－－－－");
-        NSLog(@"－－－－－－－－－－－－－－－－－");
-        
-        if( (characteristic.properties & CBCharacteristicPropertyNotify)
-           == CBCharacteristicPropertyNotify )
-        {
-            NSLog(@"可通知");
-            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            
-        }
-        
-        if( (characteristic.properties & CBCharacteristicPropertyWriteWithoutResponse) ==
-           CBCharacteristicPropertyWriteWithoutResponse )
-        {
-            NSLog(@"写无回复");
-            writeCharacteristic = characteristic;
-        }
-        
-        if( (characteristic.properties & CBCharacteristicPropertyRead) ==
-           CBCharacteristicPropertyRead )
-        {
-            NSLog(@"可读");
-        }
-        
-    }
-}
-
-
-
 
 
 
@@ -165,7 +77,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //初始化蓝牙中心模式设备管理器
-    peripherals = [NSMutableArray arrayWithCapacity:10];
+    peripheralsName = [NSMutableArray arrayWithCapacity:10];
 
 }
 
@@ -182,11 +94,11 @@
 
 //插入table数据
 -(void)insertTableView:(CBPeripheral *)peripheral{
-    if(![peripherals containsObject:peripheral]) {
+    if(![peripheralsName containsObject:peripheral.name]) {
         NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:peripherals.count inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:peripheralsName.count inSection:0];
         [indexPaths addObject:indexPath];
-        [peripherals addObject:peripheral];
+        [peripheralsName addObject:peripheral.name];
         [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
@@ -194,7 +106,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return peripherals.count;
+    return peripheralsName.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -204,7 +116,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
                              TableSampleIdentifier];
-    CBPeripheral *peripheral = [peripherals objectAtIndex:indexPath.row];
+    NSString *bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]
@@ -212,7 +124,7 @@
                 reuseIdentifier:TableSampleIdentifier];
     }
     
-    cell.textLabel.text = peripheral.name;
+    cell.textLabel.text = bluetoothName;
     cell.detailTextLabel.text = @"蓝牙名称";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -229,10 +141,11 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //页面跳转
-    BLECommunication *vc = [[BLECommunication alloc]init];
-    //vc.connectPeripheral = [peripherals objectAtIndex:indexPath.row];
-    vc.centralManager = centralManager;
-    vc.writeCharacteristic = writeCharacteristic;
+    BLECommunication *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BLECommunication"];
+    
+    vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
+    
+    NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
     [self.navigationController pushViewController:vc animated:YES];
     vc.title = @"蓝牙通信测试";
 }
