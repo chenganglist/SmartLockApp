@@ -304,7 +304,7 @@
         <!--蓝牙通信-->
         <scene sceneID="rGs-gb-yCi">
             <objects>
-                <viewController title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BLECommunication" title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gt3-jg-J71"/>
                         <viewControllerLayoutGuide type="bottom" id="IlN-6b-f9a"/>

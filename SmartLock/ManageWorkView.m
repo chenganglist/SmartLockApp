@@ -86,7 +86,8 @@ static NSDictionary * applyInfo;
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [self.typelist objectAtIndex:row];
-    cell.detailTextLabel.text = [self.datalist objectAtIndex:row];;
+    cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
