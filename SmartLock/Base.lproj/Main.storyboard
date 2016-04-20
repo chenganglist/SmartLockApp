@@ -4,7 +4,6 @@
         <deployment version="2352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -295,6 +294,7 @@
                     <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
                     <connections>
                         <outlet property="tableView" destination="EZx-7D-I0P" id="UCt-7f-5q8"/>
+                        <segue destination="lR0-cf-e3j" kind="show" identifier="BLECommunication" id="DtG-Ck-v5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,7 +304,7 @@
         <!--蓝牙通信-->
         <scene sceneID="rGs-gb-yCi">
             <objects>
-                <viewController storyboardIdentifier="BLECommunication" title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
+                <viewController title="蓝牙通信" id="lR0-cf-e3j" customClass="BLECommunication" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gt3-jg-J71"/>
                         <viewControllerLayoutGuide type="bottom" id="IlN-6b-f9a"/>
@@ -337,6 +337,12 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-BL-9F1">
+                                <rect key="frame" x="20" y="79" width="320" height="343"/>
+                                <color key="backgroundColor" red="0.97287720440000003" green="0.99106484650000004" blue="0.99126416439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-lL-fx0">
                                 <rect key="frame" x="55" y="508" width="250" height="30"/>
                                 <constraints>
@@ -357,41 +363,33 @@
                                     <action selector="sendButtonPressed:" destination="DJB-GD-56l" eventType="touchUpInside" id="5WM-zH-Kwz"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW7-BL-9F1">
-                                <rect key="frame" x="20" y="79" width="320" height="343"/>
-                                <color key="backgroundColor" red="0.97287720440000003" green="0.99106484650000004" blue="0.99126416439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IlN-6b-f9a" firstAttribute="top" secondItem="CW7-BL-9F1" secondAttribute="bottom" constant="5" id="3dw-2N-ffl"/>
                             <constraint firstItem="6hy-lL-fx0" firstAttribute="centerX" secondItem="LLk-DT-zez" secondAttribute="centerX" id="6v1-3B-jtZ"/>
                             <constraint firstItem="LLk-DT-zez" firstAttribute="centerX" secondItem="CW7-BL-9F1" secondAttribute="centerX" id="8Eh-Xt-Jjc"/>
-                            <constraint firstItem="LLk-DT-zez" firstAttribute="top" secondItem="6hy-lL-fx0" secondAttribute="bottom" constant="10" id="IIw-6b-f9V"/>
+                            <constraint firstItem="LLk-DT-zez" firstAttribute="top" secondItem="6hy-lL-fx0" secondAttribute="bottom" constant="5" id="IIw-6b-f9V"/>
                             <constraint firstItem="Q7a-xr-4v2" firstAttribute="centerX" secondItem="6hy-lL-fx0" secondAttribute="centerX" id="Ufc-Dn-2rT"/>
                             <constraint firstItem="CW7-BL-9F1" firstAttribute="leading" secondItem="yC8-4E-bhq" secondAttribute="leadingMargin" constant="29" id="bgo-C0-lSo"/>
-                            <constraint firstItem="CW7-BL-9F1" firstAttribute="width" secondItem="yC8-4E-bhq" secondAttribute="height" multiplier="151:300" id="cxZ-Qq-epr"/>
-                            <constraint firstItem="Q7a-xr-4v2" firstAttribute="top" secondItem="Gt3-jg-J71" secondAttribute="bottom" constant="30" id="esZ-gt-sAW"/>
+                            <constraint firstItem="Q7a-xr-4v2" firstAttribute="top" secondItem="Gt3-jg-J71" secondAttribute="bottom" constant="20" id="esZ-gt-sAW"/>
                             <constraint firstItem="CW7-BL-9F1" firstAttribute="top" secondItem="LLk-DT-zez" secondAttribute="bottom" constant="5" id="f7x-iz-KhX"/>
                             <constraint firstItem="Q7a-xr-4v2" firstAttribute="centerX" secondItem="yC8-4E-bhq" secondAttribute="centerX" id="iA0-Wo-bZD"/>
-                            <constraint firstItem="6hy-lL-fx0" firstAttribute="top" secondItem="Q7a-xr-4v2" secondAttribute="bottom" constant="8" id="kkA-sk-GGD"/>
+                            <constraint firstItem="6hy-lL-fx0" firstAttribute="top" secondItem="Q7a-xr-4v2" secondAttribute="bottom" constant="5" id="kkA-sk-GGD"/>
                             <constraint firstItem="Q7a-xr-4v2" firstAttribute="leading" secondItem="yC8-4E-bhq" secondAttribute="leadingMargin" constant="35" id="xq4-p2-JPa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Q7a-xr-4v2"/>
                                 <exclude reference="LLk-DT-zez"/>
-                                <exclude reference="6hy-lL-fx0"/>
                                 <exclude reference="CW7-BL-9F1"/>
+                                <exclude reference="6hy-lL-fx0"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3dw-2N-ffl"/>
                                 <exclude reference="8Eh-Xt-Jjc"/>
                                 <exclude reference="IIw-6b-f9V"/>
                                 <exclude reference="bgo-C0-lSo"/>
-                                <exclude reference="cxZ-Qq-epr"/>
                                 <exclude reference="f7x-iz-KhX"/>
                                 <exclude reference="Ufc-Dn-2rT"/>
                                 <exclude reference="esZ-gt-sAW"/>
@@ -405,15 +403,14 @@
                             <mask key="subviews">
                                 <include reference="Q7a-xr-4v2"/>
                                 <include reference="LLk-DT-zez"/>
-                                <include reference="6hy-lL-fx0"/>
                                 <include reference="CW7-BL-9F1"/>
+                                <include reference="6hy-lL-fx0"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3dw-2N-ffl"/>
                                 <include reference="8Eh-Xt-Jjc"/>
                                 <include reference="IIw-6b-f9V"/>
                                 <include reference="bgo-C0-lSo"/>
-                                <include reference="cxZ-Qq-epr"/>
                                 <include reference="f7x-iz-KhX"/>
                                 <include reference="Ufc-Dn-2rT"/>
                                 <include reference="esZ-gt-sAW"/>
