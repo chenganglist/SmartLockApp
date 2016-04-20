@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="clf-oM-eqY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment version="2352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -117,95 +117,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFN-dM-5m1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="门禁系统" id="dOe-sl-1ek"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-7D-I0P">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNh-WQ-VUG">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="搜索电子钥匙"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子钥匙列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-gC-th5">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNh-WQ-VUG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="搜索电子钥匙"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SQi-gC-th5" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" constant="-80" id="45M-TI-4BT"/>
-                            <constraint firstItem="MFN-dM-5m1" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="87v-DE-sle"/>
-                            <constraint firstItem="SQi-gC-th5" firstAttribute="top" secondItem="MFN-dM-5m1" secondAttribute="bottom" constant="16" id="D7S-V4-0Di"/>
+                            <constraint firstItem="SQi-gC-th5" firstAttribute="top" secondItem="cbG-hq-POg" secondAttribute="bottom" constant="26" id="6hY-A9-PkX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EZx-7D-I0P" secondAttribute="trailing" constant="-20" id="HA0-Pa-gKY"/>
-                            <constraint firstItem="MFN-dM-5m1" firstAttribute="leading" secondItem="oc1-7z-p2K" secondAttribute="leadingMargin" constant="-20" id="K6a-tW-GQc"/>
-                            <constraint firstItem="WNh-WQ-VUG" firstAttribute="top" secondItem="MFN-dM-5m1" secondAttribute="bottom" constant="12" id="TMO-Bf-Pge"/>
                             <constraint firstItem="BE8-C7-dWy" firstAttribute="top" secondItem="EZx-7D-I0P" secondAttribute="bottom" id="Tce-HU-uS3"/>
-                            <constraint firstItem="EZx-7D-I0P" firstAttribute="top" secondItem="WNh-WQ-VUG" secondAttribute="bottom" constant="16" id="TfZ-66-e8i"/>
-                            <constraint firstItem="MFN-dM-5m1" firstAttribute="top" secondItem="cbG-hq-POg" secondAttribute="bottom" constant="8" id="TiM-D2-Yaa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MFN-dM-5m1" secondAttribute="trailing" constant="-20" id="cWG-EC-rA7"/>
+                            <constraint firstItem="EZx-7D-I0P" firstAttribute="top" secondItem="WNh-WQ-VUG" secondAttribute="bottom" constant="10" id="TfZ-66-e8i"/>
+                            <constraint firstItem="WNh-WQ-VUG" firstAttribute="top" secondItem="cbG-hq-POg" secondAttribute="bottom" constant="20" id="bIz-WI-7bW"/>
                             <constraint firstItem="WNh-WQ-VUG" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" constant="80" id="dNo-db-0Tc"/>
                             <constraint firstItem="EZx-7D-I0P" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="lCn-6B-ftR"/>
                             <constraint firstItem="EZx-7D-I0P" firstAttribute="leading" secondItem="oc1-7z-p2K" secondAttribute="leadingMargin" constant="-20" id="n6J-dx-K5R"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="MFN-dM-5m1"/>
                                 <exclude reference="EZx-7D-I0P"/>
-                                <exclude reference="WNh-WQ-VUG"/>
                                 <exclude reference="SQi-gC-th5"/>
+                                <exclude reference="WNh-WQ-VUG"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="87v-DE-sle"/>
-                                <exclude reference="K6a-tW-GQc"/>
-                                <exclude reference="TiM-D2-Yaa"/>
-                                <exclude reference="cWG-EC-rA7"/>
                                 <exclude reference="45M-TI-4BT"/>
-                                <exclude reference="D7S-V4-0Di"/>
+                                <exclude reference="6hY-A9-PkX"/>
                                 <exclude reference="HA0-Pa-gKY"/>
                                 <exclude reference="TfZ-66-e8i"/>
                                 <exclude reference="lCn-6B-ftR"/>
                                 <exclude reference="n6J-dx-K5R"/>
-                                <exclude reference="TMO-Bf-Pge"/>
+                                <exclude reference="bIz-WI-7bW"/>
                                 <exclude reference="dNo-db-0Tc"/>
                                 <exclude reference="Tce-HU-uS3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="MFN-dM-5m1"/>
                                 <include reference="EZx-7D-I0P"/>
-                                <include reference="WNh-WQ-VUG"/>
                                 <include reference="SQi-gC-th5"/>
+                                <include reference="WNh-WQ-VUG"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="87v-DE-sle"/>
-                                <include reference="K6a-tW-GQc"/>
-                                <include reference="TiM-D2-Yaa"/>
-                                <include reference="cWG-EC-rA7"/>
                                 <include reference="45M-TI-4BT"/>
-                                <include reference="D7S-V4-0Di"/>
+                                <include reference="6hY-A9-PkX"/>
                                 <include reference="HA0-Pa-gKY"/>
                                 <include reference="TfZ-66-e8i"/>
                                 <include reference="lCn-6B-ftR"/>
                                 <include reference="n6J-dx-K5R"/>
-                                <include reference="TMO-Bf-Pge"/>
+                                <include reference="bIz-WI-7bW"/>
                                 <include reference="dNo-db-0Tc"/>
                                 <include reference="Tce-HU-uS3"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="门禁系统" id="YhF-v4-JNd"/>
+                    <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715.5" y="-418"/>
+            <point key="canvasLocation" x="-738" y="-474"/>
+        </scene>
+        <!--任务管理导航-->
+        <scene sceneID="2d4-r4-oHX">
+            <objects>
+                <navigationController id="2Ly-dE-xBT" userLabel="任务管理导航" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="任务管理" id="RYc-1e-Oll"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IUY-jg-mat">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CHG-h4-G46" kind="relationship" relationship="rootViewController" id="jkj-Eu-o1D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="027-XP-gY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714" y="-1313"/>
         </scene>
         <!--任务管理-->
         <scene sceneID="FiP-o5-G3m">
@@ -219,33 +218,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7I-ow-Yd6">
-                                <rect key="frame" x="0.0" y="28" width="333" height="44"/>
-                                <items>
-                                    <navigationItem id="yVA-cn-Bf9">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" id="OXh-QA-0lk">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xIL-VE-Nht">
-                                                <rect key="frame" x="16" y="7" width="74" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="已审批"/>
-                                            </button>
-                                        </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5mb-3S-cwf">
-                                            <rect key="frame" x="100" y="7" width="133" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="所有工单"/>
-                                        </button>
-                                        <barButtonItem key="rightBarButtonItem" id="ZxJ-C2-bBd">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qj1-24-BVc">
-                                                <rect key="frame" x="243" y="7" width="74" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="未审批"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-eW-QMA">
                                 <rect key="frame" x="0.0" y="72" width="333" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -257,49 +229,38 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="u7I-ow-Yd6" secondAttribute="trailing" constant="-20" id="2sC-Q1-loj"/>
                             <constraint firstItem="1pZ-eW-QMA" firstAttribute="centerX" secondItem="yP8-Y8-n98" secondAttribute="centerX" id="7e6-XL-3X7"/>
                             <constraint firstItem="1pZ-eW-QMA" firstAttribute="leading" secondItem="yP8-Y8-n98" secondAttribute="leadingMargin" constant="-20" id="FDy-92-mNz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1pZ-eW-QMA" secondAttribute="trailing" constant="-20" id="JbB-iO-3bs"/>
-                            <constraint firstItem="u7I-ow-Yd6" firstAttribute="top" secondItem="tcs-RP-bPb" secondAttribute="bottom" constant="8" id="M2K-bi-45W"/>
-                            <constraint firstItem="u7I-ow-Yd6" firstAttribute="centerX" secondItem="yP8-Y8-n98" secondAttribute="centerX" id="ZDK-EI-1ZZ"/>
                             <constraint firstItem="Iqm-gT-KYE" firstAttribute="top" secondItem="1pZ-eW-QMA" secondAttribute="bottom" id="nUP-BG-IdI"/>
-                            <constraint firstItem="1pZ-eW-QMA" firstAttribute="top" secondItem="u7I-ow-Yd6" secondAttribute="bottom" id="oYZ-SA-F16"/>
-                            <constraint firstItem="u7I-ow-Yd6" firstAttribute="leading" secondItem="yP8-Y8-n98" secondAttribute="leadingMargin" constant="-20" id="wVq-0P-1x1"/>
+                            <constraint firstItem="1pZ-eW-QMA" firstAttribute="top" secondItem="tcs-RP-bPb" secondAttribute="bottom" id="tyn-bx-1E7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="2sC-Q1-loj"/>
-                                <exclude reference="M2K-bi-45W"/>
-                                <exclude reference="ZDK-EI-1ZZ"/>
-                                <exclude reference="wVq-0P-1x1"/>
                                 <exclude reference="7e6-XL-3X7"/>
                                 <exclude reference="FDy-92-mNz"/>
                                 <exclude reference="JbB-iO-3bs"/>
-                                <exclude reference="oYZ-SA-F16"/>
+                                <exclude reference="tyn-bx-1E7"/>
                                 <exclude reference="nUP-BG-IdI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="2sC-Q1-loj"/>
-                                <include reference="M2K-bi-45W"/>
-                                <include reference="ZDK-EI-1ZZ"/>
-                                <include reference="wVq-0P-1x1"/>
                                 <include reference="7e6-XL-3X7"/>
                                 <include reference="FDy-92-mNz"/>
                                 <include reference="JbB-iO-3bs"/>
-                                <include reference="oYZ-SA-F16"/>
+                                <include reference="tyn-bx-1E7"/>
                                 <include reference="nUP-BG-IdI"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="任务管理" id="WpS-38-fLA"/>
+                    <navigationItem key="navigationItem" title="任务管理" id="HGi-Om-klI"/>
                     <value key="contentSizeForViewInPopover" type="size" width="392" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3C-P9-pz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715.5" y="-1217"/>
+            <point key="canvasLocation" x="450" y="-1299"/>
         </scene>
         <!--用户信息-->
         <scene sceneID="HcV-3L-83q">
@@ -374,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bl-Jh-LXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715.5" y="-1943"/>
+            <point key="canvasLocation" x="-762" y="-2175"/>
         </scene>
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">
@@ -386,14 +347,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CHG-h4-G46" kind="relationship" relationship="viewControllers" id="ZkO-wg-U64"/>
-                        <segue destination="clf-oM-eqY" kind="relationship" relationship="viewControllers" id="NKl-UK-GhB"/>
-                        <segue destination="S7y-Ee-aKJ" kind="relationship" relationship="viewControllers" id="APg-hX-YZq"/>
+                        <segue destination="2Ly-dE-xBT" kind="relationship" relationship="viewControllers" id="mXd-Zk-wLk"/>
+                        <segue destination="Owg-YS-Exc" kind="relationship" relationship="viewControllers" id="PhP-qn-Nwm"/>
+                        <segue destination="S7y-Ee-aKJ" kind="relationship" relationship="viewControllers" id="SoA-0f-ei9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ax-cg-8V6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1924.5" y="-1363"/>
+        </scene>
+        <!--门禁导航-->
+        <scene sceneID="gC8-P0-8f2">
+            <objects>
+                <navigationController id="Owg-YS-Exc" userLabel="门禁导航" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="门禁系统" id="WXU-6t-Qvx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dfQ-LC-sPx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="clf-oM-eqY" kind="relationship" relationship="rootViewController" id="3c9-05-asC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIk-Bi-zg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1935" y="-474"/>
         </scene>
     </scenes>
 </document>

@@ -25,18 +25,15 @@ static NSDictionary * applyInfo;
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    NSArray *type = [[NSArray alloc] initWithObjects:@"工单1", @"工单2",
-                     @"工单3", @"工单4", @"工单5",@"工单6",
-                     @"工单7",@"工单8",nil];
-    NSString* userType = @"管理员";
+    NSArray *type = [[NSArray alloc] initWithObjects:@"工单申请",
+                     @"已批准工单",
+                     @"待批准工单",
+                     @"所有工单",nil];
     NSArray *mdata = [[NSArray alloc] initWithObjects:
-                      @"成都蜀汉路朗格酒店",
-                      @"金牛跃进村",
-                      @"高新西区电子科大",userType,
-                      @"温江绿道",
-                      @"成都高新南区",
-                      @"绵阳",
-                      @"新疆",
+                      @"",
+                      @"查看",
+                      @"查看",
+                      @"查看",
                       nil];
     
     

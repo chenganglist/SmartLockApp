@@ -11,7 +11,6 @@
 		694277F51CBA404D00F5887E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277F41CBA404D00F5887E /* main.m */; };
 		694277F81CBA404D00F5887E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277F71CBA404D00F5887E /* AppDelegate.m */; };
 		694277FB1CBA404D00F5887E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277FA1CBA404D00F5887E /* ViewController.m */; };
-		694277FE1CBA404D00F5887E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694277FC1CBA404D00F5887E /* Main.storyboard */; };
 		694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 694277FF1CBA404D00F5887E /* SmartLock.xcdatamodeld */; };
 		694278031CBA404D00F5887E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694278021CBA404D00F5887E /* Assets.xcassets */; };
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		69B8FD0D1CC7169000A95981 /* DoorSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* DoorSystemView.m */; };
+		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,6 @@
 		694277F71CBA404D00F5887E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SmartLock/AppDelegate.m; sourceTree = "<group>"; };
 		694277F91CBA404D00F5887E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		694277FA1CBA404D00F5887E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		694277FD1CBA404D00F5887E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		694278001CBA404D00F5887E /* SmartLock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartLock.xcdatamodel; sourceTree = "<group>"; };
 		694278021CBA404D00F5887E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SmartLock/Assets.xcassets; sourceTree = "<group>"; };
 		694278051CBA404D00F5887E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		69AB44921CBB37BD006AEDF0 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B8FD0B1CC7169000A95981 /* DoorSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoorSystemView.h; path = SmartLock/DoorSystemView.h; sourceTree = "<group>"; };
 		69B8FD0C1CC7169000A95981 /* DoorSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorSystemView.m; path = SmartLock/DoorSystemView.m; sourceTree = "<group>"; };
+		69B8FD0F1CC71B2D00A95981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartLock/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E75B510AEF33EB9BEE478B96 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -200,7 +200,7 @@
 		69589D781CBFCC5600928F23 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				694277FC1CBA404D00F5887E /* Main.storyboard */,
+				69B8FD0E1CC71B2D00A95981 /* Main.storyboard */,
 				694278041CBA404D00F5887E /* LaunchScreen.storyboard */,
 				694277FF1CBA404D00F5887E /* SmartLock.xcdatamodeld */,
 				694278071CBA404D00F5887E /* Info.plist */,
@@ -375,9 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
 				694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */,
 				694278031CBA404D00F5887E /* Assets.xcassets in Resources */,
-				694277FE1CBA404D00F5887E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,15 +499,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		694277FC1CBA404D00F5887E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				694277FD1CBA404D00F5887E /* Base */,
-			);
-			name = Main.storyboard;
-			path = SmartLock;
-			sourceTree = "<group>";
-		};
 		694278041CBA404D00F5887E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -515,6 +506,14 @@
 			);
 			name = LaunchScreen.storyboard;
 			path = SmartLock;
+			sourceTree = "<group>";
+		};
+		69B8FD0E1CC71B2D00A95981 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69B8FD0F1CC71B2D00A95981 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
