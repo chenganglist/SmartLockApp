@@ -190,6 +190,16 @@ writeCharacteristic,bluetoothName;
     {
         //NSData *data = [MsgToArduino.text dataUsingEncoding:[NSString defaultCStringEncoding]];
         [connectPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
+        
+        char buffer[20] = {
+            ' ', ' ', ' ', ' ', ' ',
+            ' ', ' ', ' ', ' ', ' ',
+            ' ', ' ', ' ', ' ', ' ',
+            ' ', ' ', ' ', ' ', ' ',};
+        
+        NSData* restData = [NSData dataWithBytes:buffer length:(20-data.length)];
+        
+        [connectPeripheral writeValue:restData forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
     
 }
