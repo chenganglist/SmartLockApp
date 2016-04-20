@@ -14,15 +14,18 @@
     CBCentralManager * centralManager;
     CBPeripheral * connectPeripheral;
     CBCharacteristic * writeCharacteristic;
+    UIButton *sendButton;
+    UITextField *sendTextFiled;
+    UITextView *tvRecv;
 }
 
 @property (nonatomic, strong) CBCentralManager * centralManager;
 @property (nonatomic, strong) CBPeripheral * connectPeripheral;
 @property (nonatomic, strong) CBCharacteristic * writeCharacteristic;
 
-@property(nonatomic,retain) IBOutlet UIButton *sendButton;
+@property(strong,nonatomic) IBOutlet UIButton *sendButton;
 @property(strong, nonatomic) IBOutlet UITextField *sendTextFiled;
-@property (weak, nonatomic) IBOutlet UITextView *tvRecv;
+@property (strong, nonatomic) IBOutlet UITextView *tvRecv;
 
 -(IBAction)sendButtonPressed:(id)sender;
 @end

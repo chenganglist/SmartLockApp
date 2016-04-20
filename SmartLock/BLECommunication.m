@@ -13,7 +13,10 @@
 @end
 
 @implementation BLECommunication
-@synthesize centralManager,connectPeripheral,writeCharacteristic;
+@synthesize centralManager,connectPeripheral,
+writeCharacteristic;
+
+@synthesize sendButton,sendTextFiled,tvRecv;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +54,7 @@
     //NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
     
     NSLog(@"receive: %@", str);
-    self.tvRecv.text= [self.tvRecv.text stringByAppendingString:str];
+    tvRecv.text= [tvRecv.text stringByAppendingString:str];
     
 }
 
@@ -94,20 +97,5 @@
 
 
 
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

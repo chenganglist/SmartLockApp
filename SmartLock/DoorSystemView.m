@@ -7,6 +7,7 @@
 //
 
 #import "DoorSystemView.h"
+#import "BLECommunication.h"
 
 @interface DoorSystemView ()
    
@@ -227,12 +228,13 @@
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//页面跳转
-//    PeripheralViewContriller *vc = [[PeripheralViewContriller alloc]init];
-//    vc.currPeripheral = [peripherals objectAtIndex:indexPath.row];
-//    vc->baby = self->baby;
-//    [self.navigationController pushViewController:vc animated:YES];
-    
+    //页面跳转
+    BLECommunication *vc = [[BLECommunication alloc]init];
+    //vc.connectPeripheral = [peripherals objectAtIndex:indexPath.row];
+    vc.centralManager = centralManager;
+    vc.writeCharacteristic = writeCharacteristic;
+    [self.navigationController pushViewController:vc animated:YES];
+    vc.title = @"蓝牙通信测试";
 }
 
 
