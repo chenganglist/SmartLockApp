@@ -120,6 +120,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-7D-I0P">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="clf-oM-eqY" id="qYu-J3-eaf"/>
+                                    <outlet property="delegate" destination="clf-oM-eqY" id="7DN-Fg-MWM"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子钥匙列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-gC-th5">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -131,6 +135,9 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="搜索电子钥匙"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="uuB-bs-Pzf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,15 +159,15 @@
                                 <exclude reference="WNh-WQ-VUG"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Tce-HU-uS3"/>
+                                <exclude reference="bIz-WI-7bW"/>
+                                <exclude reference="dNo-db-0Tc"/>
                                 <exclude reference="45M-TI-4BT"/>
                                 <exclude reference="6hY-A9-PkX"/>
                                 <exclude reference="HA0-Pa-gKY"/>
                                 <exclude reference="TfZ-66-e8i"/>
                                 <exclude reference="lCn-6B-ftR"/>
                                 <exclude reference="n6J-dx-K5R"/>
-                                <exclude reference="bIz-WI-7bW"/>
-                                <exclude reference="dNo-db-0Tc"/>
-                                <exclude reference="Tce-HU-uS3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -170,20 +177,23 @@
                                 <include reference="WNh-WQ-VUG"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Tce-HU-uS3"/>
+                                <include reference="bIz-WI-7bW"/>
+                                <include reference="dNo-db-0Tc"/>
                                 <include reference="45M-TI-4BT"/>
                                 <include reference="6hY-A9-PkX"/>
                                 <include reference="HA0-Pa-gKY"/>
                                 <include reference="TfZ-66-e8i"/>
                                 <include reference="lCn-6B-ftR"/>
                                 <include reference="n6J-dx-K5R"/>
-                                <include reference="bIz-WI-7bW"/>
-                                <include reference="dNo-db-0Tc"/>
-                                <include reference="Tce-HU-uS3"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="门禁系统" id="YhF-v4-JNd"/>
                     <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
+                    <connections>
+                        <outlet property="tableView" destination="EZx-7D-I0P" id="kND-D0-lua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

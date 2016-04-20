@@ -116,10 +116,6 @@ static NSDictionary* tokenInfo;
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [self.typelist objectAtIndex:row];
-    //UIImage *image = [UIImage imageNamed:@"qq"];
-    //cell.imageView.image = image;
-    //UIImage *highLighedImage = [UIImage imageNamed:@"youdao"];
-    //cell.imageView.highlightedImage = highLighedImage;
     cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+@interface DoorSystemView : UIViewController<UITableViewDataSource,UITableViewDelegate,CBCentralManagerDelegate,CBPeripheralDelegate>
+{
+    
+    CBCentralManager * centralManager;
+    CBPeripheral * connectPeripheral;
+    CBCharacteristic * writeCharacteristic;
+    NSMutableArray *peripherals;
+}
 
-@interface DoorSystemView : UIViewController
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+
+-(IBAction)searchButtonPressed:(id)sender;
 
 @end
