@@ -294,7 +294,6 @@
                     <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
                     <connections>
                         <outlet property="tableView" destination="EZx-7D-I0P" id="UCt-7f-5q8"/>
-                        <segue destination="lR0-cf-e3j" kind="show" identifier="BLECommunication" id="DtG-Ck-v5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,10 +527,6 @@
                     <tabBarItem key="tabBarItem" title="任务管理" id="WpS-38-fLA"/>
                     <navigationItem key="navigationItem" title="任务管理" id="HGi-Om-klI"/>
                     <value key="contentSizeForViewInPopover" type="size" width="392" height="600"/>
-                    <connections>
-                        <segue destination="QFM-0y-f5n" kind="show" identifier="applywork" id="eEO-ba-qmv"/>
-                        <segue destination="aBS-8W-bzU" kind="show" identifier="managework" id="fO4-oE-cZI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3C-P9-pz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -621,7 +616,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Vqf-ti-9Wz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rnP-0i-R0e">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基站地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-mw-WcQ">
@@ -799,12 +794,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cle-dN-B3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.5" y="-2213"/>
+            <point key="canvasLocation" x="1399.5" y="-2249"/>
         </scene>
-        <!--Table View Controller-->
+        <!--工单分类-->
         <scene sceneID="tru-uw-7U2">
             <objects>
-                <tableViewController storyboardIdentifier="managework" id="aBS-8W-bzU" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="managework" id="aBS-8W-bzU" userLabel="工单分类" customClass="ClassifyWorkView" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gtZ-BX-EuX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -814,10 +809,13 @@
                             <outlet property="delegate" destination="aBS-8W-bzU" id="pfI-x7-z8V"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="workTable" destination="gtZ-BX-EuX" id="ZNn-6T-sfg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVE-6i-w3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636.5" y="-1371"/>
+            <point key="canvasLocation" x="1399.5" y="-1556"/>
         </scene>
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">

@@ -113,7 +113,7 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"已批准的工单";
@@ -123,7 +123,7 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"待批准的工单";
@@ -133,7 +133,7 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"驳回的工单";
@@ -143,7 +143,7 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"所有工单";
