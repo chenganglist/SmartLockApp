@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import "UserInfoView.h"
 
-@interface ClassifyWorkView : UITableViewController
+@interface ClassifyWorkView : UITableViewController<PostDelegate>
 {
     UITableView *workTable;
     NSArray *datalist;
-    NSArray *typelist;
+    int classifyType; //0-approved  1-wait  2-reject  3-all
 }
 
 @property (strong, nonatomic) NSArray *datalist;
-@property (strong, nonatomic) NSArray *typelist;
-@property(strong, nonatomic) IBOutlet UITableView *workTable;
+@property (nonatomic, readwrite) int classifyType;
+@property(strong, nonatomic)  IBOutlet UITableView *workTable;
 
 @end

@@ -8,13 +8,13 @@
 
 #import "ManageWorkView.h"
 #import "ViewController.h"
+#import "ClassifyWorkView.h"
+#import "ApplyWorkView.h"
 
 @interface ManageWorkView ()
 
 @end
 
-
-static NSDictionary * applyInfo;
 
 @implementation ManageWorkView
 @synthesize datalist = _datalist;
@@ -102,7 +102,7 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"applywork"];
+            ApplyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"applywork"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"任务申请";
@@ -113,40 +113,45 @@ static NSDictionary * applyInfo;
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"已批准的工单";
+            vc.classifyType = 0;
+            
             break;
         }
         case 2:
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"待批准的工单";
+            vc.classifyType = 1;
             break;
         }
         case 3:
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"驳回的工单";
+            vc.classifyType = 2;
             break;
         }
         case 4:
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"所有工单";
+            vc.classifyType = 3;
             break;
         }
             

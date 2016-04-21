@@ -14,32 +14,126 @@
 
 @implementation ClassifyWorkView
 @synthesize datalist;
-@synthesize typelist;
-@synthesize workTable;
+@synthesize workTable,classifyType;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
-    NSArray *type = [[NSArray alloc] initWithObjects:@"工单申请",
-                     @"已批准工单",
-                     @"待批准工单",
-                     @"驳回的工单",
-                     @"所有工单",nil];
-    NSArray *mdata = [[NSArray alloc] initWithObjects:
-                      @"申请",
-                      @"查看",
-                      @"查看",
-                      @"查看",
-                      @"查看",
-                      nil];
+    switch(classifyType)
+    {
+        //approve
+        case 0:
+        {
+            Post* post = [[Post alloc] init];
+            NSDictionary* userInfo = [UserInfoView getUserInfo];
+            NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
+                @"accessToken":tokenInfo[@"accessToken"],
+                @"applicantName":userInfo[@"username"],
+                @"applicationStatus":@"approve"
+                                         };
+            NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
+            [post setDelegate:self];
+            [post postUrl:urlString withParams:parameters];
+            break;
+        }
+        //wait
+        case 1:
+        {
+            Post* post = [[Post alloc] init];
+            NSDictionary* userInfo = [UserInfoView getUserInfo];
+            NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
+                @"accessToken":tokenInfo[@"accessToken"],
+                @"applicantName":userInfo[@"username"],
+                @"applicationStatus":@"pending"
+                                         };
+            NSString *urlString = @"https://www.smartlock.top/v0/taskAuthFetch";
+            [post setDelegate:self];
+            [post postUrl:urlString withParams:parameters];
+            break;
+        }
+        //reject
+        case 2:
+        {
+            Post* post = [[Post alloc] init];
+            NSDictionary* userInfo = [UserInfoView getUserInfo];
+            NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
+                @"accessToken":tokenInfo[@"accessToken"],
+                @"applicantName":userInfo[@"username"],
+                @"applicationStatus":@"reject"
+                                         };
+            NSString *urlString = @"https://www.smartlock.top/v0/taskAuthFetch";
+            [post setDelegate:self];
+            [post postUrl:urlString withParams:parameters];
+            break;
+        }
+        //all
+        case 3:
+        {
+            Post* post = [[Post alloc] init];
+            NSDictionary* userInfo = [UserInfoView getUserInfo];
+            NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
+                @"accessToken":tokenInfo[@"accessToken"],
+                @"applicantName":userInfo[@"username"],
+                                         };
+            NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
+            [post setDelegate:self];
+            [post postUrl:urlString withParams:parameters];
+            break;
+        }
+            
+    }
     
-    
-    self.datalist = mdata;
-    self.typelist = type;
     
 }
 
+
+-(void)alertUI:(NSError *)error
+{
+    //初始化提示框；
+    NSString* info = [[NSString alloc] initWithFormat:@"错误：%@",error];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+        message:info preferredStyle: UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"返回登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+-(void)updateUI:(NSDictionary*)data
+{
+    NSLog(@"UpdateUI %@",data);
+    NSArray* success = data[@"success"];
+    NSLog(@"拉取的工单信息%@",data);
+    if(success!=nil)
+    {
+        self.datalist = success;
+        NSLog(@"工单长度： %d",success.count);
+        [workTable reloadData];
+    }else{
+        //初始化提示框；
+        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:data2String preferredStyle: UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //点击按钮的响应事件；
+        }]];
+        
+        //弹出提示框；
+        [self presentViewController:alert animated:true completion:nil];
+    }
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +143,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [self.typelist count];
+    return [self.datalist count];
 }
 
 
@@ -67,8 +161,9 @@
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.text = [self.typelist objectAtIndex:row];
-    cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
+    NSDictionary* curData = [self.datalist objectAtIndex:row];
+    cell.textLabel.text = [curData objectForKey:@"applicantName"];
+    cell.detailTextLabel.text = [curData objectForKey:@"applyDescription"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1002" y="-450"/>
+            <point key="canvasLocation" x="-906" y="-482"/>
         </scene>
         <!--蓝牙通信-->
         <scene sceneID="rGs-gb-yCi">
@@ -457,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJB-GD-56l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="-445"/>
+            <point key="canvasLocation" x="66" y="-461"/>
         </scene>
         <!--任务管理导航-->
         <scene sceneID="2d4-r4-oHX">
@@ -605,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bl-Jh-LXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="-2191"/>
+            <point key="canvasLocation" x="-951" y="-2215"/>
         </scene>
         <!--申请工单-->
         <scene sceneID="1sZ-Ap-jJl">
@@ -794,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cle-dN-B3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.5" y="-2213"/>
+            <point key="canvasLocation" x="1228.5" y="-2197"/>
         </scene>
         <!--工单分类-->
         <scene sceneID="tru-uw-7U2">
@@ -810,12 +810,58 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="view" destination="gtZ-BX-EuX" id="u48-K4-dTL"/>
+                        <outlet property="workTable" destination="gtZ-BX-EuX" id="yf2-9z-9wK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVE-6i-w3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636.5" y="-1371"/>
+            <point key="canvasLocation" x="970.5" y="-1420"/>
+        </scene>
+        <!--工单细节-->
+        <scene sceneID="eTB-5N-F7r">
+            <objects>
+                <viewController storyboardIdentifier="workdetails" id="dhd-Qo-rut" userLabel="工单细节" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qRX-w8-rSW"/>
+                        <viewControllerLayoutGuide type="bottom" id="xUI-2Q-xzo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZsH-YT-PFg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bjx-1N-qJz">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="65" y="130" width="240" height="128"/>
+                                </variation>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-J5-7Ba">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="122" y="300" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Bjx-1N-qJz"/>
+                                <exclude reference="oMv-J5-7Ba"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Bjx-1N-qJz"/>
+                                <include reference="oMv-J5-7Ba"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEj-TR-rOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2362.5" y="-1403"/>
         </scene>
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">
@@ -834,7 +880,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ax-cg-8V6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1924.5" y="-1363"/>
+            <point key="canvasLocation" x="-1900.5" y="-1351"/>
         </scene>
         <!--门禁导航-->
         <scene sceneID="gC8-P0-8f2">
@@ -851,7 +897,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sIk-Bi-zg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1935" y="-474"/>
+            <point key="canvasLocation" x="-1924.5" y="-474"/>
         </scene>
     </scenes>
 </document>
