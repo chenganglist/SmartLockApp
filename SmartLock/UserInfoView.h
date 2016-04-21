@@ -29,5 +29,9 @@
 +(void)setRegionInfo:(NSDictionary*)Info;
 +(void)setPermissionInfo:(NSDictionary*)Info;
 +(void)setTokenInfo:(NSDictionary*)Info;
++(NSMutableDictionary*)getUserInfo;
++(NSMutableDictionary*)getRegionInfo;
++(NSMutableDictionary*)getPermissionInfo;
++(NSMutableDictionary*)getTokenInfo;
 
 @end

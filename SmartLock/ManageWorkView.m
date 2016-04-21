@@ -31,7 +31,7 @@ static NSDictionary * applyInfo;
                      @"驳回的工单",
                      @"所有工单",nil];
     NSArray *mdata = [[NSArray alloc] initWithObjects:
-                      @"",
+                      @"申请",
                       @"查看",
                       @"查看",
                       @"查看",

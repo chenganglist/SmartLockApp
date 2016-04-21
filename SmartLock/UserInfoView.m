@@ -7,10 +7,10 @@
 //
 
 #import "UserInfoView.h"
-static NSDictionary* userInfo;
-static NSDictionary* regionInfo;
-static NSDictionary* permissionInfo;
-static NSDictionary* tokenInfo;
+static NSMutableDictionary* userInfo;
+static NSMutableDictionary* regionInfo;
+static NSMutableDictionary* permissionInfo;
+static NSMutableDictionary* tokenInfo;
 
 @interface UserInfoView ()
 
@@ -23,25 +23,48 @@ static NSDictionary* tokenInfo;
 
 +(void)setUserInfo:(NSDictionary*)Info
 {
-    userInfo = Info;
+    userInfo = [NSMutableDictionary dictionaryWithDictionary:Info];
 }
 +(void)setRegionInfo:(NSDictionary*)Info
 {
-    regionInfo = Info;
+    regionInfo = [NSMutableDictionary dictionaryWithDictionary:Info];
 }
 +(void)setPermissionInfo:(NSDictionary*)Info
 {
-    permissionInfo = Info;
+    permissionInfo = [NSMutableDictionary dictionaryWithDictionary:Info];
 }
 +(void)setTokenInfo:(NSDictionary*)Info
 {
-    tokenInfo = Info;
+    tokenInfo = [NSMutableDictionary dictionaryWithDictionary:Info];
+}
+
++(NSMutableDictionary*)getUserInfo
+{
+    return userInfo;
+}
+
++(NSMutableDictionary*)getRegionInfo
+{
+    return regionInfo;
+}
+
++(NSMutableDictionary*)getPermissionInfo
+{
+    return permissionInfo;
+}
+
++(NSMutableDictionary*)getTokenInfo
+{
+    return tokenInfo;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    userInfo = [NSMutableDictionary dictionaryWithCapacity:10];
+    regionInfo  = [NSMutableDictionary dictionaryWithCapacity:10];
+    permissionInfo  = [NSMutableDictionary dictionaryWithCapacity:10];
+    tokenInfo = [NSMutableDictionary dictionaryWithCapacity:10];
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"用户名", @"真实姓名",
                      @"手机号", @"用户类型", @"公司",@"公司组",
                     @"所属地级区域",@"所属县级区域",nil];
@@ -202,9 +225,11 @@ static NSDictionary* tokenInfo;
         
         [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
         {
+            NSString* key = [self.keylist objectAtIndex:self.curIndexPath.row];
+            [userInfo setObject:self.changedValue forKey:key];
+            
             [self.datalist replaceObjectAtIndex:[self.curIndexPath row]
                     withObject:self.changedValue ];
-            
             
             NSIndexPath *mindexPath=[NSIndexPath indexPathForRow:[self.curIndexPath row] inSection:0];
             [personalTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:mindexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
