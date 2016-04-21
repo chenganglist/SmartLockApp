@@ -794,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cle-dN-B3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399.5" y="-2249"/>
+            <point key="canvasLocation" x="1624.5" y="-2213"/>
         </scene>
         <!--工单分类-->
         <scene sceneID="tru-uw-7U2">
@@ -810,12 +810,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="workTable" destination="gtZ-BX-EuX" id="ZNn-6T-sfg"/>
+                        <outlet property="view" destination="gtZ-BX-EuX" id="u48-K4-dTL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVE-6i-w3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399.5" y="-1556"/>
+            <point key="canvasLocation" x="1636.5" y="-1371"/>
         </scene>
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">
