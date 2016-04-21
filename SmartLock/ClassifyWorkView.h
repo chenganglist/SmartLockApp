@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "UserInfoView.h"
+#import "WorkDetailView.h"
 
 @interface ClassifyWorkView : UITableViewController<PostDelegate>
 {

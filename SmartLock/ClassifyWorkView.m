@@ -172,7 +172,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%d row is selected",indexPath.row);
+    WorkDetailView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"workdetails"];
+    vc.workData = [self.datalist objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+    vc.title = @"工单详情";
 }
+
 
 
 @end
