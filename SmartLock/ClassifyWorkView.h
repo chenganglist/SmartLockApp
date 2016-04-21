@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClassifyWorkView : UIViewController
+@interface ClassifyWorkView : UITableViewController
+
 
 @end

@@ -61,10 +61,6 @@ static NSMutableDictionary* tokenInfo;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    userInfo = [NSMutableDictionary dictionaryWithCapacity:10];
-    regionInfo  = [NSMutableDictionary dictionaryWithCapacity:10];
-    permissionInfo  = [NSMutableDictionary dictionaryWithCapacity:10];
-    tokenInfo = [NSMutableDictionary dictionaryWithCapacity:10];
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"用户名", @"真实姓名",
                      @"手机号", @"用户类型", @"公司",@"公司组",
                     @"所属地级区域",@"所属县级区域",nil];
