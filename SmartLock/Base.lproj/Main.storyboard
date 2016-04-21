@@ -502,9 +502,7 @@
                     <value key="contentSizeForViewInPopover" type="size" width="392" height="600"/>
                     <connections>
                         <segue destination="QFM-0y-f5n" kind="show" identifier="applywork" id="eEO-ba-qmv"/>
-                        <segue destination="aBS-8W-bzU" kind="show" identifier="approvedwork" id="fO4-oE-cZI"/>
-                        <segue destination="ZQc-vn-Zw4" kind="show" identifier="waitapprovework" id="vcR-GK-SHb"/>
-                        <segue destination="H7c-vc-5iN" kind="show" identifier="allwork" id="xU1-mR-4oZ"/>
+                        <segue destination="aBS-8W-bzU" kind="show" identifier="managework" id="fO4-oE-cZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3C-P9-pz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -589,25 +587,27 @@
         <!--View Controller-->
         <scene sceneID="1sZ-Ap-jJl">
             <objects>
-                <viewController id="QFM-0y-f5n" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="applywork" id="QFM-0y-f5n" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ton-qo-o1M"/>
                         <viewControllerLayoutGuide type="bottom" id="e6z-p5-8qc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gz0-4n-lbO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cle-dN-B3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940.5" y="-2549"/>
+            <point key="canvasLocation" x="1624.5" y="-2213"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="tru-uw-7U2">
             <objects>
-                <tableViewController id="aBS-8W-bzU" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="managework" id="aBS-8W-bzU" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gtZ-BX-EuX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -618,41 +618,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVE-6i-w3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536.5" y="-2645"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="q8U-cJ-I7I">
-            <objects>
-                <tableViewController id="ZQc-vn-Zw4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dvo-Oa-0W5">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="ZQc-vn-Zw4" id="jaw-Cw-CBP"/>
-                            <outlet property="delegate" destination="ZQc-vn-Zw4" id="3qr-dZ-5o3"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XNO-2S-KHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2440.5" y="-1789"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="yo5-dh-wgq">
-            <objects>
-                <tableViewController id="H7c-vc-5iN" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="g5E-zI-eJw">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="H7c-vc-5iN" id="KrD-Eb-A8G"/>
-                            <outlet property="delegate" destination="H7c-vc-5iN" id="E7x-wK-053"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lyr-it-nU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2392.5" y="-1011"/>
+            <point key="canvasLocation" x="1636.5" y="-1371"/>
         </scene>
         <!--主页-->
         <scene sceneID="7FZ-nH-NRy">

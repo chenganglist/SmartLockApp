@@ -28,9 +28,11 @@ static NSDictionary * applyInfo;
     NSArray *type = [[NSArray alloc] initWithObjects:@"工单申请",
                      @"已批准工单",
                      @"待批准工单",
+                     @"驳回的工单",
                      @"所有工单",nil];
     NSArray *mdata = [[NSArray alloc] initWithObjects:
                       @"",
+                      @"查看",
                       @"查看",
                       @"查看",
                       @"查看",
@@ -94,19 +96,62 @@ static NSDictionary * applyInfo;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *rowString = [self.typelist objectAtIndex:[indexPath row]];
-    NSString *dataString = [self.datalist objectAtIndex:[indexPath row]];
-    
-    //初始化提示框；
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:rowString
-                                                                   message:dataString
-                                                            preferredStyle:  UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //点击按钮的响应事件；
-    }]];
-    
-    //弹出提示框；
-    [self presentViewController:alert animated:true completion:nil];
+    switch(indexPath.row)
+    {
+        case 0:
+        {
+            NSLog(@" %ld",(long)indexPath.row);
+            //页面跳转
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"applywork"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"任务申请";
+
+            break;
+        }
+        case 1:
+        {
+            NSLog(@" %ld",(long)indexPath.row);
+            //页面跳转
+            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"已批准的工单";
+            break;
+        }
+        case 2:
+        {
+            NSLog(@" %ld",(long)indexPath.row);
+            //页面跳转
+            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"待批准的工单";
+            break;
+        }
+        case 3:
+        {
+            NSLog(@" %ld",(long)indexPath.row);
+            //页面跳转
+            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"驳回的工单";
+            break;
+        }
+        case 4:
+        {
+            NSLog(@" %ld",(long)indexPath.row);
+            //页面跳转
+            UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"所有工单";
+            break;
+        }
+            
+    }
+
 }
 
 
