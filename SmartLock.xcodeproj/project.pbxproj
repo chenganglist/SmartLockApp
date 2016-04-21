@@ -16,6 +16,8 @@
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
+		698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177EF1CC87146009C7120 /* ApplyWorkView.m */; };
+		698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177F21CC8715E009C7120 /* ClassifyWorkView.m */; };
 		6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 698569491CC7703700A2E3F8 /* BLECommunication.m */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		69B8FD0D1CC7169000A95981 /* DoorSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* DoorSystemView.m */; };
@@ -73,6 +75,10 @@
 		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
 		697662A71CC4DFF700FFD793 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = SmartLock/Post.h; sourceTree = "<group>"; };
 		697662A81CC4DFF700FFD793 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = SmartLock/Post.m; sourceTree = "<group>"; };
+		698177EE1CC87146009C7120 /* ApplyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyWorkView.h; path = SmartLock/ApplyWorkView.h; sourceTree = "<group>"; };
+		698177EF1CC87146009C7120 /* ApplyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyWorkView.m; path = SmartLock/ApplyWorkView.m; sourceTree = "<group>"; };
+		698177F11CC8715E009C7120 /* ClassifyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassifyWorkView.h; path = SmartLock/ClassifyWorkView.h; sourceTree = "<group>"; };
+		698177F21CC8715E009C7120 /* ClassifyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassifyWorkView.m; path = SmartLock/ClassifyWorkView.m; sourceTree = "<group>"; };
 		698569481CC7703700A2E3F8 /* BLECommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLECommunication.h; path = SmartLock/BLECommunication.h; sourceTree = "<group>"; };
 		698569491CC7703700A2E3F8 /* BLECommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLECommunication.m; path = SmartLock/BLECommunication.m; sourceTree = "<group>"; };
 		69A688E01CBFE5450017ECA7 /* ManageWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageWorkView.h; path = SmartLock/ManageWorkView.h; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				698177ED1CC86BD6009C7120 /* ApplyWork */,
+				698177EC1CC86BC2009C7120 /* ClassifyWork */,
 				698569471CC7701200A2E3F8 /* BLECommunication */,
 				69B8FD0A1CC7160600A95981 /* DoorSystem */,
 				697662A61CC4DFCD00FFD793 /* PostDelegate */,
@@ -229,6 +237,24 @@
 				697662A81CC4DFF700FFD793 /* Post.m */,
 			);
 			name = PostDelegate;
+			sourceTree = "<group>";
+		};
+		698177EC1CC86BC2009C7120 /* ClassifyWork */ = {
+			isa = PBXGroup;
+			children = (
+				698177F11CC8715E009C7120 /* ClassifyWorkView.h */,
+				698177F21CC8715E009C7120 /* ClassifyWorkView.m */,
+			);
+			name = ClassifyWork;
+			sourceTree = "<group>";
+		};
+		698177ED1CC86BD6009C7120 /* ApplyWork */ = {
+			isa = PBXGroup;
+			children = (
+				698177EE1CC87146009C7120 /* ApplyWorkView.h */,
+				698177EF1CC87146009C7120 /* ApplyWorkView.m */,
+			);
+			name = ApplyWork;
 			sourceTree = "<group>";
 		};
 		698569471CC7701200A2E3F8 /* BLECommunication */ = {
@@ -464,10 +490,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				694277FB1CBA404D00F5887E /* ViewController.m in Sources */,
+				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* DoorSystemView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
+				698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
 				697662A91CC4DFF700FFD793 /* Post.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
