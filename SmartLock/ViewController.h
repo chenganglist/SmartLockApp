@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
 #import "Post.h"
+#import "WorkDetailView.h"
 
 @interface ViewController : UIViewController<PostDelegate>
 {

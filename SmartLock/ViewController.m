@@ -85,14 +85,19 @@
         [UserInfoView setPermissionInfo:success[@"permissions"] ];
         [UserInfoView setTokenInfo:success[@"tokenInfo"] ];
         
-        if( [[userType substringFromIndex:2 ] isEqualToString:@"3"] )
+        [WorkDetailView setUserType:0]; //0管理员
+        if( userType==nil ||
+           [userType length] < 3 ||
+           [[userType substringFromIndex:2] isEqualToString:@"3"] )
         {
-           [self performSegueWithIdentifier:@"mainpage" sender:nil];
-            NSLog(@"工程师登录");
-        }else{
-           [self performSegueWithIdentifier:@"mainpage" sender:nil];
+            [WorkDetailView setUserType:1];//1工程师
+             NSLog(@"工程师登录");
+        }else
+        {
             NSLog(@"管理员登录");
         }
+        
+        [self performSegueWithIdentifier:@"mainpage" sender:nil];
         
     }else{
         //初始化提示框；

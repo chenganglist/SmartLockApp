@@ -28,14 +28,28 @@
             Post* post = [[Post alloc] init];
             NSDictionary* userInfo = [UserInfoView getUserInfo];
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
-            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
+            //0管理员
+            NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
                 @"accessToken":tokenInfo[@"accessToken"],
-                @"applicantName":userInfo[@"username"],
+                @"approvalPerson":userInfo[@"username"],
                 @"applicationStatus":@"approve"
                                          };
+            //1工程师
+            NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
+               @"accessToken":tokenInfo[@"accessToken"],
+               @"applicantName":userInfo[@"username"],
+               @"applicationStatus":@"approve"
+               };
+            
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
-            [post postUrl:urlString withParams:parameters];
+            if([WorkDetailView getUserType] == 0)
+            {
+                [post postUrl:urlString withParams:parametersForManager];
+            }else{
+                [post postUrl:urlString withParams:parametersForWorker];
+            }
+            
             break;
         }
         //wait
@@ -44,14 +58,28 @@
             Post* post = [[Post alloc] init];
             NSDictionary* userInfo = [UserInfoView getUserInfo];
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
-            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
-                @"accessToken":tokenInfo[@"accessToken"],
-                @"applicantName":userInfo[@"username"],
-                @"applicationStatus":@"pending"
-                                         };
-            NSString *urlString = @"https://www.smartlock.top/v0/taskAuthFetch";
+            //0管理员
+            NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
+               @"accessToken":tokenInfo[@"accessToken"],
+               @"approvalPerson":userInfo[@"username"],
+               @"applicationStatus":@"pending"
+               };
+            //1工程师
+            NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
+                  @"accessToken":tokenInfo[@"accessToken"],
+                  @"applicantName":userInfo[@"username"],
+                  @"applicationStatus":@"pending"
+                  };
+            
+            NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
-            [post postUrl:urlString withParams:parameters];
+            if([WorkDetailView getUserType] == 0)
+            {
+                [post postUrl:urlString withParams:parametersForManager];
+            }else{
+                [post postUrl:urlString withParams:parametersForWorker];
+            }
+
             break;
         }
         //reject
@@ -60,14 +88,28 @@
             Post* post = [[Post alloc] init];
             NSDictionary* userInfo = [UserInfoView getUserInfo];
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
-            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
-                @"accessToken":tokenInfo[@"accessToken"],
-                @"applicantName":userInfo[@"username"],
-                @"applicationStatus":@"reject"
-                                         };
-            NSString *urlString = @"https://www.smartlock.top/v0/taskAuthFetch";
+            //0管理员
+            NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
+               @"accessToken":tokenInfo[@"accessToken"],
+               @"approvalPerson":userInfo[@"username"],
+               @"applicationStatus":@"reject"
+               };
+            //1工程师
+            NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
+                  @"accessToken":tokenInfo[@"accessToken"],
+                  @"applicantName":userInfo[@"username"],
+                  @"applicationStatus":@"reject"
+                  };
+            
+            NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
-            [post postUrl:urlString withParams:parameters];
+            if([WorkDetailView getUserType] == 0)
+            {
+                [post postUrl:urlString withParams:parametersForManager];
+            }else{
+                [post postUrl:urlString withParams:parametersForWorker];
+            }
+
             break;
         }
         //all
@@ -76,13 +118,26 @@
             Post* post = [[Post alloc] init];
             NSDictionary* userInfo = [UserInfoView getUserInfo];
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
-            NSDictionary *parameters = @{@"operatorName":userInfo[@"username"],
-                @"accessToken":tokenInfo[@"accessToken"],
-                @"applicantName":userInfo[@"username"],
-                                         };
+            //0管理员
+            NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
+               @"accessToken":tokenInfo[@"accessToken"],
+               @"approvalPerson":userInfo[@"username"],
+               };
+            //1工程师
+            NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
+              @"accessToken":tokenInfo[@"accessToken"],
+              @"applicantName":userInfo[@"username"],
+              };
+            
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
-            [post postUrl:urlString withParams:parameters];
+            if([WorkDetailView getUserType] == 0)
+            {
+                [post postUrl:urlString withParams:parametersForManager];
+            }else{
+                [post postUrl:urlString withParams:parametersForWorker];
+            }
+
             break;
         }
             

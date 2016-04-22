@@ -826,6 +826,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xUI-2Q-xzo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZsH-YT-PFg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bjx-1N-qJz">
@@ -939,15 +940,15 @@
                                 <exclude reference="tD5-8j-7cH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="PBv-MO-z7j"/>
-                                <exclude reference="ctt-Jh-Dxx"/>
                                 <exclude reference="8hg-PW-THj"/>
                                 <exclude reference="zcS-t2-iBx"/>
+                                <exclude reference="PBv-MO-z7j"/>
+                                <exclude reference="ctt-Jh-Dxx"/>
+                                <exclude reference="0CY-no-YNo"/>
+                                <exclude reference="ZG2-Dy-Hct"/>
                                 <exclude reference="R7k-5r-oWo"/>
                                 <exclude reference="n2f-8Q-e2n"/>
                                 <exclude reference="ysy-fY-L1b"/>
-                                <exclude reference="0CY-no-YNo"/>
-                                <exclude reference="ZG2-Dy-Hct"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -958,15 +959,15 @@
                                 <include reference="tD5-8j-7cH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="PBv-MO-z7j"/>
-                                <include reference="ctt-Jh-Dxx"/>
                                 <include reference="8hg-PW-THj"/>
                                 <include reference="zcS-t2-iBx"/>
+                                <include reference="PBv-MO-z7j"/>
+                                <include reference="ctt-Jh-Dxx"/>
+                                <include reference="0CY-no-YNo"/>
+                                <include reference="ZG2-Dy-Hct"/>
                                 <include reference="R7k-5r-oWo"/>
                                 <include reference="n2f-8Q-e2n"/>
                                 <include reference="ysy-fY-L1b"/>
-                                <include reference="0CY-no-YNo"/>
-                                <include reference="ZG2-Dy-Hct"/>
                             </mask>
                         </variation>
                     </view>
