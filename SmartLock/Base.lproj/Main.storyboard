@@ -22,7 +22,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-PE-VEf">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -108,7 +108,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-8q-m3B">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -127,7 +127,7 @@
                             <constraint firstItem="QsX-Bn-6g8" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" id="em5-hj-8w8"/>
                             <constraint firstItem="XVf-8q-m3B" firstAttribute="leading" secondItem="eEK-PE-VEf" secondAttribute="leading" constant="10" id="gjx-kW-Fux"/>
                             <constraint firstItem="XVf-8q-m3B" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="30" id="ry0-Zh-RTW"/>
-                            <constraint firstItem="eEK-PE-VEf" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" constant="-114" id="tht-4i-tUC"/>
+                            <constraint firstItem="eEK-PE-VEf" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" constant="-116" id="tht-4i-tUC"/>
                             <constraint firstItem="y1z-ri-Qfh" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" constant="35" id="uS4-a5-Opa"/>
                         </constraints>
                         <variation key="default">
@@ -140,20 +140,20 @@
                                 <exclude reference="XVf-8q-m3B"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="YK6-M6-k0l"/>
+                                <exclude reference="Z9x-TA-nCw"/>
+                                <exclude reference="b3U-pC-VUl"/>
+                                <exclude reference="uS4-a5-Opa"/>
+                                <exclude reference="Css-8n-Z6p"/>
+                                <exclude reference="OkZ-gm-m9x"/>
+                                <exclude reference="gjx-kW-Fux"/>
+                                <exclude reference="ry0-Zh-RTW"/>
+                                <exclude reference="54l-xQ-gms"/>
+                                <exclude reference="tht-4i-tUC"/>
                                 <exclude reference="3AQ-AF-MW2"/>
                                 <exclude reference="EFN-jK-ZCg"/>
                                 <exclude reference="OjE-6S-H2q"/>
                                 <exclude reference="em5-hj-8w8"/>
-                                <exclude reference="54l-xQ-gms"/>
-                                <exclude reference="tht-4i-tUC"/>
-                                <exclude reference="b3U-pC-VUl"/>
-                                <exclude reference="uS4-a5-Opa"/>
-                                <exclude reference="gjx-kW-Fux"/>
-                                <exclude reference="ry0-Zh-RTW"/>
-                                <exclude reference="YK6-M6-k0l"/>
-                                <exclude reference="Z9x-TA-nCw"/>
-                                <exclude reference="Css-8n-Z6p"/>
-                                <exclude reference="OkZ-gm-m9x"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -166,20 +166,20 @@
                                 <include reference="XVf-8q-m3B"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="YK6-M6-k0l"/>
+                                <include reference="Z9x-TA-nCw"/>
+                                <include reference="b3U-pC-VUl"/>
+                                <include reference="uS4-a5-Opa"/>
+                                <include reference="Css-8n-Z6p"/>
+                                <include reference="OkZ-gm-m9x"/>
+                                <include reference="gjx-kW-Fux"/>
+                                <include reference="ry0-Zh-RTW"/>
+                                <include reference="54l-xQ-gms"/>
+                                <include reference="tht-4i-tUC"/>
                                 <include reference="3AQ-AF-MW2"/>
                                 <include reference="EFN-jK-ZCg"/>
                                 <include reference="OjE-6S-H2q"/>
                                 <include reference="em5-hj-8w8"/>
-                                <include reference="54l-xQ-gms"/>
-                                <include reference="tht-4i-tUC"/>
-                                <include reference="b3U-pC-VUl"/>
-                                <include reference="uS4-a5-Opa"/>
-                                <include reference="gjx-kW-Fux"/>
-                                <include reference="ry0-Zh-RTW"/>
-                                <include reference="YK6-M6-k0l"/>
-                                <include reference="Z9x-TA-nCw"/>
-                                <include reference="Css-8n-Z6p"/>
-                                <include reference="OkZ-gm-m9x"/>
                             </mask>
                         </variation>
                         <connections>

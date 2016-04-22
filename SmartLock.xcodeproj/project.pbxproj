@@ -21,6 +21,7 @@
 		698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177F21CC8715E009C7120 /* ClassifyWorkView.m */; };
 		6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 698569491CC7703700A2E3F8 /* BLECommunication.m */; };
 		6986CD841CC91339000550E6 /* WorkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6986CD831CC91339000550E6 /* WorkDetailView.m */; };
+		6996085A1CCA3EC700B5CF3B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 699608591CCA3EC700B5CF3B /* icon.png */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		69B8FD0D1CC7169000A95981 /* DoorSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* DoorSystemView.m */; };
 		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		698569491CC7703700A2E3F8 /* BLECommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLECommunication.m; path = SmartLock/BLECommunication.m; sourceTree = "<group>"; };
 		6986CD821CC91339000550E6 /* WorkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkDetailView.h; path = SmartLock/WorkDetailView.h; sourceTree = "<group>"; };
 		6986CD831CC91339000550E6 /* WorkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkDetailView.m; path = SmartLock/WorkDetailView.m; sourceTree = "<group>"; };
+		699608591CCA3EC700B5CF3B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		69A688E01CBFE5450017ECA7 /* ManageWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageWorkView.h; path = SmartLock/ManageWorkView.h; sourceTree = "<group>"; };
 		69A688E11CBFE5450017ECA7 /* ManageWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManageWorkView.m; path = SmartLock/ManageWorkView.m; sourceTree = "<group>"; };
 		69AB44921CBB37BD006AEDF0 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 		69589D781CBFCC5600928F23 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				699608591CCA3EC700B5CF3B /* icon.png */,
 				697CCE7A1CCA14B300C3846A /* login_logo.png */,
 				69B8FD0E1CC71B2D00A95981 /* Main.storyboard */,
 				694278041CBA404D00F5887E /* LaunchScreen.storyboard */,
@@ -431,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
+				6996085A1CCA3EC700B5CF3B /* icon.png in Resources */,
 				694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */,
 				697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */,
 				694278031CBA404D00F5887E /* Assets.xcassets in Resources */,
