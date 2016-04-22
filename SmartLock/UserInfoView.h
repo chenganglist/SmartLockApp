@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "WorkDetailView.h"
+
 @interface UserInfoView : UIViewController<PostDelegate>
 {
     UITableView *personalTableView;

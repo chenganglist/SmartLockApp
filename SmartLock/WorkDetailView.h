@@ -27,4 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *typelist;
 @property (strong, nonatomic) NSMutableArray *keylist;
 
++(void)setUserType:(int)type;
++(int)getUserType;
+
 @end

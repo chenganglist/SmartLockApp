@@ -65,9 +65,13 @@ static NSMutableDictionary* tokenInfo;
                      @"手机号", @"用户类型", @"公司",@"公司组",
                     @"所属地级区域",@"所属县级区域",nil];
     NSString* userType = @"管理员";
-    if( [[userInfo[@"userType"] substringFromIndex:2] isEqualToString:@"3"] )
+    [WorkDetailView setUserType:0]; //0管理员
+    if( userInfo[@"userType"]==nil ||
+        [(NSString*)userInfo[@"userType"] length] < 3 ||
+       [[userInfo[@"userType"] substringFromIndex:2] isEqualToString:@"3"] )
     {
         userType = @"工程师";
+        [WorkDetailView setUserType:1];//1工程师
     }
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:userInfo[@"username"],
                      userInfo[@"realname"],

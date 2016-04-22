@@ -7,6 +7,7 @@
 //
 
 #import "WorkDetailView.h"
+static int userType; //0-管理员，1-工程师
 
 @interface WorkDetailView ()
 
@@ -15,6 +16,14 @@
 @implementation WorkDetailView
 @synthesize  workTable,workData,datalist,typelist
 ,keylist,classifyType,operateDescription;
++(void)setUserType:(int)type
+{
+    userType = type;
+}
++(int)getUserType
+{
+    return userType;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
