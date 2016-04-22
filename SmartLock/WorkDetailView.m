@@ -28,16 +28,17 @@
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",nil];
 
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:workData[@"applicantName"],
-                        workData[@"taskID"],
-                        workData[@"applicantCompany"],
-                        workData[@"applicantPhone"],
-                        workData[@"applicationType"],
-                        workData[@"applyDescription"],
-                        workData[@"applicantKeyID"],
-                        workData[@"taskStartTime"],
-                        workData[@"taskEndTime"],
-                        workData[@"taskTimes"],nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:
+(workData[@"applicantName"]==nil)?@"未定义":workData[@"applicantName"],
+(workData[@"taskID"]==nil)?@"未定义":workData[@"taskID"],
+(workData[@"applicantCompany"]==nil)?@"未定义":workData[@"applicantCompany"],
+(workData[@"applicantPhone"]==nil)?@"未定义":workData[@"applicantPhone"],
+(workData[@"applicationType"]==nil)?@"未定义":workData[@"applicationType"],
+(workData[@"applyDescription"]==nil)?@"未定义":workData[@"applyDescription"],
+(workData[@"applicantKeyID"]==nil)?@"未定义":workData[@"applicantKeyID"],
+(workData[@"taskStartTime"]==nil)?@"未定义":workData[@"taskStartTime"],
+(workData[@"taskEndTime"]==nil)?@"未定义":workData[@"taskEndTime"],
+(workData[@"taskTimes"]==nil)?@"未定义":workData[@"taskTimes"],nil];
     
     self.datalist = data;
     self.typelist = type;
