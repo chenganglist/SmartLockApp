@@ -26,9 +26,9 @@
 
     // Do any additional setup after loading the view.
     NSArray *type = [[NSArray alloc] initWithObjects:@"工单申请",
-                     @"已批准工单",
                      @"待批准工单",
                      @"驳回的工单",
+                     @"已批准工单",
                      @"所有工单",nil];
     NSArray *mdata = [[NSArray alloc] initWithObjects:
                       @"申请",
@@ -37,7 +37,6 @@
                       @"查看",
                       @"查看",
                       nil];
-    
     
     self.datalist = mdata;
     self.typelist = type;
@@ -116,10 +115,10 @@
             ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"已批准的工单";
-            vc.classifyType = 0;
-            
+            vc.title = @"待批准的工单";
+            vc.classifyType = 1;
             break;
+
         }
         case 2:
         {
@@ -128,9 +127,10 @@
             ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"待批准的工单";
-            vc.classifyType = 1;
+            vc.title = @"驳回的工单";
+            vc.classifyType = 2;
             break;
+
         }
         case 3:
         {
@@ -139,8 +139,9 @@
             ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
             
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"驳回的工单";
-            vc.classifyType = 2;
+            vc.title = @"已批准的工单";
+            vc.classifyType = 0;
+            
             break;
         }
         case 4:
