@@ -15,11 +15,132 @@ static int userType; //0-管理员，1-工程师
 
 @implementation WorkDetailView
 @synthesize  workTable,workData,datalist,typelist
-,keylist,classifyType,operateDescription;
+,keylist,classifyType,operateDescription,approveButton,rejectButton;
+
+-(IBAction)approveButtonPressed:(id)sender
+{
+    
+    if(userType == 1)
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您没有审批权限" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }]];
+        //弹出提示框；
+        [self presentViewController:alertController animated:true completion:nil];
+    }else
+    {
+        Post* post = [[Post alloc] init];
+        NSDictionary* userInfo = [UserInfoView getUserInfo];
+        NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+        
+        NSDictionary *parameters =
+        @{@"operatorName":userInfo[@"username"],
+          @"accessToken":tokenInfo[@"accessToken"],
+          @"taskID":workData[@"taskID"],
+          @"applicationStatus":@"approve",
+          @"reason":self.operateDescription.text
+        };
+        
+        NSString *urlString = @"https://www.smartlock.top/v0/taskAuthenticate";
+        [post setDelegate:self];
+        [post postUrl:urlString withParams:parameters];
+    }
+}
+
+-(IBAction)rejectButtonPressed:(id)sender
+{
+    
+    if(userType == 1)
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您没有审批权限" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }]];
+        //弹出提示框；
+        [self presentViewController:alertController animated:true completion:nil];
+    }else
+    {
+        Post* post = [[Post alloc] init];
+        NSDictionary* userInfo = [UserInfoView getUserInfo];
+        NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
+        
+        NSDictionary *parameters =
+          @{@"operatorName":userInfo[@"username"],
+            @"accessToken":tokenInfo[@"accessToken"],
+            @"taskID":workData[@"taskID"],
+            @"applicationStatus":@"reject",
+            @"reason":self.operateDescription.text
+        };
+        
+        NSString *urlString = @"https://www.smartlock.top/v0/taskAuthenticate";
+        [post setDelegate:self];
+        [post postUrl:urlString withParams:parameters];
+    }
+}
+
+
+//工单审批失败
+-(void)alertUI:(NSError *)error
+{
+    //初始化提示框；
+    NSString* info = [[NSString alloc] initWithFormat:@"错误：%@",error];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+   message:info preferredStyle: UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+
+//工单审批成功
+-(void)updateUI:(NSDictionary*)data
+{
+    NSLog(@"UpdateUI %@",data);
+    NSDictionary* success = data[@"success"];
+    
+    if(success!=nil)
+    {
+        //初始化提示框；
+        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+       message:data2String preferredStyle: UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                          {
+                              //Do something
+                              
+                          }]];
+        [self presentViewController:alert animated:true completion:nil];
+        
+    }else{
+        //初始化提示框；
+        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:data2String preferredStyle: UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //点击按钮的响应事件；
+        }]];
+        
+        //弹出提示框；
+        [self presentViewController:alert animated:true completion:nil];
+    }
+    
+}
+
+
+
 +(void)setUserType:(int)type
 {
     userType = type;
 }
+
 +(int)getUserType
 {
     return userType;

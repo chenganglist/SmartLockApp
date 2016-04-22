@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import "UserInfoView.h"
 
-@interface WorkDetailView : UIViewController
+@interface WorkDetailView : UIViewController<PostDelegate>
 {
+    UIButton *approveButton;
+    UIButton *rejectButton;
     UITableView *workTable;
     NSDictionary *workData;
     NSMutableArray *datalist;
@@ -19,6 +23,8 @@
     int classifyType; //0-approved  1-wait  2-reject  3-all
 }
 
+@property(nonatomic,retain) IBOutlet UIButton *approveButton;
+@property(nonatomic,retain) IBOutlet UIButton *rejectButton;
 @property(strong, nonatomic) IBOutlet UITextField *operateDescription;
 @property (strong, nonatomic) NSDictionary *workData;
 @property (nonatomic, readwrite) int classifyType;
@@ -29,5 +35,8 @@
 
 +(void)setUserType:(int)type;
 +(int)getUserType;
+
+-(IBAction)approveButtonPressed:(id)sender;
+-(IBAction)rejectButtonPressed:(id)sender;
 
 @end
