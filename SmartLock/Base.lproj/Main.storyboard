@@ -850,30 +850,6 @@
                                     <outlet property="delegate" destination="dhd-Qo-rut" id="lIw-nG-IvY"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxI-lm-icw">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PXi-PV-2mP"/>
-                                    <constraint firstAttribute="width" constant="78" id="fBB-Tg-lww"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="拒绝"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="PXi-PV-2mP"/>
-                                        <exclude reference="fBB-Tg-lww"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="PXi-PV-2mP"/>
-                                        <include reference="fBB-Tg-lww"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="rejectButtonPressed:" destination="KEj-TR-rOR" eventType="touchUpInside" id="4es-sl-DSr"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkK-XC-897">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
@@ -898,26 +874,20 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD5-8j-7cH">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="93" id="631-81-DTU"/>
-                                    <constraint firstAttribute="height" constant="30" id="Hyi-Fm-Zli"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="L0D-BE-zSq"/>
-                                    <constraint firstAttribute="width" constant="93" id="ZN4-4c-kpW"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hyi-Fm-Zli"/>
+                                    <constraint firstAttribute="width" constant="60" id="ZN4-4c-kpW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="同意"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="631-81-DTU"/>
                                         <exclude reference="Hyi-Fm-Zli"/>
-                                        <exclude reference="L0D-BE-zSq"/>
                                         <exclude reference="ZN4-4c-kpW"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="631-81-DTU"/>
                                         <include reference="Hyi-Fm-Zli"/>
-                                        <include reference="L0D-BE-zSq"/>
                                         <include reference="ZN4-4c-kpW"/>
                                     </mask>
                                 </variation>
@@ -925,15 +895,43 @@
                                     <action selector="approveButtonPressed:" destination="KEj-TR-rOR" eventType="touchUpInside" id="rNh-3d-6br"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxI-lm-icw">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PXi-PV-2mP"/>
+                                    <constraint firstAttribute="width" constant="78" id="fBB-Tg-lww">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="拒绝"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PXi-PV-2mP"/>
+                                        <exclude reference="fBB-Tg-lww"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="PXi-PV-2mP"/>
+                                        <include reference="fBB-Tg-lww"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="rejectButtonPressed:" destination="KEj-TR-rOR" eventType="touchUpInside" id="4es-sl-DSr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tD5-8j-7cH" firstAttribute="top" secondItem="qRX-w8-rSW" secondAttribute="bottom" constant="4" id="0CY-no-YNo"/>
+                            <constraint firstItem="tD5-8j-7cH" firstAttribute="top" secondItem="qRX-w8-rSW" secondAttribute="bottom" constant="4" id="0CY-no-YNo">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="YkK-XC-897" firstAttribute="top" secondItem="bxI-lm-icw" secondAttribute="bottom" constant="2" id="8hg-PW-THj"/>
                             <constraint firstItem="bxI-lm-icw" firstAttribute="top" secondItem="tD5-8j-7cH" secondAttribute="top" id="PBv-MO-z7j"/>
                             <constraint firstItem="Bjx-1N-qJz" firstAttribute="centerX" secondItem="ZsH-YT-PFg" secondAttribute="centerX" id="R7k-5r-oWo"/>
                             <constraint firstItem="tD5-8j-7cH" firstAttribute="centerX" secondItem="ZsH-YT-PFg" secondAttribute="centerX" constant="62" id="ZG2-Dy-Hct"/>
-                            <constraint firstItem="bxI-lm-icw" firstAttribute="centerX" secondItem="ZsH-YT-PFg" secondAttribute="centerX" constant="-100" id="ctt-Jh-Dxx"/>
+                            <constraint firstItem="bxI-lm-icw" firstAttribute="centerX" secondItem="ZsH-YT-PFg" secondAttribute="centerX" constant="-80" id="ctt-Jh-Dxx"/>
                             <constraint firstItem="Bjx-1N-qJz" firstAttribute="width" secondItem="ZsH-YT-PFg" secondAttribute="width" id="n2f-8Q-e2n"/>
                             <constraint firstItem="Bjx-1N-qJz" firstAttribute="top" secondItem="YkK-XC-897" secondAttribute="bottom" constant="2" id="ysy-fY-L1b"/>
                             <constraint firstItem="YkK-XC-897" firstAttribute="centerX" secondItem="ZsH-YT-PFg" secondAttribute="centerX" id="zcS-t2-iBx"/>
@@ -941,9 +939,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Bjx-1N-qJz"/>
-                                <exclude reference="bxI-lm-icw"/>
                                 <exclude reference="YkK-XC-897"/>
                                 <exclude reference="tD5-8j-7cH"/>
+                                <exclude reference="bxI-lm-icw"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8hg-PW-THj"/>
@@ -960,9 +958,9 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Bjx-1N-qJz"/>
-                                <include reference="bxI-lm-icw"/>
                                 <include reference="YkK-XC-897"/>
                                 <include reference="tD5-8j-7cH"/>
+                                <include reference="bxI-lm-icw"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="8hg-PW-THj"/>
