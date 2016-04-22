@@ -47,11 +47,17 @@
 -(void)loginButtonPressed:(id)sender{
 
     Post* post = [[Post alloc] init];
-    NSDictionary *parameters = @{@"phone":self.uidTextField.text,@"password":self.pwdTextField.text};
     NSString *urlString = @"https://www.smartlock.top/v0/login";
     [post setDelegate:self];
-    [post postUrl:urlString withParams:parameters];
-    
+    if(self.uidTextField.text.length == 11)
+    {
+        NSDictionary *parameters = @{@"phone":self.uidTextField.text,@"password":self.pwdTextField.text};
+        [post postUrl:urlString withParams:parameters];
+    }else
+    {
+        NSDictionary *parameters = @{@"username":self.uidTextField.text,@"password":self.pwdTextField.text};
+        [post postUrl:urlString withParams:parameters];
+    }
 }
 
 -(void)alertUI:(NSError *)error
