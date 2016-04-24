@@ -25,7 +25,7 @@
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
     
-    stationAddress.text = @"成都市金牛区跃进村";
+    stationAddress.text = @"四川省成都市建设北路二段四号";
     workType.text = @"普通";
     NSDate *currentDate = [NSDate date];//获取当前时间，日期
     
@@ -46,8 +46,9 @@
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"2d-4f-6e-7b-3c";
+    electronicKey.text = @"1234567890";
     workDescription.text = @"维修电表";
+
 
     
     
@@ -69,7 +70,7 @@
 -(IBAction)resetButtonPressed:(id)sender
 {
     NSLog(@"resetButtonPressed");
-    stationAddress.text = @"成都市金牛区跃进村";
+    stationAddress.text = @"四川省成都市建设北路二段四号";
     workType.text = @"普通";
     NSDate *currentDate = [NSDate date];//获取当前时间，日期
     
@@ -90,7 +91,7 @@
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"2d-4f-6e-7b-3c";
+    electronicKey.text = @"1234567890";
     workDescription.text = @"维修电表";
     
 

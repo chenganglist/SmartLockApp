@@ -104,8 +104,8 @@
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            ApplyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"applywork"];
-            
+            ApplyWorkView *vc = [[ApplyWorkView alloc]initWithNibName:@"ApplyWorkView" bundle:nil];
+       
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"任务申请";
 

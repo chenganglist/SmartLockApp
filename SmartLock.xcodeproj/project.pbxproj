@@ -19,6 +19,7 @@
 		697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 697CCE7A1CCA14B300C3846A /* login_logo.png */; };
 		698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177EF1CC87146009C7120 /* ApplyWorkView.m */; };
 		698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177F21CC8715E009C7120 /* ClassifyWorkView.m */; };
+		698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698396E31CCCCB2100377893 /* ApplyWorkView.xib */; };
 		6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 698569491CC7703700A2E3F8 /* BLECommunication.m */; };
 		6986CD841CC91339000550E6 /* WorkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6986CD831CC91339000550E6 /* WorkDetailView.m */; };
 		6987AFE61CCC729700D08141 /* task.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFE21CCC729600D08141 /* task.png */; };
@@ -95,6 +96,7 @@
 		698177EF1CC87146009C7120 /* ApplyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyWorkView.m; path = SmartLock/ApplyWorkView.m; sourceTree = "<group>"; };
 		698177F11CC8715E009C7120 /* ClassifyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassifyWorkView.h; path = SmartLock/ClassifyWorkView.h; sourceTree = "<group>"; };
 		698177F21CC8715E009C7120 /* ClassifyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassifyWorkView.m; path = SmartLock/ClassifyWorkView.m; sourceTree = "<group>"; };
+		698396E31CCCCB2100377893 /* ApplyWorkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ApplyWorkView.xib; path = SmartLock/ApplyWorkView.xib; sourceTree = "<group>"; };
 		698569481CC7703700A2E3F8 /* BLECommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLECommunication.h; path = SmartLock/BLECommunication.h; sourceTree = "<group>"; };
 		698569491CC7703700A2E3F8 /* BLECommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLECommunication.m; path = SmartLock/BLECommunication.m; sourceTree = "<group>"; };
 		6986CD821CC91339000550E6 /* WorkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkDetailView.h; path = SmartLock/WorkDetailView.h; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		698177ED1CC86BD6009C7120 /* ApplyWork */ = {
 			isa = PBXGroup;
 			children = (
+				698396E31CCCCB2100377893 /* ApplyWorkView.xib */,
 				698177EE1CC87146009C7120 /* ApplyWorkView.h */,
 				698177EF1CC87146009C7120 /* ApplyWorkView.m */,
 			);
@@ -480,6 +483,7 @@
 				6987AFF31CCC74EF00D08141 /* ProfileLockOn@2x.png in Resources */,
 				6987AFF21CCC74EF00D08141 /* Profile@2x.png in Resources */,
 				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
+				698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */,
 				6987AFE71CCC729700D08141 /* discover-search@3x.png in Resources */,
 				6987AFF91CCC777900D08141 /* lock32.png in Resources */,
 				6987AFE91CCC729700D08141 /* lock.png in Resources */,
