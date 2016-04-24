@@ -19,7 +19,7 @@
 @implementation ManageWorkView
 @synthesize datalist = _datalist;
 @synthesize typelist = _typelist;
-@synthesize applyTableView = _applyTableView;
+@synthesize workTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,7 +43,10 @@
     
 }
 
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.workTable.contentSize = CGSizeMake(0,300);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

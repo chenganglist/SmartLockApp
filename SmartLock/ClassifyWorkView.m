@@ -147,6 +147,11 @@
 }
 
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.tableView.contentSize = CGSizeMake(0,600);
+}
+
 -(void)alertUI:(NSError *)error
 {
     //初始化提示框；

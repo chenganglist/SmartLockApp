@@ -10,7 +10,7 @@
 #import "Post.h"
 #import "WorkDetailView.h"
 
-@interface UserInfoView : UIViewController<PostDelegate>
+@interface UserInfoView : UITableViewController<PostDelegate>
 {
     UITableView *personalTableView;
     NSMutableArray *datalist;

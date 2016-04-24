@@ -115,7 +115,7 @@ static NSMutableDictionary* tokenInfo;
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.personalTableView.contentSize = CGSizeMake(0,1000);
+    self.personalTableView.contentSize = CGSizeMake(0,600);
 }
 
 
