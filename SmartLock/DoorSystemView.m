@@ -141,7 +141,8 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //页面跳转
-    BLECommunication *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BLECommunication"];
+    //页面跳转
+    BLECommunication *vc = [[BLECommunication alloc]initWithNibName:@"BLECommunication" bundle:nil];
     
     vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
     

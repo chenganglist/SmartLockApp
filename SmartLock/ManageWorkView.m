@@ -115,7 +115,7 @@
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [[ClassifyWorkView alloc]initWithNibName:@"ClassifyWorkView" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"待批准的工单";
@@ -127,7 +127,7 @@
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [[ClassifyWorkView alloc]initWithNibName:@"ClassifyWorkView" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"驳回的工单";
@@ -139,7 +139,7 @@
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [[ClassifyWorkView alloc]initWithNibName:@"ClassifyWorkView" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"已批准的工单";
@@ -151,7 +151,7 @@
         {
             NSLog(@" %ld",(long)indexPath.row);
             //页面跳转
-            ClassifyWorkView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"managework"];
+            ClassifyWorkView *vc = [[ClassifyWorkView alloc]initWithNibName:@"ClassifyWorkView" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"所有工单";
