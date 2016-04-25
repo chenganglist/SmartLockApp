@@ -146,6 +146,25 @@ static int userType; //0-管理员，1-工程师
     return userType;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    if(classifyType!=1)
+    {
+//        [self.approveButton setHidden:YES];//隐藏此控件
+//        [self.approveButton removeFromSuperview];
+//        [self.rejectButton setHidden:YES];//隐藏此控件
+//        [self.rejectButton removeFromSuperview];
+//        [self.operateDescription setHidden:YES];//隐藏此控件
+//        [self.operateDescription removeFromSuperview];
+        
+//        self.workTable.frame = CGRectMake(20, 20, 100, 100);
+// self.view.frame.size.height/2
+//        self.workTable.center = CGPointMake(
+//        0,
+//       200);
+    }
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -153,8 +172,6 @@ static int userType; //0-管理员，1-工程师
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
-    
-    
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
         @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
@@ -204,7 +221,7 @@ static int userType; //0-管理员，1-工程师
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.workTable.contentSize = CGSizeMake(0,1000);
+    self.workTable.contentSize = CGSizeMake(-200,1000);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

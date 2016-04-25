@@ -242,7 +242,7 @@
     
     vc.workData = [self.datalist objectAtIndex:indexPath.row];
     vc.title = @"工单详情";
-    
+    vc.classifyType = classifyType;
     [self.navigationController pushViewController:vc animated:YES];
 
 
