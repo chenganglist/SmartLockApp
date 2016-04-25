@@ -17,11 +17,11 @@
 @synthesize workTable,classifyType;
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"back to classify");
     switch(classifyType)
     {
+            
         //approve
         case 0:
         {
@@ -30,16 +30,16 @@
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
             //0管理员
             NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
-                @"accessToken":tokenInfo[@"accessToken"],
-                @"approvalPerson":userInfo[@"username"],
-                @"applicationStatus":@"approve"
-                                         };
+                                                   @"accessToken":tokenInfo[@"accessToken"],
+                                                   @"approvalPerson":userInfo[@"username"],
+                                                   @"applicationStatus":@"approve"
+                                                   };
             //1工程师
             NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
-               @"accessToken":tokenInfo[@"accessToken"],
-               @"applicantName":userInfo[@"username"],
-               @"applicationStatus":@"approve"
-               };
+                                                  @"accessToken":tokenInfo[@"accessToken"],
+                                                  @"applicantName":userInfo[@"username"],
+                                                  @"applicationStatus":@"approve"
+                                                  };
             
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
@@ -60,16 +60,16 @@
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
             //0管理员
             NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
-               @"accessToken":tokenInfo[@"accessToken"],
-               @"approvalPerson":userInfo[@"username"],
-               @"applicationStatus":@"pending"
-               };
+                                                   @"accessToken":tokenInfo[@"accessToken"],
+                                                   @"approvalPerson":userInfo[@"username"],
+                                                   @"applicationStatus":@"pending"
+                                                   };
             //1工程师
             NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
-                  @"accessToken":tokenInfo[@"accessToken"],
-                  @"applicantName":userInfo[@"username"],
-                  @"applicationStatus":@"pending"
-                  };
+                                                  @"accessToken":tokenInfo[@"accessToken"],
+                                                  @"applicantName":userInfo[@"username"],
+                                                  @"applicationStatus":@"pending"
+                                                  };
             
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
@@ -79,7 +79,7 @@
             }else{
                 [post postUrl:urlString withParams:parametersForWorker];
             }
-
+            
             break;
         }
         //reject
@@ -90,16 +90,16 @@
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
             //0管理员
             NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
-               @"accessToken":tokenInfo[@"accessToken"],
-               @"approvalPerson":userInfo[@"username"],
-               @"applicationStatus":@"reject"
-               };
+                                                   @"accessToken":tokenInfo[@"accessToken"],
+                                                   @"approvalPerson":userInfo[@"username"],
+                                                   @"applicationStatus":@"reject"
+                                                   };
             //1工程师
             NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
-                  @"accessToken":tokenInfo[@"accessToken"],
-                  @"applicantName":userInfo[@"username"],
-                  @"applicationStatus":@"reject"
-                  };
+                                                  @"accessToken":tokenInfo[@"accessToken"],
+                                                  @"applicantName":userInfo[@"username"],
+                                                  @"applicationStatus":@"reject"
+                                                  };
             
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
@@ -109,7 +109,7 @@
             }else{
                 [post postUrl:urlString withParams:parametersForWorker];
             }
-
+            
             break;
         }
         //all
@@ -120,14 +120,14 @@
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
             //0管理员
             NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
-               @"accessToken":tokenInfo[@"accessToken"],
-               @"approvalPerson":userInfo[@"username"],
-               };
+                                                   @"accessToken":tokenInfo[@"accessToken"],
+                                                   @"approvalPerson":userInfo[@"username"],
+                                                   };
             //1工程师
             NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
-              @"accessToken":tokenInfo[@"accessToken"],
-              @"applicantName":userInfo[@"username"],
-              };
+                                                  @"accessToken":tokenInfo[@"accessToken"],
+                                                  @"applicantName":userInfo[@"username"],
+                                                  };
             
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
             [post setDelegate:self];
@@ -137,11 +137,17 @@
             }else{
                 [post postUrl:urlString withParams:parametersForWorker];
             }
-
+            
             break;
         }
             
     }
+    
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     
 }
