@@ -223,8 +223,12 @@ static int userType; //0-管理员，1-工程师
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.text = [self.typelist objectAtIndex:row];
-    cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",
+            [self.typelist objectAtIndex:row]];
+
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",
+            [self.datalist objectAtIndex:row]];
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
