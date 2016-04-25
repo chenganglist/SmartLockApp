@@ -29,13 +29,15 @@
                      @"待批准工单",
                      @"驳回的工单",
                      @"已批准工单",
-                     @"所有工单",nil];
+                     @"所有工单",
+                     @"基站导航",nil];
     NSArray *mdata = [[NSArray alloc] initWithObjects:
                       @"申请",
                       @"查看",
                       @"查看",
                       @"查看",
                       @"查看",
+                      @"导航",
                       nil];
     
     self.datalist = mdata;

@@ -139,7 +139,7 @@
                 <constraint firstItem="mt7-BA-9RJ" firstAttribute="top" secondItem="4sT-k7-1r7" secondAttribute="bottom" constant="5" id="bSk-kn-AgC"/>
                 <constraint firstItem="CQ2-cM-W4f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gOG-Nx-geh"/>
                 <constraint firstItem="mt7-BA-9RJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pYU-s4-70V"/>
-                <constraint firstItem="CQ2-cM-W4f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="yJI-gv-Qr1"/>
+                <constraint firstItem="CQ2-cM-W4f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="yJI-gv-Qr1"/>
                 <constraint firstItem="oTa-mp-q9o" firstAttribute="top" secondItem="CQ2-cM-W4f" secondAttribute="bottom" constant="5" id="z6K-Kl-nDU"/>
             </constraints>
             <variation key="default">
@@ -151,16 +151,16 @@
                     <exclude reference="fLK-9U-fLM"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="gOG-Nx-geh"/>
-                    <exclude reference="yJI-gv-Qr1"/>
-                    <exclude reference="bSk-kn-AgC"/>
-                    <exclude reference="pYU-s4-70V"/>
-                    <exclude reference="UXs-gE-tEu"/>
-                    <exclude reference="z6K-Kl-nDU"/>
-                    <exclude reference="BoE-6w-kE5"/>
-                    <exclude reference="DVf-D7-kt8"/>
                     <exclude reference="KTe-6R-4HR"/>
                     <exclude reference="QnQ-Dj-N1U"/>
+                    <exclude reference="BoE-6w-kE5"/>
+                    <exclude reference="DVf-D7-kt8"/>
+                    <exclude reference="bSk-kn-AgC"/>
+                    <exclude reference="pYU-s4-70V"/>
+                    <exclude reference="gOG-Nx-geh"/>
+                    <exclude reference="yJI-gv-Qr1"/>
+                    <exclude reference="UXs-gE-tEu"/>
+                    <exclude reference="z6K-Kl-nDU"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -172,16 +172,16 @@
                     <include reference="fLK-9U-fLM"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="gOG-Nx-geh"/>
-                    <include reference="yJI-gv-Qr1"/>
-                    <include reference="bSk-kn-AgC"/>
-                    <include reference="pYU-s4-70V"/>
-                    <include reference="UXs-gE-tEu"/>
-                    <include reference="z6K-Kl-nDU"/>
-                    <include reference="BoE-6w-kE5"/>
-                    <include reference="DVf-D7-kt8"/>
                     <include reference="KTe-6R-4HR"/>
                     <include reference="QnQ-Dj-N1U"/>
+                    <include reference="BoE-6w-kE5"/>
+                    <include reference="DVf-D7-kt8"/>
+                    <include reference="bSk-kn-AgC"/>
+                    <include reference="pYU-s4-70V"/>
+                    <include reference="gOG-Nx-geh"/>
+                    <include reference="yJI-gv-Qr1"/>
+                    <include reference="UXs-gE-tEu"/>
+                    <include reference="z6K-Kl-nDU"/>
                 </mask>
             </variation>
         </view>

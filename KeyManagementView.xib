@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyManagementView">
+            <connections>
+                <outlet property="tableView" destination="tz3-V6-6Ip" id="4QZ-D5-VhS"/>
+                <outlet property="view" destination="iN0-l3-epB" id="PTo-OT-uZd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子钥匙列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-Ky-mGy">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cle-FH-sA4">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="搜索电子钥匙"/>
+                    <connections>
+                        <action selector="searchButtonPressed:" destination="-2" eventType="touchUpInside" id="SNw-MA-pu2"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tz3-V6-6Ip">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Jba-GC-e02"/>
+                        <outlet property="delegate" destination="-1" id="7LU-y8-heb"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IuY-Ky-mGy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-80" id="4IZ-Ah-eKq"/>
+                <constraint firstItem="IuY-Ky-mGy" firstAttribute="top" secondItem="cle-FH-sA4" secondAttribute="top" constant="-6" id="MhQ-Uf-Czd">
+                    <variation key="widthClass=compact" constant="6"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="tz3-V6-6Ip" secondAttribute="bottom" id="Pj8-em-KL5"/>
+                <constraint firstItem="tz3-V6-6Ip" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Pxa-IC-Pe4"/>
+                <constraint firstItem="tz3-V6-6Ip" firstAttribute="top" secondItem="cle-FH-sA4" secondAttribute="bottom" constant="10" id="RVJ-Av-aT0"/>
+                <constraint firstItem="cle-FH-sA4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="nvH-IV-hUv"/>
+                <constraint firstItem="tz3-V6-6Ip" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="oV9-qi-fFl"/>
+                <constraint firstItem="cle-FH-sA4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="80" id="ulg-yA-mD3"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="IuY-Ky-mGy"/>
+                    <exclude reference="cle-FH-sA4"/>
+                    <exclude reference="tz3-V6-6Ip"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="4IZ-Ah-eKq"/>
+                    <exclude reference="MhQ-Uf-Czd"/>
+                    <exclude reference="Pj8-em-KL5"/>
+                    <exclude reference="Pxa-IC-Pe4"/>
+                    <exclude reference="RVJ-Av-aT0"/>
+                    <exclude reference="oV9-qi-fFl"/>
+                    <exclude reference="nvH-IV-hUv"/>
+                    <exclude reference="ulg-yA-mD3"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="IuY-Ky-mGy"/>
+                    <include reference="cle-FH-sA4"/>
+                    <include reference="tz3-V6-6Ip"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4IZ-Ah-eKq"/>
+                    <include reference="MhQ-Uf-Czd"/>
+                    <include reference="Pj8-em-KL5"/>
+                    <include reference="Pxa-IC-Pe4"/>
+                    <include reference="RVJ-Av-aT0"/>
+                    <include reference="oV9-qi-fFl"/>
+                    <include reference="nvH-IV-hUv"/>
+                    <include reference="ulg-yA-mD3"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

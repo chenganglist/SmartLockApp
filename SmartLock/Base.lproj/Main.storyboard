@@ -3,8 +3,6 @@
     <dependencies>
         <deployment version="2352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -50,7 +48,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="dkx-z0-nzr" eventType="touchUpInside" id="T2Z-jb-1yT"/>
+                                    <action selector="loginButtonPressed:" destination="dkx-z0-nzr" eventType="touchUpInside" id="d2Z-pH-4JO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9Q-1f-J2u">
@@ -200,7 +198,7 @@
         <!--门禁系统-->
         <scene sceneID="pOi-6X-0Q4">
             <objects>
-                <viewController id="clf-oM-eqY" customClass="DoorSystemView" sceneMemberID="viewController">
+                <viewController id="clf-oM-eqY" customClass="EntranceManageViewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbG-hq-POg"/>
                         <viewControllerLayoutGuide type="bottom" id="BE8-C7-dWy"/>
@@ -209,83 +207,168 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子钥匙列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-gC-th5">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-7D-I0P">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="clf-oM-eqY" id="hPQ-Pe-TSu"/>
-                                    <outlet property="delegate" destination="clf-oM-eqY" id="DTJ-w8-dKJ"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNh-WQ-VUG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rg-4e-f2W">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="搜索电子钥匙"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GEt-gE-zPd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="J8q-Db-owZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Qo8-UF-yxR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="电子钥匙管理">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GEt-gE-zPd"/>
+                                        <exclude reference="J8q-Db-owZ"/>
+                                        <exclude reference="Qo8-UF-yxR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="GEt-gE-zPd"/>
+                                        <include reference="J8q-Db-owZ"/>
+                                        <include reference="Qo8-UF-yxR"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="searchButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="uuB-bs-Pzf"/>
+                                    <action selector="keyManageButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="fh5-a1-SR6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiS-dd-U1B">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AOx-O6-KG9"/>
+                                    <constraint firstAttribute="width" constant="280" id="b28-8h-7mf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="基站门锁管理">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AOx-O6-KG9"/>
+                                        <exclude reference="b28-8h-7mf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="AOx-O6-KG9"/>
+                                        <include reference="b28-8h-7mf"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="lockManageButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="tIq-0j-L6Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-gT-sGD">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="cxB-9g-kEt"/>
+                                    <constraint firstAttribute="height" constant="40" id="xSe-Ew-7ob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="手机APP开门">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cxB-9g-kEt"/>
+                                        <exclude reference="xSe-Ew-7ob"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="cxB-9g-kEt"/>
+                                        <include reference="xSe-Ew-7ob"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="openDoorButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="zhb-iN-TLj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-ji-Pf7">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="etj-aT-4k0"/>
+                                    <constraint firstAttribute="width" constant="280" id="wAH-Vb-OKk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="电子钥匙授权">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="etj-aT-4k0"/>
+                                        <exclude reference="wAH-Vb-OKk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="etj-aT-4k0"/>
+                                        <include reference="wAH-Vb-OKk"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="rightsManageButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="Vbf-vL-gQG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SQi-gC-th5" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" constant="-80" id="45M-TI-4BT"/>
-                            <constraint firstItem="SQi-gC-th5" firstAttribute="top" secondItem="cbG-hq-POg" secondAttribute="bottom" constant="26" id="6hY-A9-PkX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EZx-7D-I0P" secondAttribute="trailing" constant="-20" id="HA0-Pa-gKY"/>
-                            <constraint firstItem="BE8-C7-dWy" firstAttribute="top" secondItem="EZx-7D-I0P" secondAttribute="bottom" id="Tce-HU-uS3"/>
-                            <constraint firstItem="EZx-7D-I0P" firstAttribute="top" secondItem="WNh-WQ-VUG" secondAttribute="bottom" constant="10" id="TfZ-66-e8i"/>
-                            <constraint firstItem="WNh-WQ-VUG" firstAttribute="top" secondItem="cbG-hq-POg" secondAttribute="bottom" constant="20" id="bIz-WI-7bW"/>
-                            <constraint firstItem="WNh-WQ-VUG" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" constant="80" id="dNo-db-0Tc"/>
-                            <constraint firstItem="EZx-7D-I0P" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="lCn-6B-ftR"/>
-                            <constraint firstItem="EZx-7D-I0P" firstAttribute="leading" secondItem="oc1-7z-p2K" secondAttribute="leadingMargin" constant="-20" id="n6J-dx-K5R"/>
+                            <constraint firstItem="5Rg-4e-f2W" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="-90" id="U7z-9a-yE1"/>
+                            <constraint firstItem="UsD-gT-sGD" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="UvU-7t-aXz"/>
+                            <constraint firstItem="1u9-ji-Pf7" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="-30" id="XwV-3T-Ghh"/>
+                            <constraint firstItem="qiS-dd-U1B" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="fNi-Lg-lw1"/>
+                            <constraint firstItem="UsD-gT-sGD" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="30" id="glZ-RY-Hj8"/>
+                            <constraint firstItem="1u9-ji-Pf7" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="nne-vz-kei"/>
+                            <constraint firstItem="qiS-dd-U1B" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="90" id="xRI-9N-wip"/>
+                            <constraint firstItem="5Rg-4e-f2W" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="yuj-BQ-Xfe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="SQi-gC-th5"/>
-                                <exclude reference="EZx-7D-I0P"/>
-                                <exclude reference="WNh-WQ-VUG"/>
+                                <exclude reference="5Rg-4e-f2W"/>
+                                <exclude reference="qiS-dd-U1B"/>
+                                <exclude reference="UsD-gT-sGD"/>
+                                <exclude reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Tce-HU-uS3"/>
-                                <exclude reference="bIz-WI-7bW"/>
-                                <exclude reference="dNo-db-0Tc"/>
-                                <exclude reference="45M-TI-4BT"/>
-                                <exclude reference="6hY-A9-PkX"/>
-                                <exclude reference="HA0-Pa-gKY"/>
-                                <exclude reference="TfZ-66-e8i"/>
-                                <exclude reference="lCn-6B-ftR"/>
-                                <exclude reference="n6J-dx-K5R"/>
+                                <exclude reference="U7z-9a-yE1"/>
+                                <exclude reference="yuj-BQ-Xfe"/>
+                                <exclude reference="XwV-3T-Ghh"/>
+                                <exclude reference="nne-vz-kei"/>
+                                <exclude reference="UvU-7t-aXz"/>
+                                <exclude reference="glZ-RY-Hj8"/>
+                                <exclude reference="fNi-Lg-lw1"/>
+                                <exclude reference="xRI-9N-wip"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="SQi-gC-th5"/>
-                                <include reference="EZx-7D-I0P"/>
-                                <include reference="WNh-WQ-VUG"/>
+                                <include reference="5Rg-4e-f2W"/>
+                                <include reference="qiS-dd-U1B"/>
+                                <include reference="UsD-gT-sGD"/>
+                                <include reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Tce-HU-uS3"/>
-                                <include reference="bIz-WI-7bW"/>
-                                <include reference="dNo-db-0Tc"/>
-                                <include reference="45M-TI-4BT"/>
-                                <include reference="6hY-A9-PkX"/>
-                                <include reference="HA0-Pa-gKY"/>
-                                <include reference="TfZ-66-e8i"/>
-                                <include reference="lCn-6B-ftR"/>
-                                <include reference="n6J-dx-K5R"/>
+                                <include reference="U7z-9a-yE1"/>
+                                <include reference="yuj-BQ-Xfe"/>
+                                <include reference="XwV-3T-Ghh"/>
+                                <include reference="nne-vz-kei"/>
+                                <include reference="UvU-7t-aXz"/>
+                                <include reference="glZ-RY-Hj8"/>
+                                <include reference="fNi-Lg-lw1"/>
+                                <include reference="xRI-9N-wip"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="门禁系统" image="lock32.png" id="YhF-v4-JNd"/>
                     <navigationItem key="navigationItem" title="门禁系统" id="ZmB-i6-yv5"/>
-                    <connections>
-                        <outlet property="tableView" destination="EZx-7D-I0P" id="UCt-7f-5q8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-Rd-8ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -313,6 +396,7 @@
             <objects>
                 <tableViewController id="rM1-bQ-cxc" userLabel="任务管理" customClass="ManageWorkView" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pva-hj-veK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>

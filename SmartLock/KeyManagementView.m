@@ -6,14 +6,14 @@
 //  Copyright © 2016年 csis. All rights reserved.
 //
 
-#import "DoorSystemView.h"
+#import "KeyManagementView.h"
 #import "BLECommunication.h"
 
-@interface DoorSystemView ()
+@interface KeyManagementView ()
    
 @end
 
-@implementation DoorSystemView
+@implementation KeyManagementView
 
 -(IBAction)searchButtonPressed:(id)sender
 {
