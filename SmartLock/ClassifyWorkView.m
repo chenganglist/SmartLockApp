@@ -181,7 +181,7 @@
     if(success!=nil)
     {
         self.datalist = success;
-        NSLog(@"工单长度： %lu",success.count);
+        NSLog(@"工单长度： %d",success.count);
         [workTable reloadData];
     }else{
         //初始化提示框；
@@ -237,7 +237,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%lu row is selected",indexPath.row);
+    NSLog(@"%d row is selected",indexPath.row);
     WorkDetailView *vc = [[WorkDetailView alloc]initWithNibName:@"WorkDetailView" bundle:nil];
     
     vc.workData = [self.datalist objectAtIndex:indexPath.row];

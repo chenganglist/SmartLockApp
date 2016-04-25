@@ -90,6 +90,7 @@
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [self.typelist objectAtIndex:row];
+    cell.textLabel.font = [UIFont systemFontOfSize:24];
     cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
