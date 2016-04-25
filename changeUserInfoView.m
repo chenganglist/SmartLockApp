@@ -46,6 +46,17 @@
 
 -(IBAction)saveUserChangeButtonPressed:(id)sender
 {
+    if([self.keyString isEqualToString:@"userType"])
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:@"用户类型不可更改" preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                          {
+                          }]];
+        [self presentViewController:alert animated:true completion:nil];
+        return;
+    }
+    
     Post* post = [[Post alloc] init];
     NSMutableDictionary* userInfo = [UserInfoView getUserInfo];
     NSMutableDictionary* tokenInfo = [UserInfoView getTokenInfo];
