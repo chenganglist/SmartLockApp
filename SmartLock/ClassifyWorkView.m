@@ -212,6 +212,11 @@
     return [self.datalist count];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -228,6 +233,7 @@
     
     NSUInteger row = [indexPath row];
     NSDictionary* curData = [self.datalist objectAtIndex:row];
+    cell.textLabel.font = [UIFont systemFontOfSize:24];
     cell.textLabel.text = [curData objectForKey:@"applicantName"];
     cell.detailTextLabel.text = [curData objectForKey:@"applyDescription"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

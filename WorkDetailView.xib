@@ -7,11 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkDetailView">
             <connections>
-                <outlet property="approveButton" destination="gOZ-Lh-Bk5" id="hjz-1V-ja8"/>
-                <outlet property="operateDescription" destination="vJS-ub-su4" id="Vjj-GG-MvE"/>
-                <outlet property="rejectButton" destination="8QT-G5-QY0" id="dYS-al-fUS"/>
+                <outlet property="approveButton" destination="c6T-jS-0gU" id="ELR-ig-pd2"/>
+                <outlet property="operateDescription" destination="se8-w6-trH" id="jmU-oE-seN"/>
+                <outlet property="rejectButton" destination="eWU-C6-J2d" id="X3c-su-4Zc"/>
+                <outlet property="scrollView" destination="GuC-vE-fP0" id="6C8-ol-tmU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mmS-mX-IB8"/>
-                <outlet property="workTable" destination="0Hx-RD-9A4" id="H1C-PV-WOh"/>
+                <outlet property="workTable" destination="rT6-BN-ysE" id="v5e-Zi-DTq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,150 +20,79 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Hx-RD-9A4">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-vE-fP0">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="400" id="ITD-Qm-hIU"/>
-                    </constraints>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rT6-BN-ysE">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="0.0" y="83" width="338" height="331"/>
+                            </variation>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="msP-eP-4v1"/>
+                                <outlet property="delegate" destination="-1" id="Aj1-LS-7X5"/>
+                            </connections>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-jS-0gU">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="同意"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="204" y="463" width="60" height="40"/>
+                            </variation>
+                            <connections>
+                                <action selector="approveButtonPressed:" destination="-2" eventType="touchUpInside" id="oa7-fL-Xre"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-C6-J2d">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="拒绝"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="47" y="462" width="60" height="40"/>
+                            </variation>
+                            <connections>
+                                <action selector="rejectButtonPressed:" destination="-2" eventType="touchUpInside" id="NkQ-e3-EeJ"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="se8-w6-trH">
+                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="10" y="427" width="300" height="30"/>
+                            </variation>
+                        </textField>
+                    </subviews>
                     <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="ITD-Qm-hIU"/>
+                        <mask key="subviews">
+                            <exclude reference="rT6-BN-ysE"/>
+                            <exclude reference="c6T-jS-0gU"/>
+                            <exclude reference="eWU-C6-J2d"/>
+                            <exclude reference="se8-w6-trH"/>
                         </mask>
                     </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="ITD-Qm-hIU"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                        <mask key="subviews">
+                            <include reference="rT6-BN-ysE"/>
+                            <include reference="c6T-jS-0gU"/>
+                            <include reference="eWU-C6-J2d"/>
+                            <include reference="se8-w6-trH"/>
                         </mask>
                     </variation>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="7Vh-4h-CPI"/>
-                        <outlet property="delegate" destination="-1" id="Vhb-SQ-3al"/>
-                    </connections>
-                </tableView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJS-ub-su4">
-                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="cI5-mA-fPt"/>
-                        <constraint firstAttribute="width" constant="280" id="lf1-NT-9R6"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="cI5-mA-fPt"/>
-                            <exclude reference="lf1-NT-9R6"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="cI5-mA-fPt"/>
-                            <include reference="lf1-NT-9R6"/>
-                        </mask>
-                    </variation>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOZ-Lh-Bk5">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="TLK-X6-liO"/>
-                        <constraint firstAttribute="width" constant="60" id="rg3-p4-VMu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <state key="normal" title="同意"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="TLK-X6-liO"/>
-                            <exclude reference="rg3-p4-VMu"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="TLK-X6-liO"/>
-                            <include reference="rg3-p4-VMu"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="approveButtonPressed:" destination="-2" eventType="touchUpInside" id="7wE-pt-czo"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QT-G5-QY0">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="78" id="5BF-hb-RNm">
-                            <variation key="widthClass=compact" constant="60"/>
-                        </constraint>
-                        <constraint firstAttribute="height" constant="40" id="QNc-cJ-TvH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <state key="normal" title="拒绝"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="5BF-hb-RNm"/>
-                            <exclude reference="QNc-cJ-TvH"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="5BF-hb-RNm"/>
-                            <include reference="QNc-cJ-TvH"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="rejectButtonPressed:" destination="-2" eventType="touchUpInside" id="FnO-rS-6LO"/>
-                    </connections>
-                </button>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="8QT-G5-QY0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="MmH-Ll-xI6"/>
-                <constraint firstItem="0Hx-RD-9A4" firstAttribute="top" secondItem="vJS-ub-su4" secondAttribute="bottom" constant="2" id="Y30-Yv-bWj"/>
-                <constraint firstItem="vJS-ub-su4" firstAttribute="top" secondItem="8QT-G5-QY0" secondAttribute="bottom" constant="2" id="aBd-Ds-aj9"/>
-                <constraint firstItem="0Hx-RD-9A4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bcN-dw-ds6"/>
-                <constraint firstItem="8QT-G5-QY0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-80" id="bst-Bi-7oN"/>
-                <constraint firstItem="gOZ-Lh-Bk5" firstAttribute="leading" secondItem="8QT-G5-QY0" secondAttribute="trailing" constant="82" id="foK-Ys-jEB"/>
-                <constraint firstItem="vJS-ub-su4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hMP-xD-gpg"/>
-                <constraint firstItem="0Hx-RD-9A4" firstAttribute="top" secondItem="vJS-ub-su4" secondAttribute="bottom" constant="2" id="jzg-kY-pd8"/>
-                <constraint firstItem="0Hx-RD-9A4" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="mMU-ho-oQh"/>
-                <constraint firstItem="gOZ-Lh-Bk5" firstAttribute="top" secondItem="8QT-G5-QY0" secondAttribute="top" id="nXQ-Py-m4a"/>
-            </constraints>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="0Hx-RD-9A4"/>
-                    <exclude reference="vJS-ub-su4"/>
-                    <exclude reference="gOZ-Lh-Bk5"/>
-                    <exclude reference="8QT-G5-QY0"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="aBd-Ds-aj9"/>
-                    <exclude reference="hMP-xD-gpg"/>
-                    <exclude reference="MmH-Ll-xI6"/>
-                    <exclude reference="bst-Bi-7oN"/>
-                    <exclude reference="foK-Ys-jEB"/>
-                    <exclude reference="nXQ-Py-m4a"/>
-                    <exclude reference="Y30-Yv-bWj"/>
-                    <exclude reference="bcN-dw-ds6"/>
-                    <exclude reference="jzg-kY-pd8"/>
-                    <exclude reference="mMU-ho-oQh"/>
+                    <exclude reference="GuC-vE-fP0"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
-                    <include reference="0Hx-RD-9A4"/>
-                    <include reference="vJS-ub-su4"/>
-                    <include reference="gOZ-Lh-Bk5"/>
-                    <include reference="8QT-G5-QY0"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="aBd-Ds-aj9"/>
-                    <include reference="hMP-xD-gpg"/>
-                    <include reference="MmH-Ll-xI6"/>
-                    <include reference="bst-Bi-7oN"/>
-                    <include reference="foK-Ys-jEB"/>
-                    <include reference="nXQ-Py-m4a"/>
-                    <include reference="Y30-Yv-bWj"/>
-                    <include reference="bcN-dw-ds6"/>
-                    <include reference="jzg-kY-pd8"/>
-                    <include reference="mMU-ho-oQh"/>
+                    <include reference="GuC-vE-fP0"/>
                 </mask>
             </variation>
         </view>

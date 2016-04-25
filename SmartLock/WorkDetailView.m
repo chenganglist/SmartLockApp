@@ -149,11 +149,11 @@ static int userType; //0-管理员，1-工程师
 -(void)viewDidAppear:(BOOL)animated{
     if(classifyType!=1)
     {
-//        [self.approveButton setHidden:YES];//隐藏此控件
+        [self.approveButton setHidden:YES];//隐藏此控件
 //        [self.approveButton removeFromSuperview];
-//        [self.rejectButton setHidden:YES];//隐藏此控件
+        [self.rejectButton setHidden:YES];//隐藏此控件
 //        [self.rejectButton removeFromSuperview];
-//        [self.operateDescription setHidden:YES];//隐藏此控件
+        [self.operateDescription setHidden:YES];//隐藏此控件
 //        [self.operateDescription removeFromSuperview];
         
 //        self.workTable.frame = CGRectMake(20, 20, 100, 100);
@@ -172,6 +172,14 @@ static int userType; //0-管理员，1-工程师
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
+    if(classifyType!=1)
+    {
+        self.scrollView.contentSize= CGSizeMake(400,560);
+        [self.operateDescription setHidden:YES];//隐藏此控件
+    }else{
+        self.scrollView.contentSize= CGSizeMake(400,830);
+    }
+    //self.scrollView.contentSize= CGSizeMake(400,830);
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
         @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
@@ -221,8 +229,14 @@ static int userType; //0-管理员，1-工程师
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.workTable.contentSize = CGSizeMake(-200,1000);
+    self.workTable.contentSize = CGSizeMake(0,560);
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
@@ -243,6 +257,7 @@ static int userType; //0-管理员，1-工程师
     }
     
     NSUInteger row = [indexPath row];
+    cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.text = [NSString stringWithFormat:@"%@",
             [self.typelist objectAtIndex:row]];
 
@@ -255,8 +270,10 @@ static int userType; //0-管理员，1-工程师
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *rowString = [self.typelist objectAtIndex:[indexPath row]];
-    NSString *dataString = [self.datalist objectAtIndex:[indexPath row]];
+    NSString *rowString = [NSString stringWithFormat:@"%@",
+                           [self.typelist objectAtIndex:[indexPath row]]];
+    NSString *dataString = [NSString stringWithFormat:@"%@",
+                            [self.datalist objectAtIndex:[indexPath row]]];
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:rowString message:dataString preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

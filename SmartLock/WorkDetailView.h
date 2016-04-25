@@ -20,9 +20,11 @@
     NSMutableArray *typelist;
     NSMutableArray *keylist;
     UITextField *operateDescription;
+
     int classifyType; //0-approved  1-wait  2-reject  3-all
 }
 
+@property(nonatomic,retain) IBOutlet UIScrollView* scrollView;
 @property(nonatomic,retain) IBOutlet UIButton *approveButton;
 @property(nonatomic,retain) IBOutlet UIButton *rejectButton;
 @property(strong, nonatomic) IBOutlet UITextField *operateDescription;
