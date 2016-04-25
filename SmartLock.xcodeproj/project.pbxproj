@@ -16,6 +16,8 @@
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
 		696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */; };
 		696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */; };
+		696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */; };
+		696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
 		697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 697CCE7A1CCA14B300C3846A /* login_logo.png */; };
@@ -95,6 +97,9 @@
 		696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyManagementView.xib; sourceTree = "<group>"; };
 		696E9DCE1CCE4F440004BE13 /* EntranceManageViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceManageViewViewController.h; sourceTree = "<group>"; };
 		696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceManageViewViewController.m; sourceTree = "<group>"; };
+		696E9DD21CCE63FD0004BE13 /* changeUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeUserInfoView.h; sourceTree = "<group>"; };
+		696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeUserInfoView.m; sourceTree = "<group>"; };
+		696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changeUserInfoView.xib; sourceTree = "<group>"; };
 		696F173A1CC07E1E00BF93BF /* MainTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabView.h; path = SmartLock/MainTabView.h; sourceTree = "<group>"; };
 		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
 		697662A71CC4DFF700FFD793 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = SmartLock/Post.h; sourceTree = "<group>"; };
@@ -232,6 +237,7 @@
 		69589D751CBFC93F00928F23 /* UserInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				696E9DD11CCE63D50004BE13 /* changeUserInfo */,
 				6904EEAA1CBA943200D30FF0 /* UserInfoView.m */,
 				6904EEA91CBA943200D30FF0 /* UserInfoView.h */,
 			);
@@ -277,6 +283,16 @@
 				696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */,
 			);
 			name = EntranceManagement;
+			sourceTree = "<group>";
+		};
+		696E9DD11CCE63D50004BE13 /* changeUserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				696E9DD21CCE63FD0004BE13 /* changeUserInfoView.h */,
+				696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */,
+				696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */,
+			);
+			name = changeUserInfo;
 			sourceTree = "<group>";
 		};
 		696F17391CC07DCD00BF93BF /* MainTabView */ = {
@@ -508,6 +524,7 @@
 				6987AFF31CCC74EF00D08141 /* ProfileLockOn@2x.png in Resources */,
 				6987AFF21CCC74EF00D08141 /* Profile@2x.png in Resources */,
 				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
+				696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */,
 				698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */,
 				6987AFE71CCC729700D08141 /* discover-search@3x.png in Resources */,
 				6987AFF91CCC777900D08141 /* lock32.png in Resources */,
@@ -605,6 +622,7 @@
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
+				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
 				696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */,
 				698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,

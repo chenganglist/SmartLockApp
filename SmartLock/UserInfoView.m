@@ -11,15 +11,19 @@ static NSMutableDictionary* userInfo;
 static NSMutableDictionary* regionInfo;
 static NSMutableDictionary* permissionInfo;
 static NSMutableDictionary* tokenInfo;
+static NSMutableArray *datalist;
+static NSMutableArray *typelist;
+static NSMutableArray *keylist;
+static NSIndexPath *curIndexPath;
 
 @interface UserInfoView ()
 
 @end
 
 @implementation UserInfoView
-@synthesize personalTableView,keylist;
-@synthesize datalist,changedValue;
-@synthesize typelist,curIndexPath;
+@synthesize personalTableView;
+
+
 
 +(void)setUserInfo:(NSDictionary*)Info
 {
@@ -36,6 +40,10 @@ static NSMutableDictionary* tokenInfo;
 +(void)setTokenInfo:(NSDictionary*)Info
 {
     tokenInfo = [NSMutableDictionary dictionaryWithDictionary:Info];
+}
+
++(void)setDataList:(NSMutableArray*)Info{
+    datalist = Info;
 }
 
 +(NSMutableDictionary*)getUserInfo
@@ -80,10 +88,10 @@ static NSMutableDictionary* tokenInfo;
                      regionInfo[@"managementCity"],
                      regionInfo[@"managementArea"],nil];
     
-    self.datalist = data;
-    self.typelist = type;
+    datalist = data;
+    typelist = type;
     
-    self.keylist = [[NSMutableArray alloc] initWithObjects:@"username",
+    keylist = [[NSMutableArray alloc] initWithObjects:@"username",
                     @"realname",
                     @"phone", @"userType",
                     @"company", @"companyGroup",
@@ -103,7 +111,7 @@ static NSMutableDictionary* tokenInfo;
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.datalist = nil;
+    datalist = nil;
     
 }
 
@@ -121,7 +129,7 @@ static NSMutableDictionary* tokenInfo;
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [self.typelist count];
+    return [typelist count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -139,8 +147,8 @@ static NSMutableDictionary* tokenInfo;
     
     NSUInteger row = [indexPath row];
     cell.textLabel.font = [UIFont systemFontOfSize:24];
-    cell.textLabel.text = [self.typelist objectAtIndex:row];
-    cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
+    cell.textLabel.text = [typelist objectAtIndex:row];
+    cell.detailTextLabel.text = [datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -153,113 +161,24 @@ static NSMutableDictionary* tokenInfo;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *rowString = [self.typelist objectAtIndex:[indexPath row]];
-    NSString *dataString = [self.datalist objectAtIndex:[indexPath row]];
-    NSString* keyString = [self.keylist objectAtIndex:[indexPath row]];
+    NSString *rowString = [typelist objectAtIndex:[indexPath row]];
+    NSString *dataString = [datalist objectAtIndex:[indexPath row]];
+    NSString* keyString = [keylist objectAtIndex:[indexPath row]];
     
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:rowString message:nil preferredStyle:UIAlertControllerStyleAlert];
+    changeUserInfoView *vc = [[changeUserInfoView alloc]initWithNibName:@"changeUserInfoView" bundle:nil];
+    vc.dataString = dataString;
+    vc.title = rowString;
+    vc.keyString = keyString;
+    vc.datalist = datalist;
+    vc.index = indexPath.row;
+    [self.navigationController pushViewController:vc animated:YES];
 
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
-        textField.text = dataString;
-    }];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        if( [keyString isEqualToString:@"userType"] )
-        {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-                message:@"该项不可更改" preferredStyle: UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            }]];
-            
-            //弹出提示框；
-            [self presentViewController:alert animated:true completion:nil];
-            return;
-        }
-        Post* post = [[Post alloc] init];
-        NSDictionary *parameters =
-            @{@"operatorName":userInfo[@"username"],
-            @"accessToken":tokenInfo[@"accessToken"],
-            @"originalName":userInfo[@"username"],
-            keyString:alertController.textFields.firstObject.text
-                  };
-        NSString *urlString = @"https://www.smartlock.top/v0/updateUser";
-        [post setDelegate:self];
-        [post postUrl:urlString withParams:parameters];
-        //Post修改用户信息
-        self.curIndexPath = indexPath;
-        self.changedValue = alertController.textFields.firstObject.text;
-        
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //点击按钮的响应事件；
-    }]];
-    
-    //弹出提示框；
-    [self presentViewController:alertController animated:true completion:nil];
-    
 }
 
-
-//用户信息修改失败
--(void)alertUI:(NSError *)error
-{
-    //初始化提示框；
-    NSString* info = [[NSString alloc] initWithFormat:@"错误：%@",error];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-       message:info preferredStyle: UIAlertControllerStyleAlert];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    
-    //弹出提示框；
-    [self presentViewController:alert animated:true completion:nil];
-}
-
-//用户信息修改成功
--(void)updateUI:(NSDictionary*)data
-{
-    NSLog(@"UpdateUI %@",data);
-    NSDictionary* success = data[@"success"];
-    
-    if(success!=nil)
-    {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-           message:@"信息修改成功" preferredStyle: UIAlertControllerStyleAlert];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-        {
-            NSString* key = [self.keylist objectAtIndex:self.curIndexPath.row];
-            [userInfo setObject:self.changedValue forKey:key];
-            
-            [self.datalist replaceObjectAtIndex:[self.curIndexPath row]
-                    withObject:self.changedValue ];
-            
-            NSIndexPath *mindexPath=[NSIndexPath indexPathForRow:[self.curIndexPath row] inSection:0];
-            [personalTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:mindexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-
-        }]];
-        [self presentViewController:alert animated:true completion:nil];
-        
-    }else{
-        //初始化提示框；
-        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-           message:data2String preferredStyle: UIAlertControllerStyleAlert];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //点击按钮的响应事件；
-        }]];
-        
-        //弹出提示框；
-        [self presentViewController:alert animated:true completion:nil];
-    }
-    
+//刷新界面
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
 }
 
 
