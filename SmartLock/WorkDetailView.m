@@ -157,7 +157,7 @@ static int userType; //0-管理员，1-工程师
     
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
-        @"工单状态",@"审批说明",nil];
+        @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
 
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:
 (workData[@"applicantName"]==nil)?@"未定义":workData[@"applicantName"],
@@ -171,6 +171,8 @@ static int userType; //0-管理员，1-工程师
 (workData[@"taskEndTime"]==nil)?@"未定义":workData[@"taskEndTime"],
 (workData[@"taskTimes"]==nil)?@"未定义":workData[@"taskTimes"],
 (workData[@"applicationStatus"]==nil)?@"未定义":workData[@"applicationStatus"],
+(workData[@"approvalPerson"]==nil)?@"未定义":workData[@"approvalPerson"],
+(workData[@"approvalPhone"]==nil)?@"未定义":workData[@"approvalPhone"],
 (workData[@"reason"]==nil)?@"未定义":workData[@"reason"],nil];
     
     self.datalist = data;
@@ -182,7 +184,8 @@ static int userType; //0-管理员，1-工程师
                     @"applicationType", @"applyDescription",
                     @"applicantKeyID", @"taskStartTime",
                     @"taskEndTime",@"taskTimes",
-                    @"applicationStatus",@"reason",nil];
+                    @"applicationStatus",@"approvalPerson",
+                    @"approvalPhone",@"reason",nil];
     
     
 }

@@ -43,10 +43,10 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJS-ub-su4">
                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="cI5-mA-fPt"/>
+                        <constraint firstAttribute="height" constant="40" id="cI5-mA-fPt"/>
                         <constraint firstAttribute="width" constant="280" id="lf1-NT-9R6"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -97,14 +97,14 @@
                     <state key="normal" title="拒绝"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="QNc-cJ-TvH"/>
                             <exclude reference="5BF-hb-RNm"/>
+                            <exclude reference="QNc-cJ-TvH"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
                         <mask key="constraints">
-                            <include reference="QNc-cJ-TvH"/>
                             <include reference="5BF-hb-RNm"/>
+                            <include reference="QNc-cJ-TvH"/>
                         </mask>
                     </variation>
                     <connections>
@@ -133,16 +133,16 @@
                     <exclude reference="8QT-G5-QY0"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="MmH-Ll-xI6"/>
-                    <exclude reference="bst-Bi-7oN"/>
                     <exclude reference="aBd-Ds-aj9"/>
                     <exclude reference="hMP-xD-gpg"/>
+                    <exclude reference="MmH-Ll-xI6"/>
+                    <exclude reference="bst-Bi-7oN"/>
+                    <exclude reference="foK-Ys-jEB"/>
+                    <exclude reference="nXQ-Py-m4a"/>
                     <exclude reference="Y30-Yv-bWj"/>
                     <exclude reference="bcN-dw-ds6"/>
                     <exclude reference="jzg-kY-pd8"/>
                     <exclude reference="mMU-ho-oQh"/>
-                    <exclude reference="foK-Ys-jEB"/>
-                    <exclude reference="nXQ-Py-m4a"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -153,16 +153,16 @@
                     <include reference="8QT-G5-QY0"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="MmH-Ll-xI6"/>
-                    <include reference="bst-Bi-7oN"/>
                     <include reference="aBd-Ds-aj9"/>
                     <include reference="hMP-xD-gpg"/>
+                    <include reference="MmH-Ll-xI6"/>
+                    <include reference="bst-Bi-7oN"/>
+                    <include reference="foK-Ys-jEB"/>
+                    <include reference="nXQ-Py-m4a"/>
                     <include reference="Y30-Yv-bWj"/>
                     <include reference="bcN-dw-ds6"/>
                     <include reference="jzg-kY-pd8"/>
                     <include reference="mMU-ho-oQh"/>
-                    <include reference="foK-Ys-jEB"/>
-                    <include reference="nXQ-Py-m4a"/>
                 </mask>
             </variation>
         </view>
