@@ -86,10 +86,10 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTa-mp-q9o">
                     <rect key="frame" x="55" y="508" width="250" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="137" id="AXz-7K-nHh"/>
-                        <constraint firstAttribute="height" constant="30" id="eeM-3p-kcQ"/>
+                        <constraint firstAttribute="width" constant="140" id="AXz-7K-nHh"/>
+                        <constraint firstAttribute="height" constant="40" id="eeM-3p-kcQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="向蓝牙发送数据"/>
                     <variation key="default">
                         <mask key="constraints">

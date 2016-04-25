@@ -138,11 +138,18 @@ static NSMutableDictionary* tokenInfo;
     }
     
     NSUInteger row = [indexPath row];
+    cell.textLabel.font = [UIFont systemFontOfSize:24];
     cell.textLabel.text = [self.typelist objectAtIndex:row];
     cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
