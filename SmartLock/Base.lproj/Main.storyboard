@@ -301,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CHG-h4-G46" kind="relationship" relationship="rootViewController" id="jkj-Eu-o1D"/>
+                        <segue destination="rM1-bQ-cxc" kind="relationship" relationship="rootViewController" id="Zen-DA-sNg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="027-XP-gY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -309,60 +309,25 @@
             <point key="canvasLocation" x="-930" y="-1351"/>
         </scene>
         <!--任务管理-->
-        <scene sceneID="FiP-o5-G3m">
+        <scene sceneID="aPW-xO-iQi">
             <objects>
-                <viewController id="CHG-h4-G46" customClass="ManageWorkView" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tcs-RP-bPb"/>
-                        <viewControllerLayoutGuide type="bottom" id="Iqm-gT-KYE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yP8-Y8-n98">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="rM1-bQ-cxc" userLabel="任务管理" customClass="ManageWorkView" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pva-hj-veK">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-eW-QMA">
-                                <rect key="frame" x="0.0" y="72" width="333" height="479"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="CHG-h4-G46" id="vU8-jf-fNp"/>
-                                    <outlet property="delegate" destination="CHG-h4-G46" id="HPI-ja-g8A"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1pZ-eW-QMA" firstAttribute="centerX" secondItem="yP8-Y8-n98" secondAttribute="centerX" id="7e6-XL-3X7"/>
-                            <constraint firstItem="1pZ-eW-QMA" firstAttribute="leading" secondItem="yP8-Y8-n98" secondAttribute="leadingMargin" constant="-20" id="FDy-92-mNz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1pZ-eW-QMA" secondAttribute="trailing" constant="-20" id="JbB-iO-3bs"/>
-                            <constraint firstItem="Iqm-gT-KYE" firstAttribute="top" secondItem="1pZ-eW-QMA" secondAttribute="bottom" id="nUP-BG-IdI"/>
-                            <constraint firstItem="1pZ-eW-QMA" firstAttribute="top" secondItem="tcs-RP-bPb" secondAttribute="bottom" id="tyn-bx-1E7"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7e6-XL-3X7"/>
-                                <exclude reference="FDy-92-mNz"/>
-                                <exclude reference="JbB-iO-3bs"/>
-                                <exclude reference="tyn-bx-1E7"/>
-                                <exclude reference="nUP-BG-IdI"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="7e6-XL-3X7"/>
-                                <include reference="FDy-92-mNz"/>
-                                <include reference="JbB-iO-3bs"/>
-                                <include reference="tyn-bx-1E7"/>
-                                <include reference="nUP-BG-IdI"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="任务管理" image="discover-search.png" id="WpS-38-fLA"/>
-                    <navigationItem key="navigationItem" title="任务管理" id="HGi-Om-klI"/>
-                    <value key="contentSizeForViewInPopover" type="size" width="392" height="600"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3C-P9-pz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="rM1-bQ-cxc" id="RFM-o8-3iD"/>
+                            <outlet property="delegate" destination="rM1-bQ-cxc" id="TMD-6E-SNZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="任务管理" id="P5j-8E-rAA"/>
+                    <connections>
+                        <outlet property="workTable" destination="Pva-hj-veK" id="Srk-X9-Lmk"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0u-Ok-fzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="-1363"/>
+            <point key="canvasLocation" x="165" y="-1363"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="Jp2-e4-6Mf">

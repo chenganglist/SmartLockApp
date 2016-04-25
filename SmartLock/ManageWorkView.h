@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
 
-@interface ManageWorkView : UIViewController
+@interface ManageWorkView : UITableViewController
 {
     UITableView *workTable;
     NSArray *datalist;
