@@ -26,13 +26,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el5-Nt-H3I">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="87k-P1-iSh"/>
-                                    <constraint firstAttribute="width" constant="270" id="UBy-cc-9b5"/>
+                                    <constraint firstAttribute="width" constant="290" id="UBy-cc-9b5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="用户登录">
-                                    <color key="titleColor" red="0.88838141025641026" green="0.86586136405416592" blue="0.53993659491053447" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -75,10 +76,6 @@
                                     <action selector="loginButtonPressed:" destination="dkx-z0-nzr" eventType="editingDidEndOnExit" id="Mmk-by-Q8N"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-Bn-6g8">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.41620642184901169" green="0.89447115384615383" blue="0.82954981493450064" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-8q-m3B">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -110,18 +107,22 @@
                                     <action selector="uidDidEndOnExit:" destination="dkx-z0-nzr" eventType="editingDidEndOnExit" id="R1E-RS-7BY"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-Bn-6g8">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.41620642184901169" green="0.89447115384615383" blue="0.82954981493450064" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QsX-Bn-6g8" firstAttribute="width" secondItem="up8-U4-flP" secondAttribute="width" multiplier="0.6" id="3AQ-AF-MW2"/>
                             <constraint firstItem="eEK-PE-VEf" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="-30" id="54l-xQ-gms"/>
                             <constraint firstItem="el5-Nt-H3I" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="100" id="Css-8n-Z6p"/>
-                            <constraint firstItem="QsX-Bn-6g8" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" multiplier="0.8" constant="-80" id="EFN-jK-ZCg"/>
-                            <constraint firstItem="QsX-Bn-6g8" firstAttribute="height" secondItem="up8-U4-flP" secondAttribute="height" multiplier="0.2" id="OjE-6S-H2q"/>
+                            <constraint firstItem="QsX-Bn-6g8" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" multiplier="0.8" constant="-84" id="EFN-jK-ZCg"/>
+                            <constraint firstItem="QsX-Bn-6g8" firstAttribute="height" secondItem="up8-U4-flP" secondAttribute="height" multiplier="0.3" id="OjE-6S-H2q"/>
                             <constraint firstItem="el5-Nt-H3I" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" id="OkZ-gm-m9x"/>
                             <constraint firstItem="Q9Q-1f-J2u" firstAttribute="leading" secondItem="y1z-ri-Qfh" secondAttribute="leading" id="YK6-M6-k0l"/>
                             <constraint firstItem="Q9Q-1f-J2u" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="30" id="Z9x-TA-nCw"/>
-                            <constraint firstItem="y1z-ri-Qfh" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="-30" id="b3U-pC-VUl"/>
+                            <constraint firstItem="y1z-ri-Qfh" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="-27" id="b3U-pC-VUl"/>
                             <constraint firstItem="QsX-Bn-6g8" firstAttribute="centerX" secondItem="up8-U4-flP" secondAttribute="centerX" id="em5-hj-8w8"/>
                             <constraint firstItem="XVf-8q-m3B" firstAttribute="leading" secondItem="eEK-PE-VEf" secondAttribute="leading" constant="10" id="gjx-kW-Fux"/>
                             <constraint firstItem="XVf-8q-m3B" firstAttribute="centerY" secondItem="up8-U4-flP" secondAttribute="centerY" constant="30" id="ry0-Zh-RTW"/>
@@ -133,9 +134,9 @@
                                 <exclude reference="eEK-PE-VEf"/>
                                 <exclude reference="el5-Nt-H3I"/>
                                 <exclude reference="Q9Q-1f-J2u"/>
-                                <exclude reference="QsX-Bn-6g8"/>
                                 <exclude reference="XVf-8q-m3B"/>
                                 <exclude reference="y1z-ri-Qfh"/>
+                                <exclude reference="QsX-Bn-6g8"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="YK6-M6-k0l"/>
@@ -159,9 +160,9 @@
                                 <include reference="eEK-PE-VEf"/>
                                 <include reference="el5-Nt-H3I"/>
                                 <include reference="Q9Q-1f-J2u"/>
-                                <include reference="QsX-Bn-6g8"/>
                                 <include reference="XVf-8q-m3B"/>
                                 <include reference="y1z-ri-Qfh"/>
+                                <include reference="QsX-Bn-6g8"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="YK6-M6-k0l"/>
@@ -209,7 +210,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rg-4e-f2W">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GEt-gE-zPd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="J8q-Db-owZ"/>
@@ -217,7 +218,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="电子钥匙管理">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -239,14 +240,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiS-dd-U1B">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AOx-O6-KG9"/>
                                     <constraint firstAttribute="width" constant="280" id="b28-8h-7mf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="基站门锁管理">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -266,14 +267,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-gT-sGD">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="cxB-9g-kEt"/>
                                     <constraint firstAttribute="height" constant="40" id="xSe-Ew-7ob"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="手机APP开门">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -293,14 +294,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-ji-Pf7">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="etj-aT-4k0"/>
                                     <constraint firstAttribute="width" constant="280" id="wAH-Vb-OKk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="电子钥匙授权">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
