@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="50" id="GXZ-0s-1cI"/>
                         <constraint firstAttribute="width" constant="312" id="PzN-B5-gkF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
                     <textInputTraits key="textInputTraits"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -38,12 +38,6 @@
                         </mask>
                     </variation>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以在这里更改您的信息并保存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-el-eD2">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDj-O0-FL6">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,24 +66,30 @@
                         <action selector="saveUserChangeButtonPressed:" destination="-2" eventType="touchUpInside" id="mfW-wy-g9U"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以在这里更改您的信息并保存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-el-eD2">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="MCi-el-eD2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="8st-oB-352"/>
+                <constraint firstItem="MCi-el-eD2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-110" id="0xy-5G-w0Y"/>
                 <constraint firstItem="d6P-f6-O0J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W32-LF-E96"/>
-                <constraint firstItem="UDj-O0-FL6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-40" id="YH3-61-Ww2"/>
-                <constraint firstItem="d6P-f6-O0J" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="Ylv-xo-2Oj"/>
+                <constraint firstItem="UDj-O0-FL6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="YH3-61-Ww2"/>
+                <constraint firstItem="d6P-f6-O0J" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="Ylv-xo-2Oj"/>
                 <constraint firstItem="UDj-O0-FL6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gLh-fm-qDU"/>
                 <constraint firstItem="MCi-el-eD2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jPC-pE-2eT"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="d6P-f6-O0J"/>
-                    <exclude reference="MCi-el-eD2"/>
                     <exclude reference="UDj-O0-FL6"/>
+                    <exclude reference="MCi-el-eD2"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="8st-oB-352"/>
+                    <exclude reference="0xy-5G-w0Y"/>
                     <exclude reference="jPC-pE-2eT"/>
                     <exclude reference="W32-LF-E96"/>
                     <exclude reference="Ylv-xo-2Oj"/>
@@ -100,11 +100,11 @@
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="d6P-f6-O0J"/>
-                    <include reference="MCi-el-eD2"/>
                     <include reference="UDj-O0-FL6"/>
+                    <include reference="MCi-el-eD2"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="8st-oB-352"/>
+                    <include reference="0xy-5G-w0Y"/>
                     <include reference="jPC-pE-2eT"/>
                     <include reference="W32-LF-E96"/>
                     <include reference="Ylv-xo-2Oj"/>
