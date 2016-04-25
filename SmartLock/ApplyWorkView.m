@@ -24,7 +24,7 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
-    self.scrollView.contentSize= CGSizeMake(450,800);
+    self.scrollView.contentSize= CGSizeMake(400,850);
     
     stationAddress.text = @"四川省成都市建设北路二段四号";
     workType.text = @"普通";
