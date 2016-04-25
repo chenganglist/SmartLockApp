@@ -20,8 +20,10 @@
     UITextField *endTime;
     UITextField *electronicKey;
     UITextField *workDescription;
+    UIScrollView* scrollView;
 }
 
+@property(nonatomic,retain) IBOutlet UIScrollView* scrollView;
 @property(nonatomic,retain) IBOutlet UIButton *resetButton;
 @property(nonatomic,retain) IBOutlet UIButton *commitButton;
 @property(strong, nonatomic) IBOutlet UITextField *stationAddress;

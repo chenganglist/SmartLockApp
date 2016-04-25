@@ -15,7 +15,7 @@
 @implementation ApplyWorkView
 @synthesize  resetButton,commitButton,stationAddress;
 @synthesize  workType,startTime,endTime,electronicKey;
-@synthesize  workDescription;
+@synthesize  workDescription,scrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +24,7 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
+    self.scrollView.contentSize= CGSizeMake(450,800);
     
     stationAddress.text = @"四川省成都市建设北路二段四号";
     workType.text = @"普通";
