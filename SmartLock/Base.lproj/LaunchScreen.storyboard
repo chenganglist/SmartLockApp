@@ -97,10 +97,10 @@
                                 <exclude reference="XN0-FM-UVB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Aji-CV-smG"/>
-                                <exclude reference="JhU-FC-YuY"/>
                                 <exclude reference="lML-JX-IKC"/>
                                 <exclude reference="tBp-g4-ms5"/>
+                                <exclude reference="Aji-CV-smG"/>
+                                <exclude reference="JhU-FC-YuY"/>
                                 <exclude reference="JjQ-s6-hfc"/>
                                 <exclude reference="WTe-JI-fAZ"/>
                             </mask>
@@ -112,10 +112,10 @@
                                 <include reference="XN0-FM-UVB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Aji-CV-smG"/>
-                                <include reference="JhU-FC-YuY"/>
                                 <include reference="lML-JX-IKC"/>
                                 <include reference="tBp-g4-ms5"/>
+                                <include reference="Aji-CV-smG"/>
+                                <include reference="JhU-FC-YuY"/>
                                 <include reference="JjQ-s6-hfc"/>
                                 <include reference="WTe-JI-fAZ"/>
                             </mask>
