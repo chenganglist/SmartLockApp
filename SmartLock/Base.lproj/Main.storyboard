@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="top" id="hSF-hr-00J"/>
                         <viewControllerLayoutGuide type="bottom" id="mnc-SJ-EvV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="up8-U4-flP">
+                    <view key="view" contentMode="scaleToFill" id="up8-U4-flP" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -339,10 +339,10 @@
                                 <exclude reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="U7z-9a-yE1"/>
-                                <exclude reference="yuj-BQ-Xfe"/>
                                 <exclude reference="XwV-3T-Ghh"/>
                                 <exclude reference="nne-vz-kei"/>
+                                <exclude reference="U7z-9a-yE1"/>
+                                <exclude reference="yuj-BQ-Xfe"/>
                                 <exclude reference="UvU-7t-aXz"/>
                                 <exclude reference="glZ-RY-Hj8"/>
                                 <exclude reference="fNi-Lg-lw1"/>
@@ -357,10 +357,10 @@
                                 <include reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="U7z-9a-yE1"/>
-                                <include reference="yuj-BQ-Xfe"/>
                                 <include reference="XwV-3T-Ghh"/>
                                 <include reference="nne-vz-kei"/>
+                                <include reference="U7z-9a-yE1"/>
+                                <include reference="yuj-BQ-Xfe"/>
                                 <include reference="UvU-7t-aXz"/>
                                 <include reference="glZ-RY-Hj8"/>
                                 <include reference="fNi-Lg-lw1"/>
