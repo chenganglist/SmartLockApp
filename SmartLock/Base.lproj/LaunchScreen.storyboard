@@ -16,12 +16,118 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright 2016 CSIS. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="VQo-ot-hsQ">
+                                <rect key="frame" x="20" y="439" width="441" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="IYC-Rb-lgg"/>
+                                    <constraint firstAttribute="height" constant="40" id="rmi-sq-TBG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.03047558670687061" green="0.069874166753075326" blue="0.9161858974358974" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IYC-Rb-lgg"/>
+                                        <exclude reference="rmi-sq-TBG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="IYC-Rb-lgg"/>
+                                        <include reference="rmi-sq-TBG"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SmartLock" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="jEh-Oi-vv3">
+                                <rect key="frame" x="20" y="140" width="441" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="349" id="FJH-Tq-1w9"/>
+                                    <constraint firstAttribute="height" constant="43" id="uvU-ub-9Yf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="48"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FJH-Tq-1w9"/>
+                                        <exclude reference="uvU-ub-9Yf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="FJH-Tq-1w9"/>
+                                        <include reference="uvU-ub-9Yf"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockstart.png" translatesAutoresizingMaskIntoConstraints="NO" id="XN0-FM-UVB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="Ozs-vF-4Bi"/>
+                                    <constraint firstAttribute="width" constant="160" id="eVb-Rt-sX9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ozs-vF-4Bi"/>
+                                        <exclude reference="eVb-Rt-sX9"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Ozs-vF-4Bi"/>
+                                        <include reference="eVb-Rt-sX9"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97287720441818237" green="0.99106484651565552" blue="0.99126416444778442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jEh-Oi-vv3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-90" id="Aji-CV-smG"/>
+                            <constraint firstItem="jEh-Oi-vv3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JhU-FC-YuY"/>
+                            <constraint firstItem="VQo-ot-hsQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="90" id="JjQ-s6-hfc"/>
+                            <constraint firstItem="VQo-ot-hsQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WTe-JI-fAZ"/>
+                            <constraint firstItem="XN0-FM-UVB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lML-JX-IKC"/>
+                            <constraint firstItem="XN0-FM-UVB" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tBp-g4-ms5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="VQo-ot-hsQ"/>
+                                <exclude reference="jEh-Oi-vv3"/>
+                                <exclude reference="XN0-FM-UVB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Aji-CV-smG"/>
+                                <exclude reference="JhU-FC-YuY"/>
+                                <exclude reference="lML-JX-IKC"/>
+                                <exclude reference="tBp-g4-ms5"/>
+                                <exclude reference="JjQ-s6-hfc"/>
+                                <exclude reference="WTe-JI-fAZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="VQo-ot-hsQ"/>
+                                <include reference="jEh-Oi-vv3"/>
+                                <include reference="XN0-FM-UVB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Aji-CV-smG"/>
+                                <include reference="JhU-FC-YuY"/>
+                                <include reference="lML-JX-IKC"/>
+                                <include reference="tBp-g4-ms5"/>
+                                <include reference="JjQ-s6-hfc"/>
+                                <include reference="WTe-JI-fAZ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lockstart.png" width="128" height="128"/>
+    </resources>
 </document>

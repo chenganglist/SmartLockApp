@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904EEAA1CBA943200D30FF0 /* UserInfoView.m */; };
+		693CB4861CCF631B00E0269A /* lockstart.png in Resources */ = {isa = PBXBuildFile; fileRef = 693CB4851CCF631B00E0269A /* lockstart.png */; };
+		693CB4881CCF63B300E0269A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 693CB4871CCF63B300E0269A /* icon.png */; };
 		694277F51CBA404D00F5887E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277F41CBA404D00F5887E /* main.m */; };
 		694277F81CBA404D00F5887E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277F71CBA404D00F5887E /* AppDelegate.m */; };
 		694277FB1CBA404D00F5887E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694277FA1CBA404D00F5887E /* ViewController.m */; };
@@ -38,7 +40,7 @@
 		6987AFF51CCC74EF00D08141 /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF01CCC74EF00D08141 /* tabbar_meHL@2x.png */; };
 		6987AFF71CCC774500D08141 /* resizeApi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF61CCC774500D08141 /* resizeApi.png */; };
 		6987AFF91CCC777900D08141 /* lock32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF81CCC777900D08141 /* lock32.png */; };
-		6996085A1CCA3EC700B5CF3B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 699608591CCA3EC700B5CF3B /* icon.png */; };
+		6996085A1CCA3EC700B5CF3B /* icon_ltg.png in Resources */ = {isa = PBXBuildFile; fileRef = 699608591CCA3EC700B5CF3B /* icon_ltg.png */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		69B25B821CCD1B22006AE96B /* ClassifyWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B25B801CCD1B22006AE96B /* ClassifyWorkView.xib */; };
 		69B25B841CCD1C75006AE96B /* BLECommunication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B25B831CCD1C75006AE96B /* BLECommunication.xib */; };
@@ -82,6 +84,8 @@
 		31D161764E5B0EFE2DE51934 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6904EEA91CBA943200D30FF0 /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoView.h; path = SmartLock/UserInfoView.h; sourceTree = "<group>"; };
 		6904EEAA1CBA943200D30FF0 /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoView.m; path = SmartLock/UserInfoView.m; sourceTree = "<group>"; };
+		693CB4851CCF631B00E0269A /* lockstart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockstart.png; sourceTree = "<group>"; };
+		693CB4871CCF63B300E0269A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		694277F01CBA404D00F5887E /* SmartLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		694277F41CBA404D00F5887E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		694277F61CBA404D00F5887E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SmartLock/AppDelegate.h; sourceTree = "<group>"; };
@@ -126,7 +130,7 @@
 		6987AFF01CCC74EF00D08141 /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar_meHL@2x.png"; path = "BarItemPng/tabbar_meHL@2x.png"; sourceTree = "<group>"; };
 		6987AFF61CCC774500D08141 /* resizeApi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resizeApi.png; path = BarItemPng/resizeApi.png; sourceTree = "<group>"; };
 		6987AFF81CCC777900D08141 /* lock32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock32.png; path = BarItemPng/lock32.png; sourceTree = "<group>"; };
-		699608591CCA3EC700B5CF3B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		699608591CCA3EC700B5CF3B /* icon_ltg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ltg.png; sourceTree = "<group>"; };
 		69A688E01CBFE5450017ECA7 /* ManageWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageWorkView.h; path = SmartLock/ManageWorkView.h; sourceTree = "<group>"; };
 		69A688E11CBFE5450017ECA7 /* ManageWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManageWorkView.m; path = SmartLock/ManageWorkView.m; sourceTree = "<group>"; };
 		69AB44921CBB37BD006AEDF0 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,7 +269,8 @@
 		69589D781CBFCC5600928F23 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				699608591CCA3EC700B5CF3B /* icon.png */,
+				693CB4871CCF63B300E0269A /* icon.png */,
+				699608591CCA3EC700B5CF3B /* icon_ltg.png */,
 				697CCE7A1CCA14B300C3846A /* login_logo.png */,
 				69B8FD0E1CC71B2D00A95981 /* Main.storyboard */,
 				694278041CBA404D00F5887E /* LaunchScreen.storyboard */,
@@ -356,6 +361,7 @@
 		6987AFE11CCC728300D08141 /* BarItemPng */ = {
 			isa = PBXGroup;
 			children = (
+				693CB4851CCF631B00E0269A /* lockstart.png */,
 				6987AFF81CCC777900D08141 /* lock32.png */,
 				6987AFF61CCC774500D08141 /* resizeApi.png */,
 				6987AFEC1CCC74EF00D08141 /* me-message@2x.png */,
@@ -525,11 +531,13 @@
 				6987AFF21CCC74EF00D08141 /* Profile@2x.png in Resources */,
 				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
 				696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */,
+				693CB4881CCF63B300E0269A /* icon.png in Resources */,
 				698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */,
 				6987AFE71CCC729700D08141 /* discover-search@3x.png in Resources */,
 				6987AFF91CCC777900D08141 /* lock32.png in Resources */,
+				693CB4861CCF631B00E0269A /* lockstart.png in Resources */,
 				6987AFE91CCC729700D08141 /* lock.png in Resources */,
-				6996085A1CCA3EC700B5CF3B /* icon.png in Resources */,
+				6996085A1CCA3EC700B5CF3B /* icon_ltg.png in Resources */,
 				6987AFEB1CCC731B00D08141 /* person.png in Resources */,
 				6987AFE81CCC729700D08141 /* me-message@3x.png in Resources */,
 				6987AFE61CCC729700D08141 /* task.png in Resources */,
