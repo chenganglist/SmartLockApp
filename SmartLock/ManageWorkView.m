@@ -167,6 +167,15 @@
             vc.classifyType = 3;
             break;
         }
+        case 5:
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:@"基站经纬度导航" preferredStyle: UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                  {
+                  }]];
+            [self presentViewController:alert animated:true completion:nil];
+        }
             
     }
 
