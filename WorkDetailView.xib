@@ -7,9 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkDetailView">
             <connections>
-                <outlet property="approveButton" destination="c6T-jS-0gU" id="ELR-ig-pd2"/>
-                <outlet property="operateDescription" destination="se8-w6-trH" id="jmU-oE-seN"/>
-                <outlet property="rejectButton" destination="eWU-C6-J2d" id="X3c-su-4Zc"/>
                 <outlet property="scrollView" destination="GuC-vE-fP0" id="6C8-ol-tmU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mmS-mX-IB8"/>
                 <outlet property="workTable" destination="rT6-BN-ysE" id="v5e-Zi-DTq"/>
@@ -27,59 +24,59 @@
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="0.0" y="83" width="338" height="331"/>
+                                <rect key="frame" x="0.0" y="149" width="338" height="331"/>
                             </variation>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="msP-eP-4v1"/>
                                 <outlet property="delegate" destination="-1" id="Aj1-LS-7X5"/>
                             </connections>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-jS-0gU">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-o2-u3p">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="同意"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="204" y="463" width="60" height="40"/>
+                                <rect key="frame" x="204" y="108" width="60" height="40"/>
                             </variation>
                             <connections>
-                                <action selector="approveButtonPressed:" destination="-2" eventType="touchUpInside" id="oa7-fL-Xre"/>
+                                <action selector="approveButtonPressed:" destination="-2" eventType="touchUpInside" id="zjc-RM-NED"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-C6-J2d">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-Uo-FiS">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="拒绝"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="47" y="462" width="60" height="40"/>
+                                <rect key="frame" x="47" y="107" width="60" height="40"/>
                             </variation>
                             <connections>
-                                <action selector="rejectButtonPressed:" destination="-2" eventType="touchUpInside" id="NkQ-e3-EeJ"/>
+                                <action selector="rejectButtonPressed:" destination="-2" eventType="touchUpInside" id="z8W-dy-l0o"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="se8-w6-trH">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rho-oU-goS">
                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <textInputTraits key="textInputTraits"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="10" y="427" width="300" height="30"/>
+                                <rect key="frame" x="10" y="76" width="300" height="30"/>
                             </variation>
                         </textField>
                     </subviews>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="rT6-BN-ysE"/>
-                            <exclude reference="c6T-jS-0gU"/>
-                            <exclude reference="eWU-C6-J2d"/>
-                            <exclude reference="se8-w6-trH"/>
+                            <exclude reference="1xB-o2-u3p"/>
+                            <exclude reference="BfH-Uo-FiS"/>
+                            <exclude reference="Rho-oU-goS"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <mask key="subviews">
                             <include reference="rT6-BN-ysE"/>
-                            <include reference="c6T-jS-0gU"/>
-                            <include reference="eWU-C6-J2d"/>
-                            <include reference="se8-w6-trH"/>
+                            <include reference="1xB-o2-u3p"/>
+                            <include reference="BfH-Uo-FiS"/>
+                            <include reference="Rho-oU-goS"/>
                         </mask>
                     </variation>
                 </scrollView>

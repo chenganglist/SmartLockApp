@@ -149,11 +149,11 @@ static int userType; //0-管理员，1-工程师
 -(void)viewDidAppear:(BOOL)animated{
     if(classifyType!=1)
     {
-        [self.approveButton setHidden:YES];//隐藏此控件
+//        [self.approveButton setHidden:YES];//隐藏此控件
 //        [self.approveButton removeFromSuperview];
-        [self.rejectButton setHidden:YES];//隐藏此控件
+//        [self.rejectButton setHidden:YES];//隐藏此控件
 //        [self.rejectButton removeFromSuperview];
-        [self.operateDescription setHidden:YES];//隐藏此控件
+//        [self.operateDescription setHidden:YES];//隐藏此控件
 //        [self.operateDescription removeFromSuperview];
         
 //        self.workTable.frame = CGRectMake(20, 20, 100, 100);
@@ -172,13 +172,13 @@ static int userType; //0-管理员，1-工程师
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
-    if(classifyType!=1)
-    {
-        self.scrollView.contentSize= CGSizeMake(400,560);
-        [self.operateDescription setHidden:YES];//隐藏此控件
-    }else{
+//    if(classifyType!=1)
+//    {
+//        self.scrollView.contentSize= CGSizeMake(400,560);
+//        [self.operateDescription setHidden:YES];//隐藏此控件
+//    }else{
         self.scrollView.contentSize= CGSizeMake(400,830);
-    }
+//    }
     //self.scrollView.contentSize= CGSizeMake(400,830);
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
