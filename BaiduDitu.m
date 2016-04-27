@@ -16,11 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(viewTapped:)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
+    
     // Do any additional setup after loading the view from its nib.
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
+}
+
+
+-(void)viewTapped:(UITapGestureRecognizer*)tap
+{
+    
+    [self.view endEditing:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
