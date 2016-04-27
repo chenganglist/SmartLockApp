@@ -179,7 +179,7 @@
             BaiduDitu *vc = [[BaiduDitu alloc]initWithNibName:@"BaiduDitu" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"百度地图导航";
+            vc.title = @"地图导航";
         }
             
     }

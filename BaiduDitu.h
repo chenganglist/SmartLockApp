@@ -31,7 +31,8 @@
 
 
 
-@interface BaiduDitu : UIViewController<BMKMapViewDelegate> {
+@interface BaiduDitu : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate> {
     IBOutlet BMKMapView *_mapView;
+    BMKLocationService* _locService;
 }
 @end
