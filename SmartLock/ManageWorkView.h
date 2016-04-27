@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
+#import "BaiduDitu.h"
 
 @interface ManageWorkView : UITableViewController
 {
