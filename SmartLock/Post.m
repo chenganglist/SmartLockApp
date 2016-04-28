@@ -17,7 +17,6 @@
     delegate = newDelegate;
 }
 
-
 //参数示例
 //NSDictionary *parameters = @{@"phone":"123",@"password":"123456"};
 //NSString *urlString = @"https://www.smartlock.top/v0/login";

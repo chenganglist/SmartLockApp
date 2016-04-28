@@ -84,6 +84,60 @@
     
 }
 
+-(void)getDestinationPosition{
+    
+    Get* get = [[Get alloc] init];
+    NSString *urlString = @"http://api.map.baidu.com/geocoder/v2/";
+    [get setDelegate:self];
+    NSDictionary *parameters = @{
+            @"ak":@"hDZ8Dh0Z18xmGlcZlZifo6US7oipIKhr",
+            @"address":@"成都市金牛区跃进村",
+            @"output":@"json"};
+    [get getUrl:urlString withParams:parameters];
+    
+}
+
+-(void)alertUI:(NSError *)error
+{
+    //初始化提示框；
+    NSString* info = [[NSString alloc] initWithFormat:@"错误：%@",error];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+        message:info preferredStyle: UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"返回解析地址" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+-(void)updateUI:(NSDictionary*)data
+{
+    NSLog(@"UpdateUI %@",data);
+//NSDictionary* success = data[@"success"];
+//    if(success!=nil)
+//    {
+//
+//    }else{
+//    }
+    //初始化提示框；
+    NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+   message:data2String preferredStyle: UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+    
+}
+
+
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
     if (error == 0) {
@@ -96,6 +150,7 @@
            message:showmeg preferredStyle: UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
                           {
+                               [self getDestinationPosition];
                           }]];
         [self presentViewController:alert animated:true completion:nil];
 

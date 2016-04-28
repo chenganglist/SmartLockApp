@@ -37,6 +37,7 @@
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
 		697C07581CD234B200C6500E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 697C07571CD234B200C6500E /* libsqlite3.0.tbd */; };
+		697C075C1CD24A1C00C6500E /* GetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 697C075B1CD24A1C00C6500E /* GetDelegate.m */; };
 		697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 697CCE7A1CCA14B300C3846A /* login_logo.png */; };
 		698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177EF1CC87146009C7120 /* ApplyWorkView.m */; };
 		698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177F21CC8715E009C7120 /* ClassifyWorkView.m */; };
@@ -151,6 +152,8 @@
 		697662A71CC4DFF700FFD793 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = SmartLock/Post.h; sourceTree = "<group>"; };
 		697662A81CC4DFF700FFD793 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = SmartLock/Post.m; sourceTree = "<group>"; };
 		697C07571CD234B200C6500E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		697C075A1CD24A1C00C6500E /* GetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDelegate.h; sourceTree = "<group>"; };
+		697C075B1CD24A1C00C6500E /* GetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDelegate.m; sourceTree = "<group>"; };
 		697CCE7A1CCA14B300C3846A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		698177EE1CC87146009C7120 /* ApplyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyWorkView.h; path = SmartLock/ApplyWorkView.h; sourceTree = "<group>"; };
 		698177EF1CC87146009C7120 /* ApplyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyWorkView.m; path = SmartLock/ApplyWorkView.m; sourceTree = "<group>"; };
@@ -253,6 +256,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDitu */,
 				696E9DCD1CCE4F160004BE13 /* EntranceManagement */,
@@ -416,6 +420,15 @@
 				697662A81CC4DFF700FFD793 /* Post.m */,
 			);
 			name = PostDelegate;
+			sourceTree = "<group>";
+		};
+		697C07591CD249E700C6500E /* GetDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				697C075A1CD24A1C00C6500E /* GetDelegate.h */,
+				697C075B1CD24A1C00C6500E /* GetDelegate.m */,
+			);
+			name = GetDelegate;
 			sourceTree = "<group>";
 		};
 		698177EC1CC86BC2009C7120 /* ClassifyWork */ = {
@@ -735,6 +748,7 @@
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
+				697C075C1CD24A1C00C6500E /* GetDelegate.m in Sources */,
 				696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */,
 				698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
