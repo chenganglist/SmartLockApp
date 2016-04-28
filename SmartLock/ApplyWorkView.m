@@ -109,7 +109,6 @@
     NSDictionary *parameters =
     @{@"operatorName":userInfo[@"username"],
       @"accessToken":tokenInfo[@"accessToken"],
-      @"stationID":@"5651273y9034",
       @"stationAddress":self.stationAddress.text,
       @"applicantName":userInfo[@"username"],
       @"applicantCompany":userInfo[@"company"],
