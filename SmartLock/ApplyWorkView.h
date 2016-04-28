@@ -18,6 +18,8 @@
     UITextField *workType;
     UITextField *startTime;
     UITextField *endTime;
+    NSDate* startDate;
+    NSDate* endDate;
     UITextField *electronicKey;
     UITextField *workDescription;
     UIScrollView* scrollView;

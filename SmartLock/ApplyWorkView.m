@@ -26,28 +26,28 @@
     // Do any additional setup after loading the view.
     self.scrollView.contentSize= CGSizeMake(400,850);
     
-    stationAddress.text = @"四川省成都市建设北路二段四号";
+    stationAddress.text = @"四川省成都市金牛区跃进村";
     workType.text = @"普通";
-    NSDate *currentDate = [NSDate date];//获取当前时间，日期
+    startDate = [NSDate date];//获取当前时间，日期
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-    NSString *startDateString = [dateFormatter stringFromDate:currentDate];
+    NSString *startDateString = [dateFormatter stringFromDate:startDate];
     NSLog(@"startDateString:%@",startDateString);
     startTime.text = startDateString;
     
     
-    NSTimeInterval interval = [currentDate timeIntervalSince1970];
+    NSTimeInterval interval = [startDate timeIntervalSince1970];
     long long int date = (long long int)interval+3600*4;
     NSLog(@"date\n %lld", (long long int)date); //1295322949
     
     //把秒数转化成yyyy-MM-dd hh:mm:ss格式
-    NSDate *dd = [NSDate dateWithTimeIntervalSince1970:date];
-    NSString *endDateString = [dateFormatter stringFromDate:dd];
+    endDate = [NSDate dateWithTimeIntervalSince1970:date];
+    NSString *endDateString = [dateFormatter stringFromDate:endDate];
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"1234567890";
+    electronicKey.text = @"010002";
     workDescription.text = @"维修电表";
 
 
@@ -71,28 +71,28 @@
 -(IBAction)resetButtonPressed:(id)sender
 {
     NSLog(@"resetButtonPressed");
-    stationAddress.text = @"四川省成都市建设北路二段四号";
+    stationAddress.text = @"四川省成都市金牛区跃进村";
     workType.text = @"普通";
-    NSDate *currentDate = [NSDate date];//获取当前时间，日期
+    startDate = [NSDate date];//获取当前时间，日期
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-    NSString *startDateString = [dateFormatter stringFromDate:currentDate];
+    NSString *startDateString = [dateFormatter stringFromDate:startDate];
     NSLog(@"startDateString:%@",startDateString);
     startTime.text = startDateString;
     
     
-    NSTimeInterval interval = [currentDate timeIntervalSince1970];
+    NSTimeInterval interval = [startDate timeIntervalSince1970];
     long long int date = (long long int)interval+3600*4;
     NSLog(@"date\n %lld", (long long int)date); //1295322949
     
     //把秒数转化成yyyy-MM-dd hh:mm:ss格式
-    NSDate *dd = [NSDate dateWithTimeIntervalSince1970:date];
-    NSString *endDateString = [dateFormatter stringFromDate:dd];
+    endDate = [NSDate dateWithTimeIntervalSince1970:date];
+    NSString *endDateString = [dateFormatter stringFromDate:endDate];
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"1234567890";
+    electronicKey.text = @"010002";
     workDescription.text = @"维修电表";
     
 
@@ -117,8 +117,8 @@
       @"applicantKeyID":self.electronicKey.text,
       @"applicationType":self.workType.text,
       @"applyDescription":self.workDescription.text,
-      @"taskStartTime":self.startTime.text,
-      @"taskEndTime":self.endTime.text,
+      @"taskStartTime":[NSString stringWithFormat:@"%ld", (long)[startDate timeIntervalSince1970]],
+      @"taskEndTime":[NSString stringWithFormat:@"%ld", (long)[endDate timeIntervalSince1970]],
       @"taskTimes":@"5"
       };
     
