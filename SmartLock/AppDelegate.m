@@ -26,6 +26,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {       // 要使用
     }else{
         NSLog(@"manager start succeeded!");
     }
+    
+    //初始化导航SDK
+    [BNCoreServices_Instance initServices: @"ERn5RPRBsU9a6D1RGCy1UGlaK67OY5bu" ];
+    [BNCoreServices_Instance startServicesAsyn:^{NSLog(@"NaviIni succeeded");}
+                                          fail:^{NSLog(@"NaviIni failed");}];
     return YES;
 }
 

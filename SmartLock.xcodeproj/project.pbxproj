@@ -16,6 +16,18 @@
 		694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 694277FF1CBA404D00F5887E /* SmartLock.xcdatamodeld */; };
 		694278031CBA404D00F5887E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694278021CBA404D00F5887E /* Assets.xcassets */; };
 		694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694278041CBA404D00F5887E /* LaunchScreen.storyboard */; };
+		69533EA91CD2097900153441 /* baiduNaviSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69533EA51CD2097900153441 /* baiduNaviSDK.bundle */; };
+		69533EAC1CD2097900153441 /* libbaiduNaviSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EA81CD2097900153441 /* libbaiduNaviSDK.a */; };
+		69533EB91CD209C300153441 /* libBaiduMobStatForSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EB81CD209C300153441 /* libBaiduMobStatForSDK.a */; };
+		69533EC01CD20B1500153441 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBA1CD20B1500153441 /* AudioToolbox.framework */; };
+		69533EC11CD20B1500153441 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBB1CD20B1500153441 /* AVFoundation.framework */; };
+		69533EC21CD20B1500153441 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBC1CD20B1500153441 /* CoreLocation.framework */; };
+		69533EC31CD20B1500153441 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBD1CD20B1500153441 /* CoreMotion.framework */; };
+		69533EC41CD20B1500153441 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBE1CD20B1500153441 /* CoreTelephony.framework */; };
+		69533EC51CD20B1500153441 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EBF1CD20B1500153441 /* libstdc++.6.0.9.tbd */; };
+		69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC61CD20B2F00153441 /* ImageIO.framework */; };
+		69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC71CD20B2F00153441 /* SystemConfiguration.framework */; };
+		69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533ECA1CD20B4B00153441 /* MediaPlayer.framework */; };
 		696E8E901CD05C520034CCBC /* BaiduDitu.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDitu.m */; };
 		696E8E911CD05C520034CCBC /* BaiduDitu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDitu.xib */; };
 		696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */; };
@@ -101,6 +113,29 @@
 		694278071CBA404D00F5887E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SmartLock/Info.plist; sourceTree = "<group>"; };
 		6942780C1CBA404D00F5887E /* SmartLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		694278171CBA404D00F5887E /* SmartLockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69533EA51CD2097900153441 /* baiduNaviSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = baiduNaviSDK.bundle; path = BaiduNaviSDK/baiduNaviSDK.bundle; sourceTree = "<group>"; };
+		69533EA81CD2097900153441 /* libbaiduNaviSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbaiduNaviSDK.a; path = BaiduNaviSDK/libbaiduNaviSDK.a; sourceTree = "<group>"; };
+		69533EAD1CD209A200153441 /* BNCommonDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNCommonDef.h; path = BaiduNaviSDK/inc/BNCommonDef.h; sourceTree = "<group>"; };
+		69533EAE1CD209A200153441 /* BNCoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNCoreServices.h; path = BaiduNaviSDK/inc/BNCoreServices.h; sourceTree = "<group>"; };
+		69533EAF1CD209A200153441 /* BNLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNLocation.h; path = BaiduNaviSDK/inc/BNLocation.h; sourceTree = "<group>"; };
+		69533EB01CD209A200153441 /* BNLocationManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNLocationManagerProtocol.h; path = BaiduNaviSDK/inc/BNLocationManagerProtocol.h; sourceTree = "<group>"; };
+		69533EB11CD209A200153441 /* BNRoutePlanManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNRoutePlanManagerProtocol.h; path = BaiduNaviSDK/inc/BNRoutePlanManagerProtocol.h; sourceTree = "<group>"; };
+		69533EB21CD209A200153441 /* BNRoutePlanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNRoutePlanModel.h; path = BaiduNaviSDK/inc/BNRoutePlanModel.h; sourceTree = "<group>"; };
+		69533EB31CD209A200153441 /* BNSoundEventProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNSoundEventProtocol.h; path = BaiduNaviSDK/inc/BNSoundEventProtocol.h; sourceTree = "<group>"; };
+		69533EB41CD209A200153441 /* BNStrategyManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNStrategyManagerProtocol.h; path = BaiduNaviSDK/inc/BNStrategyManagerProtocol.h; sourceTree = "<group>"; };
+		69533EB51CD209A200153441 /* BNUIManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNUIManagerProtocol.h; path = BaiduNaviSDK/inc/BNUIManagerProtocol.h; sourceTree = "<group>"; };
+		69533EB61CD209C300153441 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaiduMobStat.h; path = BaiduNaviSDK/BaiduStatistics/BaiduMobStat.h; sourceTree = "<group>"; };
+		69533EB71CD209C300153441 /* BaiduMobStatForSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaiduMobStatForSDK.h; path = BaiduNaviSDK/BaiduStatistics/BaiduMobStatForSDK.h; sourceTree = "<group>"; };
+		69533EB81CD209C300153441 /* libBaiduMobStatForSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaiduMobStatForSDK.a; path = BaiduNaviSDK/BaiduStatistics/libBaiduMobStatForSDK.a; sourceTree = "<group>"; };
+		69533EBA1CD20B1500153441 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		69533EBB1CD20B1500153441 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		69533EBC1CD20B1500153441 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		69533EBD1CD20B1500153441 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		69533EBE1CD20B1500153441 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		69533EBF1CD20B1500153441 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		69533EC61CD20B2F00153441 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		69533EC71CD20B2F00153441 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		69533ECA1CD20B4B00153441 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		696E8E8D1CD05C520034CCBC /* BaiduDitu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduDitu.h; sourceTree = "<group>"; };
 		696E8E8E1CD05C520034CCBC /* BaiduDitu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduDitu.m; sourceTree = "<group>"; };
 		696E8E8F1CD05C520034CCBC /* BaiduDitu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduDitu.xib; sourceTree = "<group>"; };
@@ -155,6 +190,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */,
+				69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */,
+				69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */,
+				69533EC01CD20B1500153441 /* AudioToolbox.framework in Frameworks */,
+				69533EC11CD20B1500153441 /* AVFoundation.framework in Frameworks */,
+				69533EC21CD20B1500153441 /* CoreLocation.framework in Frameworks */,
+				69533EC31CD20B1500153441 /* CoreMotion.framework in Frameworks */,
+				69533EC41CD20B1500153441 /* CoreTelephony.framework in Frameworks */,
+				69533EC51CD20B1500153441 /* libstdc++.6.0.9.tbd in Frameworks */,
+				69533EB91CD209C300153441 /* libBaiduMobStatForSDK.a in Frameworks */,
+				69533EAC1CD2097900153441 /* libbaiduNaviSDK.a in Frameworks */,
 				D0619C309523B62948FB9D46 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +232,15 @@
 		5DF56ED9F9AE5B9E007D883D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69533ECA1CD20B4B00153441 /* MediaPlayer.framework */,
+				69533EC61CD20B2F00153441 /* ImageIO.framework */,
+				69533EC71CD20B2F00153441 /* SystemConfiguration.framework */,
+				69533EBA1CD20B1500153441 /* AudioToolbox.framework */,
+				69533EBB1CD20B1500153441 /* AVFoundation.framework */,
+				69533EBC1CD20B1500153441 /* CoreLocation.framework */,
+				69533EBD1CD20B1500153441 /* CoreMotion.framework */,
+				69533EBE1CD20B1500153441 /* CoreTelephony.framework */,
+				69533EBF1CD20B1500153441 /* libstdc++.6.0.9.tbd */,
 				E75B510AEF33EB9BEE478B96 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -194,6 +249,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDitu */,
 				696E9DCD1CCE4F160004BE13 /* EntranceManagement */,
 				6987AFE11CCC728300D08141 /* BarItemPng */,
@@ -244,6 +300,27 @@
 			);
 			name = Main;
 			path = SmartLock;
+			sourceTree = "<group>";
+		};
+		69533EA41CD2095600153441 /* BaiduNaviSDK */ = {
+			isa = PBXGroup;
+			children = (
+				69533EB61CD209C300153441 /* BaiduMobStat.h */,
+				69533EB71CD209C300153441 /* BaiduMobStatForSDK.h */,
+				69533EB81CD209C300153441 /* libBaiduMobStatForSDK.a */,
+				69533EAD1CD209A200153441 /* BNCommonDef.h */,
+				69533EAE1CD209A200153441 /* BNCoreServices.h */,
+				69533EAF1CD209A200153441 /* BNLocation.h */,
+				69533EB01CD209A200153441 /* BNLocationManagerProtocol.h */,
+				69533EB11CD209A200153441 /* BNRoutePlanManagerProtocol.h */,
+				69533EB21CD209A200153441 /* BNRoutePlanModel.h */,
+				69533EB31CD209A200153441 /* BNSoundEventProtocol.h */,
+				69533EB41CD209A200153441 /* BNStrategyManagerProtocol.h */,
+				69533EB51CD209A200153441 /* BNUIManagerProtocol.h */,
+				69533EA51CD2097900153441 /* baiduNaviSDK.bundle */,
+				69533EA81CD2097900153441 /* libbaiduNaviSDK.a */,
+			);
+			name = BaiduNaviSDK;
 			sourceTree = "<group>";
 		};
 		69589D751CBFC93F00928F23 /* UserInfoView */ = {
@@ -562,6 +639,7 @@
 				6987AFE81CCC729700D08141 /* me-message@3x.png in Resources */,
 				6987AFE61CCC729700D08141 /* task.png in Resources */,
 				694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */,
+				69533EA91CD2097900153441 /* baiduNaviSDK.bundle in Resources */,
 				69B25B861CCD20DA006AE96B /* WorkDetailView.xib in Resources */,
 				6987AFF51CCC74EF00D08141 /* tabbar_meHL@2x.png in Resources */,
 				69B25B841CCD1C75006AE96B /* BLECommunication.xib in Resources */,
@@ -808,8 +886,14 @@
 			baseConfigurationReference = 31D161764E5B0EFE2DE51934 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaiduNaviSDK",
+					"$(PROJECT_DIR)/BaiduNaviSDK/BaiduStatistics",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = uestc.SmartLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -820,8 +904,14 @@
 			baseConfigurationReference = 2C8AABB6A010CD16C003EDFB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaiduNaviSDK",
+					"$(PROJECT_DIR)/BaiduNaviSDK/BaiduStatistics",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = uestc.SmartLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
