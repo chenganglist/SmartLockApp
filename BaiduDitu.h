@@ -28,11 +28,17 @@
 //引入周边雷达功能所有的头文件
 #import <BaiduMapAPI_Radar/BMKRadarComponent.h>
 
+#import "BNCoreServices.h"
+#import "BNUIManagerProtocol.h"
 
-
-
-@interface BaiduDitu : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate> {
+@interface BaiduDitu : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate,
+    BNNaviRoutePlanDelegate,
+    BNNaviUIManagerDelegate>
+{
     IBOutlet BMKMapView *_mapView;
     BMKLocationService* _locService;
 }
+
+- (void)startNavi;
+
 @end
