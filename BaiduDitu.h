@@ -39,6 +39,6 @@
     BMKLocationService* _locService;
 }
 
-- (void)startNavi;
+- (void)startNavi:(BNPosition*)start withDestination:(BNPosition*)end;
 
 @end

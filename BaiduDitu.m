@@ -26,12 +26,11 @@
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
-    [self startNavi];
 }
 
 
 //发起导航
-- (void)startNavi
+- (void)startNavi:(BNPosition*)start withDestination:(BNPosition*)end
 {
     //节点数组
     NSMutableArray *nodesArray = [[NSMutableArray alloc]    initWithCapacity:2];
@@ -97,6 +96,11 @@
     NSLog(@"didUpdateUserLocation lat %f,long %f",
     userLocation.location.coordinate.latitude,
     userLocation.location.coordinate.longitude);
+    
+//    endNode.pos = [[BNPosition alloc] init];
+//    endNode.pos.x = 114.077075;
+//    endNode.pos.y = 22.543634;
+//    [self startNavi: userLocation.location.coordinate.latitude];
 }
 
 
