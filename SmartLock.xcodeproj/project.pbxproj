@@ -36,6 +36,7 @@
 		696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
+		697C07581CD234B200C6500E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 697C07571CD234B200C6500E /* libsqlite3.0.tbd */; };
 		697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 697CCE7A1CCA14B300C3846A /* login_logo.png */; };
 		698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177EF1CC87146009C7120 /* ApplyWorkView.m */; };
 		698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698177F21CC8715E009C7120 /* ClassifyWorkView.m */; };
@@ -149,6 +150,7 @@
 		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
 		697662A71CC4DFF700FFD793 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = SmartLock/Post.h; sourceTree = "<group>"; };
 		697662A81CC4DFF700FFD793 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = SmartLock/Post.m; sourceTree = "<group>"; };
+		697C07571CD234B200C6500E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		697CCE7A1CCA14B300C3846A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		698177EE1CC87146009C7120 /* ApplyWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyWorkView.h; path = SmartLock/ApplyWorkView.h; sourceTree = "<group>"; };
 		698177EF1CC87146009C7120 /* ApplyWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyWorkView.m; path = SmartLock/ApplyWorkView.m; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697C07581CD234B200C6500E /* libsqlite3.0.tbd in Frameworks */,
 				69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */,
 				69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */,
 				69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */,
@@ -232,6 +235,7 @@
 		5DF56ED9F9AE5B9E007D883D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				697C07571CD234B200C6500E /* libsqlite3.0.tbd */,
 				69533ECA1CD20B4B00153441 /* MediaPlayer.framework */,
 				69533EC61CD20B2F00153441 /* ImageIO.framework */,
 				69533EC71CD20B2F00153441 /* SystemConfiguration.framework */,
