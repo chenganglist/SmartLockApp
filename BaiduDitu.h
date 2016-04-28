@@ -33,10 +33,12 @@
 
 @interface BaiduDitu : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate,
     BNNaviRoutePlanDelegate,
-    BNNaviUIManagerDelegate>
+    BNNaviUIManagerDelegate,
+    BMKGeoCodeSearchDelegate>
 {
     IBOutlet BMKMapView *_mapView;
     BMKLocationService* _locService;
+    BMKGeoCodeSearch* _geocodesearch;
 }
 
 - (void)startNavi:(BNPosition*)start withDestination:(BNPosition*)end;

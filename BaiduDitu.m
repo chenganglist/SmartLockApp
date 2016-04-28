@@ -22,11 +22,98 @@
     [self.view addGestureRecognizer:tap];
     
     // Do any additional setup after loading the view from its nib.
+    //定位服务
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
-    _mapView.showsUserLocation = YES;
+    
+    //地理信息反向编码
+    _geocodesearch = [[BMKGeoCodeSearch alloc] init];
+    //编码服务的初始化(就是获取经纬度,或者获取地理位置服务)
+    _geocodesearch.delegate = self;//设置代理为self
+
+    
+}
+
+
+
+//实现相关delegate 处理位置信息更新
+
+
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    NSLog(@"heading is %@",userLocation.heading);
+}
+
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    //打印经纬度
+    _mapView.showsUserLocation = YES;//显示定位图层
+    [_mapView updateLocationData:userLocation];
+    
+    //longitude经度-x   latitude纬度-y
+    NSLog(@"didUpdateUserLocation lat %f,long %f",
+    userLocation.location.coordinate.latitude,
+    userLocation.location.coordinate.longitude);
+    
+    CLLocationCoordinate2D coor = (CLLocationCoordinate2D){0, 0};//初始化;
+    coor.latitude = userLocation.location.coordinate.latitude;
+    coor.longitude = userLocation.location.coordinate.longitude;
+    BMKCoordinateRegion viewRegion = BMKCoordinateRegionMake(coor, BMKCoordinateSpanMake(0.02f,0.02f));
+    BMKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+    [_mapView setRegion:adjustedRegion animated:YES];
+    
+    
+    //进行地理位置反向编码
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
+    reverseGeocodeSearchOption.reverseGeoPoint = coor;//设置反编码的店为pt
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
+    
+    
+}
+
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        NSString* showmeg = [NSString stringWithFormat:@"%@",item.title];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"反向地理编码"
+           message:showmeg preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                          {
+                          }]];
+        [self presentViewController:alert animated:true completion:nil];
+
+    }
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [_mapView viewWillAppear];
+    _mapView.delegate = self;
+    // 此处记得不用的时候需要置nil，否则影响内存的释放
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [_mapView viewWillDisappear];
+    _mapView.delegate = nil; // 不用时，置nil
 }
 
 
@@ -94,56 +181,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//实现相关delegate 处理位置信息更新
-
-
-//处理方向变更信息
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
-{
-    NSLog(@"heading is %@",userLocation.heading);
-}
-
-
-//处理位置坐标更新
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
-{
-    //打印经纬度
-    _mapView.showsUserLocation = YES;//显示定位图层
-    [_mapView updateLocationData:userLocation];
-    
-    //longitude经度-x   latitude纬度-y
-    NSLog(@"didUpdateUserLocation lat %f,long %f",
-    userLocation.location.coordinate.latitude,
-    userLocation.location.coordinate.longitude);
-    
-    CLLocationCoordinate2D coor;
-    coor.latitude = userLocation.location.coordinate.latitude;
-    coor.longitude = userLocation.location.coordinate.longitude;
-    BMKCoordinateRegion viewRegion = BMKCoordinateRegionMake(coor, BMKCoordinateSpanMake(0.02f,0.02f));
-    BMKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
-    [_mapView setRegion:adjustedRegion animated:YES];
-    
-//[_mapView setCenterCoordinate:userLocation.location animated:YES];
-//    endNode.pos = [[BNPosition alloc] init];
-//    endNode.pos.x = 114.077075;
-//    endNode.pos.y = 22.543634;
-//    [self startNavi: userLocation.location.coordinate.latitude];
-}
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [_mapView viewWillAppear];
-    _mapView.delegate = self;
-    // 此处记得不用的时候需要置nil，否则影响内存的释放
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [_mapView viewWillDisappear];
-    _mapView.delegate = nil; // 不用时，置nil
-}
-
 
 @end
