@@ -6,13 +6,13 @@
 //  Copyright © 2016年 csis. All rights reserved.
 //
 
-#import "BaiduDitu.h"
+#import "BaiduDituNaviView.h"
 
-@interface BaiduDitu ()
+@interface BaiduDituNaviView ()
 
 @end
 
-@implementation BaiduDitu
+@implementation BaiduDituNaviView
 
 - (void)viewDidLoad {
     [super viewDidLoad];

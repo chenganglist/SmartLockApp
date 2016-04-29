@@ -28,8 +28,8 @@
 		69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC61CD20B2F00153441 /* ImageIO.framework */; };
 		69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC71CD20B2F00153441 /* SystemConfiguration.framework */; };
 		69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533ECA1CD20B4B00153441 /* MediaPlayer.framework */; };
-		696E8E901CD05C520034CCBC /* BaiduDitu.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDitu.m */; };
-		696E8E911CD05C520034CCBC /* BaiduDitu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDitu.xib */; };
+		696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */; };
+		696E8E911CD05C520034CCBC /* BaiduDituNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */; };
 		696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */; };
 		696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */; };
 		696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */; };
@@ -138,9 +138,9 @@
 		69533EC61CD20B2F00153441 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		69533EC71CD20B2F00153441 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		69533ECA1CD20B4B00153441 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		696E8E8D1CD05C520034CCBC /* BaiduDitu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduDitu.h; sourceTree = "<group>"; };
-		696E8E8E1CD05C520034CCBC /* BaiduDitu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduDitu.m; sourceTree = "<group>"; };
-		696E8E8F1CD05C520034CCBC /* BaiduDitu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduDitu.xib; sourceTree = "<group>"; };
+		696E8E8D1CD05C520034CCBC /* BaiduDituNaviView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduDituNaviView.h; sourceTree = "<group>"; };
+		696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduDituNaviView.m; sourceTree = "<group>"; };
+		696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduDituNaviView.xib; sourceTree = "<group>"; };
 		696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyManagementView.xib; sourceTree = "<group>"; };
 		696E9DCE1CCE4F440004BE13 /* EntranceManageViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceManageViewViewController.h; sourceTree = "<group>"; };
 		696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceManageViewViewController.m; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 			children = (
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
-				696E8E8A1CD059CE0034CCBC /* BaiduDitu */,
+				696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */,
 				696E9DCD1CCE4F160004BE13 /* EntranceManagement */,
 				6987AFE11CCC728300D08141 /* BarItemPng */,
 				6986CD811CC91313000550E6 /* WorkDetail */,
@@ -375,14 +375,14 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
-		696E8E8A1CD059CE0034CCBC /* BaiduDitu */ = {
+		696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */ = {
 			isa = PBXGroup;
 			children = (
-				696E8E8D1CD05C520034CCBC /* BaiduDitu.h */,
-				696E8E8E1CD05C520034CCBC /* BaiduDitu.m */,
-				696E8E8F1CD05C520034CCBC /* BaiduDitu.xib */,
+				696E8E8D1CD05C520034CCBC /* BaiduDituNaviView.h */,
+				696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */,
+				696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */,
 			);
-			name = BaiduDitu;
+			name = BaiduDituNaviView;
 			sourceTree = "<group>";
 		};
 		696E9DCD1CCE4F160004BE13 /* EntranceManagement */ = {
@@ -667,7 +667,7 @@
 				69B25B821CCD1B22006AE96B /* ClassifyWorkView.xib in Resources */,
 				694278031CBA404D00F5887E /* Assets.xcassets in Resources */,
 				6987AFF41CCC74EF00D08141 /* Shake_icon_peopleHL@2x.png in Resources */,
-				696E8E911CD05C520034CCBC /* BaiduDitu.xib in Resources */,
+				696E8E911CD05C520034CCBC /* BaiduDituNaviView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				694277FB1CBA404D00F5887E /* ViewController.m in Sources */,
-				696E8E901CD05C520034CCBC /* BaiduDitu.m in Sources */,
+				696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */,
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,

@@ -32,7 +32,7 @@
 #import "BNUIManagerProtocol.h"
 #import "GetDelegate.h"
 
-@interface BaiduDitu : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate,
+@interface BaiduDituNaviView : UIViewController<BMKMapViewDelegate,BMKLocationServiceDelegate,
     BNNaviRoutePlanDelegate,
     BNNaviUIManagerDelegate,
     BMKGeoCodeSearchDelegate,GetDelegate>

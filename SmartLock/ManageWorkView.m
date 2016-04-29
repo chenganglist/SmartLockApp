@@ -176,7 +176,7 @@
 //                  }]];
 //            [self presentViewController:alert animated:true completion:nil];
             
-            BaiduDitu *vc = [[BaiduDitu alloc]initWithNibName:@"BaiduDitu" bundle:nil];
+            BaiduDituNaviView *vc = [[BaiduDituNaviView alloc]initWithNibName:@"BaiduDituNaviView" bundle:nil];
             
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"地图导航";

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "BaiduDitu.h"
+#import "BaiduDituNaviView.h"
 #import "BNCoreServices.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
