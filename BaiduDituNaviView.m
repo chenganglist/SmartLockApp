@@ -13,6 +13,7 @@
 @end
 
 @implementation BaiduDituNaviView
+@synthesize _address;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

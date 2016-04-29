@@ -177,7 +177,7 @@
 //            [self presentViewController:alert animated:true completion:nil];
             
             BaiduDituNaviView *vc = [[BaiduDituNaviView alloc]initWithNibName:@"BaiduDituNaviView" bundle:nil];
-            
+            vc._address = @"成都市金牛区跃进村";
             [self.navigationController pushViewController:vc animated:YES];
             vc.title = @"地图导航";
         }

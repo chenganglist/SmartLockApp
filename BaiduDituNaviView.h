@@ -42,7 +42,10 @@
     BMKGeoCodeSearch* _geocodesearch;
     BNRoutePlanNode*  _startNode;
     BNRoutePlanNode*  _endNode;
+    NSString* _address;
 }
+
+@property(strong, nonatomic) NSString *_address;
 
 - (void)startNavi:(BNRoutePlanNode*)startNode withDestination:(BNRoutePlanNode*)endNode;
 
