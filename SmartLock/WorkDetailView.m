@@ -181,7 +181,7 @@ static int userType; //0-管理员，1-工程师
 //    }
     //self.scrollView.contentSize= CGSizeMake(400,830);
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
-        @"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
+        @"基站地址",@"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
         @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
 
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:
@@ -191,6 +191,7 @@ static int userType; //0-管理员，1-工程师
 (workData[@"applicantPhone"]==nil)?@"未定义":workData[@"applicantPhone"],
 (workData[@"applicationType"]==nil)?@"未定义":workData[@"applicationType"],
 (workData[@"applyDescription"]==nil)?@"未定义":workData[@"applyDescription"],
+(workData[@"stationAddress"]==nil)?@"未定义":workData[@"stationAddress"],
 (workData[@"applicantKeyID"]==nil)?@"未定义":workData[@"applicantKeyID"],
 (workData[@"taskStartTime"]==nil)?@"未定义":workData[@"taskStartTime"],
 (workData[@"taskEndTime"]==nil)?@"未定义":workData[@"taskEndTime"],
@@ -207,6 +208,7 @@ static int userType; //0-管理员，1-工程师
                     @"taskID",
                     @"applicantCompany", @"applicantPhone",
                     @"applicationType", @"applyDescription",
+                    @"stationAddress",
                     @"applicantKeyID", @"taskStartTime",
                     @"taskEndTime",@"taskTimes",
                     @"applicationStatus",@"approvalPerson",
@@ -275,8 +277,25 @@ static int userType; //0-管理员，1-工程师
     NSString *dataString = [NSString stringWithFormat:@"%@",
                             [self.datalist objectAtIndex:[indexPath row]]];
 
+    NSString *keyString = [NSString stringWithFormat:@"%@",
+                            [self.keylist objectAtIndex:[indexPath row]]];
+
+    NSString* actionTitle = @"确定";
+    
+    if([keyString isEqualToString:@"stationAddress"])
+    {
+         actionTitle = @"导航去基站";
+    }
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:rowString message:dataString preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if([keyString isEqualToString:@"stationAddress"])
+            {
+                BaiduDituNaviView *vc = [[BaiduDituNaviView alloc]initWithNibName:@"BaiduDituNaviView" bundle:nil];
+                vc._address = dataString;
+                [self.navigationController pushViewController:vc animated:YES];
+                vc.title = @"地图导航";
+            }
         }
     ]];
 

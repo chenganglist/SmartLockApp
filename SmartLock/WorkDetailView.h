@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "UserInfoView.h"
+#import "BaiduDituNaviView.h"
+
 
 @interface WorkDetailView : UIViewController<PostDelegate>
 {
