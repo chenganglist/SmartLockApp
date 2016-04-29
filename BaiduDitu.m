@@ -66,20 +66,31 @@
     BMKCoordinateRegion viewRegion = BMKCoordinateRegionMake(coor, BMKCoordinateSpanMake(0.02f,0.02f));
     BMKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
     [_mapView setRegion:adjustedRegion animated:YES];
+ 
+    [_locService stopUserLocationService];
     
     
-    //进行地理位置反向编码
-    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
-    reverseGeocodeSearchOption.reverseGeoPoint = coor;//设置反编码的店为pt
-    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
-    if(flag)
-    {
-        NSLog(@"反geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"反geo检索发送失败");
-    }
+    //起点
+    _startNode = [[BNRoutePlanNode alloc] init];
+    _startNode.pos = [[BNPosition alloc] init];
+    _startNode.pos.x =  userLocation.location.coordinate.longitude;//经度
+    _startNode.pos.y = userLocation.location.coordinate.latitude;//纬度
+    _startNode.pos.eType = BNCoordinate_BaiduMapSDK;
+    
+    [self getDestinationPosition];
+    NSLog(@"开始检索地理位置经纬度");
+//    //进行地理位置反向编码
+//    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
+//    reverseGeocodeSearchOption.reverseGeoPoint = coor;//设置反编码的店为pt
+//    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
+//    if(flag)
+//    {
+//        NSLog(@"反geo检索发送成功");
+//    }
+//    else
+//    {
+//        NSLog(@"反geo检索发送失败");
+//    }
     
     
 }
@@ -115,26 +126,22 @@
 -(void)updateUI:(NSDictionary*)data
 {
     NSLog(@"UpdateUI %@",data);
-//NSDictionary* success = data[@"success"];
-//    if(success!=nil)
-//    {
-//
-//    }else{
-//    }
-    //初始化提示框；
-    NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-   message:data2String preferredStyle: UIAlertControllerStyleAlert];
+    NSDictionary* result = data[@"result"];
+    NSDictionary* location = result[@"location"];
+
+    NSLog(@"纬度： %@  经度： %@",location[@"lat"],location[@"lng"]);
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //点击按钮的响应事件；
-    }]];
+    //终点
+    _endNode = [[BNRoutePlanNode alloc] init];
+    _endNode.pos = [[BNPosition alloc] init];
+    _endNode.pos.x = [location[@"lng"] doubleValue]; //经度
+    _endNode.pos.y = [location[@"lat"] doubleValue]; //纬度
+    _endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     
-    //弹出提示框；
-    [self presentViewController:alert animated:true completion:nil];
-    
+    NSLog(@"开始导航到目的地");
+    [self startNavi:_startNode withDestination:_endNode];
+
 }
 
 
@@ -173,25 +180,12 @@
 
 
 //发起导航
-- (void)startNavi:(BNPosition*)start withDestination:(BNPosition*)end
+- (void)startNavi:(BNRoutePlanNode*)startNode withDestination:(BNRoutePlanNode*)endNode
 {
     //节点数组
     NSMutableArray *nodesArray = [[NSMutableArray alloc]    initWithCapacity:2];
-    
-    //起点
-    BNRoutePlanNode *startNode = [[BNRoutePlanNode alloc] init];
-    startNode.pos = [[BNPosition alloc] init];
-    startNode.pos.x = 113.936392;//经度
-    startNode.pos.y = 22.547058;//纬度
-    startNode.pos.eType = BNCoordinate_BaiduMapSDK;
+
     [nodesArray addObject:startNode];
-    
-    //终点
-    BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
-    endNode.pos = [[BNPosition alloc] init];
-    endNode.pos.x = 114.077075;
-    endNode.pos.y = 22.543634;
-    endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:endNode];
     //发起路径规划
     [BNCoreServices_RoutePlan startNaviRoutePlan:BNRoutePlanMode_Recommend naviNodes:nodesArray time:nil delegete:self userInfo:nil];

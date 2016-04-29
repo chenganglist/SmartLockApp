@@ -40,8 +40,10 @@
     IBOutlet BMKMapView *_mapView;
     BMKLocationService* _locService;
     BMKGeoCodeSearch* _geocodesearch;
+    BNRoutePlanNode*  _startNode;
+    BNRoutePlanNode*  _endNode;
 }
 
-- (void)startNavi:(BNPosition*)start withDestination:(BNPosition*)end;
+- (void)startNavi:(BNRoutePlanNode*)startNode withDestination:(BNRoutePlanNode*)endNode;
 
 @end
