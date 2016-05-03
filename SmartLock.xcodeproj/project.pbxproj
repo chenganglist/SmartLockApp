@@ -256,6 +256,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				698072E31CD8C58000E55053 /* UserRootNaviView */,
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */,
@@ -429,6 +430,13 @@
 				697C075B1CD24A1C00C6500E /* GetDelegate.m */,
 			);
 			name = GetDelegate;
+			sourceTree = "<group>";
+		};
+		698072E31CD8C58000E55053 /* UserRootNaviView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserRootNaviView;
 			sourceTree = "<group>";
 		};
 		698177EC1CC86BC2009C7120 /* ClassifyWork */ = {

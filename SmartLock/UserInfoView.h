@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WorkDetailView.h"
 #import "changeUserInfoView.h"
-
+#import "ViewController.h"
 
 @interface UserInfoView : UITableViewController
 {
@@ -28,5 +28,9 @@
 +(NSMutableDictionary*)getPermissionInfo;
 +(NSMutableDictionary*)getTokenInfo;
 +(void)setDataList:(NSMutableArray*)Info;
+
+-(IBAction)exitAppButtonPressed:(id)sender;
+
+-(IBAction)returnToLoginBtPressed:(id)sender;
 
 @end

@@ -100,6 +100,28 @@ static NSIndexPath *curIndexPath;
 }
 
 
+-(IBAction)exitAppButtonPressed:(id)sender
+{
+    NSLog(@"退出程序");
+    abort();
+ }
+
+-(IBAction)returnToLoginBtPressed:(id)sender
+{
+    NSLog(@"返回登录");
+    
+    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // 从Storyboard上按照identifier获取指定的界面（VC），identifier必须是唯一的
+    ViewController *receive = [self.storyboard instantiateViewControllerWithIdentifier:@"loginpage"];
+    //等价的写法
+    //ViewController *receive = [self.storyboard instantiateViewControllerWithIdentifier:@"loginpage"];
+    //[self.navigationController pushViewController:receive animated:YES];
+    //[self.navigationController showViewController:receive sender:nil];
+    [self presentViewController:receive animated:YES completion:^{
+        NSLog(@"完成跳转");
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
