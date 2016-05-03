@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkDetailView">
             <connections>
+                <outlet property="operateDescription" destination="Rho-oU-goS" id="kt8-hC-ThX"/>
                 <outlet property="scrollView" destination="GuC-vE-fP0" id="6C8-ol-tmU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mmS-mX-IB8"/>
                 <outlet property="workTable" destination="rT6-BN-ysE" id="v5e-Zi-DTq"/>
