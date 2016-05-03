@@ -79,6 +79,7 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     NSString *startDateString = [dateFormatter stringFromDate:startDate];
     NSLog(@"startDateString:%@",startDateString);
+    
     startTime.text = startDateString;
     
     

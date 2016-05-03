@@ -183,7 +183,20 @@ static int userType; //0-管理员，1-工程师
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"基站地址",@"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
         @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
-
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSDate* endDate = [NSDate dateWithTimeIntervalSince1970:[workData[@"taskEndTime"] doubleValue] ];
+    
+    NSString *endDateString = [dateFormatter stringFromDate:endDate];
+    //NSString* test = @"faoh";
+    
+    //NSDate* startDate = [NSDate dateWithTimeIntervalSince1970:[test doubleValue] ];
+    NSDate* startDate = [NSDate dateWithTimeIntervalSince1970:[workData[@"taskStartTime"] doubleValue] ];
+    
+    NSString *startDateString = [dateFormatter stringFromDate:startDate];
+    
+    
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:
 (workData[@"applicantName"]==nil)?@"未定义":workData[@"applicantName"],
 (workData[@"taskID"]==nil)?@"未定义":workData[@"taskID"],
@@ -193,8 +206,8 @@ static int userType; //0-管理员，1-工程师
 (workData[@"applyDescription"]==nil)?@"未定义":workData[@"applyDescription"],
 (workData[@"stationAddress"]==nil)?@"未定义":workData[@"stationAddress"],
 (workData[@"applicantKeyID"]==nil)?@"未定义":workData[@"applicantKeyID"],
-(workData[@"taskStartTime"]==nil)?@"未定义":workData[@"taskStartTime"],
-(workData[@"taskEndTime"]==nil)?@"未定义":workData[@"taskEndTime"],
+(startDateString==nil)?@"未定义":startDateString,
+(endDateString==nil)?@"未定义":endDateString,
 (workData[@"taskTimes"]==nil)?@"未定义":workData[@"taskTimes"],
 (workData[@"applicationStatus"]==nil)?@"未定义":workData[@"applicationStatus"],
 (workData[@"approvalPerson"]==nil)?@"未定义":workData[@"approvalPerson"],
