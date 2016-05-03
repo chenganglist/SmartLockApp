@@ -154,24 +154,24 @@
                                 <exclude reference="L8x-YE-TE0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="YK6-M6-k0l"/>
+                                <exclude reference="Z9x-TA-nCw"/>
+                                <exclude reference="b3U-pC-VUl"/>
+                                <exclude reference="uS4-a5-Opa"/>
+                                <exclude reference="Css-8n-Z6p"/>
+                                <exclude reference="OkZ-gm-m9x"/>
+                                <exclude reference="KUH-Wt-aCU"/>
+                                <exclude reference="iA0-LN-h6Y"/>
+                                <exclude reference="5lg-vE-BzJ"/>
+                                <exclude reference="OyW-PC-gWe"/>
+                                <exclude reference="gjx-kW-Fux"/>
+                                <exclude reference="ry0-Zh-RTW"/>
+                                <exclude reference="54l-xQ-gms"/>
+                                <exclude reference="tht-4i-tUC"/>
                                 <exclude reference="3AQ-AF-MW2"/>
                                 <exclude reference="EFN-jK-ZCg"/>
                                 <exclude reference="OjE-6S-H2q"/>
                                 <exclude reference="em5-hj-8w8"/>
-                                <exclude reference="54l-xQ-gms"/>
-                                <exclude reference="tht-4i-tUC"/>
-                                <exclude reference="b3U-pC-VUl"/>
-                                <exclude reference="uS4-a5-Opa"/>
-                                <exclude reference="gjx-kW-Fux"/>
-                                <exclude reference="ry0-Zh-RTW"/>
-                                <exclude reference="YK6-M6-k0l"/>
-                                <exclude reference="Z9x-TA-nCw"/>
-                                <exclude reference="5lg-vE-BzJ"/>
-                                <exclude reference="OyW-PC-gWe"/>
-                                <exclude reference="KUH-Wt-aCU"/>
-                                <exclude reference="iA0-LN-h6Y"/>
-                                <exclude reference="Css-8n-Z6p"/>
-                                <exclude reference="OkZ-gm-m9x"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -186,24 +186,24 @@
                                 <include reference="L8x-YE-TE0"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="YK6-M6-k0l"/>
+                                <include reference="Z9x-TA-nCw"/>
+                                <include reference="b3U-pC-VUl"/>
+                                <include reference="uS4-a5-Opa"/>
+                                <include reference="Css-8n-Z6p"/>
+                                <include reference="OkZ-gm-m9x"/>
+                                <include reference="KUH-Wt-aCU"/>
+                                <include reference="iA0-LN-h6Y"/>
+                                <include reference="5lg-vE-BzJ"/>
+                                <include reference="OyW-PC-gWe"/>
+                                <include reference="gjx-kW-Fux"/>
+                                <include reference="ry0-Zh-RTW"/>
+                                <include reference="54l-xQ-gms"/>
+                                <include reference="tht-4i-tUC"/>
                                 <include reference="3AQ-AF-MW2"/>
                                 <include reference="EFN-jK-ZCg"/>
                                 <include reference="OjE-6S-H2q"/>
                                 <include reference="em5-hj-8w8"/>
-                                <include reference="54l-xQ-gms"/>
-                                <include reference="tht-4i-tUC"/>
-                                <include reference="b3U-pC-VUl"/>
-                                <include reference="uS4-a5-Opa"/>
-                                <include reference="gjx-kW-Fux"/>
-                                <include reference="ry0-Zh-RTW"/>
-                                <include reference="YK6-M6-k0l"/>
-                                <include reference="Z9x-TA-nCw"/>
-                                <include reference="5lg-vE-BzJ"/>
-                                <include reference="OyW-PC-gWe"/>
-                                <include reference="KUH-Wt-aCU"/>
-                                <include reference="iA0-LN-h6Y"/>
-                                <include reference="Css-8n-Z6p"/>
-                                <include reference="OkZ-gm-m9x"/>
                             </mask>
                         </variation>
                         <connections>
@@ -213,6 +213,7 @@
                     <connections>
                         <outlet property="loginButton" destination="el5-Nt-H3I" id="83C-FP-aiW"/>
                         <outlet property="pwdTextField" destination="Q9Q-1f-J2u" id="0iT-Za-EM9"/>
+                        <outlet property="uidSwitch" destination="L8x-YE-TE0" id="E2L-Je-skO"/>
                         <outlet property="uidTextField" destination="y1z-ri-Qfh" id="rIi-GG-HwB"/>
                         <segue destination="hf6-1L-iJS" kind="show" identifier="mainpage" id="kM5-zD-6fZ"/>
                     </connections>

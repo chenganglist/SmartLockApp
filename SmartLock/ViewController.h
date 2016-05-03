@@ -16,10 +16,12 @@
     UIButton *loginButton;
     UITextField *pwdTextField;
     UITextField *uidTextField;
+    UISwitch *uidSwitch;
 
 }
 
 
+@property(nonatomic,retain) IBOutlet UISwitch *uidSwitch;
 @property(nonatomic,retain) IBOutlet UIButton *loginButton;
 @property(strong, nonatomic) IBOutlet UITextField *uidTextField;
 @property(strong, nonatomic) IBOutlet UITextField *pwdTextField;

@@ -17,7 +17,7 @@
 @implementation ViewController
 @synthesize uidTextField;
 @synthesize pwdTextField;
-@synthesize loginButton;
+@synthesize loginButton,uidSwitch;
 
 
 - (void)viewDidLoad {
@@ -27,8 +27,25 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do something after loading the view
-    self.uidTextField.text = @"14780413613";
-    self.pwdTextField.text = @"123456";
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    //根据键值取出name
+    NSString *name = [defaults objectForKey:@"smartlockUsername"];
+    //根据键值取出password
+    NSString *password = [defaults objectForKey:@"smartlockPassword"];
+    NSString *uiSwitch =   [defaults objectForKey:@"uidSwitch"];
+    
+    if( [uiSwitch isEqualToString:@"YES"])
+    {
+        self.uidTextField.text = name;
+        self.pwdTextField.text = password;
+        [self.uidSwitch setOn:YES animated:YES];
+    }else
+    {
+        self.uidTextField.text = @"14780413613";
+        self.pwdTextField.text = @"123456";
+        [self.uidSwitch setOn:NO animated:YES];
+    }
+
 }
 
 -(void)viewTapped:(UITapGestureRecognizer*)tap
@@ -104,6 +121,15 @@
         }
         
         [self performSegueWithIdentifier:@"mainpage" sender:nil];
+        
+        
+        //用synchronize方法把数据持久化到standardUserDefaults数据库
+        NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+        [defaults setObject:uidTextField.text forKey:@"smartlockUsername"];
+        [defaults setObject:pwdTextField.text forKey:@"smartlockPassword"];
+        [defaults setObject:(uidSwitch.isOn?@"YES":@"NO") forKey:@"uidSwitch"];
+        [defaults synchronize];
+        
         
     }else{
         //初始化提示框；
