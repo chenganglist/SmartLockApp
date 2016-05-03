@@ -453,20 +453,7 @@
                             <outlet property="delegate" destination="RvE-0s-Rlh" id="sDX-Hx-20r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="个人信息" id="XwS-QJ-nKg" userLabel="个人信息">
-                        <barButtonItem key="leftBarButtonItem" title="退出程序" style="done" id="yXh-xw-qbL" userLabel="退出程序">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="exitAppButtonPressed:" destination="RvE-0s-Rlh" id="QJa-lt-98x"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="返回登录" style="done" id="1iU-OQ-60Q" userLabel="返回登录" colorLabel="IBBuiltInLabel-Blue">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="returnToLoginBtPressed:" destination="RvE-0s-Rlh" id="XY6-29-b5F"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="个人信息" id="XwS-QJ-nKg" userLabel="个人信息" propertyAccessControl="none"/>
                     <connections>
                         <outlet property="personalTableView" destination="XcP-lB-lfG" id="6E5-Sx-RQH"/>
                     </connections>

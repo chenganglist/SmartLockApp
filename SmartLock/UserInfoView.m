@@ -71,7 +71,7 @@ static NSIndexPath *curIndexPath;
     // Do any additional setup after loading the view.
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"用户名", @"真实姓名",
                      @"手机号", @"用户类型", @"公司",@"公司组",
-                    @"所属地级区域",@"所属县级区域",nil];
+                    @"所属地级区域",@"所属县级区域",@"返回登录",@"退出程序",nil];
     NSString* userType = @"管理员";
     [WorkDetailView setUserType:0]; //0管理员
     if( userInfo[@"userType"]==nil ||
@@ -86,7 +86,7 @@ static NSIndexPath *curIndexPath;
                      userInfo[@"phone"], userType,
                      userInfo[@"company"], userInfo[@"companyGroup"],
                      regionInfo[@"managementCity"],
-                     regionInfo[@"managementArea"],nil];
+                     regionInfo[@"managementArea"],@"",@"",nil];
     
     datalist = data;
     typelist = type;
@@ -96,11 +96,11 @@ static NSIndexPath *curIndexPath;
                     @"phone", @"userType",
                     @"company", @"companyGroup",
                     @"managementCity",
-                    @"managementArea",nil];
+                    @"managementArea",@"returnLogin",@"exitApp",nil];
 }
 
 
--(IBAction)exitAppButtonPressed:(id)sender
+-(void)exitApp
 {
     NSLog(@"退出程序");
     //abort();
@@ -135,7 +135,7 @@ static NSIndexPath *curIndexPath;
     
 }
 
--(IBAction)returnToLoginBtPressed:(id)sender
+-(void)returnToLogin
 {
     NSLog(@"返回登录");
     
@@ -174,7 +174,7 @@ static NSIndexPath *curIndexPath;
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.personalTableView.contentSize = CGSizeMake(0,600);
+    self.personalTableView.contentSize = CGSizeMake(0,620);
 }
 
 
@@ -216,6 +216,17 @@ static NSIndexPath *curIndexPath;
     NSString *dataString = [datalist objectAtIndex:[indexPath row]];
     NSString* keyString = [keylist objectAtIndex:[indexPath row]];
     
+    if([keyString isEqualToString:@"returnLogin"])
+    {
+        [self returnToLogin];
+        return;
+    }
+    
+    if([keyString isEqualToString:@"exitApp"])
+    {
+        [self exitApp];
+        return;
+    }
     
     changeUserInfoView *vc = [[changeUserInfoView alloc]initWithNibName:@"changeUserInfoView" bundle:nil];
     vc.dataString = dataString;

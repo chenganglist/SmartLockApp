@@ -29,8 +29,8 @@
 +(NSMutableDictionary*)getTokenInfo;
 +(void)setDataList:(NSMutableArray*)Info;
 
--(IBAction)exitAppButtonPressed:(id)sender;
+-(void)exitApp;
 
--(IBAction)returnToLoginBtPressed:(id)sender;
+-(void)returnToLogin;
 
 @end
