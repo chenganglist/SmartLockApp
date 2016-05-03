@@ -103,8 +103,37 @@ static NSIndexPath *curIndexPath;
 -(IBAction)exitAppButtonPressed:(id)sender
 {
     NSLog(@"退出程序");
-    abort();
+    //abort();
+    
+    [UIView beginAnimations:@"exitApplication" context:nil];
+    
+    [UIView setAnimationDuration:0.5];
+    
+    [UIView setAnimationDelegate:self];
+    
+    // [UIView setAnimationTransition:UIViewAnimationCurveEaseOut forView:self.view.window cache:NO];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.window cache:NO];
+    
+    [UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
+    
+    //self.view.window.bounds = CGRectMake(0, 0, 0, 0);
+    
+    self.view.window.bounds = CGRectMake(0, 0, 0, 0);
+    
+    [UIView commitAnimations];
+
  }
+
+- (void)animationFinished:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+    
+    if ([animationID compare:@"exitApplication"] == 0) {
+        
+        exit(0);
+        
+    }
+    
+}
 
 -(IBAction)returnToLoginBtPressed:(id)sender
 {
