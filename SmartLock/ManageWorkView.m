@@ -30,16 +30,16 @@
                      @"驳回的工单",
                      @"已批准工单",
                      @"所有工单",
-                     @"基站导航",nil];
+                     nil];
+    //@"基站导航",
     NSArray *mdata = [[NSArray alloc] initWithObjects:
                       @"申请",
                       @"查看",
                       @"查看",
                       @"查看",
                       @"查看",
-                      @"导航",
                       nil];
-    
+    //@"导航",
     self.datalist = mdata;
     self.typelist = type;
     
