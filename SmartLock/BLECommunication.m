@@ -259,6 +259,7 @@ writeCharacteristic,bluetoothName;
     
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
+    
     [self sendData:firstFrameData];
     //sleep(50);//设置成50ms等待下一次发送数据
     [NSThread sleepForTimeInterval:1];//设置成1s等待下一次发送数据

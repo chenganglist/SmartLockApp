@@ -66,7 +66,6 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="timeSyncButtonPressed:" destination="-1" eventType="touchUpInside" id="GXl-FV-vi4"/>
                         <action selector="timeSyncButtonPressed:" destination="-2" eventType="touchUpInside" id="nPa-IT-10Z"/>
                     </connections>
                 </button>
@@ -94,7 +93,6 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="queryLockStatusButtonPressed:" destination="-1" eventType="touchUpInside" id="OeE-x1-faR"/>
                         <action selector="queryLockStatusButtonPressed:" destination="-2" eventType="touchUpInside" id="ry0-NU-ruf"/>
                     </connections>
                 </button>
@@ -106,7 +104,6 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="rightGivenButtonPressed:" destination="-1" eventType="touchUpInside" id="XUQ-qI-GJS"/>
                         <action selector="rightGivenButtonPressed:" destination="-2" eventType="touchUpInside" id="smW-OY-HNf"/>
                     </connections>
                 </button>
@@ -118,7 +115,6 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="historyButtonPressed:" destination="-1" eventType="touchUpInside" id="Xe6-B9-79k"/>
                         <action selector="historyButtonPressed:" destination="-2" eventType="touchUpInside" id="fUP-Up-bzh"/>
                     </connections>
                 </button>
@@ -131,7 +127,6 @@
                     </state>
                     <connections>
                         <action selector="builtStationButtonPressed:" destination="-2" eventType="touchUpInside" id="1R8-4v-ufP"/>
-                        <action selector="builtStationButtonPressed:" destination="-1" eventType="touchUpInside" id="zJa-87-xQ2"/>
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt7-BA-9RJ">
