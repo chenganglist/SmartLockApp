@@ -59,14 +59,14 @@
                     <exclude reference="tz3-V6-6Ip"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="nvH-IV-hUv"/>
+                    <exclude reference="ulg-yA-mD3"/>
                     <exclude reference="4IZ-Ah-eKq"/>
                     <exclude reference="MhQ-Uf-Czd"/>
                     <exclude reference="Pj8-em-KL5"/>
                     <exclude reference="Pxa-IC-Pe4"/>
                     <exclude reference="RVJ-Av-aT0"/>
                     <exclude reference="oV9-qi-fFl"/>
-                    <exclude reference="nvH-IV-hUv"/>
-                    <exclude reference="ulg-yA-mD3"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -76,14 +76,14 @@
                     <include reference="tz3-V6-6Ip"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="nvH-IV-hUv"/>
+                    <include reference="ulg-yA-mD3"/>
                     <include reference="4IZ-Ah-eKq"/>
                     <include reference="MhQ-Uf-Czd"/>
                     <include reference="Pj8-em-KL5"/>
                     <include reference="Pxa-IC-Pe4"/>
                     <include reference="RVJ-Av-aT0"/>
                     <include reference="oV9-qi-fFl"/>
-                    <include reference="nvH-IV-hUv"/>
-                    <include reference="ulg-yA-mD3"/>
                 </mask>
             </variation>
         </view>

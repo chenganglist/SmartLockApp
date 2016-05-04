@@ -46,7 +46,6 @@
                                 <rect key="frame" x="198" y="367" width="70" height="30"/>
                             </variation>
                             <connections>
-                                <action selector="commitButtonPressed:" destination="-1" eventType="touchUpInside" id="GXC-GM-LDK"/>
                                 <action selector="commitButtonPressed:" destination="-2" eventType="touchUpInside" id="nkM-AK-tcH"/>
                             </connections>
                         </button>
@@ -155,7 +154,7 @@
                                 <rect key="frame" x="43" y="367" width="72" height="30"/>
                             </variation>
                             <connections>
-                                <action selector="resetButtonPressed:" destination="-1" eventType="touchUpInside" id="fa5-lc-Hwn"/>
+                                <action selector="resetButtonPressed:" destination="-2" eventType="touchUpInside" id="5j7-H1-R8i"/>
                             </connections>
                         </button>
                     </subviews>
