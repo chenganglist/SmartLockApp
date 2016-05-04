@@ -169,12 +169,14 @@ writeCharacteristic,bluetoothName;
     for(int i=0;i<[characteristic.value length];i++)
     {
         NSString *HexStr =
-        [NSString stringWithFormat:@" %x",recvByte[i]];///16进制数
-        printf("recvByte[%d] = 0x%x\n",i,recvByte[i]);
+        [NSString stringWithFormat:@" %02x",recvByte[i]];//16进制数
+        printf("recvByte[%d] = 0x%02x\n",i,recvByte[i]);
         self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
     }
+    
+    [recvData  appendData: characteristic.value];
 
-    //NSLog(@"receive: %@", str);
+    NSLog(@"receive: %@", recvData);
     //self.tvRecv.text= [self.tvRecv.text stringByAppendingString:str];
     
 }
@@ -254,7 +256,7 @@ writeCharacteristic,bluetoothName;
     
     [self sendData:firstFrameData];
     //sleep(50);//设置成50ms等待下一次发送数据
-    [NSThread sleepForTimeInterval:0.05];
+    [NSThread sleepForTimeInterval:1];
     
     
     Byte frame[36] = {0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0,
@@ -263,7 +265,7 @@ writeCharacteristic,bluetoothName;
     
     uint16_t crc = CRC16(frame, 36);
     
-    
+    //提取校验位
     Byte crc1 = (crc&0xff00)>>2;
     Byte crc2 = crc&0xff;
     
