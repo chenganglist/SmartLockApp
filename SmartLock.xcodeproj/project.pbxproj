@@ -99,6 +99,7 @@
 /* Begin PBXFileReference section */
 		2C8AABB6A010CD16C003EDFB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		31D161764E5B0EFE2DE51934 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		690358291CD993BE003FF907 /* CRC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRC16.h; sourceTree = "<group>"; };
 		6904EEA91CBA943200D30FF0 /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoView.h; path = SmartLock/UserInfoView.h; sourceTree = "<group>"; };
 		6904EEAA1CBA943200D30FF0 /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoView.m; path = SmartLock/UserInfoView.m; sourceTree = "<group>"; };
 		693CB4851CCF631B00E0269A /* lockstart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockstart.png; sourceTree = "<group>"; };
@@ -253,9 +254,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		690358281CD9939B003FF907 /* BLEReact */ = {
+			isa = PBXGroup;
+			children = (
+				690358291CD993BE003FF907 /* CRC16.h */,
+			);
+			name = BLEReact;
+			sourceTree = "<group>";
+		};
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				690358281CD9939B003FF907 /* BLEReact */,
 				698072E31CD8C58000E55053 /* UserRootNaviView */,
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
