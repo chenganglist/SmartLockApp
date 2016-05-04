@@ -191,26 +191,26 @@
                     <exclude reference="mt7-BA-9RJ"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="UXs-gE-tEu"/>
-                    <exclude reference="fw1-BH-u9C"/>
-                    <exclude reference="bW8-en-DWf"/>
-                    <exclude reference="bj1-Ww-gtW"/>
-                    <exclude reference="eXT-Ro-iyC"/>
-                    <exclude reference="t3a-G4-AS3"/>
+                    <exclude reference="2xR-tn-gCw"/>
+                    <exclude reference="7kV-jZ-I8d"/>
+                    <exclude reference="cPD-Wa-56G"/>
+                    <exclude reference="eUo-Np-dQ8"/>
                     <exclude reference="LwS-yE-RdB"/>
                     <exclude reference="c0k-sD-aD6"/>
                     <exclude reference="Apa-X8-lWu"/>
                     <exclude reference="Pgk-nd-KK8"/>
                     <exclude reference="n7A-7G-pmn"/>
                     <exclude reference="nm2-fF-biH"/>
-                    <exclude reference="2xR-tn-gCw"/>
-                    <exclude reference="7kV-jZ-I8d"/>
-                    <exclude reference="cPD-Wa-56G"/>
-                    <exclude reference="eUo-Np-dQ8"/>
-                    <exclude reference="pYU-s4-70V"/>
-                    <exclude reference="sLE-pM-GWJ"/>
+                    <exclude reference="bW8-en-DWf"/>
+                    <exclude reference="bj1-Ww-gtW"/>
+                    <exclude reference="eXT-Ro-iyC"/>
+                    <exclude reference="t3a-G4-AS3"/>
                     <exclude reference="AxL-AV-r5c"/>
                     <exclude reference="BoE-6w-kE5"/>
+                    <exclude reference="pYU-s4-70V"/>
+                    <exclude reference="sLE-pM-GWJ"/>
+                    <exclude reference="UXs-gE-tEu"/>
+                    <exclude reference="fw1-BH-u9C"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -224,26 +224,26 @@
                     <include reference="mt7-BA-9RJ"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="UXs-gE-tEu"/>
-                    <include reference="fw1-BH-u9C"/>
-                    <include reference="bW8-en-DWf"/>
-                    <include reference="bj1-Ww-gtW"/>
-                    <include reference="eXT-Ro-iyC"/>
-                    <include reference="t3a-G4-AS3"/>
+                    <include reference="2xR-tn-gCw"/>
+                    <include reference="7kV-jZ-I8d"/>
+                    <include reference="cPD-Wa-56G"/>
+                    <include reference="eUo-Np-dQ8"/>
                     <include reference="LwS-yE-RdB"/>
                     <include reference="c0k-sD-aD6"/>
                     <include reference="Apa-X8-lWu"/>
                     <include reference="Pgk-nd-KK8"/>
                     <include reference="n7A-7G-pmn"/>
                     <include reference="nm2-fF-biH"/>
-                    <include reference="2xR-tn-gCw"/>
-                    <include reference="7kV-jZ-I8d"/>
-                    <include reference="cPD-Wa-56G"/>
-                    <include reference="eUo-Np-dQ8"/>
-                    <include reference="pYU-s4-70V"/>
-                    <include reference="sLE-pM-GWJ"/>
+                    <include reference="bW8-en-DWf"/>
+                    <include reference="bj1-Ww-gtW"/>
+                    <include reference="eXT-Ro-iyC"/>
+                    <include reference="t3a-G4-AS3"/>
                     <include reference="AxL-AV-r5c"/>
                     <include reference="BoE-6w-kE5"/>
+                    <include reference="pYU-s4-70V"/>
+                    <include reference="sLE-pM-GWJ"/>
+                    <include reference="UXs-gE-tEu"/>
+                    <include reference="fw1-BH-u9C"/>
                 </mask>
             </variation>
         </view>

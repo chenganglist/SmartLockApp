@@ -7,6 +7,9 @@
 //
 
 #import "BLECommunication.h"
+#import "CRC16.h"
+
+NSMutableData *recvData;
 
 @interface BLECommunication ()
 
@@ -26,6 +29,7 @@ writeCharacteristic,bluetoothName;
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     
+    recvData = [[NSMutableData alloc] init]; //初始化接收区
     
     //初始化蓝牙中心模式设备管理器
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
@@ -218,13 +222,50 @@ writeCharacteristic,bluetoothName;
 
 -(IBAction)timeSyncButtonPressed:(id)sender{
 
+    //清空接收区数据
+    [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
+    [recvData setLength:0];
     
-    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    //NSDate* curDate = [NSDate date];//获取当前时间，日期
+    Byte s = 0x00; //秒
+    Byte m = 0x00; //分
+    Byte h = 0x00; //时
+    Byte Y = 0x16; //年
+    Byte M = 0x05; //月
+    Byte D = 0x04; //日
     
-    [self sendData:data];
+    //S-M-H-Y-M-D
+    Byte firstFrame[20] = {0x01,0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0};
+    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
+    
+    [self sendData:firstFrameData];
+    //sleep(50);//设置成50ms等待下一次发送数据
+    [NSThread sleepForTimeInterval:0.05];
+    
+    
+    Byte frame[36] = {0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0,
+        0,0,0,0  ,0,0,0,0,0,
+        0,0,0,0,0 ,0,0,0};
+    
+    uint16_t crc = CRC16(frame, 36);
+    
+    
+    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc2 = crc&0x00ff;
+    
+    Byte secondFrame[20] = {0x02,0,0,0,0  ,0,0,0,0,0,
+        0,0,0,0,0 ,0,0,0,crc1,crc2};
+    
+
+    
+    
+    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
+    
+    [self sendData:secondFrameData];
+    
     
 }
+
 
 -(IBAction)queryLockStatusButtonPressed:(id)sender
 {
@@ -234,6 +275,7 @@ writeCharacteristic,bluetoothName;
     [self sendData:data];
 }
 
+
 -(IBAction)rightGivenButtonPressed:(id)sender
 {
     Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
@@ -242,6 +284,7 @@ writeCharacteristic,bluetoothName;
     [self sendData:data];
 }
 
+
 -(IBAction)historyButtonPressed:(id)sender
 {
     Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
@@ -249,6 +292,7 @@ writeCharacteristic,bluetoothName;
     
     [self sendData:data];
 }
+
 
 -(IBAction)builtStationButtonPressed:(id)sender
 {
