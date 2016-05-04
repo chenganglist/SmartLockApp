@@ -47,7 +47,7 @@
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"010002";
+    electronicKey.text = @"010000";
     workDescription.text = @"维修电表";
 
 
@@ -93,7 +93,7 @@
     NSLog(@"endDateString:%@",endDateString);
     
     endTime.text = endDateString;
-    electronicKey.text = @"010002";
+    electronicKey.text = @"010000";
     workDescription.text = @"维修电表";
     
 
