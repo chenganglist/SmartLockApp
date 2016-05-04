@@ -226,13 +226,27 @@ writeCharacteristic,bluetoothName;
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
-    //NSDate* curDate = [NSDate date];//获取当前时间，日期
-    Byte s = 0x00; //秒
-    Byte m = 0x00; //分
-    Byte h = 0x00; //时
-    Byte Y = 0x16; //年
-    Byte M = 0x05; //月
-    Byte D = 0x04; //日
+    //获取当前时间
+    NSDate *now = [NSDate date];
+    NSLog(@"now date is: %@", now);
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+
+    int year = (int)[dateComponent year];
+    int month = (int)[dateComponent month];
+    int day = (int)[dateComponent day];
+    int hour = (int)[dateComponent hour];
+    int minute = (int)[dateComponent minute];
+    int second = (int)[dateComponent second];
+    
+    Byte s = second&0xff; //秒
+    Byte m = minute&0xff; //分
+    Byte h = hour&0xff; //时
+    Byte Y = year&0xff; //年
+    Byte M = month&0xff; //月
+    Byte D = day&0xff; //日
     
     //S-M-H-Y-M-D
     Byte firstFrame[20] = {0x01,0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0};
@@ -251,7 +265,7 @@ writeCharacteristic,bluetoothName;
     
     
     Byte crc1 = (crc&0xff00)>>2;
-    Byte crc2 = crc&0x00ff;
+    Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x02,0,0,0,0  ,0,0,0,0,0,
         0,0,0,0,0 ,0,0,0,crc1,crc2};
