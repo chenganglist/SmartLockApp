@@ -251,17 +251,24 @@ writeCharacteristic,bluetoothName;
     Byte D = day&0xff; //日
     
     //S-M-H-Y-M-D
-    Byte firstFrame[20] = {0x01,0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0};
+    Byte firstFrame[20] = {0x01,/*帧序号*/
+        0x7E,0xFE,/*命令标志码*/
+        s,m,h,Y,M,D,/*时间*/
+        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,0x69,/*手机号*/
+        0 /*自动补全*/};
+    
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     [self sendData:firstFrameData];
     //sleep(50);//设置成50ms等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];
+    [NSThread sleepForTimeInterval:1];//设置成1s等待下一次发送数据
     
     
-    Byte frame[36] = {0x7E,s,m,h,Y,M,D,4,7,8,0,4,1,3,6,1,3,0,0,
-        0,0,0,0  ,0,0,0,0,0,
-        0,0,0,0,0 ,0,0,0};
+    Byte frame[36] = { 0x7E,0xFE,/*命令标志码*/
+        s,m,h,Y,M,D,/*时间*/
+        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,0x69,/*手机号*/
+        0,/*自动补全*/
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0/*自动补全*/};
     
     uint16_t crc = CRC16(frame, 36);
     
@@ -269,12 +276,11 @@ writeCharacteristic,bluetoothName;
     Byte crc1 = (crc&0xff00)>>2;
     Byte crc2 = crc&0xff;
     
-    Byte secondFrame[20] = {0x02,0,0,0,0  ,0,0,0,0,0,
-        0,0,0,0,0 ,0,0,0,crc1,crc2};
+    Byte secondFrame[20] = {0x80,/*最后一帧标志*/
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,/*自动补全*/
+        crc1,crc2/*校验码*/};
     
 
-    
-    
     NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
     
     [self sendData:secondFrameData];
@@ -285,10 +291,49 @@ writeCharacteristic,bluetoothName;
 
 -(IBAction)queryLockStatusButtonPressed:(id)sender
 {
-    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    //清空接收区数据
+    [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
+    [recvData setLength:0];
     
-    [self sendData:data];
+    Byte firstFrame[20] = {0x01,/*帧序号*/
+        0x7e,0x44,/*命令标志码*/
+        0x42,/*用户权限码*/
+        0x01,/*城市码*/
+        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
+        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
+    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
+    
+    [self sendData:firstFrameData];
+    //设置成1s等待下一次发送数据
+    [NSThread sleepForTimeInterval:1];
+    
+    
+    Byte frame[36] = {0x7e,0x44,/*命令标志码*/
+        0x42,/*用户权限码*/
+        0x01,/*城市码*/
+        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
+        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
+        0x69,/*手机号*/
+        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/};
+    
+    uint16_t crc = CRC16(frame, 36);
+    
+    //提取校验位
+    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc2 = crc&0xff;
+    
+    Byte secondFrame[20] = {0x80,/*帧结尾*/
+        0x69,/*手机号*/
+        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+        crc1,crc2};
+    
+    
+    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
+    
+    [self sendData:secondFrameData];
+
 }
 
 
