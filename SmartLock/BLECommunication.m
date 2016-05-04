@@ -16,7 +16,7 @@
 @synthesize centralManager,connectPeripheral,
 writeCharacteristic,bluetoothName;
 
-@synthesize sendButton,sendTextFiled,tvRecv;
+@synthesize sendButton,tvRecv;
 
 
 - (void)viewDidLoad {
@@ -158,11 +158,20 @@ writeCharacteristic,bluetoothName;
 //第六步：自动接收数据--经测试，只能通过通知的方式接收数据
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding];
+    //NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding];
     //NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
     
-    NSLog(@"receive: %@", str);
-    self.tvRecv.text= [self.tvRecv.text stringByAppendingString:str];
+    Byte *recvByte = (Byte *)[characteristic.value  bytes];
+    for(int i=0;i<[characteristic.value length];i++)
+    {
+        NSString *HexStr =
+        [NSString stringWithFormat:@" %x",recvByte[i]];///16进制数
+        printf("recvByte[%d] = 0x%x\n",i,recvByte[i]);
+        self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
+    }
+
+    //NSLog(@"receive: %@", str);
+    //self.tvRecv.text= [self.tvRecv.text stringByAppendingString:str];
     
 }
 
@@ -207,13 +216,46 @@ writeCharacteristic,bluetoothName;
 
 
 
--(IBAction)sendButtonPressed:(id)sender{
-    NSData *data = [self.sendTextFiled.text dataUsingEncoding:[NSString defaultCStringEncoding]];
+-(IBAction)timeSyncButtonPressed:(id)sender{
+
     
-    NSLog(@"发送数据： %@",self.sendTextFiled.text);
+    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    
     [self sendData:data];
     
 }
 
+-(IBAction)queryLockStatusButtonPressed:(id)sender
+{
+    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    
+    [self sendData:data];
+}
+
+-(IBAction)rightGivenButtonPressed:(id)sender
+{
+    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    
+    [self sendData:data];
+}
+
+-(IBAction)historyButtonPressed:(id)sender
+{
+    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    
+    [self sendData:data];
+}
+
+-(IBAction)builtStationButtonPressed:(id)sender
+{
+    Byte byte[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+    NSData *data = [[NSData alloc] initWithBytes:byte length:24];
+    
+    [self sendData:data];
+}
 
 @end

@@ -119,14 +119,16 @@
             NSDictionary* userInfo = [UserInfoView getUserInfo];
             NSDictionary* tokenInfo = [UserInfoView getTokenInfo];
             //0管理员
-            NSDictionary *parametersForManager = @{@"operatorName":userInfo[@"username"],
-                                                   @"accessToken":tokenInfo[@"accessToken"],
-                                                   @"approvalPerson":userInfo[@"username"],
+            NSDictionary *parametersForManager = @{
+           @"operatorName":userInfo[@"username"],
+           @"accessToken":tokenInfo[@"accessToken"],
+           @"approvalPerson":userInfo[@"username"],
                                                    };
             //1工程师
-            NSDictionary *parametersForWorker = @{@"operatorName":userInfo[@"username"],
-                                                  @"accessToken":tokenInfo[@"accessToken"],
-                                                  @"applicantName":userInfo[@"username"],
+            NSDictionary *parametersForWorker = @{
+              @"operatorName":userInfo[@"username"],
+              @"accessToken":tokenInfo[@"accessToken"],
+              @"applicantName":userInfo[@"username"],
                                                   };
             
             NSString *urlString = @"https://www.smartlock.top/v0/taskFetch";
@@ -181,7 +183,7 @@
     if(success!=nil)
     {
         self.datalist = success;
-        NSLog(@"工单长度： %d",success.count);
+        NSLog(@"工单长度： %lu",(unsigned long)success.count);
         [workTable reloadData];
     }else{
         //初始化提示框；
@@ -243,14 +245,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d row is selected",indexPath.row);
+    NSLog(@"%ld row is selected",(unsigned long)indexPath.row);
     WorkDetailView *vc = [[WorkDetailView alloc]initWithNibName:@"WorkDetailView" bundle:nil];
     
     vc.workData = [self.datalist objectAtIndex:indexPath.row];
     vc.title = @"工单详情";
     vc.classifyType = classifyType;
     [self.navigationController pushViewController:vc animated:YES];
-
+    
 
 }
 

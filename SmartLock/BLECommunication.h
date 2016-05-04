@@ -17,7 +17,6 @@
     
     NSString* bluetoothName;
     UIButton *sendButton;
-    UITextField *sendTextFiled;
     UITextView *tvRecv;
 }
 
@@ -28,8 +27,12 @@
 
 
 @property(strong,nonatomic) IBOutlet UIButton *sendButton;
-@property(strong, nonatomic) IBOutlet UITextField *sendTextFiled;
 @property (strong, nonatomic) IBOutlet UITextView *tvRecv;
 
--(IBAction)sendButtonPressed:(id)sender;
+-(IBAction)timeSyncButtonPressed:(id)sender;
+-(IBAction)queryLockStatusButtonPressed:(id)sender;
+-(IBAction)rightGivenButtonPressed:(id)sender;
+-(IBAction)historyButtonPressed:(id)sender;
+-(IBAction)builtStationButtonPressed:(id)sender;
+
 @end
