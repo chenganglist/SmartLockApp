@@ -243,6 +243,7 @@ writeCharacteristic,bluetoothName;
     int minute = (int)[dateComponent minute];
     int second = (int)[dateComponent second];
     
+    //电脑端校验需要去除01 02 和 80等序号字节
     Byte s = second&0xff; //秒
     Byte m = minute&0xff; //分
     Byte h = hour&0xff; //时
@@ -274,7 +275,7 @@ writeCharacteristic,bluetoothName;
     uint16_t crc = CRC16(frame, 36);
     
     //提取校验位
-    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc1 = (crc&0xff00)>>8;;
     Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x80,/*最后一帧标志*/
@@ -321,14 +322,14 @@ writeCharacteristic,bluetoothName;
     uint16_t crc = CRC16(frame, 36);
     
     //提取校验位
-    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc1 = (crc&0xff00)>>8;
     Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x80,/*帧结尾*/
         0x69,/*手机号*/
         'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
         'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
-        crc1,crc2};
+        crc1,crc2/*校验码*/};
     
     
     NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
@@ -345,43 +346,67 @@ writeCharacteristic,bluetoothName;
     [recvData setLength:0];
     
     Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x44,/*命令标志码*/
+        0x7e,0x17,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+         'L' /*LockID*/
+        };
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     [self sendData:firstFrameData];
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
     
-    
-    Byte frame[36] = {0x7e,0x44,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/};
-    
-    uint16_t crc = CRC16(frame, 36);
-    
-    //提取校验位
-    Byte crc1 = (crc&0xff00)>>2;
-    Byte crc2 = crc&0xff;
-    
-    Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
-        crc1,crc2};
+    Byte secondFrame[20] = {0x02,/*第二帧*/
+        0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
+        0x16,0x05,0x10,0x10,/*有效开始时间*/
+        0x16,0x5,0x12,0x20,/*有效终止时间*/
+        0x05,/*有效开门次数*/
+        0x00,0x00,0x00/*用户信息即手机号*/};
     
     
     NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
     
     [self sendData:secondFrameData];
+    
+    
+    Byte frame[55] = {/*第一帧*/
+        0x7e,0x17,/*命令标志码*/
+        0x42,/*用户权限码*/
+        0x01,/*城市码*/
+        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+        'L' /*LockID*/,
+        /*第二帧*/
+        0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
+        0x16,0x05,0x10,0x10,/*有效开始时间*/
+        0x16,0x05,0x12,0x20,/*有效终止时间*/
+        0x05,/*有效开门次数*/
+        0x00,0x00,0x00,/*用户信息即手机号*/
+        /*结尾帧*/
+        0x00,0x00,0x55,0x20,0x88,0x38,0x69,/*用户信息即手机号*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补齐*/
+};
+    
+    uint16_t crc = CRC16(frame, 55);
+    
+    //提取校验位
+    Byte crc1 = (crc&0xff00)>>8;
+    Byte crc2 = crc&0xff;
+    
+    
+    //设置成1s等待下一次发送数据
+    [NSThread sleepForTimeInterval:1];
+    Byte lastFrame[20] = {0x80,/*结尾帧*/
+        0x00,0x00,0x55,0x20,0x88,0x38,0x69,/*用户信息即手机号*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补齐*/
+        crc1,crc2/*校验码*/};
+    
+    NSData *lastFrameData = [[NSData alloc] initWithBytes:lastFrame length:20];
+    
+    [self sendData:lastFrameData];
 }
 
 
@@ -416,14 +441,14 @@ writeCharacteristic,bluetoothName;
     uint16_t crc = CRC16(frame, 36);
     
     //提取校验位
-    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc1 = (crc&0xff00)>>8;
     Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x80,/*帧结尾*/
         0x69,/*手机号*/
         'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
         'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
-        crc1,crc2};
+        crc1,crc2/*校验码*/};
     
     
     NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
@@ -463,14 +488,14 @@ writeCharacteristic,bluetoothName;
     uint16_t crc = CRC16(frame, 36);
     
     //提取校验位
-    Byte crc1 = (crc&0xff00)>>2;
+    Byte crc1 = (crc&0xff00)>>8;
     Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x80,/*帧结尾*/
         0x69,/*手机号*/
         'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
         'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
-        crc1,crc2};
+        crc1,crc2/*校验码*/};
     
     
     NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
