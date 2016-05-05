@@ -74,8 +74,15 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"]];
+    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"]];
+    //zh_CN
     //[datePicker setLocale:[NSLocale systemLocale]];
+//    NSLocale* curLocal = [NSLocale currentLocale];
+//    NSLog(@" %@ ",[curLocal localeIdentifier]);
+//    NSLog(@" %@ ",[curLocal localeIdentifier]);
+//    NSLog(@" %@ ",[curLocal localeIdentifier]);
+//    NSLog(@" %@ ",[curLocal localeIdentifier]);
+//    NSLog(@" %@ ",[curLocal localeIdentifier]);
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
@@ -88,10 +95,11 @@
         
         //显示获取的NSDate
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-        dateFormatter.locale= usLocale;
-        
-        [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+//        NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+        //zh_CN
+//        dateFormatter.locale= usLocale;
+        dateFormatter.locale= [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+        [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
         NSString *startDateString = [dateFormatter stringFromDate:startDate];
         NSLog(@"startDateString:%@",startDateString);
         
@@ -120,7 +128,7 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"] ];
+    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"] ];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
@@ -134,10 +142,11 @@
          
          //显示获取的NSDate
          NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-         NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-         dateFormatter.locale= usLocale;
+//         NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+//         dateFormatter.locale= usLocale;
          
-         [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+        dateFormatter.locale= [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+         [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
          NSString *startDateString = [dateFormatter stringFromDate:endDate];
          NSLog(@"startDateString:%@",startDateString);
          
