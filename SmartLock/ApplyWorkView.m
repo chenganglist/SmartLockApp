@@ -71,7 +71,7 @@
 {
     NSLog(@"开始时间弹框");//startDate
 
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     //UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, alert.view.frame.size.width, 80)];
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
@@ -87,7 +87,7 @@
 //    NSLog(@" %@ ",[curLocal localeIdentifier]);
     
 
-    
+     alert.view.frame = self.view.frame;
     [alert.view addSubview:datePicker];
     
     UIView *superView=datePicker.superview;
@@ -156,7 +156,8 @@
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"] ];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    alert.view.frame = self.view.frame;
     
     [alert.view addSubview:datePicker];
     
