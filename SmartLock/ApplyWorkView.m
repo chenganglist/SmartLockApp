@@ -14,7 +14,7 @@
 
 @implementation ApplyWorkView
 @synthesize  resetButton,commitButton,stationAddress;
-@synthesize  workType,startTime,endTime,electronicKey;
+@synthesize  workType,startTimeButton,endTimeButton,electronicKey;
 @synthesize  workDescription,scrollView;
 
 - (void)viewDidLoad {
@@ -34,9 +34,9 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     NSString *startDateString = [dateFormatter stringFromDate:startDate];
     NSLog(@"startDateString:%@",startDateString);
-    startTime.text = startDateString;
     
-    
+    [startTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
+
     NSTimeInterval interval = [startDate timeIntervalSince1970];
     long long int date = (long long int)interval+3600*4;
     NSLog(@"date\n %lld", (long long int)date); //1295322949
@@ -46,7 +46,7 @@
     NSString *endDateString = [dateFormatter stringFromDate:endDate];
     NSLog(@"endDateString:%@",endDateString);
     
-    endTime.text = endDateString;
+    [endTimeButton setTitle:endDateString forState:UIControlStateNormal];// 添加文字
     electronicKey.text = @"010000";
     workDescription.text = @"维修电表";
 
@@ -67,6 +67,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)startTimeLablePressed:(id)sender
+{
+    NSLog(@"开始时间弹框");//startDate
+    //获取NSDate
+    
+    
+    //显示获取的NSDate
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    NSString *startDateString = [dateFormatter stringFromDate:startDate];
+    NSLog(@"startDateString:%@",startDateString);
+    
+    
+    [startTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
+
+    
+}
+
+-(IBAction)endTimeLablePressed:(id)sender
+{
+    NSLog(@"结束时间弹框");//endDate
+    //获取NSDate
+    
+    
+    //显示获取的NSDate
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    NSString *endDateString = [dateFormatter stringFromDate:endDate];
+    NSLog(@"endDateString:%@",endDateString);
+    
+    
+    [endTimeButton setTitle:endDateString forState:UIControlStateNormal];// 添加文字
+}
+
 
 -(IBAction)resetButtonPressed:(id)sender
 {
@@ -80,7 +114,7 @@
     NSString *startDateString = [dateFormatter stringFromDate:startDate];
     NSLog(@"startDateString:%@",startDateString);
     
-    startTime.text = startDateString;
+    [startTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
     
     
     NSTimeInterval interval = [startDate timeIntervalSince1970];
@@ -92,7 +126,7 @@
     NSString *endDateString = [dateFormatter stringFromDate:endDate];
     NSLog(@"endDateString:%@",endDateString);
     
-    endTime.text = endDateString;
+    [endTimeButton setTitle:endDateString forState:UIControlStateNormal];// 添加文字
     electronicKey.text = @"010000";
     workDescription.text = @"维修电表";
     

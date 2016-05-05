@@ -9,10 +9,10 @@
             <connections>
                 <outlet property="commitButton" destination="tPt-qb-URg" id="RkB-sD-QAA"/>
                 <outlet property="electronicKey" destination="Tpf-Cq-u7g" id="nWB-bl-MT3"/>
-                <outlet property="endTime" destination="CR6-9q-BaP" id="gyf-Qk-Lnf"/>
+                <outlet property="endTimeButton" destination="2t1-cc-IiS" id="29P-jL-eDo"/>
                 <outlet property="resetButton" destination="3CK-fF-yh9" id="6fc-sx-BMx"/>
                 <outlet property="scrollView" destination="9Av-xs-Iav" id="yIw-bH-G5j"/>
-                <outlet property="startTime" destination="ob9-ig-F2Q" id="MU3-e7-X8x"/>
+                <outlet property="startTimeButton" destination="HoH-cs-ENC" id="78G-CA-2UZ"/>
                 <outlet property="stationAddress" destination="YiD-cc-HGT" id="wNj-hS-PTK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="workDescription" destination="gw1-uH-feF" id="PeR-Hi-sIC"/>
@@ -75,22 +75,6 @@
                                 <rect key="frame" x="0.0" y="226" width="73" height="21"/>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2016-4-22 19:23" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-9q-BaP">
-                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="76" y="314" width="241" height="30"/>
-                            </variation>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2016-4-22 15:23" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob9-ig-F2Q">
-                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="76" y="270" width="241" height="30"/>
-                            </variation>
-                        </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="普通／紧急" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Imz-UO-6EC">
                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -114,16 +98,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="4" y="273" width="68" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dj-Lc-pgR">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="5" y="316" width="68" height="21"/>
+                                <rect key="frame" x="5" y="317" width="68" height="21"/>
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基站地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V89-cg-i1k">
@@ -157,6 +132,43 @@
                                 <action selector="resetButtonPressed:" destination="-2" eventType="touchUpInside" id="5j7-H1-R8i"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dj-Lc-pgR">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="4" y="274" width="68" height="21"/>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-cs-ENC">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="2016-05-02  10:10:10">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="83" y="271" width="219" height="30"/>
+                            </variation>
+                            <connections>
+                                <action selector="startTimeLablePressed:" destination="-2" eventType="touchUpInside" id="SyW-Qw-mOT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-cc-IiS">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="2016-05-02  10:10:10">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="83" y="311" width="219" height="30"/>
+                            </variation>
+                            <connections>
+                                <action selector="endTimeLablePressed:" destination="-2" eventType="touchUpInside" id="acB-0g-7S1"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <variation key="default">
                         <mask key="subviews">
@@ -165,15 +177,15 @@
                             <exclude reference="gw1-uH-feF"/>
                             <exclude reference="ZL1-zJ-RYx"/>
                             <exclude reference="cLY-fS-JN0"/>
-                            <exclude reference="CR6-9q-BaP"/>
-                            <exclude reference="ob9-ig-F2Q"/>
                             <exclude reference="Imz-UO-6EC"/>
                             <exclude reference="uuU-I5-Gqc"/>
                             <exclude reference="zQ8-Op-IXd"/>
-                            <exclude reference="0dj-Lc-pgR"/>
                             <exclude reference="V89-cg-i1k"/>
                             <exclude reference="Tpf-Cq-u7g"/>
                             <exclude reference="3CK-fF-yh9"/>
+                            <exclude reference="0dj-Lc-pgR"/>
+                            <exclude reference="HoH-cs-ENC"/>
+                            <exclude reference="2t1-cc-IiS"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact" fixedFrame="YES">
@@ -184,15 +196,15 @@
                             <include reference="gw1-uH-feF"/>
                             <include reference="ZL1-zJ-RYx"/>
                             <include reference="cLY-fS-JN0"/>
-                            <include reference="CR6-9q-BaP"/>
-                            <include reference="ob9-ig-F2Q"/>
                             <include reference="Imz-UO-6EC"/>
                             <include reference="uuU-I5-Gqc"/>
                             <include reference="zQ8-Op-IXd"/>
-                            <include reference="0dj-Lc-pgR"/>
                             <include reference="V89-cg-i1k"/>
                             <include reference="Tpf-Cq-u7g"/>
                             <include reference="3CK-fF-yh9"/>
+                            <include reference="0dj-Lc-pgR"/>
+                            <include reference="HoH-cs-ENC"/>
+                            <include reference="2t1-cc-IiS"/>
                         </mask>
                     </variation>
                 </scrollView>

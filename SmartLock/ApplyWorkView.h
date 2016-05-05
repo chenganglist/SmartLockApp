@@ -16,8 +16,8 @@
     UIButton *commitButton;
     UITextField *stationAddress;
     UITextField *workType;
-    UITextField *startTime;
-    UITextField *endTime;
+    UIButton *startTimeButton;
+    UIButton *endTimeButton;
     NSDate* startDate;
     NSDate* endDate;
     UITextField *electronicKey;
@@ -30,12 +30,14 @@
 @property(nonatomic,retain) IBOutlet UIButton *commitButton;
 @property(strong, nonatomic) IBOutlet UITextField *stationAddress;
 @property(strong, nonatomic) IBOutlet UITextField *workType;
-@property(strong, nonatomic) IBOutlet UITextField *startTime;
-@property(strong, nonatomic) IBOutlet UITextField *endTime;
+@property(strong, nonatomic) IBOutlet UIButton *startTimeButton;
+@property(strong, nonatomic) IBOutlet UIButton *endTimeButton;
 @property(strong, nonatomic) IBOutlet UITextField *electronicKey;
 @property(strong, nonatomic) IBOutlet UITextField *workDescription;
 
 -(IBAction)resetButtonPressed:(id)sender;
 -(IBAction)commitButtonPressed:(id)sender;
+-(IBAction)startTimeLablePressed:(id)sender;
+-(IBAction)endTimeLablePressed:(id)sender;
 
 @end
