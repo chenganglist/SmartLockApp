@@ -71,8 +71,10 @@
 {
     NSLog(@"开始时间弹框");//startDate
 
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
+    //UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, alert.view.frame.size.width, 80)];
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"]];
     //zh_CN
@@ -84,9 +86,33 @@
 //    NSLog(@" %@ ",[curLocal localeIdentifier]);
 //    NSLog(@" %@ ",[curLocal localeIdentifier]);
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
     
     [alert.view addSubview:datePicker];
+    
+    UIView *superView=datePicker.superview;
+    //添加约束，使按钮在屏幕水平方向的中央
+    NSLayoutConstraint *centerXContraint=[NSLayoutConstraint
+                                          constraintWithItem:datePicker
+                                          attribute:NSLayoutAttributeCenterX
+                                          relatedBy:NSLayoutRelationEqual
+                                          toItem:superView
+                                          attribute:NSLayoutAttributeCenterX
+                                          multiplier:1.0f
+                                          constant:0.0];
+    //添加约束，使按钮在屏幕垂直方向的中央
+    NSLayoutConstraint *centerYContraint=[NSLayoutConstraint
+                                          constraintWithItem:datePicker
+                                          attribute:NSLayoutAttributeCenterY
+                                          relatedBy:NSLayoutRelationEqual
+                                          toItem:superView
+                                          attribute:NSLayoutAttributeCenterY
+                                          multiplier:1.0f
+                                          constant:0.0];
+    //给button的父节点添加约束
+    [superView addConstraints:@[centerXContraint,centerYContraint]];
+    
+    
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
     {
         //获取NSDate
@@ -133,6 +159,31 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     [alert.view addSubview:datePicker];
+    
+    UIView *superView=datePicker.superview;
+    //添加约束，使按钮在屏幕水平方向的中央
+    NSLayoutConstraint *centerXContraint=[NSLayoutConstraint
+                                          constraintWithItem:datePicker
+                                          attribute:NSLayoutAttributeCenterX
+                                          relatedBy:NSLayoutRelationEqual
+                                          toItem:superView
+                                          attribute:NSLayoutAttributeCenterX
+                                          multiplier:1.0f
+                                          constant:0.0];
+    //添加约束，使按钮在屏幕垂直方向的中央
+    NSLayoutConstraint *centerYContraint=[NSLayoutConstraint
+                                          constraintWithItem:datePicker
+                                          attribute:NSLayoutAttributeCenterY
+                                          relatedBy:NSLayoutRelationEqual
+                                          toItem:superView
+                                          attribute:NSLayoutAttributeCenterY
+                                          multiplier:1.0f
+                                          constant:0.0];
+    //给button的父节点添加约束
+    [superView addConstraints:@[centerXContraint,centerYContraint]];
+    
+
+    
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
      {
          //获取NSDate
