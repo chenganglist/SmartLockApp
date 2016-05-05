@@ -64,6 +64,8 @@
 		69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* KeyManagementView.m */; };
 		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
 		69E4F0AF1CD09B0C00E5A9C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */; };
+		69FBA3D51CDB48C20033F467 /* MyDateTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69FBA3D41CDB48C20033F467 /* MyDateTimePicker.xib */; };
+		69FBA3D81CDB48F80033F467 /* MyDateTimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FBA3D71CDB48F80033F467 /* MyDateTimePicker.m */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +190,9 @@
 		69B8FD0C1CC7169000A95981 /* KeyManagementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyManagementView.m; path = SmartLock/KeyManagementView.m; sourceTree = "<group>"; };
 		69B8FD0F1CC71B2D00A95981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartLock/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		69FBA3D41CDB48C20033F467 /* MyDateTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDateTimePicker.xib; sourceTree = "<group>"; };
+		69FBA3D61CDB48F80033F467 /* MyDateTimePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDateTimePicker.h; sourceTree = "<group>"; };
+		69FBA3D71CDB48F80033F467 /* MyDateTimePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDateTimePicker.m; sourceTree = "<group>"; };
 		E75B510AEF33EB9BEE478B96 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -265,6 +270,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				69FBA3CE1CDB47D90033F467 /* MyDatePicker */,
 				690358281CD9939B003FF907 /* BLEReact */,
 				698072E31CD8C58000E55053 /* UserRootNaviView */,
 				697C07591CD249E700C6500E /* GetDelegate */,
@@ -519,6 +525,16 @@
 			name = KeyManagementView;
 			sourceTree = "<group>";
 		};
+		69FBA3CE1CDB47D90033F467 /* MyDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				69FBA3D41CDB48C20033F467 /* MyDateTimePicker.xib */,
+				69FBA3D61CDB48F80033F467 /* MyDateTimePicker.h */,
+				69FBA3D71CDB48F80033F467 /* MyDateTimePicker.m */,
+			);
+			name = MyDatePicker;
+			sourceTree = "<group>";
+		};
 		9D2A076BF3B4A594DCB45E84 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +690,7 @@
 				6987AFE81CCC729700D08141 /* me-message@3x.png in Resources */,
 				6987AFE61CCC729700D08141 /* task.png in Resources */,
 				694278061CBA404D00F5887E /* LaunchScreen.storyboard in Resources */,
+				69FBA3D51CDB48C20033F467 /* MyDateTimePicker.xib in Resources */,
 				69533EA91CD2097900153441 /* baiduNaviSDK.bundle in Resources */,
 				69B25B861CCD20DA006AE96B /* WorkDetailView.xib in Resources */,
 				6987AFF51CCC74EF00D08141 /* tabbar_meHL@2x.png in Resources */,
@@ -762,6 +779,7 @@
 				696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */,
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
+				69FBA3D81CDB48F80033F467 /* MyDateTimePicker.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,

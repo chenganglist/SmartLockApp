@@ -70,35 +70,92 @@
 -(IBAction)startTimeLablePressed:(id)sender
 {
     NSLog(@"开始时间弹框");//startDate
-    //获取NSDate
-    
-    
-    //显示获取的NSDate
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-    NSString *startDateString = [dateFormatter stringFromDate:startDate];
-    NSLog(@"startDateString:%@",startDateString);
-    
-    
-    [startTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
 
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"]];
+    //[datePicker setLocale:[NSLocale systemLocale]];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert.view addSubview:datePicker];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+        //获取NSDate
+        startDate = datePicker.date;
+        //求出当天的时间字符串
+        
+        //显示获取的NSDate
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+        dateFormatter.locale= usLocale;
+        
+        [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+        NSString *startDateString = [dateFormatter stringFromDate:startDate];
+        NSLog(@"startDateString:%@",startDateString);
+        
+        
+        [startTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
+
+        NSLog(@"%@",startDate);
+        
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+
+    }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:^{}];
+    
     
 }
 
 -(IBAction)endTimeLablePressed:(id)sender
 {
     NSLog(@"结束时间弹框");//endDate
-    //获取NSDate
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [datePicker setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"] ];
     
-    //显示获取的NSDate
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-    NSString *endDateString = [dateFormatter stringFromDate:endDate];
-    NSLog(@"endDateString:%@",endDateString);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
+    [alert.view addSubview:datePicker];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+     {
+         //获取NSDate
+         endDate = datePicker.date;
+         //求出当天的时间字符串
+         
+         
+         //显示获取的NSDate
+         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+         NSLocale *usLocale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+         dateFormatter.locale= usLocale;
+         
+         [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+         NSString *startDateString = [dateFormatter stringFromDate:endDate];
+         NSLog(@"startDateString:%@",startDateString);
+         
+         
+         [endTimeButton setTitle:startDateString forState:UIControlStateNormal];// 添加文字
+         
+         NSLog(@"%@",endDate);
+         
+     }];
+
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                             {
+                                 
+                             }];
     
-    [endTimeButton setTitle:endDateString forState:UIControlStateNormal];// 添加文字
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 
