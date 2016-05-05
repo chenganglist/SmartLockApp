@@ -435,12 +435,38 @@ writeCharacteristic,bluetoothName;
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
+    //获取当前时间
+    NSDate *now = [NSDate date];
+    NSLog(@"now date is: %@", now);
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+    
+    int year = (int)[dateComponent year];
+    int month = (int)[dateComponent month];
+    int day = (int)[dateComponent day];
+    int hour = (int)[dateComponent hour];
+    int minute = (int)[dateComponent minute];
+    int second = (int)[dateComponent second];
+    
+    //电脑端校验需要去除01 02 和 80等序号字节
+    Byte s = second%10 + ((second/10)%10)*16; //秒
+    Byte m = minute%10 + ((minute/10)%10)*16; //分
+    Byte h = hour%10 + ((hour/10)%10)*16; //时
+    Byte Y = year%10 + ((year/10)%10)*16; //年
+    Byte M = month%10 + ((month/10)%10)*16; //月
+    Byte D = day%10 + ((day/10)%10)*16; //日
+    
+    //S-M-H-Y-M-D
+    
     Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x44,/*命令标志码*/
+        0x7e,0x11,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+        s/*请求时间*/};
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     [self sendData:firstFrameData];
@@ -448,14 +474,17 @@ writeCharacteristic,bluetoothName;
     [NSThread sleepForTimeInterval:1];
     
     
-    Byte frame[36] = {0x7e,0x44,/*命令标志码*/
+    Byte frame[36] = {/*帧序号*/
+        0x7e,0x11,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/};
+        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+        s,/*请求时间*/
+        /*帧结尾*/
+        m,h,Y,M,D,/*请求时间*/
+        0x01,/*序号*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/};
     
     uint16_t crc = CRC16(frame, 36);
     
@@ -464,9 +493,9 @@ writeCharacteristic,bluetoothName;
     Byte crc2 = crc&0xff;
     
     Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
+        m,h,Y,M,D,/*请求时间*/
+        0x01,/*序号*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
         crc1,crc2/*校验码*/};
     
     
@@ -483,7 +512,7 @@ writeCharacteristic,bluetoothName;
     [recvData setLength:0];
     
     Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x44,/*命令标志码*/
+        0x7e,0x4E,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
@@ -495,7 +524,7 @@ writeCharacteristic,bluetoothName;
     [NSThread sleepForTimeInterval:1];
     
     
-    Byte frame[36] = {0x7e,0x44,/*命令标志码*/
+    Byte frame[36] = {0x7e,0x4E,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
