@@ -244,12 +244,12 @@ writeCharacteristic,bluetoothName;
     int second = (int)[dateComponent second];
     
     //电脑端校验需要去除01 02 和 80等序号字节
-    Byte s = second&0xff; //秒
-    Byte m = minute&0xff; //分
-    Byte h = hour&0xff; //时
-    Byte Y = year&0xff; //年
-    Byte M = month&0xff; //月
-    Byte D = day&0xff; //日
+    Byte s = second%10 + ((second/10)%10)*16; //秒
+    Byte m = minute%10 + ((minute/10)%10)*16; //分
+    Byte h = hour%10 + ((hour/10)%10)*16; //时
+    Byte Y = year%10 + ((year/10)%10)*16; //年
+    Byte M = month%10 + ((month/10)%10)*16; //月
+    Byte D = day%10 + ((day/10)%10)*16; //日
     
     //S-M-H-Y-M-D
     Byte firstFrame[20] = {0x01,/*帧序号*/
@@ -359,10 +359,29 @@ writeCharacteristic,bluetoothName;
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
     
+    //获取当前时间
+    NSDate *now = [NSDate date];
+    NSLog(@"now date is: %@", now);
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+    
+    int year = (int)[dateComponent year];
+    int month = (int)[dateComponent month];
+    int day = (int)[dateComponent day];
+    int hour = (int)[dateComponent hour];
+
+    //电脑端校验需要去除01 02 和 80等序号字节
+    Byte h = hour%10 + ((hour/10)%10)*16; //时
+    Byte Y = year%10 + ((year/10)%10)*16; //年
+    Byte M = month%10 + ((month/10)%10)*16; //月
+    Byte D = day%10 + ((day/10)%10)*16; //日
+
     Byte secondFrame[20] = {0x02,/*第二帧*/
         0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x16,0x05,0x10,0x10,/*有效开始时间*/
-        0x16,0x5,0x12,0x20,/*有效终止时间*/
+        Y,M,D,h,/*有效开始时间*/
+        Y,M,D+1,h,/*有效终止时间*/
         0x05,/*有效开门次数*/
         0x00,0x00,0x00/*用户信息即手机号*/};
     
