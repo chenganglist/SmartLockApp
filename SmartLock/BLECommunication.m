@@ -16,15 +16,16 @@
 
 NSMutableData *recvData;
 int commondType;
-int recvFrameCount;
-int sendFrameCount;
-
-Byte timeSyncFirstFrame[20],timeSyncLastFrame[20];
-Byte queryLockFirstFrame[20],queryLockLastFrame[20];
-Byte judgeRightFirstFrame[20],judgeRightSecondFrame[20],judgeRightLastFrame[20];
-Byte readHistoryFirstFrame[20],readHistoryLastFrame[20];
-Byte buildStationFirstFrame[20],buildStationLastFrame[20];
-
+//因为接收的数据有标志位，去除自定义的标志
+//int recvFrameCount;
+//int sendFrameCount;
+//为了调试的方便，采用延时发送数据，弃用全局数组，每次间隔1s
+//Byte timeSyncFirstFrame[20],timeSyncLastFrame[20];
+//Byte queryLockFirstFrame[20],queryLockLastFrame[20];
+//Byte judgeRightFirstFrame[20],judgeRightSecondFrame[20],judgeRightLastFrame[20];
+//Byte readHistoryFirstFrame[20],readHistoryLastFrame[20];
+//Byte buildStationFirstFrame[20],buildStationLastFrame[20];
+Byte timeSync_s,timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D;/*时间*/
 
 @interface BLECommunication ()
 
@@ -178,18 +179,64 @@ writeCharacteristic,bluetoothName;
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     Byte *recvByte = (Byte *)[characteristic.value  bytes];
+    if(recvByte[0]==0xaa)
+    {
+        //清空接收区数据
+        [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
+        [recvData setLength:0];
+        return;
+    }
     
+    [recvData  appendData: characteristic.value];
+    
+    
+    if(recvByte[0]!=0x80)
+    {
+        return;
+    }
+    
+    //通信错误则弹出提示框
+    if([characteristic.value length]==5)
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:@"通信错误，请重新操作" preferredStyle: UIAlertControllerStyleAlert];
+
+        [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+        {
+        }]];
+        [self presentViewController:alert animated:true completion:nil];
+    }
+    
+    //数据接收完毕，根据命令状态进行解析和处理
+    Byte* allByte = (Byte *)[recvData bytes];
     switch(commondType)
     {
         case TIMESYNC:
         {
-            if(recvByte[0]==0xaa)
+            NSString *HexStr =
+            [NSString stringWithFormat:@"接收的时间 %02x分 %02x时 %02x年 %02x月 %02x日\n发送的时间 %02x分 %02x时 %02x年 %02x月 %02x日",
+             allByte[21],/*M*/
+             allByte[22]/*H*/,allByte[23],/*Y*/
+             allByte[24],/*M*/allByte[25]/*D*/,
+             timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D];
+            self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
+            NSString* timeInfo = @"电子钥匙与手机对时成功";
+            if(
+               allByte[21]!=timeSync_m ||
+               allByte[22]!=timeSync_h ||
+               allByte[23]!=timeSync_Y ||
+               allByte[24]!=timeSync_M ||
+               allByte[25]!=timeSync_D)
             {
-                //清空接收区数据
-                [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
-                [recvData setLength:0];
-                return;
+                timeInfo = @"对时失败，请重新操作";
             }
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+               message:timeInfo preferredStyle: UIAlertControllerStyleAlert];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                              {
+                              }]];
+            [self presentViewController:alert animated:true completion:nil];
             break;
         }
         case QUERYLOCK:
@@ -214,17 +261,13 @@ writeCharacteristic,bluetoothName;
         }
     }
     
-    for(int i=0;i<[characteristic.value length];i++)
-    {
-        NSString *HexStr =
-        [NSString stringWithFormat:@" %02x",recvByte[i]];//16进制数
-        printf("recvByte[%d] = 0x%02x\n",i,recvByte[i]);
-        self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
-    }
+//    for(int i=0;i<[characteristic.value length];i++)
+//    {
+//        NSString *HexStr =
+//        [NSString stringWithFormat:@" %02x",recvByte[i]];//16进制数
+//        printf("recvByte[%d] = 0x%02x\n",i,recvByte[i]);
+//    }
     
-    [recvData  appendData: characteristic.value];
-
-    NSLog(@"receive: %@", recvData);
 }
 
 
@@ -268,6 +311,7 @@ writeCharacteristic,bluetoothName;
 -(IBAction)timeSyncButtonPressed:(id)sender{
 
     //清空接收区数据
+    self.tvRecv.text = @"对时开始：";
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
@@ -287,17 +331,19 @@ writeCharacteristic,bluetoothName;
     int second = (int)[dateComponent second];
     
     //电脑端校验需要去除01 02 和 80等序号字节
-    Byte s = second%10 + ((second/10)%10)*16; //秒
-    Byte m = minute%10 + ((minute/10)%10)*16; //分
-    Byte h = hour%10 + ((hour/10)%10)*16; //时
-    Byte Y = year%10 + ((year/10)%10)*16; //年
-    Byte M = month%10 + ((month/10)%10)*16; //月
-    Byte D = day%10 + ((day/10)%10)*16; //日
+    //timeSync_s,timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D
+    timeSync_s = second%10 + ((second/10)%10)*16; //秒
+    timeSync_m = minute%10 + ((minute/10)%10)*16; //分
+    timeSync_h = hour%10 + ((hour/10)%10)*16; //时
+    timeSync_Y = year%10 + ((year/10)%10)*16; //年
+    timeSync_M = month%10 + ((month/10)%10)*16; //月
+    timeSync_D = day%10 + ((day/10)%10)*16; //日
     
     //S-M-H-Y-M-D
     Byte firstFrame[20] = {0x01,/*帧序号*/
         0x7E,0xFE,/*命令标志码*/
-        s,m,h,Y,M,D,/*时间*/
+        timeSync_s,timeSync_m,timeSync_h,timeSync_Y,
+        timeSync_M,timeSync_D,/*时间*/
         0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,0x69,/*手机号*/
         0 /*自动补全*/};
 
@@ -305,14 +351,13 @@ writeCharacteristic,bluetoothName;
     
     
     [self sendData:firstFrameData];
-    sendFrameCount = 1;
-    recvFrameCount = 0;
     commondType = TIMESYNC;
     
     [NSThread sleepForTimeInterval:1];//设置成1s等待下一次发送数据
     
     Byte frame[36] = { 0x7E,0xFE,/*命令标志码*/
-        s,m,h,Y,M,D,/*时间*/
+        timeSync_s,timeSync_m,timeSync_h,timeSync_Y,
+        timeSync_M,timeSync_D,/*时间*/
         0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,0x69,/*手机号*/
         0,/*自动补全*/
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0/*自动补全*/};
@@ -351,6 +396,7 @@ writeCharacteristic,bluetoothName;
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     [self sendData:firstFrameData];
+    commondType = QUERYLOCK;
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
     
@@ -399,7 +445,7 @@ writeCharacteristic,bluetoothName;
          'L' /*LockID*/
         };
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
+    commondType = JUDGERIGHT;
     [self sendData:firstFrameData];
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
@@ -513,7 +559,7 @@ writeCharacteristic,bluetoothName;
         'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
         s/*请求时间*/};
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
+    commondType = READHISTORY;
     [self sendData:firstFrameData];
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
@@ -563,7 +609,7 @@ writeCharacteristic,bluetoothName;
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
         0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
+    commondType = BUILDSTATION;
     [self sendData:firstFrameData];
     //设置成1s等待下一次发送数据
     [NSThread sleepForTimeInterval:1];
