@@ -254,19 +254,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		690358281CD9939B003FF907 /* BLEReact */ = {
-			isa = PBXGroup;
-			children = (
-				690358291CD993BE003FF907 /* CRC16.h */,
-			);
-			name = BLEReact;
-			sourceTree = "<group>";
-		};
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
-				690358281CD9939B003FF907 /* BLEReact */,
-				698072E31CD8C58000E55053 /* UserRootNaviView */,
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */,
@@ -442,13 +432,6 @@
 			name = GetDelegate;
 			sourceTree = "<group>";
 		};
-		698072E31CD8C58000E55053 /* UserRootNaviView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UserRootNaviView;
-			sourceTree = "<group>";
-		};
 		698177EC1CC86BC2009C7120 /* ClassifyWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +455,7 @@
 		698569471CC7701200A2E3F8 /* BLECommunication */ = {
 			isa = PBXGroup;
 			children = (
+				690358291CD993BE003FF907 /* CRC16.h */,
 				698569481CC7703700A2E3F8 /* BLECommunication.h */,
 				698569491CC7703700A2E3F8 /* BLECommunication.m */,
 				69B25B831CCD1C75006AE96B /* BLECommunication.xib */,
