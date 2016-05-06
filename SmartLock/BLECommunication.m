@@ -15,8 +15,12 @@
 #define BUILDSTATION 4
 #define LOCKIDHEX   'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
 
+NSMutableArray *recvArrayString;
 NSMutableData *recvData;
 int commondType;
+Byte nextNum = 1;
+//static int restRecord;不需要，因为返回信息中存在
+//未上传记录个数为1的时候，结束上传，所有记录只能读取一次
 //因为接收的数据有标志位，去除自定义的标志
 //int recvFrameCount;
 //int sendFrameCount;
@@ -48,7 +52,7 @@ writeCharacteristic,bluetoothName;
     [self.view addGestureRecognizer:tap];
     
     recvData = [[NSMutableData alloc] init]; //初始化接收区
-    
+    recvArrayString = [[NSMutableArray alloc] init];//初始化历史记录接收区
     //初始化蓝牙中心模式设备管理器
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
@@ -303,7 +307,54 @@ writeCharacteristic,bluetoothName;
         }
         case READHISTORY:
         {
+            if([[NSData dataWithData:recvData] length]!=40)
+            {
+                return;
+            }
             
+            NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+            
+
+            
+            int restRecord = allByte[3]*256+allByte[4];
+            NSString* curParseString = [NSString stringWithFormat:
+                    @"记录%d,剩余记录%d\n",nextNum,restRecord];
+
+            nextNum = allByte[26];
+            [recvArrayString addObject:curParseString];
+            
+            if(restRecord==1)
+            {
+                NSString* allRecordString = @"";
+                for (NSString *item in recvArrayString) {
+                    NSLog(@"%@",item);
+                    allRecordString =
+                    [allRecordString stringByAppendingString:item];
+                }
+                
+                
+                //显示当次读取的所有历史记录
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"本次读取的历史记录"
+                   message:allRecordString preferredStyle: UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                                  {
+                                  }]];
+                [self presentViewController:alert animated:true completion:nil];
+
+                
+                //追加存储本次历史记录
+                NSArray *curAllRecord = [defaults objectForKey:@"keyHistory"];
+                [recvArrayString addObjectsFromArray:curAllRecord];
+                
+                [defaults setObject:recvArrayString forKey:@"keyHistory"];
+                [defaults synchronize];
+
+                //清空内存中的所有历史记录
+                [recvArrayString removeAllObjects];
+                return;
+            }
+
+            [self historyButtonPressed:nil];
             break;
         }
         case BUILDSTATION:
@@ -580,7 +631,7 @@ writeCharacteristic,bluetoothName;
 }
 
 
--(IBAction)historyButtonPressed:(id)sender
+-(IBAction)historyButtonPressed:(id)sender;
 {
     self.tvRecv.text = @"查询历史记录：";
     //清空接收区数据
@@ -635,7 +686,7 @@ writeCharacteristic,bluetoothName;
         s,/*请求时间*/
         /*帧结尾*/
         m,h,Y,M,D,/*请求时间*/
-        0x01,/*序号*/
+        nextNum,/*序号*/
         0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/};
     
     uint16_t crc = CRC16(frame, 36);
@@ -646,7 +697,7 @@ writeCharacteristic,bluetoothName;
     
     Byte secondFrame[20] = {0x80,/*帧结尾*/
         m,h,Y,M,D,/*请求时间*/
-        0x01,/*序号*/
+        nextNum,/*序号*/
         0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
         crc1,crc2/*校验码*/};
     
