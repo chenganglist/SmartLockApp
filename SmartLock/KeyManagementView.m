@@ -20,23 +20,23 @@
     //开始检测蓝牙
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     //设置蓝牙检测时间
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
 }
 
 -(void) scanTimer:(NSTimer *)timer
 {
-    NSLog(@"5s时间已到，停止扫描蓝牙");
-    //[self.tableView.delegate self];
-    [self.tableView reloadData];
-    [centralManager stopScan];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-       message:@"扫描已完成" preferredStyle: UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    
-    //弹出提示框；
-    [self presentViewController:alert animated:true completion:nil];
+//    NSLog(@"5s时间已到，停止扫描蓝牙");
+//[self.tableView.delegate self];
+//    [self.tableView reloadData];
+//    [centralManager stopScan];
+//    
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+//       message:@"扫描已完成" preferredStyle: UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    }]];
+//    
+//    //弹出提示框；
+//    [self presentViewController:alert animated:true completion:nil];
 
 }
 
