@@ -8,8 +8,23 @@
 
 #import "BLECommunication.h"
 #import "CRC16.h"
+#define TIMESYNC 0
+#define QUERYLOCK 1
+#define JUDGERIGHT 2
+#define READHISTORY 3
+#define BUILDSTATION 4
 
 NSMutableData *recvData;
+int commondType;
+int recvFrameCount;
+int sendFrameCount;
+
+Byte timeSyncFirstFrame[20],timeSyncLastFrame[20];
+Byte queryLockFirstFrame[20],queryLockLastFrame[20];
+Byte judgeRightFirstFrame[20],judgeRightSecondFrame[20],judgeRightLastFrame[20];
+Byte readHistoryFirstFrame[20],readHistoryLastFrame[20];
+Byte buildStationFirstFrame[20],buildStationLastFrame[20];
+
 
 @interface BLECommunication ()
 
@@ -162,10 +177,43 @@ writeCharacteristic,bluetoothName;
 //第六步：自动接收数据--经测试，只能通过通知的方式接收数据
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    //NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding];
-    //NSString *str = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
-    
     Byte *recvByte = (Byte *)[characteristic.value  bytes];
+    
+    switch(commondType)
+    {
+        case TIMESYNC:
+        {
+            if(recvByte[0]==0xaa)
+            {
+                //清空接收区数据
+                [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
+                [recvData setLength:0];
+                return;
+            }
+            break;
+        }
+        case QUERYLOCK:
+        {
+            
+            break;
+        }
+        case JUDGERIGHT:
+        {
+            
+            break;
+        }
+        case READHISTORY:
+        {
+            
+            break;
+        }
+        case BUILDSTATION:
+        {
+            
+            break;
+        }
+    }
+    
     for(int i=0;i<[characteristic.value length];i++)
     {
         NSString *HexStr =
@@ -177,8 +225,6 @@ writeCharacteristic,bluetoothName;
     [recvData  appendData: characteristic.value];
 
     NSLog(@"receive: %@", recvData);
-    //self.tvRecv.text= [self.tvRecv.text stringByAppendingString:str];
-    
 }
 
 
@@ -203,7 +249,6 @@ writeCharacteristic,bluetoothName;
         
     }else
     {
-        //NSData *data = [MsgToArduino.text dataUsingEncoding:[NSString defaultCStringEncoding]];
         [connectPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
         
         char buffer[20] = {
@@ -211,12 +256,10 @@ writeCharacteristic,bluetoothName;
             ' ', ' ', ' ', ' ', ' ',
             ' ', ' ', ' ', ' ', ' ',
             ' ', ' ', ' ', ' ', ' ',};
-        
         NSData* restData = [NSData dataWithBytes:buffer length:(20-data.length)];
         
         [connectPeripheral writeValue:restData forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
-    
 }
 
 
@@ -257,14 +300,16 @@ writeCharacteristic,bluetoothName;
         s,m,h,Y,M,D,/*时间*/
         0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,0x69,/*手机号*/
         0 /*自动补全*/};
-    
+
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     
     [self sendData:firstFrameData];
-    //sleep(50);//设置成50ms等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];//设置成1s等待下一次发送数据
+    sendFrameCount = 1;
+    recvFrameCount = 0;
+    commondType = TIMESYNC;
     
+    [NSThread sleepForTimeInterval:1];//设置成1s等待下一次发送数据
     
     Byte frame[36] = { 0x7E,0xFE,/*命令标志码*/
         s,m,h,Y,M,D,/*时间*/
