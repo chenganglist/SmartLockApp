@@ -220,7 +220,8 @@ writeCharacteristic,bluetoothName;
              allByte[24],/*M*/allByte[25]/*D*/,
              timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D];
             self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
-            NSString* timeInfo = @"电子钥匙与手机对时成功";
+            NSString* timeInfo =[NSString stringWithFormat:@"对时成功，当前时间为\n: %02x年 %02x月 %02x日 %02x时 %02x分 ",
+                timeSync_Y,timeSync_M,timeSync_D,timeSync_h,timeSync_m];
             if(
                allByte[21]!=timeSync_m ||
                allByte[22]!=timeSync_h ||
