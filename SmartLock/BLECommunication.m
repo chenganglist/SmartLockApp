@@ -13,6 +13,7 @@
 #define JUDGERIGHT 2
 #define READHISTORY 3
 #define BUILDSTATION 4
+#define LOCKIDHEX   'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
 
 NSMutableData *recvData;
 int commondType;
@@ -307,7 +308,20 @@ writeCharacteristic,bluetoothName;
         }
         case BUILDSTATION:
         {
-            
+            if([[NSData dataWithData:recvData] length]!=6)
+            {
+                return;
+            }
+            if(allByte[3]==0x4e)
+            {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                    message:@"新建站成功" preferredStyle: UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                                  {
+                                  }]];
+                [self presentViewController:alert animated:true completion:nil];
+            }
+
             break;
         }
     }
@@ -519,7 +533,7 @@ writeCharacteristic,bluetoothName;
     Byte secondFrame[20] = {0x02,/*第二帧*/
         0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
         Y,M,D,h,/*有效开始时间*/
-        Y,M,D+1,h,/*有效终止时间*/
+        Y,M,D,h+3,/*有效终止时间*/
         0x05,/*有效开门次数*/
         0x00,0x00,0x00/*用户信息即手机号*/};
     
@@ -528,24 +542,23 @@ writeCharacteristic,bluetoothName;
     
     [self sendData:secondFrameData];
     
-    
+    //*'L' /*LockID*/,
+    /*第二帧*/
+    //0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
     Byte frame[55] = {/*第一帧*/
         0x7e,0x17,/*命令标志码*/
         0x42,/*用户权限码*/
         0x01,/*城市码*/
         0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
         'K',0xff,0x11,0x22,0x33,0x44,0x55,0x66,/*KeyID*/
-        'L' /*LockID*/,
-        /*第二帧*/
-        0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x16,0x05,0x10,0x10,/*有效开始时间*/
-        0x16,0x05,0x12,0x20,/*有效终止时间*/
+        LOCKIDHEX/*宏的使用*/
+        Y,M,D,h,/*有效开始时间*/
+        Y,M,D,h+3,/*有效终止时间*/
         0x05,/*有效开门次数*/
         0x00,0x00,0x00,/*用户信息即手机号*/
         /*结尾帧*/
         0x00,0x00,0x55,0x20,0x88,0x38,0x69,/*用户信息即手机号*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补齐*/
-};
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补齐*/};
     
     uint16_t crc = CRC16(frame, 55);
     
