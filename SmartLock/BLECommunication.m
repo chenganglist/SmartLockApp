@@ -196,7 +196,7 @@ writeCharacteristic,bluetoothName;
     [recvData  appendData: characteristic.value];
 
     Byte* curBytes = (Byte*)[[NSData dataWithData:recvData] bytes];
-    NSLog(@"curRecvData length %d\n",[[NSData dataWithData:recvData] length]);
+    NSLog(@"curRecvData length %lu\n",(unsigned long)[[NSData dataWithData:recvData] length]);
     for(int i=0;i<[[NSData dataWithData:recvData] length];i++)
     {
         NSLog(@"recvData[%d] = 0x%02x\n",i,curBytes[i]);
