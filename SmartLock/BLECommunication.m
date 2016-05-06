@@ -315,10 +315,15 @@ writeCharacteristic,bluetoothName;
             NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
             
 
-            
             int restRecord = allByte[3]*256+allByte[4];
             NSString* curParseString = [NSString stringWithFormat:
-                    @"记录%d,剩余记录%d\n",nextNum,restRecord];
+                    @"记录%d: 剩余记录%d,事件%02x,时间:%02x秒 %02x分 %02x时 %02x年 %02x月 %02x日 用户信息:%02x%02x%02x%02x%02x\n",
+                    nextNum,restRecord,allByte[15],
+                    allByte[17],allByte[18],/*M*/
+                    allByte[19]/*H*/,allByte[21],/*Y*/
+                    allByte[22],/*M*/allByte[23]/*D*/,
+                    allByte[29],allByte[30],
+                    allByte[31],allByte[32],allByte[33]];
 
             nextNum = allByte[26];
             [recvArrayString addObject:curParseString];
@@ -341,12 +346,12 @@ writeCharacteristic,bluetoothName;
                                   }]];
                 [self presentViewController:alert animated:true completion:nil];
 
-                
+
                 //追加存储本次历史记录
                 NSArray *curAllRecord = [defaults objectForKey:@"keyHistory"];
                 [recvArrayString addObjectsFromArray:curAllRecord];
                 
-                [defaults setObject:recvArrayString forKey:@"keyHistory"];
+                [defaults setObject:[recvArrayString copy] forKey:@"keyHistory"];
                 [defaults synchronize];
 
                 //清空内存中的所有历史记录
