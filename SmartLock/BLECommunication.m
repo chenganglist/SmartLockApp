@@ -189,23 +189,28 @@ writeCharacteristic,bluetoothName;
     }
     
     [recvData  appendData: characteristic.value];
-    
-    
-    if(recvByte[0]!=0x80)
+
+    Byte* curBytes = (Byte*)[[NSData dataWithData:recvData] bytes];
+    NSLog(@"curRecvData length %d\n",[[NSData dataWithData:recvData] length]);
+    for(int i=0;i<[[NSData dataWithData:recvData] length];i++)
     {
-        return;
+        NSLog(@"recvData[%d] = 0x%02x\n",i,curBytes[i]);
     }
     
-    //通信错误则弹出提示框
-    if([characteristic.value length]==5)
+    NSLog(@"\n\n");
+    
+    //操作失败，则弹出提示框：所有的操作失败都是返回6个字节
+    if(curBytes[0]==0x80 &&
+       curBytes[3]==0x97 &&
+       [[NSData dataWithData:recvData] length]==6)
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-           message:@"通信错误，请重新操作" preferredStyle: UIAlertControllerStyleAlert];
-
+           message:@"操作失败，请重新操作" preferredStyle: UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
         {
         }]];
         [self presentViewController:alert animated:true completion:nil];
+        return;
     }
     
     //数据接收完毕，根据命令状态进行解析和处理
@@ -214,6 +219,10 @@ writeCharacteristic,bluetoothName;
     {
         case TIMESYNC:
         {
+            if([[NSData dataWithData:recvData] length]!=40)
+            {
+                return;
+            }
             int i = 11;
             for(;i<19;i++)
             {
@@ -224,7 +233,7 @@ writeCharacteristic,bluetoothName;
                 keyID[0],keyID[1],keyID[2],keyID[3],
                 keyID[4],keyID[5],keyID[6],keyID[7]];
             self.tvRecv.text= [self.tvRecv.text stringByAppendingString:mKeyID];
-            
+
             NSString *HexStr =
             [NSString stringWithFormat:@"接收的时间 %02x分 %02x时 %02x年 %02x月 %02x日\n发送的时间 %02x分 %02x时 %02x年 %02x月 %02x日",
              allByte[21],/*M*/
@@ -254,12 +263,41 @@ writeCharacteristic,bluetoothName;
         }
         case QUERYLOCK:
         {
-            
+            if([[NSData dataWithData:recvData] length]!=40)
+            {
+                return;
+            }
+            NSString* statusString = @"";
+            Byte status = allByte[34];//包含序号，在第34个字节
+            statusString = [NSString stringWithFormat:
+            @"门磁一状态：%d\n 锁舌一状态：%d\n 门磁二状态：%d\n 锁舌二状态：%d\n 有无门磁一：%d\n 有无锁舌一%d\n 有无门磁二：%d\n 有无锁舌二%d\n",
+            status&0x01,(status>>1)&0x01,(status>>2)&0x01,
+            (status>>3)&0x01,(status>>4)&0x01,
+            (status>>5)&0x01,(status>>6)&0x01,(status>>7)&0x01];
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                message:statusString preferredStyle: UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                              {
+                              }]];
+            [self presentViewController:alert animated:true completion:nil];
             break;
         }
         case JUDGERIGHT:
         {
-            
+            if([[NSData dataWithData:recvData] length]!=6)
+            {
+                return;
+            }
+            if(allByte[3]==0x17)
+            {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                   message:@"鉴权成功" preferredStyle: UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                                  {
+                                  }]];
+                [self presentViewController:alert animated:true completion:nil];
+            }
             break;
         }
         case READHISTORY:
@@ -274,13 +312,7 @@ writeCharacteristic,bluetoothName;
         }
     }
     
-//    for(int i=0;i<[characteristic.value length];i++)
-//    {
-//        NSString *HexStr =
-//        [NSString stringWithFormat:@" %02x",recvByte[i]];//16进制数
-//        printf("recvByte[%d] = 0x%02x\n",i,recvByte[i]);
-//    }
-    
+
 }
 
 
@@ -397,6 +429,7 @@ writeCharacteristic,bluetoothName;
 -(IBAction)queryLockStatusButtonPressed:(id)sender
 {
     //清空接收区数据
+    self.tvRecv.text = @"查询锁状态：";
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
@@ -446,6 +479,7 @@ writeCharacteristic,bluetoothName;
 -(IBAction)rightGivenButtonPressed:(id)sender
 {
     //清空接收区数据
+    self.tvRecv.text = @"鉴权开始：";
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
@@ -535,6 +569,7 @@ writeCharacteristic,bluetoothName;
 
 -(IBAction)historyButtonPressed:(id)sender
 {
+    self.tvRecv.text = @"查询历史记录：";
     //清空接收区数据
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
@@ -612,6 +647,7 @@ writeCharacteristic,bluetoothName;
 -(IBAction)builtStationButtonPressed:(id)sender
 {
     //清空接收区数据
+    self.tvRecv.text = @"建站即修改平台码开始：";
     [recvData resetBytesInRange:NSMakeRange(0, recvData.length)];
     [recvData setLength:0];
     
