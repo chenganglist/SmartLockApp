@@ -26,6 +26,7 @@ int commondType;
 //Byte readHistoryFirstFrame[20],readHistoryLastFrame[20];
 //Byte buildStationFirstFrame[20],buildStationLastFrame[20];
 Byte timeSync_s,timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D;/*时间*/
+Byte keyID[8];
 
 @interface BLECommunication ()
 
@@ -213,6 +214,17 @@ writeCharacteristic,bluetoothName;
     {
         case TIMESYNC:
         {
+            int i = 11;
+            for(;i<19;i++)
+            {
+                keyID[i-11] = allByte[i];
+            }
+            NSString* mKeyID = [NSString stringWithFormat:
+            @"电子钥匙ID:%02x-%02x-%02x-%02x-%02x-%02x-%02x-%02x\n",
+                keyID[0],keyID[1],keyID[2],keyID[3],
+                keyID[4],keyID[5],keyID[6],keyID[7]];
+            self.tvRecv.text= [self.tvRecv.text stringByAppendingString:mKeyID];
+            
             NSString *HexStr =
             [NSString stringWithFormat:@"接收的时间 %02x分 %02x时 %02x年 %02x月 %02x日\n发送的时间 %02x分 %02x时 %02x年 %02x月 %02x日",
              allByte[21],/*M*/
@@ -220,7 +232,7 @@ writeCharacteristic,bluetoothName;
              allByte[24],/*M*/allByte[25]/*D*/,
              timeSync_m,timeSync_h,timeSync_Y,timeSync_M,timeSync_D];
             self.tvRecv.text= [self.tvRecv.text stringByAppendingString:HexStr];
-            NSString* timeInfo =[NSString stringWithFormat:@"对时成功，当前时间为\n: %02x年 %02x月 %02x日 %02x时 %02x分 ",
+            NSString* timeInfo =[NSString stringWithFormat:@"对时成功，当前时间为:\n %02x年 %02x月 %02x日 %02x时 %02x分 ",
                 timeSync_Y,timeSync_M,timeSync_D,timeSync_h,timeSync_m];
             if(
                allByte[21]!=timeSync_m ||
