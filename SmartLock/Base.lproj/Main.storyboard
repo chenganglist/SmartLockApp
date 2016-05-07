@@ -240,7 +240,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GEt-gE-zPd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="J8q-Db-owZ"/>
-                                    <constraint firstAttribute="height" constant="40" id="Qo8-UF-yxR"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qo8-UF-yxR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="电子钥匙管理">
@@ -268,7 +268,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="AOx-O6-KG9"/>
+                                    <constraint firstAttribute="height" constant="50" id="AOx-O6-KG9"/>
                                     <constraint firstAttribute="width" constant="280" id="b28-8h-7mf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -296,7 +296,7 @@
                                 <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="cxB-9g-kEt"/>
-                                    <constraint firstAttribute="height" constant="40" id="xSe-Ew-7ob"/>
+                                    <constraint firstAttribute="height" constant="50" id="xSe-Ew-7ob"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="手机APP开门">
@@ -318,42 +318,13 @@
                                     <action selector="openDoorButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="zhb-iN-TLj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-ji-Pf7">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="etj-aT-4k0"/>
-                                    <constraint firstAttribute="width" constant="280" id="wAH-Vb-OKk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="电子钥匙授权">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="etj-aT-4k0"/>
-                                        <exclude reference="wAH-Vb-OKk"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="etj-aT-4k0"/>
-                                        <include reference="wAH-Vb-OKk"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="rightsManageButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="Vbf-vL-gQG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Rg-4e-f2W" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="-90" id="U7z-9a-yE1"/>
                             <constraint firstItem="UsD-gT-sGD" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="UvU-7t-aXz"/>
-                            <constraint firstItem="1u9-ji-Pf7" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="-30" id="XwV-3T-Ghh"/>
                             <constraint firstItem="qiS-dd-U1B" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="fNi-Lg-lw1"/>
-                            <constraint firstItem="UsD-gT-sGD" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="30" id="glZ-RY-Hj8"/>
-                            <constraint firstItem="1u9-ji-Pf7" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="nne-vz-kei"/>
+                            <constraint firstItem="UsD-gT-sGD" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" id="glZ-RY-Hj8"/>
                             <constraint firstItem="qiS-dd-U1B" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="90" id="xRI-9N-wip"/>
                             <constraint firstItem="5Rg-4e-f2W" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="yuj-BQ-Xfe"/>
                         </constraints>
@@ -362,11 +333,8 @@
                                 <exclude reference="5Rg-4e-f2W"/>
                                 <exclude reference="qiS-dd-U1B"/>
                                 <exclude reference="UsD-gT-sGD"/>
-                                <exclude reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="XwV-3T-Ghh"/>
-                                <exclude reference="nne-vz-kei"/>
                                 <exclude reference="U7z-9a-yE1"/>
                                 <exclude reference="yuj-BQ-Xfe"/>
                                 <exclude reference="UvU-7t-aXz"/>
@@ -380,11 +348,8 @@
                                 <include reference="5Rg-4e-f2W"/>
                                 <include reference="qiS-dd-U1B"/>
                                 <include reference="UsD-gT-sGD"/>
-                                <include reference="1u9-ji-Pf7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="XwV-3T-Ghh"/>
-                                <include reference="nne-vz-kei"/>
                                 <include reference="U7z-9a-yE1"/>
                                 <include reference="yuj-BQ-Xfe"/>
                                 <include reference="UvU-7t-aXz"/>

@@ -160,19 +160,31 @@ writeCharacteristic,bluetoothName;
         {
             NSLog(@"可通知");
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            writeCharacteristic = characteristic;
+            
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyWriteWithoutResponse) ==
            CBCharacteristicPropertyWriteWithoutResponse )
         {
             NSLog(@"写无回复");
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyRead) ==
            CBCharacteristicPropertyRead )
         {
             NSLog(@"可读");
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
     }
@@ -315,6 +327,7 @@ writeCharacteristic,bluetoothName;
             
 
             int restRecord = allByte[3]*256+allByte[4];
+            static int sendNum = 0;
             NSString* curParseString = [NSString stringWithFormat:
                     @"事件%02x,时间:%02x秒 %02x分 %02x时 %02x年 %02x月 %02x日 用户信息:%02x%02x%02x%02x%02x\n",
                     /*nextNum,restRecord,*/allByte[15],
@@ -324,10 +337,10 @@ writeCharacteristic,bluetoothName;
                     allByte[29],allByte[30],
                     allByte[31],allByte[32],allByte[33]];
 
-            nextNum = allByte[26];
+            nextNum = allByte[5];
             [recvArrayString addObject:curParseString];
             
-            if(restRecord==1)
+            if(restRecord==0)
             {
                 NSString* allRecordString = @"";
                 for (NSString *item in recvArrayString) {
@@ -336,7 +349,10 @@ writeCharacteristic,bluetoothName;
                     [allRecordString stringByAppendingString:item];
                 }
                 
-                
+                if(sendNum==0)
+                {
+                    allRecordString = @"没有历史记录";
+                }
                 //显示当次读取的所有历史记录
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"本次读取的历史记录"
                    message:allRecordString preferredStyle: UIAlertControllerStyleAlert];
@@ -345,7 +361,10 @@ writeCharacteristic,bluetoothName;
                                   }]];
                 [self presentViewController:alert animated:true completion:nil];
 
-
+                if(sendNum==0)
+                {
+                    return;
+                }
                 //追加存储本次历史记录
                 NSArray *curAllRecord = [defaults objectForKey:@"keyHistory"];
                 [recvArrayString addObjectsFromArray:curAllRecord];
@@ -355,9 +374,10 @@ writeCharacteristic,bluetoothName;
 
                 //清空内存中的所有历史记录
                 [recvArrayString removeAllObjects];
+                sendNum = 0;
                 return;
             }
-
+            sendNum++;
             [self historyButtonPressed:nil];
             break;
         }
@@ -389,6 +409,15 @@ writeCharacteristic,bluetoothName;
 //第七步：发送数据
 -(void)sendData:(NSData*)data
 {
+    if(writeCharacteristic==nil)
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:@"蓝牙尚未连接成功，请再等待几秒，或返回搜索界面重连" preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                          {
+                          }]];
+        [self presentViewController:alert animated:true completion:nil];
+    }
     if(data.length > 20)
     {
         int i = 0;

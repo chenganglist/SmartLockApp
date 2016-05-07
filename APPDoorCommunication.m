@@ -131,19 +131,30 @@ writeCharacteristic,tvRecv,bluetoothName;
         {
             NSLog(@"可通知");
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            writeCharacteristic = characteristic;
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyWriteWithoutResponse) ==
            CBCharacteristicPropertyWriteWithoutResponse )
         {
             NSLog(@"写无回复");
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyRead) ==
            CBCharacteristicPropertyRead )
         {
             NSLog(@"可读");
+            if(writeCharacteristic==nil)
+            {
+                writeCharacteristic = characteristic;
+            }
         }
         
     }
@@ -299,6 +310,15 @@ writeCharacteristic,tvRecv,bluetoothName;
 //第七步：发送数据
 -(void)sendData:(NSData*)data
 {
+    if(writeCharacteristic==nil)
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+           message:@"蓝牙尚未连接成功，请再等待几秒，或返回搜索界面重连" preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                          {
+                          }]];
+        [self presentViewController:alert animated:true completion:nil];
+    }
     if(data.length > 20)
     {
         int i = 0;
