@@ -318,6 +318,7 @@ writeCharacteristic,tvRecv,bluetoothName;
                           {
                           }]];
         [self presentViewController:alert animated:true completion:nil];
+        return;
     }
     if(data.length > 20)
     {
