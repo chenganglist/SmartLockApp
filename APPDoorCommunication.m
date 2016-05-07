@@ -202,10 +202,10 @@ writeCharacteristic,tvRecv,bluetoothName;
                 [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
                  allByte[4],allByte[5]]];
             
-            NSString* statusString = @"开锁失败，请重新操作";
+            NSString* statusString = @"开锁指令下达失败，请重新操作";
             if(allByte[3]==0x52)
             {
-                statusString = @"开锁成功，请查看锁状态";
+                statusString = @"开锁指令下达成功，请查看锁状态";
             }
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
@@ -228,10 +228,10 @@ writeCharacteristic,tvRecv,bluetoothName;
                                [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
                                 allByte[4],allByte[5]]];
             
-            NSString* statusString = @"关门失败，请重新操作";
+            NSString* statusString = @"关门指令下达失败，请重新操作";
             if(allByte[3]==0x13)
             {
-                statusString = @"关门成功，请查看锁状态";
+                statusString = @"关门指令下达成功，请查看锁状态";
             }
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
@@ -262,7 +262,7 @@ writeCharacteristic,tvRecv,bluetoothName;
                             (status>>5)&0x01,(status>>6)&0x01,(status>>7)&0x01];
             if(allByte[3]==0xFF)
             {
-                statusString = @"查询失败，请重新操作";
+                statusString = @"查询指令下达失败，请重新操作";
             }
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
                 message:statusString preferredStyle: UIAlertControllerStyleAlert];
