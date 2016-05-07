@@ -160,14 +160,13 @@ writeCharacteristic,bluetoothName;
         {
             NSLog(@"可通知");
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            
+            writeCharacteristic = characteristic;
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyWriteWithoutResponse) ==
            CBCharacteristicPropertyWriteWithoutResponse )
         {
             NSLog(@"写无回复");
-            writeCharacteristic = characteristic;
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyRead) ==

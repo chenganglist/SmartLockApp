@@ -225,7 +225,7 @@
         <!--门禁系统-->
         <scene sceneID="pOi-6X-0Q4">
             <objects>
-                <viewController id="clf-oM-eqY" customClass="EntranceManageViewViewController" sceneMemberID="viewController">
+                <viewController id="clf-oM-eqY" customClass="EntranceManageView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbG-hq-POg"/>
                         <viewControllerLayoutGuide type="bottom" id="BE8-C7-dWy"/>
@@ -272,7 +272,7 @@
                                     <constraint firstAttribute="width" constant="280" id="b28-8h-7mf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="基站门锁管理">
+                                <state key="normal" title="本地日志管理">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -288,7 +288,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="lockManageButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="tIq-0j-L6Q"/>
+                                    <action selector="localLogButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="zQo-dr-2kk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-gT-sGD">

@@ -137,14 +137,41 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //页面跳转
-    //页面跳转
-    BLECommunication *vc = [[BLECommunication alloc]initWithNibName:@"BLECommunication" bundle:nil];
-    
-    vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
-    
-    NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
-    [self.navigationController pushViewController:vc animated:YES];
-    vc.title = @"蓝牙通信测试";
+    switch(self.handleType)
+    {
+        case KEYMANAGEMENT:
+        {
+            BLECommunication *vc = [[BLECommunication alloc]initWithNibName:@"BLECommunication" bundle:nil];
+            
+            vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
+            
+            NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"蓝牙电子钥匙管理";
+            break;
+        }
+        case KEYRIGHT:
+        {
+            
+            break;
+        }
+        case APPDOOR:
+        {
+            APPDoorCommunication *vc = [[APPDoorCommunication alloc]initWithNibName:@"APPDoorCommunication" bundle:nil];
+            
+            vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
+            
+            NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
+            [self.navigationController pushViewController:vc animated:YES];
+            vc.title = @"APP开门管理";
+            break;
+        }
+        case LOCALLOG:
+        {
+            
+            break;
+        }
+    }
 }
 
 

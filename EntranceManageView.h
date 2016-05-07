@@ -10,10 +10,10 @@
 #import "KeyManagementView.h"
 
 
-@interface EntranceManageViewViewController : UIViewController
+@interface EntranceManageView : UIViewController
 
 -(IBAction)keyManageButtonPressed:(id)sender;
--(IBAction)lockManageButtonPressed:(id)sender;
+-(IBAction)localLogButtonPressed:(id)sender;
 -(IBAction)rightsManageButtonPressed:(id)sender;
 -(IBAction)openDoorButtonPressed:(id)sender;
 

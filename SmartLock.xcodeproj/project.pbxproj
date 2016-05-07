@@ -31,7 +31,7 @@
 		696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */; };
 		696E8E911CD05C520034CCBC /* BaiduDituNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */; };
 		696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */; };
-		696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */; };
+		696E9DD01CCE4F440004BE13 /* EntranceManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DCF1CCE4F440004BE13 /* EntranceManageView.m */; };
 		696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */; };
 		696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */; };
 		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
@@ -64,6 +64,9 @@
 		69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* KeyManagementView.m */; };
 		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
 		69E4F0AF1CD09B0C00E5A9C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */; };
+		69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */; };
+		69E817BE1CDDFF8C0075A722 /* APPDoorCommunication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */; };
+		69E817C01CDE0CE20075A722 /* CRC16.c in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BF1CDE0CE20075A722 /* CRC16.c */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -143,8 +146,8 @@
 		696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduDituNaviView.m; sourceTree = "<group>"; };
 		696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduDituNaviView.xib; sourceTree = "<group>"; };
 		696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyManagementView.xib; sourceTree = "<group>"; };
-		696E9DCE1CCE4F440004BE13 /* EntranceManageViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceManageViewViewController.h; sourceTree = "<group>"; };
-		696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceManageViewViewController.m; sourceTree = "<group>"; };
+		696E9DCE1CCE4F440004BE13 /* EntranceManageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntranceManageView.h; sourceTree = "<group>"; };
+		696E9DCF1CCE4F440004BE13 /* EntranceManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntranceManageView.m; sourceTree = "<group>"; };
 		696E9DD21CCE63FD0004BE13 /* changeUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeUserInfoView.h; sourceTree = "<group>"; };
 		696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeUserInfoView.m; sourceTree = "<group>"; };
 		696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changeUserInfoView.xib; sourceTree = "<group>"; };
@@ -188,6 +191,10 @@
 		69B8FD0C1CC7169000A95981 /* KeyManagementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyManagementView.m; path = SmartLock/KeyManagementView.m; sourceTree = "<group>"; };
 		69B8FD0F1CC71B2D00A95981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartLock/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		69E817BA1CDDFF8C0075A722 /* APPDoorCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPDoorCommunication.h; sourceTree = "<group>"; };
+		69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPDoorCommunication.m; sourceTree = "<group>"; };
+		69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APPDoorCommunication.xib; sourceTree = "<group>"; };
+		69E817BF1CDE0CE20075A722 /* CRC16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CRC16.c; sourceTree = "<group>"; };
 		E75B510AEF33EB9BEE478B96 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -257,6 +264,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				69E817B91CDDFB860075A722 /* APPDoorCommunication */,
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */,
@@ -265,8 +273,8 @@
 				6986CD811CC91313000550E6 /* WorkDetail */,
 				698177ED1CC86BD6009C7120 /* ApplyWork */,
 				698177EC1CC86BC2009C7120 /* ClassifyWork */,
-				698569471CC7701200A2E3F8 /* BLECommunication */,
-				69B8FD0A1CC7160600A95981 /* KeyManagementView */,
+				698569471CC7701200A2E3F8 /* KeyManageCommunication */,
+				69B8FD0A1CC7160600A95981 /* KeySearchView */,
 				697662A61CC4DFCD00FFD793 /* PostDelegate */,
 				694277F21CBA404D00F5887E /* LoginView */,
 				696F17391CC07DCD00BF93BF /* MainTabView */,
@@ -389,8 +397,8 @@
 		696E9DCD1CCE4F160004BE13 /* EntranceManagement */ = {
 			isa = PBXGroup;
 			children = (
-				696E9DCE1CCE4F440004BE13 /* EntranceManageViewViewController.h */,
-				696E9DCF1CCE4F440004BE13 /* EntranceManageViewViewController.m */,
+				696E9DCE1CCE4F440004BE13 /* EntranceManageView.h */,
+				696E9DCF1CCE4F440004BE13 /* EntranceManageView.m */,
 			);
 			name = EntranceManagement;
 			sourceTree = "<group>";
@@ -452,15 +460,16 @@
 			name = ApplyWork;
 			sourceTree = "<group>";
 		};
-		698569471CC7701200A2E3F8 /* BLECommunication */ = {
+		698569471CC7701200A2E3F8 /* KeyManageCommunication */ = {
 			isa = PBXGroup;
 			children = (
 				690358291CD993BE003FF907 /* CRC16.h */,
+				69E817BF1CDE0CE20075A722 /* CRC16.c */,
 				698569481CC7703700A2E3F8 /* BLECommunication.h */,
 				698569491CC7703700A2E3F8 /* BLECommunication.m */,
 				69B25B831CCD1C75006AE96B /* BLECommunication.xib */,
 			);
-			name = BLECommunication;
+			name = KeyManageCommunication;
 			sourceTree = "<group>";
 		};
 		6986CD811CC91313000550E6 /* WorkDetail */ = {
@@ -493,14 +502,24 @@
 			name = BarItemPng;
 			sourceTree = "<group>";
 		};
-		69B8FD0A1CC7160600A95981 /* KeyManagementView */ = {
+		69B8FD0A1CC7160600A95981 /* KeySearchView */ = {
 			isa = PBXGroup;
 			children = (
 				69B8FD0B1CC7169000A95981 /* KeyManagementView.h */,
 				69B8FD0C1CC7169000A95981 /* KeyManagementView.m */,
 				696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */,
 			);
-			name = KeyManagementView;
+			name = KeySearchView;
+			sourceTree = "<group>";
+		};
+		69E817B91CDDFB860075A722 /* APPDoorCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				69E817BA1CDDFF8C0075A722 /* APPDoorCommunication.h */,
+				69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */,
+				69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */,
+			);
+			name = APPDoorCommunication;
 			sourceTree = "<group>";
 		};
 		9D2A076BF3B4A594DCB45E84 /* Pods */ = {
@@ -654,6 +673,7 @@
 				6987AFE91CCC729700D08141 /* lock.png in Resources */,
 				6996085A1CCA3EC700B5CF3B /* icon_ltg.png in Resources */,
 				69E4F0AF1CD09B0C00E5A9C7 /* Default-568h@2x.png in Resources */,
+				69E817BE1CDDFF8C0075A722 /* APPDoorCommunication.xib in Resources */,
 				6987AFEB1CCC731B00D08141 /* person.png in Resources */,
 				6987AFE81CCC729700D08141 /* me-message@3x.png in Resources */,
 				6987AFE61CCC729700D08141 /* task.png in Resources */,
@@ -744,6 +764,7 @@
 			files = (
 				694277FB1CBA404D00F5887E /* ViewController.m in Sources */,
 				696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */,
+				69E817C01CDE0CE20075A722 /* CRC16.c in Sources */,
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
@@ -751,9 +772,10 @@
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
 				697C075C1CD24A1C00C6500E /* GetDelegate.m in Sources */,
-				696E9DD01CCE4F440004BE13 /* EntranceManageViewViewController.m in Sources */,
+				696E9DD01CCE4F440004BE13 /* EntranceManageView.m in Sources */,
 				698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
+				69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */,
 				697662A91CC4DFF700FFD793 /* Post.m in Sources */,
 				6986CD841CC91339000550E6 /* WorkDetailView.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
