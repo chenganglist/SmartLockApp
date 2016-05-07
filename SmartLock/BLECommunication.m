@@ -316,8 +316,8 @@ writeCharacteristic,bluetoothName;
 
             int restRecord = allByte[3]*256+allByte[4];
             NSString* curParseString = [NSString stringWithFormat:
-                    @"记录%d: 剩余记录%d,事件%02x,时间:%02x秒 %02x分 %02x时 %02x年 %02x月 %02x日 用户信息:%02x%02x%02x%02x%02x\n",
-                    nextNum,restRecord,allByte[15],
+                    @"事件%02x,时间:%02x秒 %02x分 %02x时 %02x年 %02x月 %02x日 用户信息:%02x%02x%02x%02x%02x\n",
+                    /*nextNum,restRecord,*/allByte[15],
                     allByte[17],allByte[18],/*M*/
                     allByte[19]/*H*/,allByte[21],/*Y*/
                     allByte[22],/*M*/allByte[23]/*D*/,

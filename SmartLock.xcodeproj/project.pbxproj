@@ -67,6 +67,8 @@
 		69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */; };
 		69E817BE1CDDFF8C0075A722 /* APPDoorCommunication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */; };
 		69E817C01CDE0CE20075A722 /* CRC16.c in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BF1CDE0CE20075A722 /* CRC16.c */; };
+		69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817C31CDE1A020075A722 /* LocalAppHistory.m */; };
+		69E817C61CDE1A020075A722 /* LocalAppHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817C41CDE1A020075A722 /* LocalAppHistory.xib */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +197,9 @@
 		69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPDoorCommunication.m; sourceTree = "<group>"; };
 		69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APPDoorCommunication.xib; sourceTree = "<group>"; };
 		69E817BF1CDE0CE20075A722 /* CRC16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CRC16.c; sourceTree = "<group>"; };
+		69E817C21CDE1A020075A722 /* LocalAppHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAppHistory.h; sourceTree = "<group>"; };
+		69E817C31CDE1A020075A722 /* LocalAppHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAppHistory.m; sourceTree = "<group>"; };
+		69E817C41CDE1A020075A722 /* LocalAppHistory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalAppHistory.xib; sourceTree = "<group>"; };
 		E75B510AEF33EB9BEE478B96 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,6 +269,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				69E817C11CDE19880075A722 /* LocalAPPHistoty */,
 				69E817B91CDDFB860075A722 /* APPDoorCommunication */,
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
@@ -522,6 +528,16 @@
 			name = APPDoorCommunication;
 			sourceTree = "<group>";
 		};
+		69E817C11CDE19880075A722 /* LocalAPPHistoty */ = {
+			isa = PBXGroup;
+			children = (
+				69E817C21CDE1A020075A722 /* LocalAppHistory.h */,
+				69E817C31CDE1A020075A722 /* LocalAppHistory.m */,
+				69E817C41CDE1A020075A722 /* LocalAppHistory.xib */,
+			);
+			name = LocalAPPHistoty;
+			sourceTree = "<group>";
+		};
 		9D2A076BF3B4A594DCB45E84 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +701,7 @@
 				6987AFF11CCC74EF00D08141 /* me-message@2x.png in Resources */,
 				6987AFF71CCC774500D08141 /* resizeApi.png in Resources */,
 				697CCE7B1CCA14B300C3846A /* login_logo.png in Resources */,
+				69E817C61CDE1A020075A722 /* LocalAppHistory.xib in Resources */,
 				696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */,
 				69B25B821CCD1B22006AE96B /* ClassifyWorkView.xib in Resources */,
 				694278031CBA404D00F5887E /* Assets.xcassets in Resources */,
@@ -768,6 +785,7 @@
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
+				69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
