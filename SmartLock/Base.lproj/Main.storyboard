@@ -312,7 +312,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="openDoorButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="zhb-iN-TLj"/>
+                                    <action selector="appOpenDoorBtPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="Crk-cP-y1R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt5-AE-YPB">

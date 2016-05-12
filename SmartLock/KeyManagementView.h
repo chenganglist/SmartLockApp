@@ -12,7 +12,7 @@
 #import "HeiZhimaDebug.h"
 
 #define KEYMANAGEMENT 0
-#define KEYRIGHT 1
+#define APPOPENDOOR 1
 #define Heizhima  2
 #define LOCALLOG 3
 

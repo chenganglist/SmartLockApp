@@ -28,10 +28,10 @@
 -(IBAction)keyManageButtonPressed:(id)sender{
     
     KeyManagementView *vc = [[KeyManagementView alloc]initWithNibName:@"KeyManagementView" bundle:nil];
-    
+    vc.handleType = KEYMANAGEMENT;
     [self.navigationController pushViewController:vc animated:YES];
     vc.title = @"电子钥匙管理";
-    vc.handleType = KEYMANAGEMENT;
+    
 }
 
 
@@ -70,13 +70,14 @@
 }
 
 
--(IBAction)rightsManageButtonPressed:(id)sender{
+-(IBAction)appOpenDoorBtPressed:(id)sender{
     
     KeyManagementView *vc = [[KeyManagementView alloc]initWithNibName:@"KeyManagementView" bundle:nil];
     
+    vc.handleType = APPOPENDOOR;
     [self.navigationController pushViewController:vc animated:YES];
-    vc.title = @"钥匙权限管理";
-    vc.handleType = KEYRIGHT;
+    vc.title = @"APP开门";
+
 
 }
 
@@ -84,10 +85,10 @@
 -(IBAction)heiZhimaDebug:(id)sender{
     
     KeyManagementView *vc = [[KeyManagementView alloc]initWithNibName:@"KeyManagementView" bundle:nil];
-    
+    vc.handleType = Heizhima;
     [self.navigationController pushViewController:vc animated:YES];
     vc.title = @"黑芝麻蓝牙调试";
-    vc.handleType = Heizhima;
+
 
 }
 
