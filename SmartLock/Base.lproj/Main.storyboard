@@ -364,12 +364,12 @@
                             <mask key="constraints">
                                 <exclude reference="U7z-9a-yE1"/>
                                 <exclude reference="yuj-BQ-Xfe"/>
-                                <exclude reference="icH-ee-ITc"/>
-                                <exclude reference="lVx-pX-dO7"/>
                                 <exclude reference="UvU-7t-aXz"/>
                                 <exclude reference="glZ-RY-Hj8"/>
                                 <exclude reference="fNi-Lg-lw1"/>
                                 <exclude reference="xRI-9N-wip"/>
+                                <exclude reference="icH-ee-ITc"/>
+                                <exclude reference="lVx-pX-dO7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -382,12 +382,12 @@
                             <mask key="constraints">
                                 <include reference="U7z-9a-yE1"/>
                                 <include reference="yuj-BQ-Xfe"/>
-                                <include reference="icH-ee-ITc"/>
-                                <include reference="lVx-pX-dO7"/>
                                 <include reference="UvU-7t-aXz"/>
                                 <include reference="glZ-RY-Hj8"/>
                                 <include reference="fNi-Lg-lw1"/>
                                 <include reference="xRI-9N-wip"/>
+                                <include reference="icH-ee-ITc"/>
+                                <include reference="lVx-pX-dO7"/>
                             </mask>
                         </variation>
                     </view>

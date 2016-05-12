@@ -69,8 +69,8 @@
 		69E817C01CDE0CE20075A722 /* CRC16.c in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BF1CDE0CE20075A722 /* CRC16.c */; };
 		69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817C31CDE1A020075A722 /* LocalAppHistory.m */; };
 		69E817C61CDE1A020075A722 /* LocalAppHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817C41CDE1A020075A722 /* LocalAppHistory.xib */; };
-		69FFBA981CE41486001A89D1 /* HeiZhimaDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FFBA961CE41486001A89D1 /* HeiZhimaDebug.m */; };
-		69FFBA991CE41486001A89D1 /* HeiZhimaDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69FFBA971CE41486001A89D1 /* HeiZhimaDebug.xib */; };
+		69FFBA9F1CE41EAA001A89D1 /* HeiZhimaDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FFBA9D1CE41EAA001A89D1 /* HeiZhimaDebug.m */; };
+		69FFBAA01CE41EAA001A89D1 /* HeiZhimaDebug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69FFBA9E1CE41EAA001A89D1 /* HeiZhimaDebug.xib */; };
 		D0619C309523B62948FB9D46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E75B510AEF33EB9BEE478B96 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -202,9 +202,9 @@
 		69E817C21CDE1A020075A722 /* LocalAppHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAppHistory.h; sourceTree = "<group>"; };
 		69E817C31CDE1A020075A722 /* LocalAppHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAppHistory.m; sourceTree = "<group>"; };
 		69E817C41CDE1A020075A722 /* LocalAppHistory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalAppHistory.xib; sourceTree = "<group>"; };
-		69FFBA951CE41486001A89D1 /* HeiZhimaDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeiZhimaDebug.h; sourceTree = "<group>"; };
-		69FFBA961CE41486001A89D1 /* HeiZhimaDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeiZhimaDebug.m; sourceTree = "<group>"; };
-		69FFBA971CE41486001A89D1 /* HeiZhimaDebug.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeiZhimaDebug.xib; sourceTree = "<group>"; };
+		69FFBA9C1CE41EAA001A89D1 /* HeiZhimaDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeiZhimaDebug.h; sourceTree = "<group>"; };
+		69FFBA9D1CE41EAA001A89D1 /* HeiZhimaDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeiZhimaDebug.m; sourceTree = "<group>"; };
+		69FFBA9E1CE41EAA001A89D1 /* HeiZhimaDebug.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeiZhimaDebug.xib; sourceTree = "<group>"; };
 		E75B510AEF33EB9BEE478B96 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -547,9 +547,9 @@
 		69FFBA941CE413EE001A89D1 /* HeiZhima */ = {
 			isa = PBXGroup;
 			children = (
-				69FFBA951CE41486001A89D1 /* HeiZhimaDebug.h */,
-				69FFBA961CE41486001A89D1 /* HeiZhimaDebug.m */,
-				69FFBA971CE41486001A89D1 /* HeiZhimaDebug.xib */,
+				69FFBA9C1CE41EAA001A89D1 /* HeiZhimaDebug.h */,
+				69FFBA9D1CE41EAA001A89D1 /* HeiZhimaDebug.m */,
+				69FFBA9E1CE41EAA001A89D1 /* HeiZhimaDebug.xib */,
 			);
 			name = HeiZhima;
 			sourceTree = "<group>";
@@ -700,6 +700,7 @@
 				693CB4881CCF63B300E0269A /* icon.png in Resources */,
 				698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */,
 				6987AFE71CCC729700D08141 /* discover-search@3x.png in Resources */,
+				69FFBAA01CE41EAA001A89D1 /* HeiZhimaDebug.xib in Resources */,
 				6987AFF91CCC777900D08141 /* lock32.png in Resources */,
 				693CB4861CCF631B00E0269A /* lockstart.png in Resources */,
 				6987AFE91CCC729700D08141 /* lock.png in Resources */,
@@ -713,7 +714,6 @@
 				69533EA91CD2097900153441 /* baiduNaviSDK.bundle in Resources */,
 				69B25B861CCD20DA006AE96B /* WorkDetailView.xib in Resources */,
 				6987AFF51CCC74EF00D08141 /* tabbar_meHL@2x.png in Resources */,
-				69FFBA991CE41486001A89D1 /* HeiZhimaDebug.xib in Resources */,
 				69B25B841CCD1C75006AE96B /* BLECommunication.xib in Resources */,
 				6987AFF11CCC74EF00D08141 /* me-message@2x.png in Resources */,
 				6987AFF71CCC774500D08141 /* resizeApi.png in Resources */,
@@ -808,7 +808,6 @@
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
 				697C075C1CD24A1C00C6500E /* GetDelegate.m in Sources */,
 				696E9DD01CCE4F440004BE13 /* EntranceManageView.m in Sources */,
-				69FFBA981CE41486001A89D1 /* HeiZhimaDebug.m in Sources */,
 				698177F01CC87146009C7120 /* ApplyWorkView.m in Sources */,
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
 				69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */,
@@ -816,6 +815,7 @@
 				6986CD841CC91339000550E6 /* WorkDetailView.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
 				694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */,
+				69FFBA9F1CE41EAA001A89D1 /* HeiZhimaDebug.m in Sources */,
 				694277F51CBA404D00F5887E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

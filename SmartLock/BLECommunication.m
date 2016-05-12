@@ -161,10 +161,6 @@ writeCharacteristic,bluetoothName;
             NSLog(@"可通知");
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
             
-            if(writeCharacteristic==nil)
-            {
-                writeCharacteristic = characteristic;
-            }
         }
         
         if( (characteristic.properties & CBCharacteristicPropertyWriteWithoutResponse) ==
@@ -177,15 +173,15 @@ writeCharacteristic,bluetoothName;
             }
         }
         
-        if( (characteristic.properties & CBCharacteristicPropertyRead) ==
-           CBCharacteristicPropertyRead )
-        {
-            NSLog(@"可读");
-            if(writeCharacteristic==nil)
-            {
-                writeCharacteristic = characteristic;
-            }
-        }
+//        if( (characteristic.properties & CBCharacteristicPropertyRead) ==
+//           CBCharacteristicPropertyRead )
+//        {
+//            NSLog(@"可读");
+//            if(writeCharacteristic==nil)
+//            {
+//                writeCharacteristic = characteristic;
+//            }
+//        }
         
     }
 }
