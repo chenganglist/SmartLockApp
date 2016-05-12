@@ -15,6 +15,6 @@
 -(IBAction)keyManageButtonPressed:(id)sender;
 -(IBAction)localLogButtonPressed:(id)sender;
 -(IBAction)rightsManageButtonPressed:(id)sender;
--(IBAction)openDoorButtonPressed:(id)sender;
+-(IBAction)heiZhimaDebug:(id)sender;
 
 @end

@@ -81,13 +81,13 @@
 }
 
 
--(IBAction)openDoorButtonPressed:(id)sender{
+-(IBAction)heiZhimaDebug:(id)sender{
     
     KeyManagementView *vc = [[KeyManagementView alloc]initWithNibName:@"KeyManagementView" bundle:nil];
     
     [self.navigationController pushViewController:vc animated:YES];
-    vc.title = @"手机APP开门";
-    vc.handleType = APPDOOR;
+    vc.title = @"黑芝麻蓝牙调试";
+    vc.handleType = Heizhima;
 
 }
 

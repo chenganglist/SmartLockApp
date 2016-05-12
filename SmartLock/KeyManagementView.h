@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "APPDoorCommunication.h"
+#import "HeiZhimaDebug.h"
 
 #define KEYMANAGEMENT 0
 #define KEYRIGHT 1
-#define APPDOOR  2
+#define Heizhima  2
 #define LOCALLOG 3
 
 @interface KeyManagementView : UIViewController<UITableViewDataSource,UITableViewDelegate,CBCentralManagerDelegate,CBPeripheralDelegate>

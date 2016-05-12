@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APPDoorCommunication">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeiZhimaDebug">
             <connections>
                 <outlet property="tvRecv" destination="5fn-Ne-ndF" id="aZB-Er-eVs"/>
                 <outlet property="view" destination="Uic-wn-Sr8" id="TC2-AC-Pdk"/>

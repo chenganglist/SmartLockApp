@@ -155,15 +155,15 @@
             
             break;
         }
-        case APPDOOR:
+        case Heizhima:
         {
-            APPDoorCommunication *vc = [[APPDoorCommunication alloc]initWithNibName:@"APPDoorCommunication" bundle:nil];
+            HeiZhimaDebug *vc = [[HeiZhimaDebug alloc]initWithNibName:@"HeiZhimaDebug" bundle:nil];
             
             vc.bluetoothName = [peripheralsName objectAtIndex:indexPath.row];
             
             NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"APP开门管理";
+            vc.title = @"黑芝麻蓝牙调试";
             break;
         }
         case LOCALLOG:
