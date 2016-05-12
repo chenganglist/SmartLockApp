@@ -147,6 +147,8 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
             }
         }
         
+
+
     }
 }
 
@@ -243,14 +245,15 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     {
         [connectPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
         
-        char buffer[20] = {
-            ' ', ' ', ' ', ' ', ' ',
-            ' ', ' ', ' ', ' ', ' ',
-            ' ', ' ', ' ', ' ', ' ',
-            ' ', ' ', ' ', ' ', ' ',};
-        NSData* restData = [NSData dataWithBytes:buffer length:(20-data.length)];
-        
-        [connectPeripheral writeValue:restData forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
+//黑芝麻不需要发送20帧字节，只需要保证每帧字节在20个以下
+//        char buffer[20] = {
+//            ' ', ' ', ' ', ' ', ' ',
+//            ' ', ' ', ' ', ' ', ' ',
+//            ' ', ' ', ' ', ' ', ' ',
+//            ' ', ' ', ' ', ' ', ' ',};
+//        NSData* restData = [NSData dataWithBytes:buffer length:(20-data.length)];
+//        
+//        [connectPeripheral writeValue:restData forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
 }
 
@@ -268,7 +271,7 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     [zhimaRecvData setLength:0];
     
     Byte firstFrame[20] = {0x42};
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
+    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:1];
     
     [self sendData:firstFrameData];
     zhimaCommondType = HEIZHIMAGETINFO;
