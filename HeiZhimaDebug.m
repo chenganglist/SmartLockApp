@@ -8,7 +8,7 @@
 
 #import "HeiZhimaDebug.h"
 #import "CRC16.h"
-#define APPOPENDOOR 0
+#define HEIZHIMAGETINFO 0
 #define APPLEAVEDOOR 1
 #define APPQUERYLOCK 2
 #define APPBUILDSTATION 3
@@ -23,7 +23,7 @@ int zhimaCommondType;
 
 @implementation HeiZhimaDebug
 @synthesize centralManager,connectPeripheral,
-writeCharacteristic,tvRecv,bluetoothName;
+writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
 
 -(void)viewTapped:(UITapGestureRecognizer*)tap
 {
@@ -131,9 +131,9 @@ writeCharacteristic,tvRecv,bluetoothName;
         {
             NSLog(@"可通知");
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            if(writeCharacteristic==nil)
+            if(recvCharacteristic==nil)
             {
-                writeCharacteristic = characteristic;
+                recvCharacteristic = characteristic;
             }
         }
         
@@ -141,16 +141,6 @@ writeCharacteristic,tvRecv,bluetoothName;
            CBCharacteristicPropertyWriteWithoutResponse )
         {
             NSLog(@"写无回复");
-            if(writeCharacteristic==nil)
-            {
-                writeCharacteristic = characteristic;
-            }
-        }
-        
-        if( (characteristic.properties & CBCharacteristicPropertyRead) ==
-           CBCharacteristicPropertyRead )
-        {
-            NSLog(@"可读");
             if(writeCharacteristic==nil)
             {
                 writeCharacteristic = characteristic;
@@ -185,123 +175,37 @@ writeCharacteristic,tvRecv,bluetoothName;
     
     NSLog(@"\n\n");
     
-
+    
     //数据接收完毕，根据命令状态进行解析和处理
     Byte* allByte = (Byte *)[zhimaRecvData bytes];
     switch(zhimaCommondType)
     {
-        case APPOPENDOOR:
+        case HEIZHIMAGETINFO:
         {
-            if([[NSData dataWithData:zhimaRecvData] length]!=6)
-            {
-                return;
-            }
-            
-            self.tvRecv.text= [self.tvRecv.text
-                stringByAppendingString:
-                [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
-                 allByte[4],allByte[5]]];
-            
-            NSString* statusString = @"开锁指令下达失败，请重新操作";
-            if(allByte[3]==0x52)
-            {
-                statusString = @"开锁指令下达成功，请查看锁状态";
-            }
-            
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-                message:statusString preferredStyle: UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-                              {
-                              }]];
-            [self presentViewController:alert animated:true completion:nil];
-            break;
-        }
-        case APPLEAVEDOOR:
-        {
-            
-            if([[NSData dataWithData:zhimaRecvData] length]!=6)
-            {
-                return;
-            }
-            self.tvRecv.text= [self.tvRecv.text
-                               stringByAppendingString:
-                               [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
-                                allByte[4],allByte[5]]];
-            
-            NSString* statusString = @"关门指令下达失败，请重新操作";
-            if(allByte[3]==0x13)
-            {
-                statusString = @"关门指令下达成功，请查看锁状态";
-            }
-            
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-               message:statusString preferredStyle: UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-                              {
-                              }]];
-            [self presentViewController:alert animated:true completion:nil];
-            break;
-        }
-        case APPQUERYLOCK:
-        {
-            if([[NSData dataWithData:zhimaRecvData] length]!=6)
-            {
-                return;
-            }
-            self.tvRecv.text= [self.tvRecv.text
-                               stringByAppendingString:
-                               [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
-                                allByte[4],allByte[5]]];
-            
-            NSString* statusString = @"";
-            Byte status = allByte[3];//包含序号，在第4个字节
-            statusString = [NSString stringWithFormat:
-                            @"门磁一状态：%d\n 锁舌一状态：%d\n 门磁二状态：%d\n 锁舌二状态：%d\n 有无门磁一：%d\n 有无锁舌一%d\n 有无门磁二：%d\n 有无锁舌二%d\n",
-                            status&0x01,(status>>1)&0x01,(status>>2)&0x01,
-                            (status>>3)&0x01,(status>>4)&0x01,
-                            (status>>5)&0x01,(status>>6)&0x01,(status>>7)&0x01];
-            if(allByte[3]==0xFF)
-            {
-                statusString = @"查询指令下达失败，请重新操作";
-            }
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-                message:statusString preferredStyle: UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-                              {
-                              }]];
-            [self presentViewController:alert animated:true completion:nil];
-            
-            break;
-        }
-        case APPBUILDSTATION:
-        {
-            
-            if([[NSData dataWithData:zhimaRecvData] length]!=12)
+            if([[NSData dataWithData:zhimaRecvData] length]!=9)
             {
                 return;
             }
             
             self.tvRecv.text= [self.tvRecv.text
                                stringByAppendingString:
-                               [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
-                                allByte[4],allByte[5],
-                                allByte[6],allByte[7],allByte[8],allByte[9],
-                                allByte[10],allByte[11]]];
+                               [NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],allByte[3],
+                                allByte[4],allByte[5],allByte[6],
+                                allByte[7],allByte[8]]];
             
-            NSString* statusString = @"新建站失败，请重新操作";
-            if(allByte[3]==0x1E && allByte[9]==0x5e)
-            {
-                statusString = @"新建站成功，开门码已修改";
-            }
+            NSString* statusString = [NSString stringWithFormat:
+                                      @"获取钥匙信息为：\n %02x %02x %02x %02x %02x %02x %02x %02x %02x",allByte[0],allByte[1],allByte[2],
+                                      allByte[3],allByte[4],allByte[5],allByte[6],
+                                      allByte[7],allByte[8]];
+            
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-               message:statusString preferredStyle: UIAlertControllerStyleAlert];
+                                                                           message:statusString preferredStyle: UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
                               {
                               }]];
             [self presentViewController:alert animated:true completion:nil];
             break;
         }
-            
     }
 }
 
@@ -313,7 +217,7 @@ writeCharacteristic,tvRecv,bluetoothName;
     if(writeCharacteristic==nil)
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-           message:@"蓝牙尚未连接成功，请再等待几秒，或返回搜索界面重连" preferredStyle: UIAlertControllerStyleAlert];
+                                                                       message:@"蓝牙尚未连接成功，请再等待几秒，或返回搜索界面重连" preferredStyle: UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
                           {
                           }]];
@@ -363,190 +267,13 @@ writeCharacteristic,tvRecv,bluetoothName;
     [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
     [zhimaRecvData setLength:0];
     
-    Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x42,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
+    Byte firstFrame[20] = {0x42};
     NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
     
     [self sendData:firstFrameData];
-    zhimaCommondType = APPOPENDOOR;
-    //设置成1s等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];
-    
-    
-    Byte frame[36] = {0x7e,0x42,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补全*/};
-    
-    uint16_t crc = CRC16(frame, 36);
-    
-    //提取校验位
-    Byte crc1 = (crc&0xff00)>>8;
-    Byte crc2 = crc&0xff;
-    
-    Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
-        crc1,crc2/*校验码*/};
-    
-    
-    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
-    
-    [self sendData:secondFrameData];
+    zhimaCommondType = HEIZHIMAGETINFO;
     
 }
 
--(IBAction)appQueryLockStatusBtPressed:(id)sender
-{
-    //清空接收区数据
-    self.tvRecv.text = @"查询锁状态：";
-    [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
-    [zhimaRecvData setLength:0];
-    
-    Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x44,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
-    [self sendData:firstFrameData];
-    zhimaCommondType = APPQUERYLOCK;
-    //设置成1s等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];
-    
-    
-    Byte frame[36] = {0x7e,0x44,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补全*/};
-    
-    uint16_t crc = CRC16(frame, 36);
-    
-    //提取校验位
-    Byte crc1 = (crc&0xff00)>>8;
-    Byte crc2 = crc&0xff;
-    
-    Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
-        crc1,crc2/*校验码*/};
-    
-    
-    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
-    
-    [self sendData:secondFrameData];
-}
-
--(IBAction)appLeaveStationBtPressed:(id)sender
-{
-    //清空接收区数据
-    self.tvRecv.text = @"APP关门离站：";
-    [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
-    [zhimaRecvData setLength:0];
-    
-    Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x13,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
-    [self sendData:firstFrameData];
-    zhimaCommondType = APPLEAVEDOOR;
-    //设置成1s等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];
-    
-    
-    Byte frame[36] = {0x7e,0x13,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补全*/};
-    
-    uint16_t crc = CRC16(frame, 36);
-    
-    //提取校验位
-    Byte crc1 = (crc&0xff00)>>8;
-    Byte crc2 = crc&0xff;
-    
-    Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
-        crc1,crc2/*校验码*/};
-    
-    
-    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
-    
-    [self sendData:secondFrameData];
-}
-
--(IBAction)appBuildStationBtPressed:(id)sender
-{
-    //清空接收区数据
-    self.tvRecv.text = @"新建站即修改基站信息：";
-    [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
-    [zhimaRecvData setLength:0];
-    
-    Byte firstFrame[20] = {0x01,/*帧序号*/
-        0x7e,0x1e,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38/*用户信息即手机号*/};
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:20];
-    
-    [self sendData:firstFrameData];
-    zhimaCommondType = APPBUILDSTATION;
-    //设置成1s等待下一次发送数据
-    [NSThread sleepForTimeInterval:1];
-    
-    
-    Byte frame[36] = {0x7e,0x1e,/*命令标志码*/
-        0x42,/*用户权限码*/
-        0x01,/*城市码*/
-        0x73,0x63,0x74,0x74,0x01,0x06, /*用户码即开锁密码*/
-        0x00,0x00,0x00,0x00,0x00, 0x55,0x20,0x88,0x38,/*用户信息即手机号*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00/*自动补全*/};
-    
-    uint16_t crc = CRC16(frame, 36);
-    
-    //提取校验位
-    Byte crc1 = (crc&0xff00)>>8;
-    Byte crc2 = crc&0xff;
-    
-    Byte secondFrame[20] = {0x80,/*帧结尾*/
-        0x69,/*手机号*/
-        'L',0x11,0x22,0x33,0x44,0x55,0x66,0x77,/*LockID*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,/*自动补全*/
-        crc1,crc2/*校验码*/};
-    
-    
-    NSData *secondFrameData = [[NSData alloc] initWithBytes:secondFrame length:20];
-    
-    [self sendData:secondFrameData];
-}
 
 @end
