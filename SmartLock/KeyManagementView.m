@@ -168,7 +168,7 @@
             
             NSLog(@"要打开的蓝牙为： %@",vc.bluetoothName);
             [self.navigationController pushViewController:vc animated:YES];
-            vc.title = @"黑芝麻蓝牙调试";
+            vc.title = @"蓝牙调试";
             break;
         }
         case LOCALLOG:

@@ -87,7 +87,7 @@
     KeyManagementView *vc = [[KeyManagementView alloc]initWithNibName:@"KeyManagementView" bundle:nil];
     vc.handleType = Heizhima;
     [self.navigationController pushViewController:vc animated:YES];
-    vc.title = @"黑芝麻蓝牙调试";
+    vc.title = @"蓝牙调试";
 
 
 }

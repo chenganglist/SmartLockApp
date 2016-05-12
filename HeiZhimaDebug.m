@@ -13,11 +13,18 @@
 #define APPQUERYLOCK 2
 #define APPBUILDSTATION 3
 
+
 NSMutableData *zhimaRecvData;
 int zhimaCommondType;
 char aesKey[16] = {0x01, 0x23, 0x45, 0x67,
     0x89,0xab, 0xcd, 0xef, 0xef, 0xcd,
     0xab,0x89, 0x67, 0x45, 0x23, 0x01};
+
+//    NSData *adata = [[NSData alloc] initWithBytes:aesKey length:16];
+//    NSLog(@"%@",adata);
+//    NSString *aString = [[NSString alloc]initWithData:adata encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",aString);
+//该秘钥打印成ASCII码为：  #Eg\211\253\315\357\357ͫ\211gE#
 
 @interface HeiZhimaDebug ()
 
@@ -249,15 +256,6 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     {
         [connectPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
         
-//黑芝麻不需要发送20帧字节，只需要保证每帧字节在20个以下
-//        char buffer[20] = {
-//            ' ', ' ', ' ', ' ', ' ',
-//            ' ', ' ', ' ', ' ', ' ',
-//            ' ', ' ', ' ', ' ', ' ',
-//            ' ', ' ', ' ', ' ', ' ',};
-//        NSData* restData = [NSData dataWithBytes:buffer length:(20-data.length)];
-//        
-//        [connectPeripheral writeValue:restData forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
 }
 
@@ -267,6 +265,7 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     // Dispose of any resources that can be recreated.
 }
 
+//Get KeyInfo
 -(IBAction)heiZhimaGetInfo:(id)sender
 {
     //清空接收区数据
@@ -274,51 +273,162 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
     [zhimaRecvData setLength:0];
     
-    char realFrame[16] = { 0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x00,0x00,0x00,0x00,0x00,0x00,/*自动填充数据*/0x00};
+    //16个K；KKKK KKKK KKKK KKKK
+    char originalFrame[16] = {
+        'K','K','K','K','K','K','K','K',
+        'K','K','K','K','K','K','K','K'};
     
-    for(int i=0;i<15;i++)
-    {
-        realFrame[15] += realFrame[i];
-    }
+
     char encryptFrame[1024];
     memset(encryptFrame , 0 ,1024);
+    
 
-    AES_Encrypt(realFrame, encryptFrame , aesKey);
-    //puts(encryptFrame);
     
-    for(int i=0;encryptFrame[i];i++)
+    printf("\n\n");
+    for(int i=0;i<16;i++)
     {
-        realFrame[15] += realFrame[i];
+        printf("%c",aesKey[i]);
     }
+    printf("\n\n");
     
+    AES_Encrypt(originalFrame, encryptFrame , aesKey);
+    unsigned long len = 32;
+
+
+    printf("encrypt strlen %lu\n",strlen(encryptFrame));
     
-    Byte firstFrame[38] = {0x55/*同步字段*/,0x20/*总长度，不包括前3个字节和总校验和*/,0xfe/*传输标记*/,
+
+    
+    Byte sendFrame[36] = {
+        /*E段数据开始*/
+        0x55/*同步字段*/,
+        0x30/*总长度*/,
+        0xfe/*传输标记*/,
+        /*E段数据结束*/
         
+        
+        /*Y段数据开始*/
         /*明文帧数据，16的整数倍*/
-        0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x00,0x00,0x00,0x00,0x00,0x00,/*帧数据自动填充数据*/realFrame[15],
+        0x14/*帧数据长度*/,
+        0x45/*帧命令*/,
+        /*明文数据开始*/
+        'K','K','K','K','K','K','K','K',
+        'K','K','K','K','K','K','K','K',
+        encryptFrame[len-4], encryptFrame[len-3],
+        encryptFrame[len-2],encryptFrame[len-1],
+        /*明文数据结尾*/
+        0x00,/*checksum*/
+        /*Y段数据结束*/
         
         /*填充数据，长度保证为16的整数倍*/
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,
+        /*填充数据，长度保证为16的整数倍*/
+        
         /*总校验和*/
         0x00
     };
-    for(int i=0;i<37;i++)
+    
+    //求数据校验和
+    for(int i=3;i<25;i++)
     {
-        firstFrame[37] += firstFrame[i];
+        sendFrame[25] += sendFrame[i];
     }
     
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:38];
+    //求总校验和
+    for(int i=0;i<36;i++)
+    {
+        sendFrame[35] += sendFrame[i];
+    }
     
-    [self sendData:firstFrameData];
+    
+    NSData *FrameData = [[NSData alloc] initWithBytes:sendFrame length:36];
+    
+    [self sendData:FrameData];
     zhimaCommondType = HEIZHIMAGETINFO;
     
-    NSLog(@"发送帧数据");
+    NSLog(@"发送获取钥匙信息帧数据");
 }
 
+
+
+-(IBAction)heiZhimaGetLockInfo:(id)sender
+{
+    //清空接收区数据
+    self.tvRecv.text = @"获取钥匙信息：";
+    [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
+    [zhimaRecvData setLength:0];
+    
+    
+    char originalFrame[16] = {
+        0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,
+        0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b};
+    
+    
+    char encryptFrame[1024];
+    memset(encryptFrame , 0 ,1024);
+    printf("\n\n");
+    for(int i=0;i<16;i++)
+    {
+        printf("%c",aesKey[i]);
+    }
+    printf("\n\n");
+    AES_Encrypt(originalFrame, encryptFrame , aesKey);
+    unsigned long len = 32;
+    
+    
+    printf("encrypt strlen %lu\n",strlen(encryptFrame));
+    
+    
+    Byte sendFrame[36] = {
+        /*E段数据开始*/
+        0x55/*同步字段*/,
+        0x30/*总长度*/,
+        0xfe/*传输标记*/,
+        /*E段数据结束*/
+        
+        /*Y段数据开始*/
+        /*明文帧数据，16的整数倍*/
+        0x14/*帧数据长度*/,
+        0x45/*帧命令*/,
+        /*明文数据开始*/
+        0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,
+        0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,0x4b,
+        encryptFrame[len-4], encryptFrame[len-3], encryptFrame[len-2],
+        encryptFrame[len-1],
+        /*明文数据结尾*/
+        0x00,/*checksum*/
+        /*Y段数据结束*/
+        
+        /*填充数据，长度保证为16的整数倍*/
+        0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,
+        /*填充数据，长度保证为16的整数倍*/
+        
+        /*总校验和*/
+        0x00
+    };
+    
+    //求数据校验和
+    for(int i=3;i<25;i++)
+    {
+        sendFrame[25] += sendFrame[i];
+    }
+    
+    //求总校验和
+    for(int i=0;i<36;i++)
+    {
+        sendFrame[35] += sendFrame[i];
+    }
+    
+    
+    NSData *FrameData = [[NSData alloc]
+    initWithBytes:sendFrame length:36];
+    
+    [self sendData:FrameData];
+    zhimaCommondType = HEIZHIMAGETINFO;
+    
+    NSLog(@"发送获取钥匙信息帧数据");
+}
 
 @end
