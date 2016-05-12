@@ -28,6 +28,7 @@
 		69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC61CD20B2F00153441 /* ImageIO.framework */; };
 		69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC71CD20B2F00153441 /* SystemConfiguration.framework */; };
 		69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533ECA1CD20B4B00153441 /* MediaPlayer.framework */; };
+		69649BC51CE4A14700624930 /* AES128.c in Sources */ = {isa = PBXBuildFile; fileRef = 69649BC41CE4A14700624930 /* AES128.c */; };
 		696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */; };
 		696E8E911CD05C520034CCBC /* BaiduDituNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */; };
 		696E9DCC1CCE495C0004BE13 /* KeyManagementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DCB1CCE495C0004BE13 /* KeyManagementView.xib */; };
@@ -146,6 +147,8 @@
 		69533EC61CD20B2F00153441 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		69533EC71CD20B2F00153441 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		69533ECA1CD20B4B00153441 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		69649BC31CE4A13200624930 /* AES128.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AES128.h; sourceTree = "<group>"; };
+		69649BC41CE4A14700624930 /* AES128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AES128.c; sourceTree = "<group>"; };
 		696E8E8D1CD05C520034CCBC /* BaiduDituNaviView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduDituNaviView.h; sourceTree = "<group>"; };
 		696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduDituNaviView.m; sourceTree = "<group>"; };
 		696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduDituNaviView.xib; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				699E282F1CE49DA40062F105 /* AES */,
 				69FFBA941CE413EE001A89D1 /* HeiZhima */,
 				69E817C11CDE19880075A722 /* LocalAPPHistoty */,
 				69E817B91CDDFB860075A722 /* APPDoorCommunication */,
@@ -512,6 +516,15 @@
 				6987AFE51CCC729600D08141 /* lock.png */,
 			);
 			name = BarItemPng;
+			sourceTree = "<group>";
+		};
+		699E282F1CE49DA40062F105 /* AES */ = {
+			isa = PBXGroup;
+			children = (
+				69649BC31CE4A13200624930 /* AES128.h */,
+				69649BC41CE4A14700624930 /* AES128.c */,
+			);
+			name = AES;
 			sourceTree = "<group>";
 		};
 		69B8FD0A1CC7160600A95981 /* KeySearchView */ = {
@@ -797,6 +810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				694277FB1CBA404D00F5887E /* ViewController.m in Sources */,
+				69649BC51CE4A14700624930 /* AES128.c in Sources */,
 				696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */,
 				69E817C01CDE0CE20075A722 /* CRC16.c in Sources */,
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,

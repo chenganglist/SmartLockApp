@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-
+#import "AES128.h"
 
 @interface HeiZhimaDebug : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 {

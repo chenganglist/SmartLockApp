@@ -15,7 +15,9 @@
 
 NSMutableData *zhimaRecvData;
 int zhimaCommondType;
-
+char aesKey[16] = {0x01, 0x23, 0x45, 0x67,
+    0x89,0xab, 0xcd, 0xef, 0xef, 0xcd,
+    0xab,0x89, 0x67, 0x45, 0x23, 0x01};
 
 @interface HeiZhimaDebug ()
 
@@ -41,6 +43,8 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     zhimaRecvData = [[NSMutableData alloc] init]; //初始化接收区
     //初始化蓝牙中心模式设备管理器
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
+
 }
 
 //第一步：检测蓝牙是否打开，如果打开，则开始扫描外设
@@ -270,16 +274,32 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
     [zhimaRecvData setLength:0];
     
-    Byte realFrame[16] = { 0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
+    char realFrame[16] = { 0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
         0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x00,0x00,0x00,0x00,0x00,0x00,/*自动填充数据*/0x42};
+        0x00,0x00,0x00,0x00,0x00,0x00,/*自动填充数据*/0x00};
+    
+    for(int i=0;i<15;i++)
+    {
+        realFrame[15] += realFrame[i];
+    }
+    char encryptFrame[1024];
+    memset(encryptFrame , 0 ,1024);
 
+    AES_Encrypt(realFrame, encryptFrame , aesKey);
+    //puts(encryptFrame);
+    
+    for(int i=0;encryptFrame[i];i++)
+    {
+        realFrame[15] += realFrame[i];
+    }
+    
+    
     Byte firstFrame[38] = {0x55/*同步字段*/,0x20/*总长度，不包括前3个字节和总校验和*/,0xfe/*传输标记*/,
         
         /*明文帧数据，16的整数倍*/
         0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
         0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x00,0x00,0x00,0x00,0x00,0x00,/*帧数据自动填充数据*/0x42,
+        0x00,0x00,0x00,0x00,0x00,0x00,/*帧数据自动填充数据*/realFrame[15],
         
         /*填充数据，长度保证为16的整数倍*/
         0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
