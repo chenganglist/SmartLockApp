@@ -270,12 +270,34 @@ writeCharacteristic,tvRecv,bluetoothName,recvCharacteristic;
     [zhimaRecvData resetBytesInRange:NSMakeRange(0, zhimaRecvData.length)];
     [zhimaRecvData setLength:0];
     
-    Byte firstFrame[20] = {0x42};
-    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:1];
+    Byte realFrame[16] = { 0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,0x00,0x00,/*自动填充数据*/0x42};
+
+    Byte firstFrame[38] = {0x55/*同步字段*/,0x20/*总长度，不包括前3个字节和总校验和*/,0xfe/*传输标记*/,
+        
+        /*明文帧数据，16的整数倍*/
+        0x00/*帧数据长度*/,0x42/*帧命令*/,/*没有帧数据*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,0x00,0x00,/*帧数据自动填充数据*/0x42,
+        
+        /*填充数据，长度保证为16的整数倍*/
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+        /*总校验和*/
+        0x00
+    };
+    for(int i=0;i<37;i++)
+    {
+        firstFrame[37] += firstFrame[i];
+    }
+    
+    NSData *firstFrameData = [[NSData alloc] initWithBytes:firstFrame length:38];
     
     [self sendData:firstFrameData];
     zhimaCommondType = HEIZHIMAGETINFO;
     
+    NSLog(@"发送帧数据");
 }
 
 
