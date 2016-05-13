@@ -43,6 +43,11 @@
     self.datalist = mdata;
     self.typelist = type;
     
+    //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+    
+    //浅灰色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:220/255.0 green:224/255.0 blue:230/255.0 alpha:1.0]];
+    
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

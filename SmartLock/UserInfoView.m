@@ -103,8 +103,13 @@ static NSIndexPath *curIndexPath;
 //    self.tableView.backgroundColor = [UIColor
 //    colorWithPatternImage:[UIImage imageNamed:@"background"]];
     //set NavigationBar 背景颜色&title 颜色
-//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
-//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
+    //蓝色
+    //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+
+//    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
+    
+    //浅灰色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:220/255.0 green:224/255.0 blue:230/255.0 alpha:1.0]];
     
 }
 
