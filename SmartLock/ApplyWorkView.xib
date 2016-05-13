@@ -37,13 +37,18 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-qb-URg">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.39871332170000001" green="0.55025801569999999" blue="0.67692307699999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.87465615630000004" green="0.88287315509999997" blue="0.88329326919999995" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="提交">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="198" y="367" width="70" height="30"/>
+                                <rect key="frame" x="171" y="366" width="138" height="31"/>
                             </variation>
                             <connections>
                                 <action selector="commitButtonPressed:" destination="-2" eventType="touchUpInside" id="nkM-AK-tcH"/>
@@ -120,13 +125,18 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CK-fF-yh9">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.39871332170000001" green="0.55025801569999999" blue="0.67692307699999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.87465615630000004" green="0.88287315509999997" blue="0.88329326919999995" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="重置">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="43" y="367" width="72" height="30"/>
+                                <rect key="frame" x="13" y="366" width="138" height="31"/>
                             </variation>
                             <connections>
                                 <action selector="resetButtonPressed:" destination="-2" eventType="touchUpInside" id="5j7-H1-R8i"/>
@@ -148,6 +158,11 @@
                             <state key="normal" title="2016-05-02  10:10:10">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="75" y="268" width="242" height="35"/>
                             </variation>
@@ -162,6 +177,11 @@
                             <state key="normal" title="2016-05-02  10:10:10">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="75" y="308" width="242" height="35"/>
                             </variation>
