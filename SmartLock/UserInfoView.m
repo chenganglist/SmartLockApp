@@ -206,7 +206,7 @@ static NSIndexPath *curIndexPath;
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.font = [UIFont systemFontOfSize:24];
+    cell.textLabel.font = [UIFont systemFontOfSize:22];
     cell.textLabel.text = [typelist objectAtIndex:row];
     cell.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [datalist objectAtIndex:row];
