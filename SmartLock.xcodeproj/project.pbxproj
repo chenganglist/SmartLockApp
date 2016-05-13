@@ -64,6 +64,7 @@
 		69B25B861CCD20DA006AE96B /* WorkDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B25B851CCD20DA006AE96B /* WorkDetailView.xib */; };
 		69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* KeyManagementView.m */; };
 		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
+		69C85ED61CE5782B0071A45F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 69C85ED51CE5782B0071A45F /* README.md */; };
 		69E4F0AF1CD09B0C00E5A9C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */; };
 		69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */; };
 		69E817BE1CDDFF8C0075A722 /* APPDoorCommunication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */; };
@@ -197,6 +198,7 @@
 		69B8FD0B1CC7169000A95981 /* KeyManagementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyManagementView.h; path = SmartLock/KeyManagementView.h; sourceTree = "<group>"; };
 		69B8FD0C1CC7169000A95981 /* KeyManagementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyManagementView.m; path = SmartLock/KeyManagementView.m; sourceTree = "<group>"; };
 		69B8FD0F1CC71B2D00A95981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SmartLock/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69C85ED51CE5782B0071A45F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		69E817BA1CDDFF8C0075A722 /* APPDoorCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPDoorCommunication.h; sourceTree = "<group>"; };
 		69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPDoorCommunication.m; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
+				69C85ED51CE5782B0071A45F /* README.md */,
 				699E282F1CE49DA40062F105 /* AES */,
 				69FFBA941CE413EE001A89D1 /* HeiZhima */,
 				69E817C11CDE19880075A722 /* LocalAPPHistoty */,
@@ -817,6 +820,7 @@
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */,
+				69C85ED61CE5782B0071A45F /* README.md in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
