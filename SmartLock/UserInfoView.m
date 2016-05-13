@@ -97,6 +97,12 @@ static NSIndexPath *curIndexPath;
                     @"company", @"companyGroup",
                     @"managementCity",
                     @"managementArea",@"returnLogin",@"exitApp",nil];
+    
+    // viewDidLoad
+    
+    self.tableView.backgroundColor = [UIColor
+    colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    
 }
 
 
@@ -199,6 +205,7 @@ static NSIndexPath *curIndexPath;
     NSUInteger row = [indexPath row];
     cell.textLabel.font = [UIFont systemFontOfSize:24];
     cell.textLabel.text = [typelist objectAtIndex:row];
+    cell.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

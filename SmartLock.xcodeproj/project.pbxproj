@@ -57,6 +57,7 @@
 		6987AFF51CCC74EF00D08141 /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF01CCC74EF00D08141 /* tabbar_meHL@2x.png */; };
 		6987AFF71CCC774500D08141 /* resizeApi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF61CCC774500D08141 /* resizeApi.png */; };
 		6987AFF91CCC777900D08141 /* lock32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6987AFF81CCC777900D08141 /* lock32.png */; };
+		698827FB1CE5CBB400E00E96 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 698827FA1CE5CBB400E00E96 /* background.png */; };
 		6996085A1CCA3EC700B5CF3B /* icon_ltg.png in Resources */ = {isa = PBXBuildFile; fileRef = 699608591CCA3EC700B5CF3B /* icon_ltg.png */; };
 		69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A688E11CBFE5450017ECA7 /* ManageWorkView.m */; };
 		69B25B821CCD1B22006AE96B /* ClassifyWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B25B801CCD1B22006AE96B /* ClassifyWorkView.xib */; };
@@ -187,6 +188,7 @@
 		6987AFF01CCC74EF00D08141 /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar_meHL@2x.png"; path = "BarItemPng/tabbar_meHL@2x.png"; sourceTree = "<group>"; };
 		6987AFF61CCC774500D08141 /* resizeApi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resizeApi.png; path = BarItemPng/resizeApi.png; sourceTree = "<group>"; };
 		6987AFF81CCC777900D08141 /* lock32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock32.png; path = BarItemPng/lock32.png; sourceTree = "<group>"; };
+		698827FA1CE5CBB400E00E96 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		699608591CCA3EC700B5CF3B /* icon_ltg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ltg.png; sourceTree = "<group>"; };
 		69A688E01CBFE5450017ECA7 /* ManageWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageWorkView.h; path = SmartLock/ManageWorkView.h; sourceTree = "<group>"; };
 		69A688E11CBFE5450017ECA7 /* ManageWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManageWorkView.m; path = SmartLock/ManageWorkView.m; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 		6987AFE11CCC728300D08141 /* BarItemPng */ = {
 			isa = PBXGroup;
 			children = (
+				698827FA1CE5CBB400E00E96 /* background.png */,
 				693CB4851CCF631B00E0269A /* lockstart.png */,
 				6987AFF81CCC777900D08141 /* lock32.png */,
 				6987AFF61CCC774500D08141 /* resizeApi.png */,
@@ -709,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6987AFF31CCC74EF00D08141 /* ProfileLockOn@2x.png in Resources */,
+				698827FB1CE5CBB400E00E96 /* background.png in Resources */,
 				6987AFF21CCC74EF00D08141 /* Profile@2x.png in Resources */,
 				69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */,
 				696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */,
