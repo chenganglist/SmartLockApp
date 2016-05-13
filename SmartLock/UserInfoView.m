@@ -15,6 +15,7 @@ static NSMutableArray *datalist;
 static NSMutableArray *typelist;
 static NSMutableArray *keylist;
 static NSIndexPath *curIndexPath;
+static int muserType = 1;
 
 @interface UserInfoView ()
 
@@ -66,6 +67,16 @@ static NSIndexPath *curIndexPath;
     return tokenInfo;
 }
 
++(int)getUserType
+{
+    return muserType;
+}
+
++(void)setUserType:(int)type
+{
+    muserType = type;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -74,12 +85,14 @@ static NSIndexPath *curIndexPath;
                     @"所属地级区域",@"所属县级区域",@"返回登录",@"退出程序",nil];
     NSString* userType = @"管理员";
     [WorkDetailView setUserType:0]; //0管理员
+    muserType = 0;
     if( userInfo[@"userType"]==nil ||
         [(NSString*)userInfo[@"userType"] length] < 3 ||
        [[userInfo[@"userType"] substringFromIndex:2] isEqualToString:@"3"] )
     {
         userType = @"工程师";
         [WorkDetailView setUserType:1];//1工程师
+        muserType = 1;
     }
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:userInfo[@"username"],
                      userInfo[@"realname"],

@@ -10,6 +10,7 @@
 #import "Post.h"
 #import "UserInfoView.h"
 #import "WorkDetailView.h"
+#import "EngineerWorkDetail.h"
 
 @interface ClassifyWorkView : UITableViewController<PostDelegate>
 {

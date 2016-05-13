@@ -147,21 +147,6 @@ static int userType; //0-管理员，1-工程师
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if(classifyType!=1)
-    {
-//        [self.approveButton setHidden:YES];//隐藏此控件
-//        [self.approveButton removeFromSuperview];
-//        [self.rejectButton setHidden:YES];//隐藏此控件
-//        [self.rejectButton removeFromSuperview];
-//        [self.operateDescription setHidden:YES];//隐藏此控件
-//        [self.operateDescription removeFromSuperview];
-        
-//        self.workTable.frame = CGRectMake(20, 20, 100, 100);
-// self.view.frame.size.height/2
-//        self.workTable.center = CGPointMake(
-//        0,
-//       200);
-    }
 
 }
 
@@ -172,14 +157,9 @@ static int userType; //0-管理员，1-工程师
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
-//    if(classifyType!=1)
-//    {
-//        self.scrollView.contentSize= CGSizeMake(400,560);
-//        [self.operateDescription setHidden:YES];//隐藏此控件
-//    }else{
-        self.scrollView.contentSize= CGSizeMake(400,830);
-//    }
-    //self.scrollView.contentSize= CGSizeMake(400,830);
+
+    self.scrollView.contentSize= CGSizeMake(400,1000);
+
     NSMutableArray *type = [[NSMutableArray alloc] initWithObjects:@"申请人", @"工单ID",@"申请人公司", @"申请人电话", @"作业类型",@"作业描述",
         @"基站地址",@"电子钥匙ID",@"作业开始时间",@"作业结束时间",@"开门次数",
         @"工单状态",@"审批人",@"审批人电话",@"审批说明",nil];
@@ -189,9 +169,7 @@ static int userType; //0-管理员，1-工程师
     NSDate* endDate = [NSDate dateWithTimeIntervalSince1970:[workData[@"taskEndTime"] doubleValue] ];
     
     NSString *endDateString = [dateFormatter stringFromDate:endDate];
-    //NSString* test = @"faoh";
-    
-    //NSDate* startDate = [NSDate dateWithTimeIntervalSince1970:[test doubleValue] ];
+
     NSDate* startDate = [NSDate dateWithTimeIntervalSince1970:[workData[@"taskStartTime"] doubleValue] ];
     
     NSString *startDateString = [dateFormatter stringFromDate:startDate];
@@ -244,12 +222,12 @@ static int userType; //0-管理员，1-工程师
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.workTable.contentSize = CGSizeMake(0,560);
+    self.workTable.contentSize = CGSizeMake(0,800);
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 50;
 }
 
 
@@ -301,6 +279,7 @@ static int userType; //0-管理员，1-工程师
     }
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:rowString message:dataString preferredStyle:UIAlertControllerStyleAlert];
+    
     [alertController addAction:[UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             if([keyString isEqualToString:@"stationAddress"])
             {
@@ -311,7 +290,18 @@ static int userType; //0-管理员，1-工程师
             }
         }
     ]];
-
+    
+    
+    if([keyString isEqualToString:@"stationAddress"])
+    {
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                 {
+                                     
+                                 }];
+        
+        [alertController addAction:cancel];
+    }
+    
     //弹出提示框；
     [self presentViewController:alertController animated:true completion:nil];
     

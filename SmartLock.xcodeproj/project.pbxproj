@@ -28,6 +28,8 @@
 		69533EC81CD20B2F00153441 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC61CD20B2F00153441 /* ImageIO.framework */; };
 		69533EC91CD20B2F00153441 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533EC71CD20B2F00153441 /* SystemConfiguration.framework */; };
 		69533ECB1CD20B4B00153441 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533ECA1CD20B4B00153441 /* MediaPlayer.framework */; };
+		69617B381CE5EB7C0013C2C5 /* EngineerWorkDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 69617B361CE5EB7C0013C2C5 /* EngineerWorkDetail.m */; };
+		69617B391CE5EB7C0013C2C5 /* EngineerWorkDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69617B371CE5EB7C0013C2C5 /* EngineerWorkDetail.xib */; };
 		69649BC51CE4A14700624930 /* AES128.c in Sources */ = {isa = PBXBuildFile; fileRef = 69649BC41CE4A14700624930 /* AES128.c */; };
 		696E8E901CD05C520034CCBC /* BaiduDituNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E8E8E1CD05C520034CCBC /* BaiduDituNaviView.m */; };
 		696E8E911CD05C520034CCBC /* BaiduDituNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E8E8F1CD05C520034CCBC /* BaiduDituNaviView.xib */; };
@@ -35,7 +37,6 @@
 		696E9DD01CCE4F440004BE13 /* EntranceManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DCF1CCE4F440004BE13 /* EntranceManageView.m */; };
 		696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */; };
 		696E9DD61CCE63FD0004BE13 /* changeUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */; };
-		696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F173B1CC07E1E00BF93BF /* MainTabView.m */; };
 		697662A91CC4DFF700FFD793 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 697662A81CC4DFF700FFD793 /* Post.m */; };
 		697C07581CD234B200C6500E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 697C07571CD234B200C6500E /* libsqlite3.0.tbd */; };
 		697C075C1CD24A1C00C6500E /* GetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 697C075B1CD24A1C00C6500E /* GetDelegate.m */; };
@@ -148,6 +149,9 @@
 		69533EC61CD20B2F00153441 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		69533EC71CD20B2F00153441 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		69533ECA1CD20B4B00153441 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		69617B351CE5EB7C0013C2C5 /* EngineerWorkDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineerWorkDetail.h; sourceTree = "<group>"; };
+		69617B361CE5EB7C0013C2C5 /* EngineerWorkDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EngineerWorkDetail.m; sourceTree = "<group>"; };
+		69617B371CE5EB7C0013C2C5 /* EngineerWorkDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerWorkDetail.xib; sourceTree = "<group>"; };
 		69649BC31CE4A13200624930 /* AES128.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AES128.h; sourceTree = "<group>"; };
 		69649BC41CE4A14700624930 /* AES128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AES128.c; sourceTree = "<group>"; };
 		696E8E8D1CD05C520034CCBC /* BaiduDituNaviView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduDituNaviView.h; sourceTree = "<group>"; };
@@ -159,8 +163,6 @@
 		696E9DD21CCE63FD0004BE13 /* changeUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeUserInfoView.h; sourceTree = "<group>"; };
 		696E9DD31CCE63FD0004BE13 /* changeUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeUserInfoView.m; sourceTree = "<group>"; };
 		696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changeUserInfoView.xib; sourceTree = "<group>"; };
-		696F173A1CC07E1E00BF93BF /* MainTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabView.h; path = SmartLock/MainTabView.h; sourceTree = "<group>"; };
-		696F173B1CC07E1E00BF93BF /* MainTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabView.m; path = SmartLock/MainTabView.m; sourceTree = "<group>"; };
 		697662A71CC4DFF700FFD793 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = SmartLock/Post.h; sourceTree = "<group>"; };
 		697662A81CC4DFF700FFD793 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = SmartLock/Post.m; sourceTree = "<group>"; };
 		697C07571CD234B200C6500E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -280,7 +282,8 @@
 		694277E71CBA404D00F5887E = {
 			isa = PBXGroup;
 			children = (
-				69C85ED51CE5782B0071A45F /* README.md */,
+				69617B3A1CE5EBAA0013C2C5 /* ReadMe */,
+				69617B341CE5EB2D0013C2C5 /* EngineerWorkDetail */,
 				699E282F1CE49DA40062F105 /* AES */,
 				69FFBA941CE413EE001A89D1 /* HeiZhima */,
 				69E817C11CDE19880075A722 /* LocalAPPHistoty */,
@@ -288,16 +291,15 @@
 				697C07591CD249E700C6500E /* GetDelegate */,
 				69533EA41CD2095600153441 /* BaiduNaviSDK */,
 				696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */,
-				696E9DCD1CCE4F160004BE13 /* EntranceManagement */,
+				696E9DCD1CCE4F160004BE13 /* DoorManagement */,
 				6987AFE11CCC728300D08141 /* BarItemPng */,
-				6986CD811CC91313000550E6 /* WorkDetail */,
+				6986CD811CC91313000550E6 /* ManagerWorkDetail */,
 				698177ED1CC86BD6009C7120 /* ApplyWork */,
 				698177EC1CC86BC2009C7120 /* ClassifyWork */,
-				698569471CC7701200A2E3F8 /* KeyManageCommunication */,
+				698569471CC7701200A2E3F8 /* CSISKeyCommunication */,
 				69B8FD0A1CC7160600A95981 /* KeySearchView */,
 				697662A61CC4DFCD00FFD793 /* PostDelegate */,
 				694277F21CBA404D00F5887E /* LoginView */,
-				696F17391CC07DCD00BF93BF /* MainTabView */,
 				69589D751CBFC93F00928F23 /* UserInfoView */,
 				69589D761CBFC9CE00928F23 /* ManageWorkView */,
 				694277F31CBA404D00F5887E /* Main */,
@@ -404,6 +406,24 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		69617B341CE5EB2D0013C2C5 /* EngineerWorkDetail */ = {
+			isa = PBXGroup;
+			children = (
+				69617B351CE5EB7C0013C2C5 /* EngineerWorkDetail.h */,
+				69617B361CE5EB7C0013C2C5 /* EngineerWorkDetail.m */,
+				69617B371CE5EB7C0013C2C5 /* EngineerWorkDetail.xib */,
+			);
+			name = EngineerWorkDetail;
+			sourceTree = "<group>";
+		};
+		69617B3A1CE5EBAA0013C2C5 /* ReadMe */ = {
+			isa = PBXGroup;
+			children = (
+				69C85ED51CE5782B0071A45F /* README.md */,
+			);
+			name = ReadMe;
+			sourceTree = "<group>";
+		};
 		696E8E8A1CD059CE0034CCBC /* BaiduDituNaviView */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,13 +434,13 @@
 			name = BaiduDituNaviView;
 			sourceTree = "<group>";
 		};
-		696E9DCD1CCE4F160004BE13 /* EntranceManagement */ = {
+		696E9DCD1CCE4F160004BE13 /* DoorManagement */ = {
 			isa = PBXGroup;
 			children = (
 				696E9DCE1CCE4F440004BE13 /* EntranceManageView.h */,
 				696E9DCF1CCE4F440004BE13 /* EntranceManageView.m */,
 			);
-			name = EntranceManagement;
+			name = DoorManagement;
 			sourceTree = "<group>";
 		};
 		696E9DD11CCE63D50004BE13 /* changeUserInfo */ = {
@@ -431,15 +451,6 @@
 				696E9DD41CCE63FD0004BE13 /* changeUserInfoView.xib */,
 			);
 			name = changeUserInfo;
-			sourceTree = "<group>";
-		};
-		696F17391CC07DCD00BF93BF /* MainTabView */ = {
-			isa = PBXGroup;
-			children = (
-				696F173A1CC07E1E00BF93BF /* MainTabView.h */,
-				696F173B1CC07E1E00BF93BF /* MainTabView.m */,
-			);
-			name = MainTabView;
 			sourceTree = "<group>";
 		};
 		697662A61CC4DFCD00FFD793 /* PostDelegate */ = {
@@ -480,7 +491,7 @@
 			name = ApplyWork;
 			sourceTree = "<group>";
 		};
-		698569471CC7701200A2E3F8 /* KeyManageCommunication */ = {
+		698569471CC7701200A2E3F8 /* CSISKeyCommunication */ = {
 			isa = PBXGroup;
 			children = (
 				690358291CD993BE003FF907 /* CRC16.h */,
@@ -489,17 +500,17 @@
 				698569491CC7703700A2E3F8 /* BLECommunication.m */,
 				69B25B831CCD1C75006AE96B /* BLECommunication.xib */,
 			);
-			name = KeyManageCommunication;
+			name = CSISKeyCommunication;
 			sourceTree = "<group>";
 		};
-		6986CD811CC91313000550E6 /* WorkDetail */ = {
+		6986CD811CC91313000550E6 /* ManagerWorkDetail */ = {
 			isa = PBXGroup;
 			children = (
 				6986CD821CC91339000550E6 /* WorkDetailView.h */,
 				6986CD831CC91339000550E6 /* WorkDetailView.m */,
 				69B25B851CCD20DA006AE96B /* WorkDetailView.xib */,
 			);
-			name = WorkDetail;
+			name = ManagerWorkDetail;
 			sourceTree = "<group>";
 		};
 		6987AFE11CCC728300D08141 /* BarItemPng */ = {
@@ -719,6 +730,7 @@
 				693CB4881CCF63B300E0269A /* icon.png in Resources */,
 				698396E51CCCCB2100377893 /* ApplyWorkView.xib in Resources */,
 				6987AFE71CCC729700D08141 /* discover-search@3x.png in Resources */,
+				69617B391CE5EB7C0013C2C5 /* EngineerWorkDetail.xib in Resources */,
 				69FFBAA01CE41EAA001A89D1 /* HeiZhimaDebug.xib in Resources */,
 				6987AFF91CCC777900D08141 /* lock32.png in Resources */,
 				693CB4861CCF631B00E0269A /* lockstart.png in Resources */,
@@ -821,7 +833,6 @@
 				69E817C01CDE0CE20075A722 /* CRC16.c in Sources */,
 				698177F31CC8715E009C7120 /* ClassifyWorkView.m in Sources */,
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
-				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
@@ -832,6 +843,7 @@
 				694277F81CBA404D00F5887E /* AppDelegate.m in Sources */,
 				69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */,
 				697662A91CC4DFF700FFD793 /* Post.m in Sources */,
+				69617B381CE5EB7C0013C2C5 /* EngineerWorkDetail.m in Sources */,
 				6986CD841CC91339000550E6 /* WorkDetailView.m in Sources */,
 				6904EEAB1CBA943200D30FF0 /* UserInfoView.m in Sources */,
 				694278011CBA404D00F5887E /* SmartLock.xcdatamodeld in Sources */,

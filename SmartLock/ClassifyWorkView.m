@@ -246,13 +246,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld row is selected",(unsigned long)indexPath.row);
+    
+    if( [UserInfoView getUserType] == 1)
+    {
+        EngineerWorkDetail *vc = [[EngineerWorkDetail alloc]initWithNibName:@"EngineerWorkDetail" bundle:nil];
+        
+        vc.workData = [self.datalist objectAtIndex:indexPath.row];
+        vc.title = @"工单详情";
+        vc.classifyType = classifyType;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
     WorkDetailView *vc = [[WorkDetailView alloc]initWithNibName:@"WorkDetailView" bundle:nil];
     
     vc.workData = [self.datalist objectAtIndex:indexPath.row];
     vc.title = @"工单详情";
     vc.classifyType = classifyType;
     [self.navigationController pushViewController:vc animated:YES];
-    
 
 }
 
