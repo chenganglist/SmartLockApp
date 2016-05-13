@@ -235,7 +235,7 @@
     
     NSUInteger row = [indexPath row];
     NSDictionary* curData = [self.datalist objectAtIndex:row];
-    cell.textLabel.font = [UIFont systemFontOfSize:24];
+    cell.textLabel.font = [UIFont systemFontOfSize:22];
     cell.textLabel.text = [curData objectForKey:@"applicantName"];
     cell.detailTextLabel.text = [curData objectForKey:@"applyDescription"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
