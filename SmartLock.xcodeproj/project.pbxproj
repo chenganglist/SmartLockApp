@@ -64,7 +64,6 @@
 		69B25B861CCD20DA006AE96B /* WorkDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B25B851CCD20DA006AE96B /* WorkDetailView.xib */; };
 		69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B8FD0C1CC7169000A95981 /* KeyManagementView.m */; };
 		69B8FD101CC71B2D00A95981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8FD0E1CC71B2D00A95981 /* Main.storyboard */; };
-		69C85ED61CE5782B0071A45F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 69C85ED51CE5782B0071A45F /* README.md */; };
 		69E4F0AF1CD09B0C00E5A9C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E4F0AE1CD09B0C00E5A9C7 /* Default-568h@2x.png */; };
 		69E817BD1CDDFF8C0075A722 /* APPDoorCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E817BB1CDDFF8C0075A722 /* APPDoorCommunication.m */; };
 		69E817BE1CDDFF8C0075A722 /* APPDoorCommunication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E817BC1CDDFF8C0075A722 /* APPDoorCommunication.xib */; };
@@ -820,7 +819,6 @@
 				69B8FD0D1CC7169000A95981 /* KeyManagementView.m in Sources */,
 				696F173C1CC07E1E00BF93BF /* MainTabView.m in Sources */,
 				69E817C51CDE1A020075A722 /* LocalAppHistory.m in Sources */,
-				69C85ED61CE5782B0071A45F /* README.md in Sources */,
 				69A688E31CBFE5450017ECA7 /* ManageWorkView.m in Sources */,
 				6985694A1CC7703700A2E3F8 /* BLECommunication.m in Sources */,
 				696E9DD51CCE63FD0004BE13 /* changeUserInfoView.m in Sources */,
