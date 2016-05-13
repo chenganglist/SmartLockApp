@@ -100,8 +100,8 @@ static NSIndexPath *curIndexPath;
     
     // viewDidLoad
     
-    self.tableView.backgroundColor = [UIColor
-    colorWithPatternImage:[UIImage imageNamed:@"background"]];
+//    self.tableView.backgroundColor = [UIColor
+//    colorWithPatternImage:[UIImage imageNamed:@"background"]];
     
 }
 
