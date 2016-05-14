@@ -43,6 +43,11 @@
     self.datalist = mdata;
     self.typelist = type;
     
+    //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+    
+    //浅灰色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:220/255.0 green:224/255.0 blue:230/255.0 alpha:1.0]];
+    
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -98,7 +103,8 @@
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [self.typelist objectAtIndex:row];
-    cell.textLabel.font = [UIFont systemFontOfSize:24];
+    cell.textLabel.font = [UIFont systemFontOfSize:22];
+    cell.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [self.datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

@@ -187,18 +187,18 @@
         [workTable reloadData];
     }else{
         //初始化提示框；
-        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-           message:data2String preferredStyle: UIAlertControllerStyleAlert];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //点击按钮的响应事件；
-        }]];
-        
-        //弹出提示框；
-        [self presentViewController:alert animated:true completion:nil];
+//        NSData *datas =  [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+//        NSString *data2String = [[NSString alloc]initWithData:datas encoding:NSUTF8StringEncoding];
+//        
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+//           message:data2String preferredStyle: UIAlertControllerStyleAlert];
+//        
+//        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            //点击按钮的响应事件；
+//        }]];
+//        
+//        //弹出提示框；
+//        [self presentViewController:alert animated:true completion:nil];
     }
     
 }
@@ -235,7 +235,7 @@
     
     NSUInteger row = [indexPath row];
     NSDictionary* curData = [self.datalist objectAtIndex:row];
-    cell.textLabel.font = [UIFont systemFontOfSize:24];
+    cell.textLabel.font = [UIFont systemFontOfSize:22];
     cell.textLabel.text = [curData objectForKey:@"applicantName"];
     cell.detailTextLabel.text = [curData objectForKey:@"applyDescription"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -246,13 +246,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld row is selected",(unsigned long)indexPath.row);
+    
+    if( [UserInfoView getUserType] == 1)
+    {
+        EngineerWorkDetail *vc = [[EngineerWorkDetail alloc]initWithNibName:@"EngineerWorkDetail" bundle:nil];
+        
+        vc.workData = [self.datalist objectAtIndex:indexPath.row];
+        vc.title = @"工单详情";
+        vc.classifyType = classifyType;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
     WorkDetailView *vc = [[WorkDetailView alloc]initWithNibName:@"WorkDetailView" bundle:nil];
     
     vc.workData = [self.datalist objectAtIndex:indexPath.row];
     vc.title = @"工单详情";
     vc.classifyType = classifyType;
     [self.navigationController pushViewController:vc animated:YES];
-    
 
 }
 

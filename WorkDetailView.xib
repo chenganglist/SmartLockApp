@@ -25,7 +25,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="0.0" y="149" width="338" height="331"/>
+                                <rect key="frame" x="0.0" y="149" width="338" height="552"/>
                             </variation>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="msP-eP-4v1"/>
@@ -37,7 +37,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="同意"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="204" y="108" width="60" height="40"/>
+                                <rect key="frame" x="204" y="110" width="60" height="40"/>
                             </variation>
                             <connections>
                                 <action selector="approveButtonPressed:" destination="-2" eventType="touchUpInside" id="zjc-RM-NED"/>
@@ -48,7 +48,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="拒绝"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="47" y="107" width="60" height="40"/>
+                                <rect key="frame" x="47" y="110" width="60" height="40"/>
                             </variation>
                             <connections>
                                 <action selector="rejectButtonPressed:" destination="-2" eventType="touchUpInside" id="z8W-dy-l0o"/>
@@ -56,10 +56,10 @@
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="审批原因" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rho-oU-goS">
                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <textInputTraits key="textInputTraits"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="10" y="76" width="300" height="30"/>
+                                <rect key="frame" x="10" y="79" width="300" height="30"/>
                             </variation>
                         </textField>
                     </subviews>

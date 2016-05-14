@@ -109,11 +109,13 @@
         [UserInfoView setTokenInfo:success[@"tokenInfo"] ];
         
         [WorkDetailView setUserType:0]; //0管理员
+        [UserInfoView setUserType:0];
         if( userType==nil ||
            [userType length] < 3 ||
            [[userType substringFromIndex:2] isEqualToString:@"3"] )
         {
             [WorkDetailView setUserType:1];//1工程师
+            [UserInfoView setUserType:1];
              NSLog(@"工程师登录");
         }else
         {

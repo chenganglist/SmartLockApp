@@ -29,13 +29,18 @@
                                 <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="87k-P1-iSh"/>
-                                    <constraint firstAttribute="width" constant="290" id="UBy-cc-9b5"/>
+                                    <constraint firstAttribute="width" constant="300" id="UBy-cc-9b5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="用户登录">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="87k-P1-iSh"/>
@@ -236,15 +241,20 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rg-4e-f2W">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.87465615629949445" green="0.88287315505967023" blue="0.88329326923076923" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="J8q-Db-owZ"/>
                                     <constraint firstAttribute="height" constant="40" id="Qo8-UF-yxR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="电子钥匙管理">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="J8q-Db-owZ"/>
@@ -263,15 +273,20 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiS-dd-U1B">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.87465615629949445" green="0.88287315505967023" blue="0.88329326923076923" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AOx-O6-KG9"/>
                                     <constraint firstAttribute="width" constant="280" id="b28-8h-7mf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="本地日志管理">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="AOx-O6-KG9"/>
@@ -288,44 +303,22 @@
                                     <action selector="localLogButtonPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="zQo-dr-2kk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-gT-sGD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.39871332166119289" green="0.55025801569038812" blue="0.67692307696410259" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="cxB-9g-kEt"/>
-                                    <constraint firstAttribute="height" constant="40" id="xSe-Ew-7ob"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="手机APP开门">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="cxB-9g-kEt"/>
-                                        <exclude reference="xSe-Ew-7ob"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="cxB-9g-kEt"/>
-                                        <include reference="xSe-Ew-7ob"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="appOpenDoorBtPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="Crk-cP-y1R"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt5-AE-YPB">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.39871332170000001" green="0.55025801569999999" blue="0.67692307699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.87465615629949445" green="0.88287315505967023" blue="0.88329326923076923" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="K4d-85-5Yh"/>
                                     <constraint firstAttribute="width" constant="280" id="Ntq-yw-wfh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="电子钥匙调试">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="K4d-85-5Yh"/>
@@ -342,8 +335,40 @@
                                     <action selector="heiZhimaDebug:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="xXp-nd-Cki"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-gT-sGD">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.87465615629949445" green="0.88287315505967023" blue="0.88329326923076923" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="cxB-9g-kEt"/>
+                                    <constraint firstAttribute="height" constant="40" id="xSe-Ew-7ob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="手机APP开门">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cxB-9g-kEt"/>
+                                        <exclude reference="xSe-Ew-7ob"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="cxB-9g-kEt"/>
+                                        <include reference="xSe-Ew-7ob"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="appOpenDoorBtPressed:" destination="bo0-Rd-8ux" eventType="touchUpInside" id="Crk-cP-y1R"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96968954801559448" green="0.99087697267532349" blue="0.99113732576370239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Rg-4e-f2W" firstAttribute="centerY" secondItem="oc1-7z-p2K" secondAttribute="centerY" constant="-110" id="U7z-9a-yE1"/>
                             <constraint firstItem="UsD-gT-sGD" firstAttribute="centerX" secondItem="oc1-7z-p2K" secondAttribute="centerX" id="UvU-7t-aXz"/>
@@ -358,8 +383,8 @@
                             <mask key="subviews">
                                 <exclude reference="5Rg-4e-f2W"/>
                                 <exclude reference="qiS-dd-U1B"/>
-                                <exclude reference="UsD-gT-sGD"/>
                                 <exclude reference="vt5-AE-YPB"/>
+                                <exclude reference="UsD-gT-sGD"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="U7z-9a-yE1"/>
@@ -376,8 +401,8 @@
                             <mask key="subviews">
                                 <include reference="5Rg-4e-f2W"/>
                                 <include reference="qiS-dd-U1B"/>
-                                <include reference="UsD-gT-sGD"/>
                                 <include reference="vt5-AE-YPB"/>
+                                <include reference="UsD-gT-sGD"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="U7z-9a-yE1"/>
@@ -422,7 +447,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pva-hj-veK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96968954801559448" green="0.99087697267532349" blue="0.99113732576370239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="rM1-bQ-cxc" id="RFM-o8-3iD"/>
                             <outlet property="delegate" destination="rM1-bQ-cxc" id="TMD-6E-SNZ"/>
@@ -444,7 +469,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XcP-lB-lfG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96968954801559448" green="0.99087697267532349" blue="0.99113732576370239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="RvE-0s-Rlh" id="a3x-RR-L2k"/>
                             <outlet property="delegate" destination="RvE-0s-Rlh" id="sDX-Hx-20r"/>

@@ -29,6 +29,9 @@
 +(NSMutableDictionary*)getTokenInfo;
 +(void)setDataList:(NSMutableArray*)Info;
 
++(int)getUserType;
++(void)setUserType:(int)type;
+
 -(void)exitApp;
 
 -(void)returnToLogin;

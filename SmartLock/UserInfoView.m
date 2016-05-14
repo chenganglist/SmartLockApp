@@ -15,6 +15,7 @@ static NSMutableArray *datalist;
 static NSMutableArray *typelist;
 static NSMutableArray *keylist;
 static NSIndexPath *curIndexPath;
+static int muserType = 1;
 
 @interface UserInfoView ()
 
@@ -66,6 +67,16 @@ static NSIndexPath *curIndexPath;
     return tokenInfo;
 }
 
++(int)getUserType
+{
+    return muserType;
+}
+
++(void)setUserType:(int)type
+{
+    muserType = type;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -74,12 +85,14 @@ static NSIndexPath *curIndexPath;
                     @"所属地级区域",@"所属县级区域",@"返回登录",@"退出程序",nil];
     NSString* userType = @"管理员";
     [WorkDetailView setUserType:0]; //0管理员
+    muserType = 0;
     if( userInfo[@"userType"]==nil ||
         [(NSString*)userInfo[@"userType"] length] < 3 ||
        [[userInfo[@"userType"] substringFromIndex:2] isEqualToString:@"3"] )
     {
         userType = @"工程师";
         [WorkDetailView setUserType:1];//1工程师
+        muserType = 1;
     }
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:userInfo[@"username"],
                      userInfo[@"realname"],
@@ -97,6 +110,20 @@ static NSIndexPath *curIndexPath;
                     @"company", @"companyGroup",
                     @"managementCity",
                     @"managementArea",@"returnLogin",@"exitApp",nil];
+    
+    // viewDidLoad
+    
+//    self.tableView.backgroundColor = [UIColor
+//    colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    //set NavigationBar 背景颜色&title 颜色
+    //蓝色
+    //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+
+//    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
+    
+    //浅灰色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:220/255.0 green:224/255.0 blue:230/255.0 alpha:1.0]];
+    
 }
 
 
@@ -197,8 +224,9 @@ static NSIndexPath *curIndexPath;
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.font = [UIFont systemFontOfSize:24];
+    cell.textLabel.font = [UIFont systemFontOfSize:22];
     cell.textLabel.text = [typelist objectAtIndex:row];
+    cell.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [datalist objectAtIndex:row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
