@@ -37,10 +37,10 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-qb-URg">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.36114670509293489" green="0.80819558318870077" blue="0.87213541674358974" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="提交">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -125,10 +125,10 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CK-fF-yh9">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.36114670509293489" green="0.80819558318870077" blue="0.87213541674358974" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.30168896579999999" green="0.64375057280000003" blue="0.80873397440000006" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="重置">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -156,7 +156,7 @@
                             <color key="backgroundColor" red="0.87465615630000004" green="0.88287315509999997" blue="0.88329326919999995" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="2016-05-02  10:10:10">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.12293507569543721" green="0.15756439031645472" blue="0.93193108976410255" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -175,7 +175,7 @@
                             <color key="backgroundColor" red="0.87465615630000004" green="0.88287315509999997" blue="0.88329326919999995" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="2016-05-02  10:10:10">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.12293507569543721" green="0.15756439031645472" blue="0.93193108976410255" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
